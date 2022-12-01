@@ -9,15 +9,16 @@
     <link rel="stylesheet" href="./styles/general.css">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/start.css">
+    <script src="./js/register.js"></script>
+    <script src="./js/script.js"></script>
 </head>
 <body>
     <div class="login_main">
         <div><img src="/assets/img/Logo_Start.png" class="login_logo"></div>
         <div>
-            <form action="index.html" method="post" class="login_form">
-                <input type="text" name="username" placeholder="Username">
-                <input type="password" name="password" placeholder="Password">
-                <input type="submit" value="Join">
+            <input id="username" type="text" name="username" placeholder="Username">
+            <input id="password" type="password" name="password" placeholder="Password">
+            <button onclick="login()">Login</button>
         </div>
     </div>
 </body>
