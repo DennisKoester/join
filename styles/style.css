@@ -1,0 +1,54 @@
+
+
+.sum-todo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    width: 272.5px;
+    height: 150px;
+    padding: 38px 19px 38px 19px;
+    border-radius: 30px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+    transition: all 100ms ease-in-out;
+}
+
+.sum-todo--icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 69px;
+    height: 69px;
+    background-color: var(--bg-color-main);
+    border-radius: 50%;
+}
+
+.sum-todo--info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sum-todo--count {
+    font-size: 64px;
+    font-weight: 600;
+}
+
+.label-big {
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.sum-todo:hover {
+    background-color: var(--bg-color-main);
+    color: white;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    transform: scale(1.065);
+}
+
+.sum-todo:hover > .sum-todo--icon {
+    background-color: white;
+}
+.sum-todo:hover > .sum-todo--icon > img {
+    filter: invert(100%);
+}

@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    /* Background colors */
+    --bg-color-main: #2A3647;
+
+    /* Text colors */
+    --txt-highlight: #29ABE2;
+}
