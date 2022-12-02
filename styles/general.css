@@ -10,6 +10,8 @@ body {
 :root {
     /* Background colors */
     --bg-color-main: #2A3647;
+    --bg-menu-item-highlight: #091931;
+
 
     /* Text colors */
     --txt-highlight: #29ABE2;
