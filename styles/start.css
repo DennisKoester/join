@@ -1,9 +1,36 @@
-.login_main {
+.header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
-    height: 100vh;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding-top: 30px;
+}
+
+.signup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.signup p {
+    margin-right: 20px;
+}
+
+.signup a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #4589FF;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.signup button {
+    background-color: #4589FF;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
 }
 
 .login_logo {
@@ -12,12 +39,74 @@
 
 .login_form {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_form input {
+    width: 300px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+.login_main {
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-    border: 1px solid #ccc;
+    width: 652px;
+    height: 457px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 30px;
+}
+
+.login_master {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 70vh;
+}
+
+.login_form_buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+}
+
+.login_button {
+    background-color: #4589FF;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
     border-radius: 5px;
+}
+
+.guest_button {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 35px;
+    gap: 10px;
+
+    background: #FFFFFF;
+    border: 1px solid #647188;
+    border-radius: 8px;
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.guest_button a {
+    text-decoration: none;
+    color: #647188;
 }
