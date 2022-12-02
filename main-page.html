@@ -14,13 +14,6 @@
 </head>
 
 <body onload="includeHTML()">
-    <header>
-        <span>Kanban Project Management Tool</span>
-        <div id="header-nav">
-            <img src="./assets/img/symb_help.png" alt="help">
-            <img id="header-img-user" src="./assets/img/img_user1.png" alt="">
-        </div>
-    </header>
     <nav>
         <img id="logo-nav" src="./assets/img/logo_nav.png" alt="logo">
         <div id="menu">
@@ -54,7 +47,16 @@
             <span>Legal notice</span>
         </div>
     </nav>
-    <div id="board" class="display" w3-include-html="./summary.html"></div>
+    <div id="content-with-header">
+        <header>
+            <span>Kanban Project Management Tool</span>
+            <div id="header-nav">
+                <img src="./assets/img/symb_help.png" alt="help">
+                <img id="header-img-user" src="./assets/img/img_user1.png" alt="">
+            </div>
+        </header>
+        <div id="board" w3-include-html="./summary.html"></div>
+    </div>
 </body>
 
 </html>

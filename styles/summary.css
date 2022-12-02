@@ -1,4 +1,24 @@
+#content-summary {
+    margin: auto 50px auto auto;
+}
 
+.headline {
+    display: flex;
+    align-items: center;
+}
+
+.headline span {
+    font-size: 27px;
+}
+
+.separator {
+    width: 0;
+    height: 59px;
+    border-left: solid 3px var(--txt-highlight);
+    border-radius: 3px;
+    margin-left: 60px;
+    margin-right: 30px;
+}
 
 .sum-todo {
     display: flex;
