@@ -1,3 +1,8 @@
+#container-summary {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
 #content-summary {
     margin: auto 50px auto auto;
 }
@@ -14,27 +19,78 @@
 .separator {
     width: 0;
     height: 59px;
-    border-left: solid 3px var(--txt-highlight);
+    border-left: solid 3px var(--highlight);
     border-radius: 3px;
     margin-left: 60px;
     margin-right: 30px;
 }
 
-.sum-todo {
+#ui {
     display: flex;
+    align-items: center;
+}
+
+#data {
+    display: flex;
+    flex-direction: column;
+}
+
+#sum-in-progress {
+    display: flex;
+    justify-content: space-between;
+}
+
+.badge-info {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 18px;
-    width: 272.5px;
-    height: 150px;
-    padding: 38px 19px 38px 19px;
+}
+
+.badge-in-progress {
+    width: 170px;
+    height: 170px;
+}
+
+.badge-count {
+    font-size: 64px;
+    font-weight: 600;
+}
+
+/* .badge-in-progress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+#sum-urgent {
+    display: flex;
+    align-items: center;
+}
+
+#sum-todo-done {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sum-badge {
+    display: flex;
     border-radius: 30px;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
     transition: all 100ms ease-in-out;
     cursor: pointer;
 }
 
-.sum-todo--icon {
+.badge-todo {
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    width: 272.5px;
+    height: 150px;
+    padding: 38px 19px 38px 19px;
+}
+
+.badge-todo--icon {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,33 +100,56 @@
     border-radius: 50%;
 }
 
-.sum-todo--info {
+/* .badge-todo--info {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.sum-todo--count {
-    font-size: 64px;
-    font-weight: 600;
-}
+} */
 
 .label-big {
     font-size: 21px;
     font-weight: 400;
+    text-align: center;
 }
 
-.sum-todo:hover {
+.sum-badge:hover {
     background-color: var(--bg-color-main);
     color: white;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     transform: scale(1.065);
 }
-
-.sum-todo:hover > .sum-todo--icon {
+.sum-badge:hover > .badge-todo--icon {
     background-color: white;
 }
-.sum-todo:hover > .sum-todo--icon > img {
+.sum-badge:hover > .badge-todo--icon > img {
     filter: invert(100%);
+}
+/* .badge-todo:hover {
+    background-color: var(--bg-color-main);
+    color: white;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    transform: scale(1.065);
+}
+.badge-todo:hover > .badge-todo--icon {
+    background-color: white;
+}
+.badge-todo:hover > .badge-todo--icon > img {
+    filter: invert(100%);
+} */
+
+#welcome {
+    display: flex;
+    flex-direction: column;
+}
+
+#welcome-text {
+    font-size: 47px;
+    font-weight: 500;
+}
+
+#welcome-name {
+    font-size: 64px;
+    font-weight: 700;
+    color: var(--highlight);
 }

@@ -92,3 +92,9 @@ nav {
 .nav-item:hover, #info:hover {
     background-color: var(--bg-menu-item-highlight);
 }
+
+#board {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}

@@ -1,25 +1,55 @@
-<div id="content-summary">
-    <div class="headline">
-        <h1>Summary</h1>
-        <div class="separator"></div>
-        <span>Everything in a nutshell!</span>
-    </div>
-    <div id="done" class="sum-todo">
-        <div class="sum-todo--icon">
-            <img src="./assets/img/symb_done.svg" alt="done">
+<div id="container-summary">
+    <div id="content-summary">
+        <div class="headline">
+            <h1>Summary</h1>
+            <div class="separator"></div>
+            <span>Everything in a nutshell!</span>
         </div>
-        <div class="sum-todo--info">
-            <div id="done-count" class="sum-todo--count">1</div>
-            <div class="label-big">Done</div>
-        </div>
-    </div>
-    <div id="todo" class="sum-todo">
-        <div class="sum-todo--icon">
-            <img src="./assets/img/symb_todo.svg" alt="done">
-        </div>
-        <div class="sum-todo--info">
-            <div id="todo-count" class="sum-todo--count">1</div>
-            <div class="label-big">To-do</div>
+        <div id="ui">
+            <div id="data">
+                <div id="sum-in-progress">
+                    <div class="sum-badge badge-info badge-in-progress">
+                        <span id="count-tasks-all" class="badge-count">7</span>
+                        <span class="label-big">Tasks in<br/>Board</span>
+                    </div>
+                    <div class="sum-badge badge-info badge-in-progress">
+                        <span id="count-in-progress" class="badge-count">4</span>
+                        <span class="label-big">Tasks in<br>Progress</span>
+                    </div>
+                    <div class="sum-badge badge-info badge-in-progress">
+                        <span id="count-feedback" class="badge-count">2</span>
+                        <span class="label-big">Awaiting<br>Feedback</span>
+                    </div>
+                </div>
+                <div id="sum-urgent">
+                    <img src="./assets/img/symb_urgent_summary.png" alt="urgent">
+
+                </div>
+                <div id="sum-todo-done">
+                    <div id="done" class="sum-badge badge-todo">
+                        <div class="badge-todo--icon">
+                            <img src="./assets/img/symb_done.svg" alt="done">
+                        </div>
+                        <div class="badge-info">
+                            <div id="done-count" class="badge-count">1</div>
+                            <div class="label-big">Done</div>
+                        </div>
+                    </div>
+                    <div id="todo" class="sum-badge badge-todo">
+                        <div class="badge-todo--icon">
+                            <img src="./assets/img/symb_todo.svg" alt="done">
+                        </div>
+                        <div class="badge-info">
+                            <div id="todo-count" class="badge-count">1</div>
+                            <div class="label-big">To-do</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="welcome">
+                <span id="welcome-text">Guten Morgen,</span>
+                <span id="welcome-name">Sofia Müller</span>
+            </div>
         </div>
     </div>
 </div>
