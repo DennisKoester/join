@@ -25,6 +25,7 @@ header {
 }
 
 #header-nav {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 26px;
@@ -93,8 +94,32 @@ nav {
     background-color: var(--bg-menu-item-highlight);
 }
 
-#board {
+/* #board {
     display: flex;
     width: 100%;
     height: 100%;
+} */
+
+#sub-nav {
+    position: absolute;
+    top: 52px;
+    left: -65px;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+    background-color: var(--bg-color-main);
+    padding: 10px;
+    border-radius: 20px 0 20px 20px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+#sub-nav span {
+    margin: 8px;
+    cursor: pointer;
+}
+
+#sub-nav span:hover {
+    color: var(--dimmed);
 }

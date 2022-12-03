@@ -14,6 +14,10 @@ h1 {
     margin-block-end: 0;
 }
 
+.d-none {
+    display: none;
+}
+
 :root {
     /* Background colors */
     --bg-color-main: #2A3647;
