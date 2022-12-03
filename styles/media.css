@@ -16,9 +16,4 @@
     .middle-container {
         display: none;
     }
-
-    .submit-btns{
-        justify-content: flex-start;
-        padding-top: 30px;
-    }
 }
