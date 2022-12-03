@@ -1,9 +1,9 @@
 .add-task-content {
     color: #000000;
+    width: 100%;
     margin: auto;
-    padding: 0 20px 0 20px;
+    padding: 20px;
     max-width: 1100px;
-    padding: 20px 0 20px 0;
 }
 
 .left-container {
@@ -16,35 +16,20 @@
 }
 
 p {
-    font-weight: 400;
     font-size: 21px;
-    margin-bottom: 8px;
+    margin: 0 0 8px 0 ;
 }
 
 .required {
+    position: relative;
     font-size: 12px;
     line-height: 120%;
     margin: 0;
+    padding-top: 8px;
     color: rgb(255, 58, 58);
 }
 
-.title-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 8px;
-    width: 422px;
-    height: 104px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
 .title-input {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     padding-left: 21px;
     padding-top: 8px;
     gap: 10px;
@@ -53,38 +38,18 @@ p {
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-}
-
-.description-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 8px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
 }
 
 .description-area {
     font-family: 'Inter', sans-serif;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
     padding: 18px 21px;
     gap: 10px;
     isolation: isolate;
     width: 422px;
-    height: 119px;
+    min-height: 119px;
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
 }
 
 .categories-container {
@@ -94,10 +59,6 @@ p {
     padding: 0px;
     gap: 8px;
     width: 422px;
-    height: 104px;
-    flex: none;
-    order: 2;
-    flex-grow: 0;
 }
 
 .category-select {
@@ -112,9 +73,6 @@ p {
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
     cursor: pointer;
 }
 
@@ -125,10 +83,6 @@ p {
     padding: 0px;
     gap: 8px;
     width: 422px;
-    height: 84px;
-    flex: none;
-    order: 3;
-    flex-grow: 0;
 }
 
 .assigned-to-select {
@@ -143,15 +97,11 @@ p {
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
     cursor: pointer;
 }
 
 .middle-container {
     width: 0px;
-    height: 551px;
     border: 1px solid #D1D1D1;
 }
 
@@ -166,6 +116,12 @@ p {
 }
 
 .due-date {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.due-date-input {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -177,58 +133,46 @@ p {
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
     font-size: 21px;
     color: #D1D1D1;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    z-index: 0;
+    cursor: pointer;
+    color-scheme: dark;
+}
+
+.due-date-btn {
+    position: absolute;
+    left: 381px;
     cursor: pointer;
 }
 
 .prio-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     padding: 0px;
     gap: 8px;
     width: 422px;
     height: 113px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+
 }
 
 .prio-btns-container {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 0px;
     gap: 10px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+
 }
 
 .btn {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 18px 10px;
     gap: 10px;
-    width: 136px;
+    width: 134px;
     height: 51px;
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
     font-size: 21px;
     cursor: pointer;
 }
@@ -245,12 +189,10 @@ p {
     padding: 0px;
     gap: 8px;
     width: 422px;
-    flex: none;
-    order: 2;
-    flex-grow: 0;
 }
 
 .subtasks-input {
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -263,28 +205,15 @@ p {
     border: 1px solid #D1D1D1;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    position: relative;
 }
 
 .subtask-btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
     padding: 0px;
     gap: 9px;
-    position: absolute;
     width: 24px;
     height: 24px;
     left: 381px;
-    top: 14px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    z-index: 1;
     cursor: pointer;
 }
 
@@ -301,9 +230,6 @@ p {
     width: 178px;
     height: 25px;
     border: 0px solid;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
     z-index: 0;
     padding-top: 7px;
 }
@@ -324,7 +250,7 @@ select {
 
 .content-containers {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .submit-btns {
@@ -356,4 +282,10 @@ select {
     font-size: 21px;
     border-radius: 10px;
     cursor: pointer;
+}
+
+/* Help Classes */
+
+.hidden{
+    visibility: hidden;
 }

@@ -15,9 +15,9 @@
                 <form action="">
                     <p><label for="description">Description</label></p>
                     <textarea class="description-area" name="description" id="description" cols="30" rows="10"
-                        placeholder="Enter a description" required></textarea>
+                        placeholder="Enter a description" required style="resize: vertical;"></textarea>
                 </form>
-                <p class="required">This field is required</p>
+                <p class="required hidden">This field is required</p>
             </div>
             <div class="categories-container">
                 <form action="">
@@ -48,7 +48,11 @@
         <div class="right-container">
             <div>
                 <p><label for="due-date">Due date</label></p>
-                <input class="due-date" type="date" name="due-date" id="due-date" required placeholder="dd/mm/yyyy">
+                <div class="due-date">
+                    <input class="due-date-input" type="date" name="due-date" id="due-date" required
+                        placeholder="dd/mm/yyyy">
+                    <img class="due-date-btn" src="./assets/img/calender.svg" alt="calender icon">
+                </div>
             </div>
             <div class="prio-container">
                 <p>Prio</p>
