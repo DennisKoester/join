@@ -7,11 +7,20 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
+#board {
+    background-color: #F6F7F8;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 h1 {
     font-size: 61px;
     font-weight: 700;
     margin-block-start: 0;
     margin-block-end: 0;
+    line-height: 120%;
 }
 
 .d-none {

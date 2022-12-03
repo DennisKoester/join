@@ -2,7 +2,7 @@
     <div class="headline">
         <h1>Add Task</h1>
     </div>
-    <div class="content">
+    <div class="content-containers">
         <div class="left-container ">
             <div class="title-container">
                 <form action="">
@@ -40,22 +40,19 @@
                 </form>
             </div>
         </div>
-    </div>
 
-    <div class="middle-container">
-        <img src="./assets/img/middle line.svg" alt="middle line">
-    </div>
+        <div class="middle-container">
+            <img src="./assets/img/middle line.svg" alt="middle line">
+        </div>
 
-    <div class="right-container">
-        <div class="wrapper">
+        <div class="right-container">
             <div>
                 <p><label for="due-date">Due date</label></p>
-                <input class="due-date" type="text" name="due-date" id="due-date" required placeholder="dd/mm/yyyy"
-                    onfocus="(this.type='date')">
+                <input class="due-date" type="date" name="due-date" id="due-date" required placeholder="dd/mm/yyyy">
             </div>
             <div class="prio-container">
                 <p>Prio</p>
-                <div class="prio-btns">
+                <div class="prio-btns-container">
                     <div class="btn">
                         Urgent
                         <img src="./assets/img/urgent.svg" alt="Arrows up">
@@ -88,8 +85,17 @@
                             <input type="checkbox" id="" name="" value="subtask">
                             <label for="">Subtask</label><br>
                         </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="submit-btns">
+        <button class="clear-btn">Clear
+            <img src="./assets/img/clear-x.svg" alt="">
+        </button>
+        <button class="create-btn">Create Task
+            <img src="./assets/img/create-check.svg" alt="">
+        </button>
     </div>
 </div>

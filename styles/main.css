@@ -22,6 +22,7 @@ header {
     align-items: center;
     gap: 34px;
     font-size: 21px;
+    z-index: 1;
 }
 
 #header-nav {
@@ -90,7 +91,8 @@ nav {
     cursor: pointer;
 }
 
-.nav-item:hover, #info:hover {
+.nav-item:hover,
+#info:hover {
     background-color: var(--bg-menu-item-highlight);
 }
 

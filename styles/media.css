@@ -1,0 +1,24 @@
+@media(max-width: 1150px){
+    .add-tast-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .headline h1{
+        text-align: center;
+    }
+
+    .content-containers{
+        flex-direction: column;
+    }
+
+    .middle-container {
+        display: none;
+    }
+
+    .submit-btns{
+        justify-content: flex-start;
+        padding-top: 30px;
+    }
+}
