@@ -1,3 +1,7 @@
+#add-task {
+    overflow: auto;
+}
+
 .add-task-content {
     color: #000000;
     width: 100%;

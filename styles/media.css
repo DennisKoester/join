@@ -5,8 +5,8 @@
         align-items: center;
     }
 
-    .headline h1{
-        text-align: center;
+    .headline {
+        justify-content: center;
     }
 
     .content-containers{
