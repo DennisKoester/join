@@ -3,10 +3,10 @@
     margin-left: 120px;
 }
 
-/* .headline {
+.headline {
     display: flex;
     align-items: center;
-} */
+}
 
 .headline span {
     font-size: 27px;

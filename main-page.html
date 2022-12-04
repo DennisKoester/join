@@ -13,39 +13,40 @@
     <link rel="stylesheet" href="./styles/media.css">
     <script src="./js/include_html.js"></script>
     <script src="./js/add_task.js"></script>
+    <script src="./js/script.js"></script>
     <title>Join - Kanban PM Tool</title>
 </head>
 
-<body onload="includeHTML()">
+<body onload="init()">
     <nav>
         <img id="logo-nav" src="./assets/img/logo_nav.png" alt="logo">
         <div id="menu">
-            <div class="nav-item">
+            <div id="menu-summary" class="nav-item" onclick="openPage('summary', false)">
                 <div class="nav-icon">
                     <img src="./assets/img/symb_summary.png" alt="">
                 </div>
                 <div>Summary</div>
             </div>
-            <div class="nav-item">
+            <div id="menu-board" class="nav-item" onclick="openPage('board', false)">
                 <div class="nav-icon">
                     <img src="./assets/img/symb_board.png" alt="">
                 </div>
                 <div>Board</div>
             </div>
-            <div class="nav-item">
+            <div id="menu-add-task" class="nav-item" onclick="openPage('add-task', false)">
                 <div class="nav-icon">
                     <img src="./assets/img/symb_add-task.png" alt="">
                 </div>
                 <div>Add Task</div>
             </div>
-            <div class="nav-item">
+            <div id="menu-contacts" class="nav-item" onclick="openPage('contacts', false)">
                 <div class="nav-icon">
                     <img src="./assets/img/symb_contacts.png" alt="">
                 </div>
                 <div>Contacts</div>
             </div>
         </div>
-        <div id="info">
+        <div id="menu-legal" class="nav-item" onclick="openPage('legal', false)">
             <img src="./assets/img/symb_info.png" alt="">
             <span>Legal notice</span>
         </div>
@@ -54,17 +55,21 @@
         <header>
             <span>Kanban Project Management Tool</span>
             <div id="header-nav">
-                <img src="./assets/img/symb_help.png" alt="help">
+                <img id="menu-help" src="./assets/img/symb_help.png" onclick="openPage('help', undefined)" alt="help">
                 <img id="header-img-user" src="./assets/img/img_user1.png" alt="">
-                <div id="sub-nav">
-                    <span>Help</span>
-                    <span>Legal notice</span>
-                    <span>Log out</span>
+                <div id="sub-nav" class="d-none">
+                    <span onclick="openPage('help', true)">Help</span>
+                    <span onclick="openPage('legal', true)">Legal notice</span>
+                    <span onclick="logout()">Log out</span>
                 </div>
             </div>
         </header>
-        <!-- <div id="board" w3-include-html="./summary.html"></div> -->
-        <div id="board" w3-include-html="./add_task.html"></div>
+        <div id="summary" class="d-none" w3-include-html="./summary.html"></div>
+        <div id="board" class="d-none" w3-include-html="./board.html"></div>
+        <div id="add-task" class="d-none" w3-include-html="./add_task.html"></div>
+        <div id="contacts" class="d-none" w3-include-html="./contacts.html"></div>
+        <div id="legal" class="d-none" w3-include-html="./legal.html"></div>
+        <div id="help" class="d-none" w3-include-html="./help.html"></div>
     </div>
 </body>
 

@@ -32,6 +32,10 @@ header {
     gap: 26px;
 }
 
+#menu-help {
+    cursor: pointer;
+}
+
 #header-img-user {
     width: 49px;
     height: 49px;
@@ -81,7 +85,7 @@ nav {
     width: 35px
 }
 
-#info {
+#menu-legal {
     display: flex;
     justify-content: center;
     margin-top: auto;
@@ -93,6 +97,10 @@ nav {
 
 .nav-item:hover,
 #info:hover {
+    background-color: var(--bg-menu-item-highlight);
+}
+
+.nav-item-active {
     background-color: var(--bg-menu-item-highlight);
 }
 

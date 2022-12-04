@@ -7,14 +7,14 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-#board {
+/* #board {
     background-color: #F6F7F8;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: auto;
-}
+} */
 
 h1 {
     font-size: 61px;
