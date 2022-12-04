@@ -18,8 +18,6 @@ function openPage(id, context) {
     pageToClose.classList.add('d-none');
     pageToOpen.classList.remove('d-none');
 
-    if (id == 'help' && !context) return;
-
     if (context) {
         // TODO: Close context menu
     }
@@ -27,9 +25,13 @@ function openPage(id, context) {
         const menuToActivate = document.getElementById(`menu-${id}`);
         const menuToDeactivate = document.getElementById(`menu-${currentPage}`);
 
-        menuToDeactivate.classList.remove('nav-item-active');
-        menuToActivate.classList.add('nav-item-active');
-
+        if (currentPage != 'help') {
+            menuToDeactivate.classList.remove('nav-item-active');
+        }
+        if (id != 'help') {
+            menuToActivate.classList.add('nav-item-active');
+        }
+        
         currentPage = id;
     }
 }
