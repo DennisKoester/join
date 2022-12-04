@@ -17,7 +17,7 @@
                     <textarea class="description-area" name="description" id="description" cols="30" rows="10"
                         placeholder="Enter a description" required style="resize: vertical;"></textarea>
                 </form>
-                <p class="required hidden">This field is required</p>
+                <p class="required">This field is required</p>
             </div>
             <div class="categories-container">
                 <form action="">
@@ -57,15 +57,15 @@
             <div class="prio-container">
                 <p>Prio</p>
                 <div class="prio-btns-container">
-                    <div class="btn">
+                    <div onclick="redBtn()" id="urgend-btn" class="prio-btn" style="background-color: #FFFFFF;">
                         Urgent
-                        <img src="./assets/img/urgent.svg" alt="Arrows up">
+                        <img id="arrows" src="./assets/img/urgent.svg" alt="Arrows up">
                     </div>
-                    <div class="btn">
+                    <div id="medium-btn" class="prio-btn">
                         Medium
                         <img src="./assets/img/medium.svg" alt="streaght lines">
                     </div>
-                    <div class="btn">
+                    <div id="low-btn" class="prio-btn">
                         Low
                         <img src="./assets/img/low.svg" alt="Arrows down">
                     </div>
@@ -96,10 +96,10 @@
     </div>
     <div class="submit-btns">
         <button class="clear-btn">Clear
-            <img src="./assets/img/clear-x.svg" alt="">
+            <img src="./assets/img/clear-x.svg" alt="x icon">
         </button>
         <button class="create-btn">Create Task
-            <img src="./assets/img/create-check.svg" alt="">
+            <img src="./assets/img/create-check.svg" alt="check icon">
         </button>
     </div>
 </div>
