@@ -17,7 +17,7 @@
 
 p {
     font-size: 21px;
-    margin: 0 0 8px 0 ;
+    margin: 0 0 8px 0;
 }
 
 .required {
@@ -134,14 +134,16 @@ p {
     border: 1px solid #D1D1D1;
     border-radius: 10px;
     font-size: 21px;
-    color: #D1D1D1;
     cursor: pointer;
-    color-scheme: dark;
 }
 
-.due-date-btn {
-    position: absolute;
-    left: 381px;
+input[type=date]:invalid::-webkit-datetime-edit {
+    color: #D1D1D1;
+}
+
+
+::-webkit-calendar-picker-indicator {
+    background-image: url(../assets/img/calender.svg);
     cursor: pointer;
 }
 
@@ -262,6 +264,9 @@ select {
 }
 
 .clear-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 18px 10px;
     gap: 10px;
     width: 136px;
@@ -270,9 +275,38 @@ select {
     border: 1px solid #2A3647;
     border-radius: 10px;
     cursor: pointer;
+    transition: 100ms ease-in-out;
+    font-family: 'Inter';
 }
 
+.clear-btn img {
+    height: 15px;
+    width: 15px;
+    margin-left: 12px;
+}
+
+.clear-btn:hover {
+    color: #29ABE2;
+    border: 2px solid #29ABE2;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+}
+
+.clear-btn:active {
+    color: black;
+    border: 1px solid #091931;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+}
+
+/* .clear-btn img {
+    filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
+} */
+
 .create-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 18px 10px;
     gap: 10px;
     width: 177px;
@@ -282,10 +316,31 @@ select {
     font-size: 21px;
     border-radius: 10px;
     cursor: pointer;
+    border: none;
+    transition: 100ms ease-in-out;
+    font-family: 'Inter';
+}
+
+.create-btn img {
+    height: 20px;
+    width: 20px;
+    margin: 4px;
+}
+
+.create-btn:hover {
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.create-btn:active {
+    background: #091931;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
 }
 
 /* Help Classes */
 
-.hidden{
+.hidden {
     visibility: hidden;
 }
