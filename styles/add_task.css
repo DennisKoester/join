@@ -1,12 +1,13 @@
 #add-task {
     overflow: auto;
+    height: 100vh;
 }
 
 .add-task-content {
     color: #000000;
     width: 100%;
     margin: auto;
-    padding: 20px;
+    padding: 30px;
     max-width: 1100px;
 }
 
@@ -50,6 +51,7 @@ p {
     isolation: isolate;
     width: 422px;
     min-height: 119px;
+    height: 119px;
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
@@ -276,7 +278,7 @@ select {
 
 .content-containers {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .submit-btns {
@@ -284,7 +286,7 @@ select {
     justify-content: flex-end;
     padding: 0px;
     gap: 25px;
-    padding-top: 48px;
+    margin-top: 48px;
 }
 
 .clear-btn {

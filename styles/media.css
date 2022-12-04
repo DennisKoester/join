@@ -1,12 +1,10 @@
 @media(max-width: 1150px){
-    .add-tast-content{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .add-task-content{
+      width: 480px;
     }
 
     .headline {
-        justify-content: center;
+        margin-bottom: 10px !important;
     }
 
     .content-containers{
