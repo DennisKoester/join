@@ -31,7 +31,6 @@ p {
 
 .title-input {
     padding-left: 21px;
-    padding-top: 8px;
     gap: 10px;
     width: 422px;
     height: 51px;
@@ -204,7 +203,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 18px 21px;
     gap: 10px;
     isolation: isolate;
     width: 422px;
@@ -215,6 +213,17 @@ input[type=date]:invalid::-webkit-datetime-edit {
     border-radius: 10px;
 }
 
+.subtasks-input input {
+    padding-left: 21px;
+    gap: 10px;
+    width: 422px;
+    height: 51px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+}
+
+
 .subtask-btn {
     position: absolute;
     padding: 0px;
@@ -223,6 +232,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     height: 24px;
     left: 381px;
     cursor: pointer;
+    background-color: white;
 }
 
 .subtask {
@@ -234,19 +244,23 @@ input[type=date]:invalid::-webkit-datetime-edit {
     gap: 20px;
 }
 
-.subtasks-input input {
-    width: 178px;
-    height: 25px;
-    border: 0px solid;
-    z-index: 0;
-    padding-top: 7px;
-}
-
 ::placeholder {
     font-weight: 400;
     font-size: 21px;
     line-height: 120%;
     color: #D1D1D1;
+}
+
+input[type="text"] {
+    font-size: 21px;
+}
+
+input[type="date"] {
+    font-family: 'Inter', sans-serif;
+}
+
+textarea {
+    font-size: 21px;
 }
 
 select {
