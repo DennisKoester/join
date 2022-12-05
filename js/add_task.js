@@ -2,7 +2,6 @@ function prioUrgent() {
     let btn = document.getElementById('urgend-btn');
     let img = document.getElementById('urgent-btn-img');
     backgroundColor = btn.style.backgroundColor;
-    console.log(backgroundColor);
 
     if (backgroundColor == 'rgb(255, 255, 255)') {
         btn.style.backgroundColor = '#FF3D00';
@@ -20,7 +19,6 @@ function prioMedium() {
     let btn = document.getElementById('medium-btn');
     let img = document.getElementById('medium-btn-img');
     backgroundColor = btn.style.backgroundColor;
-    console.log(backgroundColor);
 
     if (backgroundColor == 'rgb(255, 255, 255)') {
         btn.style.backgroundColor = '#FFA800';
@@ -38,7 +36,6 @@ function prioLow() {
     const btn = document.getElementById('low-btn');
     let img = document.getElementById('low-btn-img');
     backgroundColor = btn.style.backgroundColor;
-    console.log(backgroundColor);
 
     if (backgroundColor == 'rgb(255, 255, 255)') {
         btn.style.backgroundColor = '#7AE229';

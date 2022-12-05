@@ -5,9 +5,15 @@
     max-width: 1100px;
 }
 
-#content-add-task {
+.content-add-task {
     margin-top: 52px;
     margin-left: 93px;
+}
+
+.headline-add-task {
+    display: flex;
+    align-items: center;
+    margin-bottom: 41px;
 }
 
 .left-container {

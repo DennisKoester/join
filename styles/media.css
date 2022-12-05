@@ -1,13 +1,18 @@
-@media(max-width: 1150px){
-    .add-task-content{
-      width: 480px;
+@media(max-width: 1150px) {
+    .content-add-task {
+        margin: 0;
+    }
+
+    .add-task-content {
+        width: 480px;
+        margin: auto;
     }
 
     .headline {
         margin-bottom: 10px !important;
     }
 
-    .content-containers{
+    .content-containers {
         flex-direction: column;
         align-items: center;
     }
