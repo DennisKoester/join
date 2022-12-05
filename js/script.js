@@ -38,6 +38,12 @@ function openPage(id, context) {
 }
 
 
+function toggleContextMenu() {
+    const ctxMenu = document.getElementById('contextMenu');
+    ctxMenu.classList.toggle('d-none');
+}
+
+
 function logout() {
 
 }

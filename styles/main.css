@@ -44,6 +44,7 @@ header {
     border-radius: 50%;
     outline: solid 3px var(--bg-color-main);
     padding: 2px;
+    cursor: pointer;
 }
 
 nav {
@@ -117,8 +118,9 @@ nav {
 
 .sub-nav {
     position: absolute;
-    top: 52px;
-    left: -65px;
+    top: 58px;
+    right: 0;
+    min-width: max-content;
     display: flex;
     flex-direction: column;
     font-size: 16px;
@@ -135,9 +137,9 @@ nav {
     cursor: pointer;
 }
 
-.sub-nav span:hover {
+/* .sub-nav span:hover {
     color: var(--dimmed);
-}
+} */
 
 .content-container {
     position: absolute;
