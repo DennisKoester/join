@@ -20,13 +20,13 @@
 .signup a {
     text-decoration: none;
     color: #fff;
-    background-color: #4589FF;
+    background-color: var(--bg-color-main);
     padding: 10px 20px;
     border-radius: 5px;
 }
 
 .signup button {
-    background-color: #4589FF;
+    background-color: var(--bg-color-main);
     border: none;
     color: #fff;
     padding: 10px 20px;
@@ -81,7 +81,7 @@
 }
 
 .login_button {
-    background-color: #4589FF;
+    background-color: var(--bg-color-main);
     border: none;
     color: #fff;
     padding: 10px 20px;
@@ -109,4 +109,18 @@
 .guest_button a {
     text-decoration: none;
     color: #647188;
+}
+
+.goback {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.SignUpBackground {
+    background: #FFFFFF;
+    width: 100%;
+    height: 100vh;
 }
