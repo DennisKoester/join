@@ -1,9 +1,13 @@
 .add-task-content {
     color: #000000;
     width: 100%;
-    margin: auto;
     padding: 30px;
     max-width: 1100px;
+}
+
+#content-add-task {
+    margin-top: 52px;
+    margin-left: 93px;
 }
 
 .left-container {
@@ -73,6 +77,7 @@ p {
     border: 1px solid #D1D1D1;
     border-radius: 10px;
     cursor: pointer;
+    overflow: hidden;
 }
 
 ul {
@@ -92,12 +97,6 @@ li {
 
 li:hover {
     background-color: #D1D1D1;
-}
-
-li:last-child:hover {
-    background-color: #D1D1D1;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
 }
 
 li div:nth-child(2) {
