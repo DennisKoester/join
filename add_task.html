@@ -21,54 +21,80 @@
                     <p class="required">This field is required</p>
                 </div>
 
-
-
-
-
-                <div class="categories-container">
+                <div class="select-container">
                     <form action="">
                         <p><label for="categories">Category</label></p>
-                        <div onclick="dropDown('category-dropdown', 'triangle1')" class="category-select-container"
+                        <div onclick="dropDownToggle('category-dropdown', 'triangle1')" class="dropdown-container"
                             name="category" id="category">
                             <div class="flex-btw">
                                 <span>Select task category</span>
-                                <img id="triangle1" src="./assets/img/select-triangle.svg" alt="triangle">
+                                <img id="triangle1" src="./assets/img/select-triangle.svg" alt="triangle"
+                                    style="padding-top: 2px;">
                             </div>
                             <div id="category-dropdown" class="dropdown-menu open">
                                 <ul>
                                     <li>
-                                        <div>Test</div>
-                                        <div>color</div>
+                                        <div>New Category</div>
                                     </li>
                                     <li>
                                         <div>Test</div>
-                                        <div>color</div>
+                                        <div class="dot green"></div>
                                     </li>
                                     <li>
                                         <div>Test</div>
-                                        <div>color</div>
+                                        <div class="dot lightblue"></div>
                                     </li>
                                 </ul>
                             </div>
                         </div>
+                        <div class="category-colors">
+                            <div class="dot lightblue"></div>
+                            <div class="dot blue"></div>
+                            <div class="dot turquoise"></div>
+                            <div class="dot green"></div>
+                            <div class="dot orange"></div>
+                            <div class="dot red"></div>
+                            <div class="dot lightpink"></div>
+                            <div class="dot pink"></div>
+                        </div>
+                        <p class="required">This field is required</p>
                     </form>
                 </div>
 
-
-
-
-
-
-
-
-                <div class="assigned-to-container">
+                <div class="select-container">
                     <form action="">
-                        <p><label for="assigned-to">Assigned to</label></p>
-                        <select class="assigned-to-select" name="assigned-to" id="assigned-to">
-                            <option value="assigned-to">Select contacts to assign</option>
-                            <option value="you">You</option>
-                            <option value="chritoph">Christoph</option>
-                        </select>
+                        <p><label for="assign">Assigned to</label></p>
+                        <div onclick="dropDownToggle('assign-dropdown', 'triangle2')" class="dropdown-container"
+                            name="assign" id="assign">
+                            <div class="flex-btw">
+                                <span>Select contacts to assign</span>
+                                <img id="triangle2" src="./assets/img/select-triangle.svg" alt="triangle"
+                                    style="padding-top: 2px;">
+                            </div>
+                            <div id="assign-dropdown" class="dropdown-menu open">
+                                <ul>
+                                    <li>
+                                        <div class="flex-btw">
+                                            <div>Christof</div>
+                                            <input type="checkbox" id="" name="" value="subtask">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="flex-btw">
+                                            <div>Mario</div>
+                                            <input type="checkbox" id="" name="" value="subtask">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="flex-btw">
+                                            <div>Dennis</div>
+                                            <input type="checkbox" id="" name="" value="subtask">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="required">This field is required</p>
                     </form>
                 </div>
             </div>
@@ -85,7 +111,7 @@
                     <p class="required">This field is required</p>
                 </div>
                 <div class="prio-container">
-                    <p>Prio</p>
+                    <p style="margin: 0 0 13px 0">Prio</p>
                     <div class="prio-btns-container">
                         <div onclick="prioUrgent()" id="urgend-btn" class="prio-btn" style="background-color: #FFFFFF;">
                             Urgent

@@ -58,7 +58,7 @@ function toggleClassList(id, img, classList, classList1) {
 }
 
 
-function dropDown(id, img) {
+function dropDownToggle(id, img) {
     toggleClassList(id, img, 'open', 'rotate180');
 }
 
