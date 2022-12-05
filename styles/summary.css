@@ -81,8 +81,7 @@
     height: 102px;
     border-left: solid 2px var(--dimmed);
     border-radius: 2px;
-    margin-left: 25px;
-    margin-right: 25px;
+    margin: 0 61px;
 }
 
 #urgent-date-info {
