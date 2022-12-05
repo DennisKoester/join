@@ -9,13 +9,13 @@ body {
     overflow: hidden;
 }
 
-#content-area {
+/* #content-area {
     background-color: #F6F7F8;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 h1 {
     font-size: 61px;
