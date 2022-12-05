@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join</title>
+    <title>Join-SignUp</title>
     <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="./styles/general.css">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/start.css">
     <script src="./js/script.js"></script>
-    <script src="./js/login.js"></script>
+    <script src="./js/sign_up.js"></script>
 </head>
-
-<body>
+<body class="SignUpBackground">
     <div class="header">
-        <div class="logo"><img src="/assets/img/Logo_Start.png" class="login_logo"></div>
-        <div class="signup">
-            <p>Not a Join user?</p>
-            <button onclick="location.href='sign_up.html'">Sign up</button>
-        </div>
+        <div class="logo"><img src="./assets/img/Logo_SignUp.png" class="login_logo"></div>
     </div>
     <div class="login_master">
         <div class="login_main">
+        <!--<div class="goback"><img src="./assets/img/goBack.png"></div>-->
             <div class="login_form">
-                <h2>Log in</h2>
+                <h2>Sign up</h2>
+                <input id="username" placeholder="Username" class="login_input">
                 <input id="email" type="text" name="email" placeholder="Email">
                 <input id="password" type="password" name="password" placeholder="Password">
                 <div class="login_form_buttons">
-                    <button class="login_button" onclick="login()">Login</button>
-                    <button class="guest_button" onclick="location.href='main-page.html'">Guest log in</button></div>
+                    <button class="login_button" onclick="register()">Sign up</button>
             </div>
         </div>
     </div>
 </body>
-
 </html>
