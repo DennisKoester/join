@@ -20,16 +20,47 @@
                     </form>
                     <p class="required">This field is required</p>
                 </div>
+
+
+
+
+
                 <div class="categories-container">
                     <form action="">
                         <p><label for="categories">Category</label></p>
-                        <select class="category-select" name="category" id="category">
-                            <option value="select task">Select task category</option>
-                            <option value="coding">Coding</option>
-                            <option value="styling">Styling</option>
-                        </select>
+                        <div onclick="dropDown('category-dropdown', 'triangle1')" class="category-select-container"
+                            name="category" id="category">
+                            <div class="flex-btw">
+                                <span>Select task category</span>
+                                <img id="triangle1" src="./assets/img/select-triangle.svg" alt="triangle">
+                            </div>
+                            <div id="category-dropdown" class="dropdown-menu open">
+                                <ul>
+                                    <li>
+                                        <div>Test</div>
+                                        <div>color</div>
+                                    </li>
+                                    <li>
+                                        <div>Test</div>
+                                        <div>color</div>
+                                    </li>
+                                    <li>
+                                        <div>Test</div>
+                                        <div>color</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </form>
                 </div>
+
+
+
+
+
+
+
+
                 <div class="assigned-to-container">
                     <form action="">
                         <p><label for="assigned-to">Assigned to</label></p>
@@ -48,7 +79,7 @@
                 <div>
                     <p><label for="due-date">Due date</label></p>
                     <div class="due-date">
-                        <input class="due-date-input" type="date" name="due-date" id="due-date" required
+                        <input id="date-input" class="due-date-input" type="date" name="due-date" id="due-date" required
                             placeholder="dd/mm/yyyy">
                     </div>
                     <p class="required">This field is required</p>

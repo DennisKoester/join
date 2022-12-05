@@ -52,7 +52,15 @@ function prioLow() {
 };
 
 
+function toggleClassList(id, img, classList, classList1) {
+    document.getElementById(id).classList.toggle(classList);
+    document.getElementById(img).classList.toggle(classList1);
+}
 
+
+function dropDown(id, img) {
+    toggleClassList(id, img, 'open', 'rotate180');
+}
 
 
 

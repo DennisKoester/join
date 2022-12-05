@@ -6,7 +6,7 @@ async function init() {
     // TODO: init the menu depending on desktop or mobile view
     const menuSummary = document.getElementById('menu-summary');
     menuSummary.classList.add('nav-item-active');
-    currentPage = 'summary';
+    currentPage = 'add-task';
     openPage(currentPage, false);
 }
 

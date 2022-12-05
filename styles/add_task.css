@@ -64,21 +64,61 @@ p {
     padding: 0px;
     gap: 8px;
     width: 422px;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
 }
 
-.category-select {
+.placeholder-selection {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    padding-left: 21px;
+    width: 422px;
+}
+
+.category-select-container {
+    padding: 10px 21px;
     gap: 10px;
     isolation: isolate;
     width: 422px;
-    height: 51px;
+    min-height: 51px;
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.dropdown-menu {
+    position: relative;
+    left: -22px;
+    top: 11px;
+    width: 422px;
+}
+
+ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    width: 422px;
+    height: 51px;
+    display: flex;
+    align-items: center;
+    padding-left: 21px;
+}
+
+li:hover {
+    background-color: #D1D1D1;
+    /* border-radius: 10px; */
+}
+
+li:last-child:hover {
+    background-color: #D1D1D1;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .assigned-to-container {
@@ -130,7 +170,7 @@ p {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 18px 21px;
+    padding: 21px;
     gap: 10px;
     isolation: isolate;
     width: 422px;
@@ -144,6 +184,7 @@ p {
 
 input[type=date]:invalid::-webkit-datetime-edit {
     color: #D1D1D1;
+
 }
 
 
@@ -376,4 +417,21 @@ select {
 
 .hidden {
     visibility: hidden;
+}
+
+.rotate180 {
+    transform: rotate(180deg);
+
+}
+
+.flex-btw {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.open {
+    display: none;
+    transition: 1s ease-in-out;
 }
