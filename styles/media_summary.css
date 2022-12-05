@@ -1,0 +1,41 @@
+@media screen and (max-width: 1200px) {
+    .welcome {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    header {
+        left: 0;
+        padding: 0 36px;
+        height: var(--header-hight-mobile);
+    }
+    
+    nav {
+        top: unset;
+        width: unset;
+        right: 0;
+        height: var(--nav-hight-mobile);
+        padding: 0;
+        z-index: 1;
+    }
+
+    #logo-nav, #menu-legal {
+        display: none;
+    }
+
+    #menu {
+        flex-direction: row;
+    }
+
+    .nav-item {
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .content-container {
+        top: var(--header-hight-mobile);
+        bottom: var(--nav-hight-mobile);
+        left: 0;
+    }
+}

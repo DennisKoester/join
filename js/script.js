@@ -4,9 +4,10 @@ async function init() {
     await includeHTML();
 
     // TODO: init the menu depending on desktop or mobile view
-    const menuSummary = document.getElementById('menu-summary');
-    menuSummary.classList.add('nav-item-active');
     currentPage = 'add-task';
+    const selected= document.getElementById(`menu-${currentPage}`);
+    selected.classList.add('nav-item-active');
+    
     openPage(currentPage, false);
 }
 

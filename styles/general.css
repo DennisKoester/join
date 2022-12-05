@@ -5,6 +5,8 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
+    max-height: 100vh;
+    overflow: hidden;
 }
 
 #content-area {
@@ -36,4 +38,10 @@ h1 {
     /* Element colors */
     --highlight: #29ABE2;
     --dimmed: #D1D1D1;
+
+    /* Geometry */
+    --nav-width-desktop: 232px;
+    --nav-hight-mobile: 80px;
+    --header-hight-desktop: 90px;
+    --header-hight-mobile: 80px;
 }
