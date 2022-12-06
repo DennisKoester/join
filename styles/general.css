@@ -1,3 +1,25 @@
+:root {
+    /* Background colors */
+    --bg-color-main: #2A3647;
+    --bg-menu-item-highlight: #091931;
+    --bg-body: #f5f5f5;
+
+
+    /* Element colors */
+    --highlight: #29ABE2;
+    --dimmed: #D1D1D1;
+
+    /* Geometry */
+    --nav-width-desktop: 232px;
+    --nav-hight-mobile: 80px;
+    --header-hight-desktop: 90px;
+    --header-hight-mobile: 80px;
+
+    /* Text */
+    --welcome-text-size: 47px;
+    --welcome-name-size: 64px;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -20,22 +42,4 @@ h1 {
 
 .d-none {
     display: none;
-}
-
-:root {
-    /* Background colors */
-    --bg-color-main: #2A3647;
-    --bg-menu-item-highlight: #091931;
-    --bg-body: #f5f5f5;
-
-
-    /* Element colors */
-    --highlight: #29ABE2;
-    --dimmed: #D1D1D1;
-
-    /* Geometry */
-    --nav-width-desktop: 232px;
-    --nav-hight-mobile: 80px;
-    --header-hight-desktop: 90px;
-    --header-hight-mobile: 80px;
 }

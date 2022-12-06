@@ -1,16 +1,4 @@
-@media screen and (max-width: 1200px) {
-    .welcome {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 970px) {
-    .content-container {
-        top: var(--header-hight-mobile);
-        bottom: var(--nav-hight-mobile);
-        left: 0;
-    }
-
+@media screen and (max-width: 1200px) {    
     #content-summary {
         display: flex;
         flex-direction: column;
@@ -19,8 +7,31 @@
         margin-left: unset;
     }
 
+    #ui {
+        flex-direction: column;
+    }
+    
     #data {
         margin-right: unset;
         margin-top: 3.5vh;
+    }
+
+    .welcome-desk {
+        flex-direction: row;
+        margin-top: 3vh;
+    }
+
+    #welcome-text-desk, #welcome-name-desk {
+        font-size: 40px;
+    }
+
+    #welcome-text-desk {
+        margin-right: 1rem;
+    }
+}
+
+@media screen and (max-width: 970px) {
+    .welcome-desk {
+        display: none;
     }
 }

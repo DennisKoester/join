@@ -173,18 +173,18 @@
     filter: invert(100%);
 } */
 
-.welcome {
+.welcome-desk {
     display: flex;
     flex-direction: column;
 }
 
-#welcome-text {
-    font-size: 47px;
+#welcome-text-desk {
+    font-size: var(--welcome-text-size);
     font-weight: 500;
 }
 
-#welcome-name {
-    font-size: 64px;
+#welcome-name-desk {
+    font-size: var(--welcome-name-size);
     font-weight: 700;
     color: var(--highlight);
 }

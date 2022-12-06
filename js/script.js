@@ -1,14 +1,31 @@
+const MOBILE_MAX_WIDTH = 970;
 let currentPage = '';
 
 async function init() {
     await includeHTML();
 
-    // TODO: init the menu depending on desktop or mobile view
+    handleWelcomeOnMobile();
+
     currentPage = 'add-task';
-    const selected= document.getElementById(`menu-${currentPage}`);
+    const selected = document.getElementById(`menu-${currentPage}`);
     selected.classList.add('nav-item-active');
     
     openPage(currentPage, false);
+}
+
+function handleWelcomeOnMobile() {
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth <= MOBILE_MAX_WIDTH) {
+        const welcome = document.getElementById('welcome-mobile');
+        welcome.classList.remove('d-none');
+        setTimeout(() => {
+            welcome.classList.add('welcome-mobile-fade');
+        }, 1);
+        setTimeout(() => {
+            welcome.classList.add('d-none');
+        }, 1250);
+    }
 }
 
 

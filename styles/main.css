@@ -24,7 +24,7 @@ header {
     align-items: center;
     /* gap: 34px; */
     font-size: 21px;
-    z-index: 1;
+    z-index: 2;
 }
 
 #header-nav {
@@ -148,4 +148,30 @@ nav {
     right: 0;
     bottom: 0;
     overflow-y: auto;
+}
+
+.welcome-mobile {
+    display: flex;      
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+    background-color: var(--bg-body);
+    opacity: 1;
+    transition: opacity 400ms ease-in 800ms;
+}
+
+.welcome-mobile-fade {
+    opacity: 0;
+}
+
+#welcome-text-mobile {
+    font-size: var(--welcome-text-size);
+    font-weight: 500;
+}
+
+#welcome-name-mobile {
+    font-size: var(--welcome-name-size);
+    font-weight: 700;
+    color: var(--highlight);
 }
