@@ -20,11 +20,19 @@
 
     #menu {
         flex-direction: row;
+        justify-content: space-evenly;
+        /* font-size: 13px; */
+        /* align-items: baseline; */
+        height: 100%;
     }
 
     .nav-item {
         flex-direction: column;
         justify-content: flex-end;
+        width: 22%;
+        height: 100%;
+        gap: 8px;
+        padding: 0 0 13px;
     }
 
     .content-container {

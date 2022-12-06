@@ -18,6 +18,7 @@ header {
     right: 0;
     height: var(--header-hight-desktop);
     padding: 0px 36px 0px 95px;
+    background-color: white;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
