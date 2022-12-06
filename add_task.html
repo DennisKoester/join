@@ -4,29 +4,24 @@
             <h1>Add Task</h1>
         </div>
         <div class="content-containers">
-            <div class="left-container ">
-                <div class="title-container">
-                    <form action="">
+            <form action="">
+                <div class="left-container ">
+                    <div class="title-container">
                         <p><label for="title">Title</label></p>
-                        <input class="title-input" type="text" placeholder="Enter a title" required>
-                    </form>
-                    <p class="required">This field is required</p>
-                </div>
-                <div class="description-container">
-                    <form action="">
+                        <input id="title" class="title-input" type="text" placeholder="Enter a title" required>
+                        <p class="required">This field is required</p>
+                    </div>
+                    <div class="description-container">
                         <p><label for="description">Description</label></p>
-                        <textarea class="description-area" name="description" id="description" cols="30" rows="10"
-                            placeholder="Enter a description" required style="resize: vertical;"></textarea>
-                    </form>
-                    <p class="required">This field is required</p>
-                </div>
-
-                <div class="select-container">
-                    <form action="">
+                        <textarea id="description" class="description-area" name="description" id="description"
+                            cols="30" rows="10" placeholder="Enter a description" required
+                            style="resize: vertical;"></textarea>
+                        <p class="required">This field is required</p>
+                    </div>
+                    <div class="select-container">
                         <p><label for="categories">Category</label></p>
-                        <div onclick="dropDownToggle('category-dropdown', 'triangle1')" class="dropdown-container"
-                            name="category" id="category">
-                            <div class="flex-btw">
+                        <div id="categories" class="dropdown-container" name="category" id="category">
+                            <div onclick="dropDownToggle('category-dropdown', 'triangle1')" class="flex-btw selection">
                                 <span>Select task category</span>
                                 <img id="triangle1" src="./assets/img/select-triangle.svg" alt="triangle"
                                     style="padding-top: 2px;">
@@ -58,15 +53,20 @@
                             <div class="dot pink"></div>
                         </div>
                         <p class="required">This field is required</p>
-                    </form>
-                </div>
+                    </div>
 
-                <div class="select-container">
-                    <form action="">
+                    <div class="select-container">
                         <p><label for="assign">Assigned to</label></p>
-                        <div  class="dropdown-container"
-                            name="assign" id="assign">
-                            <div onclick="dropDownToggle('assign-dropdown', 'triangle2')" class="flex-btw">
+                        <div class="dropdown-container" name="assign" id="assign">
+                            <div onclick="dropDownToggle('assign-dropdown', 'triangle2')" class="flex-btw selection">
+                                <div class="category-input-container">
+                                    <input class="assign-input" type="text" placeholder="Contact email">
+                                    <div>
+                                        <img src="./assets/img/clear-x.svg" alt="">
+                                        <div>middle</div>
+                                        <img src="./assets/img/create-check.svg" alt="">
+                                    </div>
+                                </div>
                                 <span>Select contacts to assign</span>
                                 <img id="triangle2" src="./assets/img/select-triangle.svg" alt="triangle"
                                     style="padding-top: 2px;">
@@ -74,69 +74,71 @@
                             <div id="assign-dropdown" class="dropdown-menu open">
                                 <ul>
                                     <li>
-                                        <div class="flex-btw">
+                                        <label class="flex-btw">
                                             <div>Christof</div>
                                             <input type="checkbox" id="" name="" value="subtask">
-                                        </div>
+                                        </label>
                                     </li>
                                     <li>
-                                        <div class="flex-btw">
+                                        <label class="flex-btw">
                                             <div>Mario</div>
                                             <input type="checkbox" id="" name="" value="subtask">
-                                        </div>
+                                        </label>
                                     </li>
                                     <li>
-                                        <div class="flex-btw">
+                                        <label class="flex-btw">
                                             <div>Dennis</div>
                                             <input type="checkbox" id="" name="" value="subtask">
-                                        </div>
+                                        </label>
                                     </li>
+
                                 </ul>
                             </div>
                         </div>
                         <p class="required">This field is required</p>
-                    </form>
-                </div>
-            </div>
-
-            <div class="middle-container"></div>
-
-            <div class="right-container">
-                <div>
-                    <p><label for="due-date">Due date</label></p>
-                    <div class="due-date">
-                        <input id="date-input" class="due-date-input" type="date" name="due-date" id="due-date" required
-                            placeholder="dd/mm/yyyy">
-                    </div>
-                    <p class="required">This field is required</p>
-                </div>
-                <div class="prio-container">
-                    <p style="margin: 0 0 13px 0">Prio</p>
-                    <div class="prio-btns-container">
-                        <div onclick="prioUrgent()" id="urgend-btn" class="prio-btn" style="background-color: #FFFFFF;">
-                            Urgent
-                            <img id="urgent-btn-img" src="./assets/img/urgent.svg" alt="Arrows up">
-                        </div>
-                        <div onclick="prioMedium()" id="medium-btn" class="prio-btn" style="background-color: #FFFFFF;">
-                            Medium
-                            <img id="medium-btn-img" src="./assets/img/medium.svg" alt="streaght lines">
-                        </div>
-                        <div onclick="prioLow()" id="low-btn" class="prio-btn" style="background-color: #FFFFFF;">
-                            Low
-                            <img id="low-btn-img" src="./assets/img/low.svg" alt="Arrows down">
-                        </div>
                     </div>
                 </div>
-                <div class="subtask-container">
-                    <form action="">
+
+                <div class="middle-container"></div>
+
+                <div class="right-container">
+                    <div>
+                        <p><label for="due-date">Due date</label></p>
+                        <div class="due-date">
+                            <input id="date-input" class="due-date-input" type="date" name="due-date" id="due-date"
+                                required placeholder="dd/mm/yyyy">
+                        </div>
+                        <p class="required">This field is required</p>
+                    </div>
+                    <div class="prio-container">
+                        <p style="margin: 0 0 13px 0">Prio</p>
+                        <div class="prio-btns-container">
+                            <div onclick="prioUrgent()" id="urgend-btn" class="prio-btn"
+                                style="background-color: #FFFFFF;">
+                                Urgent
+                                <img id="urgent-btn-img" src="./assets/img/urgent.svg" alt="Arrows up">
+                            </div>
+                            <div onclick="prioMedium()" id="medium-btn" class="prio-btn"
+                                style="background-color: #FFFFFF;">
+                                Medium
+                                <img id="medium-btn-img" src="./assets/img/medium.svg" alt="streaght lines">
+                            </div>
+                            <div onclick="prioLow()" id="low-btn" class="prio-btn" style="background-color: #FFFFFF;">
+                                Low
+                                <img id="low-btn-img" src="./assets/img/low.svg" alt="Arrows down">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subtask-container">
+
                         <p><label for="subtasks">Subtasks</label></p>
                         <div class="subtasks-input">
                             <input type="text" placeholder="Add new subtask">
                             <img class="subtask-btn" src="./assets/img/plus.svg" alt="Plus sign">
                         </div>
-                    </form>
-                    <div>
-                        <form action="">
+
+                        <div>
+
                             <div class="subtask">
                                 <input type="checkbox" id="" name="" value="subtask">
                                 <label for="">Subtask</label><br>
@@ -145,10 +147,10 @@
                                 <input type="checkbox" id="" name="" value="subtask">
                                 <label for="">Subtask</label><br>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
         <div class="submit-btns">
             <button class="clear-btn">Clear

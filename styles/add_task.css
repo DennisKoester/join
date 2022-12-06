@@ -73,9 +73,22 @@ p {
     line-height: 120%;
 }
 
-.dropdown-container {
+.selection {
     padding: 11px 21px;
-    gap: 10px;
+    height: 51px;
+    width: 422px;
+}
+
+li label {
+    display: flex;
+    justify-content: space-between;
+    height: 51px;
+    width: 422px;
+    padding: 0 21px;
+}
+
+.dropdown-container {
+    position: relative;
     isolation: isolate;
     width: 422px;
     min-height: 51px;
@@ -98,7 +111,6 @@ li {
     height: 51px;
     display: flex;
     align-items: center;
-    padding: 0 21px 0 21px;
 }
 
 li:hover {
@@ -126,6 +138,13 @@ li div:nth-child(2) {
 .category-colors div:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border: 2px solid #FFFFFF;
+}
+
+.assign-input {
+    position: absolute;
+    width: 100%;
+    outline: none;
+    border: none;
 }
 
 .middle-container {
@@ -415,14 +434,6 @@ select {
     display: none;
     transition: 1s ease-in-out;
 }
-
-.dropdown-menu {
-    position: relative;
-    left: -22px;
-    top: 11px;
-    width: 422px;
-}
-
 
 /* Colors */
 
