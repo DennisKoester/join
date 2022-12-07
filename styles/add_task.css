@@ -128,6 +128,13 @@ li div:nth-child(2) {
     border: 2px solid #FFFFFF;
 }
 
+.input-style {
+    outline: none;
+    border: none;
+    padding: 0;
+    width: 100%;
+}
+
 .input-btns {
     display: flex;
     align-items: center;
@@ -139,11 +146,11 @@ li div:nth-child(2) {
     width: 15px;
 }
 
-.input-btns img:last-child{
+.input-btns img:last-child {
     width: 19px;
 }
 
-.input-field{
+.input-field {
     position: relative;
     isolation: isolate;
     width: 422px;
@@ -160,7 +167,7 @@ li div:nth-child(2) {
     border: 1px solid #D1D1D1;
 }
 
-.dropdown-overlay{
+.dropdown-overlay {
     position: fixed;
     z-index: 1;
     top: 0;
@@ -171,7 +178,7 @@ li div:nth-child(2) {
     /* background-color: red; */
 }
 
-body.overlay .dropdown-overlay{
+body.overlay .dropdown-overlay {
     visibility: visible;
     opacity: 0.4;
 }
@@ -334,10 +341,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 input[type="text"] {
     font-size: 21px;
-    outline: none;
-    border: none;
-    padding: 0;
-    width: 100%;
 }
 
 input[type="date"] {
@@ -473,9 +476,10 @@ select {
     transition: 1s ease-in-out;
 }
 
-.select-none{
+.select-none {
     user-select: none;
 }
+
 
 .padding {
     padding: 11px 21px;

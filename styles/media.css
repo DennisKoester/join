@@ -20,4 +20,8 @@
     .middle-container {
         display: none;
     }
+
+    .right-container{
+        margin-top: 14px;
+    }
 }
