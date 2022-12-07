@@ -71,20 +71,18 @@ function dropDownToggle(id, img) {
 
  */
 
-function openInputContact(id, img) {
-    let inputContainer = document.getElementById('input-contact');
-    let dropdown = document.getElementById('assign-dropdown-container');
-    inputContainer.classList.remove('d-none');
-    dropdown.classList.add('d-none');
-    toggleClassList(id, img, 'open', 'rotate180');
+
+function showInputField(input, container, dropdown, img) {
+    document.getElementById(input).classList.remove('d-none');
+    document.getElementById(container).classList.add('d-none');
+    toggleClassList(dropdown, img, 'open', 'rotate180');
+    // input.classList.remove('d-none');
+    // dropdown.classList.add('d-none'); // TODO Why is that not working?!
 }
 
-function clearInputField(id) {
-    let input = document.getElementById(id);
-    let inputContainer = document.getElementById('input-contact');
-    let dropdown = document.getElementById('assign-dropdown-container');
-    input.value = '';
-    inputContainer.classList.add('d-none');
-    dropdown.classList.remove('d-none');
 
+function clearInputField(input, container, dropdown) {
+    document.getElementById(input).value = '';
+    document.getElementById(container).classList.add('d-none');
+    document.getElementById(dropdown).classList.remove('d-none');
 }

@@ -63,10 +63,6 @@ p {
     line-height: 120%;
 }
 
-.selection {
-    padding: 11px 21px;
-}
-
 li label {
     display: flex;
     justify-content: space-between;
@@ -130,13 +126,6 @@ li div:nth-child(2) {
 .category-colors div:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border: 2px solid #FFFFFF;
-}
-
-.assign-input {
-    outline: none;
-    border: none;
-    padding: 0;
-    width: 100%;
 }
 
 .input-btns {
@@ -345,6 +334,10 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 input[type="text"] {
     font-size: 21px;
+    outline: none;
+    border: none;
+    padding: 0;
+    width: 100%;
 }
 
 input[type="date"] {
@@ -482,6 +475,10 @@ select {
 
 .select-none{
     user-select: none;
+}
+
+.padding {
+    padding: 11px 21px;
 }
 
 /* Colors */
