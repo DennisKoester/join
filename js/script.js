@@ -78,11 +78,41 @@ function controlMenuHighlighting(id) {
 
 
 /**
- * Toggles the visibility of the context menu
+ * Toggles the visibility of the header context menu
  */
 function toggleContextMenu() {
     const ctxMenu = document.getElementById('contextMenu');
-    ctxMenu.classList.toggle('d-none');
+
+    if (ctxMenu.classList.contains('d-none')) {
+        showCtxMenu(ctxMenu);
+    }
+    else {
+        hideCtxMenu(ctxMenu);
+    }
+}
+
+
+/**
+ * Shows the header context menu
+ * @param {Object} ctxMenu The header context menu
+ */
+function showCtxMenu(ctxMenu) {
+    ctxMenu.classList.remove('d-none');
+    setTimeout(() => {
+        ctxMenu.classList.add('sub-nav-show');
+    }, 1);
+}
+
+
+/**
+ * Hides the header context menu
+ * @param {Object} ctxMenu The header context menu
+ */
+function hideCtxMenu(ctxMenu) {
+    ctxMenu.classList.remove('sub-nav-show');
+    setTimeout(() => {
+        ctxMenu.classList.add('d-none');
+    }, 220);
 }
 
 

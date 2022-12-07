@@ -136,6 +136,12 @@ nav {
     padding: 10px;
     border-radius: 20px 0 20px 20px;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 220ms ease;
+}
+
+.sub-nav-show {
+    opacity: 1;
 }
 
 .sub-nav span {
