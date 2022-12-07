@@ -1,4 +1,4 @@
-const MOBILE_MAX_WIDTH = 970;
+const MOBILE_MAX_WIDTH = 940;
 let currentPage = '';
 
 

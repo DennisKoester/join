@@ -35,6 +35,11 @@ header {
     gap: 26px;
 }
 
+#logo-header-mobile {
+    display: none;
+    width: 32px;
+}
+
 #menu-help {
     cursor: pointer;
 }

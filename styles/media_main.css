@@ -1,4 +1,4 @@
-@media screen and (max-width: 970px) {
+@media screen and (max-width: 940px) {
     header {
         left: 0;
         padding: 0 36px;
@@ -43,5 +43,15 @@
 
     #sub-nav--help, #sub-nav--legal {
         display: unset;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    #header-tooltype {
+        display: none;
+    }
+    
+    #logo-header-mobile {
+        display: block;
     }
 }

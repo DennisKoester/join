@@ -22,7 +22,8 @@
 }
 
 .headline-tooltype {
-    font-size: 16px;
+    display: none;
+    font-size: 19px;
     margin-bottom: 20px;
 }
 
@@ -76,7 +77,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 28px 48px;
+    padding: 28px 0;
     gap: 18px;
     width: 580px;
     height: 150px;
