@@ -8,7 +8,7 @@
                 <div class="left-container ">
                     <div class="title-container">
                         <p><label for="title">Title</label></p>
-                        <input id="title" class="title-input" type="text" placeholder="Enter a title" required>
+                        <input id="title" class="input-field" type="text" placeholder="Enter a title" required>
                         <p class="required">This field is required</p>
                     </div>
                     <div class="description-container">
@@ -20,11 +20,13 @@
                     </div>
                     <div class="select-container">
                         <p><label for="categories">Category</label></p>
-                        <div id="categories" class="dropdown-container" name="category" id="category">
+                        <div id="categories" class="dropdown-container select-none" name="category" id="category">
                             <div onclick="dropDownToggle('category-dropdown', 'triangle1')" class="flex-btw selection">
                                 <span>Select task category</span>
                                 <img id="triangle1" src="./assets/img/select-triangle.svg" alt="triangle"
                                     style="padding-top: 2px;">
+                            </div>
+                            <div onclick="dropDownToggle('category-dropdown', 'triangle1')" class="dropdown-overlay">
                             </div>
                             <div id="category-dropdown" class="dropdown-menu open">
                                 <ul>
@@ -57,23 +59,25 @@
 
                     <div class="select-container">
                         <p><label for="assign">Assigned to</label></p>
-                        <div class="dropdown-container" name="assign" id="assign">
-                            <div class="input-container flex-btw selection">
-                                <input class="assign-input" type="text" placeholder="Contact email">
-                                <div class="input-btns">
-                                    <img src="./assets/img/black-x.svg" alt="">
-                                    <div class="seperator"></div>
-                                    <img src="./assets/img/black-check.svg" alt="">
-                                </div>
+                        <div id="input-contact" class="flex-btw selection input-field d-none" style="height: 51px;">
+                            <input id="assign-input" class="assign-input" type="text" placeholder="Contact email">
+                            <div class="input-btns">
+                                <img onclick="clearInputField('assign-input')" src="./assets/img/black-x.svg" alt="">
+                                <div class="seperator"></div>
+                                <img src="./assets/img/black-check.svg" alt="">
                             </div>
+                        </div>
+                        <div id="assign-dropdown-container" class="dropdown-container select-none" name="assign"
+                            id="assign">
                             <div onclick="dropDownToggle('assign-dropdown', 'triangle2')" class="flex-btw selection">
                                 <span>Select contacts to assign</span>
                                 <img id="triangle2" src="./assets/img/select-triangle.svg" alt="triangle"
                                     style="padding-top: 2px;">
                             </div>
+                            <div onclick="dropDownToggle('assign-dropdown', 'triangle2')" class="dropdown-overlay">
+                            </div>
                             <div id="assign-dropdown" class="dropdown-menu open">
                                 <ul>
-
                                     <li>
                                         <label class="flex-btw">
                                             <div>Christof</div>
@@ -92,7 +96,7 @@
                                             <input type="checkbox" id="" name="" value="subtask">
                                         </label>
                                     </li>
-                                    <li>
+                                    <li onclick="openInputContact('assign-dropdown', 'triangle2')">
                                         <label class="flex-btw">
                                             <div>Invite new contact</div>
                                             <img src="./assets/img/contact-icon.svg" alt="">

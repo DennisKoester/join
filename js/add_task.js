@@ -52,6 +52,7 @@ function prioLow() {
 function toggleClassList(id, img, classList, classList1) {
     document.getElementById(id).classList.toggle(classList);
     document.getElementById(img).classList.toggle(classList1);
+    // document.body.classList.toggle("overlay");
 }
 
 
@@ -59,6 +60,31 @@ function dropDownToggle(id, img) {
     toggleClassList(id, img, 'open', 'rotate180');
 }
 
+/* function dropDownToggle(box, id) {
+    toggleClassList(id, 'd-none');
+    document.addEventListener('click', function handleClickOutsideBox(event) {
+        let area = document.getElementById(`${box}`);
+        if (!area.contains(event.target))
+            addClassList(`${id}`, 'd-none')
+    })
+};
 
+ */
 
+function openInputContact(id, img) {
+    let inputContainer = document.getElementById('input-contact');
+    let dropdown = document.getElementById('assign-dropdown-container');
+    inputContainer.classList.remove('d-none');
+    dropdown.classList.add('d-none');
+    toggleClassList(id, img, 'open', 'rotate180');
+}
 
+function clearInputField(id) {
+    let input = document.getElementById(id);
+    let inputContainer = document.getElementById('input-contact');
+    let dropdown = document.getElementById('assign-dropdown-container');
+    input.value = '';
+    inputContainer.classList.add('d-none');
+    dropdown.classList.remove('d-none');
+
+}
