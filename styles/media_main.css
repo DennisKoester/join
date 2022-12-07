@@ -14,8 +14,12 @@
         z-index: 1;
     }
 
-    #logo-nav, #menu-legal {
+    #logo-nav, #menu-legal, #menu-help {
         display: none;
+    }
+
+    #sub-nav--help, #sub-nav--legal {
+        display: block;
     }
 
     #menu {
@@ -53,5 +57,11 @@
     
     #logo-header-mobile {
         display: block;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .nav-item {
+        font-size: 13px;
     }
 }

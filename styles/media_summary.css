@@ -41,6 +41,15 @@
     .welcome-desk {
         display: none;
     }
+
+    #summary {
+        display: flex;
+    }
+
+    #content-summary {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media screen and (max-width: 780px) {
@@ -131,7 +140,7 @@
 @media screen and (max-width: 570px) {
     #content-summary {
         margin-top: 35px;
-        margin-left: 33px;
+        /* margin-left: 33px; */
     }
 
     .headline-summary h1 {
@@ -155,17 +164,14 @@
         font-size: 47px;
     }
 
-    .label-big {
-        font-size: 14px;
-    }
-
-    .label-small {
+    .label-big, .label-small {
         font-size: 14px;
     }
 
     #sum-urgent {
         width: 360px;
         height: 110px;
+        gap: 13px;
     }
 
     #sum-urgent img {
@@ -198,5 +204,93 @@
 
     #todo img {
         height: 25px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    #content-summary {
+        margin-top: 20px;
+    }
+    .headline-tooltype {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .headline-summary h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    #headline-sub {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    #data {
+        gap: 14px;
+    }
+
+    .sum-badge {
+        border-radius: 12px;
+    }
+
+    .badge-in-progress {
+        width: 90px;
+        height: 80px;
+    }
+
+    .badge-count, .badge-count-small {
+        font-size: 32px;
+    }
+
+    .label-big, .label-small {
+        font-size: 13px;
+    }
+
+    #sum-urgent {
+        width: 320px;
+        height: 80px;
+    }
+
+    #sum-urgent img {
+        width: 35px;
+    }
+
+    #urgent-date {
+        font-size: 15px;
+    }
+
+    #urgent-separator {
+        margin: 0 16px;
+        height: 58px;
+    }
+
+    .badge-todo {
+        width: 140px;
+        height: 80px;
+        gap: 8px
+    }
+
+    .badge-todo--icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    #done img {
+        width: 22px;
+    }
+
+    #todo img {
+        height: 22px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    #sum-urgent {
+        width: 290px;
+    }
+
+    #urgent-separator {
+        margin: 0 8px;
     }
 }

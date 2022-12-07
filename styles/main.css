@@ -143,6 +143,10 @@ nav {
     cursor: pointer;
 }
 
+#sub-nav--help, #sub-nav--legal {
+    display: none;
+}
+
 /* .sub-nav span:hover {
     color: var(--dimmed);
 } */
