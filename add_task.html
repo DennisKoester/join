@@ -58,21 +58,22 @@
                     <div class="select-container">
                         <p><label for="assign">Assigned to</label></p>
                         <div class="dropdown-container" name="assign" id="assign">
-                            <div onclick="dropDownToggle('assign-dropdown', 'triangle2')" class="flex-btw selection">
-                                <div class="category-input-container">
-                                    <input class="assign-input" type="text" placeholder="Contact email">
-                                    <div>
-                                        <img src="./assets/img/clear-x.svg" alt="">
-                                        <div>middle</div>
-                                        <img src="./assets/img/create-check.svg" alt="">
-                                    </div>
+                            <div class="input-container flex-btw selection">
+                                <input class="assign-input" type="text" placeholder="Contact email">
+                                <div class="input-btns">
+                                    <img src="./assets/img/black-x.svg" alt="">
+                                    <div class="seperator"></div>
+                                    <img src="./assets/img/black-check.svg" alt="">
                                 </div>
+                            </div>
+                            <div onclick="dropDownToggle('assign-dropdown', 'triangle2')" class="flex-btw selection">
                                 <span>Select contacts to assign</span>
                                 <img id="triangle2" src="./assets/img/select-triangle.svg" alt="triangle"
                                     style="padding-top: 2px;">
                             </div>
                             <div id="assign-dropdown" class="dropdown-menu open">
                                 <ul>
+
                                     <li>
                                         <label class="flex-btw">
                                             <div>Christof</div>
@@ -91,7 +92,12 @@
                                             <input type="checkbox" id="" name="" value="subtask">
                                         </label>
                                     </li>
-
+                                    <li>
+                                        <label class="flex-btw">
+                                            <div>Invite new contact</div>
+                                            <img src="./assets/img/contact-icon.svg" alt="">
+                                        </label>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

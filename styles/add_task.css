@@ -141,10 +141,21 @@ li div:nth-child(2) {
 }
 
 .assign-input {
-    position: absolute;
-    width: 100%;
     outline: none;
     border: none;
+    padding: 0;
+}
+
+.input-btns {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.seperator {
+    width: 0px;
+    height: 31px;
+    border: 1px solid #D1D1D1;
 }
 
 .middle-container {
