@@ -110,7 +110,7 @@
 
 .sum-badge {
     display: flex;
-    border-radius: 30px;
+    border-radius: var(--border-radius-main);
     background-color: white;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
     transition: all 100ms ease-in-out;

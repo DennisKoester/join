@@ -8,12 +8,15 @@
     /* Element colors */
     --highlight: #29ABE2;
     --dimmed: #D1D1D1;
+    --border-dimmed: #A8A8A8;
 
     /* Geometry */
     --nav-width-desktop: 232px;
     --nav-hight-mobile: 80px;
     --header-hight-desktop: 90px;
     --header-hight-mobile: 80px;
+    --border-radius-main: 30px;
+    --border-radius-btn: 10px;
 
     /* Text */
     --welcome-text-size: 47px;

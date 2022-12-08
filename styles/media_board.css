@@ -1,0 +1,33 @@
+@media screen and (max-width: 1000px) {
+    #btn-add-task--main {
+    width: 51px;
+    /* height: 40px; */
+    justify-content: center;
+    }
+
+    #btn-add-task--main span {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    #headline-board {
+        flex-wrap: wrap;
+    }
+
+    #find-task-container {
+        order: 1;
+        margin-left: unset;
+        max-height: 40px;
+    }
+
+    #btn-add-task--main {
+        margin-left: auto;
+        width: 40px;
+        max-height: 40px;
+    }
+
+    #break {
+        display: block;
+    }
+}
