@@ -1,19 +1,20 @@
 .add-task-content {
     color: #000000;
     width: 100%;
-    padding: 30px;
+    /* padding: 30px; */
     max-width: 1100px;
 }
 
 .content-add-task {
-    margin-top: 52px;
+    margin-top: 23px;
     margin-left: 93px;
+    margin-right: 94px;
 }
 
 .headline-add-task {
     display: flex;
     align-items: center;
-    margin-bottom: 41px;
+    margin-bottom: 23px;
 }
 
 .left-container {
@@ -69,6 +70,7 @@ li label {
     height: 51px;
     width: 422px;
     padding: 0 21px;
+    cursor: pointer;
 }
 
 .dropdown-container {
@@ -128,11 +130,19 @@ li div:nth-child(2) {
     border: 2px solid #FFFFFF;
 }
 
+.input-field {
+    isolation: isolate;
+    min-height: 51px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+}
+
 .input-style {
     outline: none;
     border: none;
     padding: 0;
-    width: 100%;
+    width: 80%;
 }
 
 .input-btns {
@@ -150,7 +160,7 @@ li div:nth-child(2) {
     width: 19px;
 }
 
-.input-field {
+.title-field {
     position: relative;
     isolation: isolate;
     width: 422px;
@@ -158,7 +168,7 @@ li div:nth-child(2) {
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-    padding-left: 21px;
+    padding: 0 21px 0 21px;
 }
 
 .seperator {
@@ -289,9 +299,8 @@ input[type=date]:invalid::-webkit-datetime-edit {
 .subtasks-input {
     position: relative;
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
     isolation: isolate;
     width: 422px;
     height: 51px;
@@ -301,26 +310,9 @@ input[type=date]:invalid::-webkit-datetime-edit {
     border-radius: 10px;
 }
 
-.subtasks-input input {
-    padding-left: 21px;
-    gap: 10px;
-    width: 422px;
-    height: 51px;
-    background: #FFFFFF;
-    border: 1px solid #D1D1D1;
-    border-radius: 10px;
-}
-
-
 .subtask-btn {
-    position: absolute;
-    padding: 0px;
-    gap: 9px;
     width: 24px;
     height: 24px;
-    left: 381px;
-    cursor: pointer;
-    background-color: white;
 }
 
 .subtask {

@@ -3,12 +3,12 @@
         <div class="headline-add-task">
             <h1>Add Task</h1>
         </div>
-        <div class="content-containers">
-            <form action="">
+        <form action="">
+            <div class="content-containers">
                 <div class="left-container ">
                     <div class="title-container">
                         <p><label for="title">Title</label></p>
-                        <input id="title" class="input-field" type="text" placeholder="Enter a title" required>
+                        <input id="title" class="title-field" type="text" placeholder="Enter a title" required>
                         <p class="required">This field is required</p>
                     </div>
                     <div class="description-container">
@@ -156,9 +156,19 @@
                     <div class="subtask-container">
 
                         <p><label for="subtasks">Subtasks</label></p>
-                        <div class="subtasks-input">
-                            <input type="text" placeholder="Add new subtask">
-                            <img class="subtask-btn" src="./assets/img/plus.svg" alt="Plus sign">
+                        <div class="subtasks-input padding">
+                            <input onfocus="showInputBtns('input-btns', 'plus-icon' )" class="input-style" type="text"
+                                placeholder="Add new subtask">
+                            <div class="input-btns">
+                                <img id="plus-icon" class="subtask-btn" src="./assets/img/plus.svg" alt="Plus sign">
+                                <div id="input-btns" class="input-btns d-none">
+                                    <img onclick="clearInputField('subtask-input')" src="./assets/img/black-x.svg"
+                                        alt="">
+                                    <div class="seperator"></div>
+                                    <img src="./assets/img/black-check.svg" alt="">
+                                </div>
+                            </div>
+
                         </div>
 
                         <div>
@@ -174,8 +184,8 @@
                         </div>
                     </div>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
         <div class="submit-btns">
             <button class="clear-btn">Clear
                 <img src="./assets/img/clear-x.svg" alt="x icon">

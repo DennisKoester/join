@@ -49,15 +49,15 @@ function prioLow() {
 };
 
 
-function toggleClassList(id, img, classList, classList1) {
+function toggleClassList(id, icon, classList, classList1) {
     document.getElementById(id).classList.toggle(classList);
-    document.getElementById(img).classList.toggle(classList1);
+    document.getElementById(icon).classList.toggle(classList1);
     // document.body.classList.toggle("overlay");
 }
 
 
-function dropDownToggle(id, img) {
-    toggleClassList(id, img, 'open', 'rotate180');
+function dropDownToggle(id, icon) {
+    toggleClassList(id, icon, 'open', 'rotate180');
 }
 
 /* function dropDownToggle(box, id) {
@@ -72,10 +72,10 @@ function dropDownToggle(id, img) {
  */
 
 
-function showInputField(input, container, dropdown, img) {
+function showInputField(input, container, dropdown, icon) {
     document.getElementById(input).classList.remove('d-none');
     document.getElementById(container).classList.add('d-none');
-    toggleClassList(dropdown, img, 'open', 'rotate180');
+    toggleClassList(dropdown, icon, 'open', 'rotate180');
     // input.classList.remove('d-none');
     // dropdown.classList.add('d-none'); // TODO Why is that not working?!
 }
@@ -85,4 +85,10 @@ function clearInputField(input, container, dropdown) {
     document.getElementById(input).value = '';
     document.getElementById(container).classList.add('d-none');
     document.getElementById(dropdown).classList.remove('d-none');
+}
+
+function showInputBtns(btns, icon) {
+    document.getElementById(btns).classList.remove('d-none');
+    document.getElementById(icon).classList.add('d-none');
+
 }

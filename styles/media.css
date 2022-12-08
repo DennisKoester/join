@@ -1,4 +1,4 @@
-@media(max-width: 1150px) {
+@media(max-width: 1350px) {
     .content-add-task {
         margin: 0;
     }
@@ -24,4 +24,13 @@
     .right-container{
         margin-top: 14px;
     }
+
+    /* .clear-btn{
+        display: none;
+    }
+
+    .create-btn{
+        position: absolute;
+        top: -20px;
+    } */
 }
