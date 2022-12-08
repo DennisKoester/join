@@ -311,8 +311,8 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 .subtask-btn {
-    width: 24px;
-    height: 24px;
+    width: 22px !important;
+    height: 22px;
 }
 
 .subtask {

@@ -87,6 +87,7 @@ function clearInputField(input, container, dropdown) {
     document.getElementById(dropdown).classList.remove('d-none');
 }
 
+
 function showInputBtns(btns, icon) {
     document.getElementById(btns).classList.remove('d-none');
     document.getElementById(icon).classList.add('d-none');
