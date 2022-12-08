@@ -18,6 +18,10 @@
     /* Text */
     --welcome-text-size: 47px;
     --welcome-name-size: 64px;
+
+    /* Animations/Transitions */
+    --welcome-mobile-transition: 400ms;
+    --welcome-mobile-delay: 800ms;
 }
 
 * {

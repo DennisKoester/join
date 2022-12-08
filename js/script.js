@@ -1,4 +1,7 @@
 const MOBILE_MAX_WIDTH = 940;
+const WELCOME_MSG_DELAY = 800;
+const WELCOME_MSG_TRANS = 400;
+const HEADER_CTX_MENU_ANIM_TIME = 220;
 let currentPage = '';
 
 
@@ -23,6 +26,7 @@ async function init() {
  */
 function handleWelcomeOnMobile() {
     const windowWidth = window.innerWidth;
+    const delay = WELCOME_MSG_TRANS + WELCOME_MSG_DELAY + 10;
 
     if (windowWidth <= MOBILE_MAX_WIDTH) {
         const welcome = document.getElementById('welcome-mobile');
@@ -32,48 +36,46 @@ function handleWelcomeOnMobile() {
         }, 1);
         setTimeout(() => {
             welcome.classList.add('d-none');
-        }, 1250);
+        }, delay);
     }
 }
 
 
 /**
  * Displays the selected page and switches to the respective menu item
- * @param {String} id The name of the page to be displayed
+ * @param {String} clickedPage The name of the page to be displayed
  * @param {Boolean} isContext True = selected page in context menu
  */
-function openPage(id, isContext) {
-    const pageToOpen = document.getElementById(id);
+function openPage(clickedPage, isContext) {
+    const pageToOpen = document.getElementById(clickedPage);
     const pageToClose = document.getElementById(currentPage);
 
     pageToClose.classList.add('d-none');
     pageToOpen.classList.remove('d-none');
 
     if (isContext) {
-        // TODO: Close context menu
+        toggleContextMenu();
     }
-    else {
-        controlMenuHighlighting(id);
-    }
+    
+    controlMenuHighlighting(clickedPage, isContext);
+    currentPage = clickedPage;
 }
 
 
 /**
  * Switches the highlighted menu item
- * @param {String} id The name of the page to be displayed
+ * @param {String} clickedPage The name of the page to be displayed
  */
-function controlMenuHighlighting(id) {
-    const menuToActivate = document.getElementById(`menu-${id}`);
+function controlMenuHighlighting(clickedPage, isContext) {
+    const menuToActivate = document.getElementById(`menu-${clickedPage}`);
     const menuToDeactivate = document.getElementById(`menu-${currentPage}`);
 
     if (currentPage != 'help') {
         menuToDeactivate.classList.remove('nav-item-active');
     }
-    if (id != 'help') {
+    if (clickedPage != 'help' && !isContext) {
         menuToActivate.classList.add('nav-item-active');
     }
-    
-    currentPage = id;
 }
 
 
@@ -112,7 +114,7 @@ function hideCtxMenu(ctxMenu) {
     ctxMenu.classList.remove('sub-nav-show');
     setTimeout(() => {
         ctxMenu.classList.add('d-none');
-    }, 220);
+    }, HEADER_CTX_MENU_ANIM_TIME);
 }
 
 

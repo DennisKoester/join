@@ -174,7 +174,7 @@ nav {
     z-index: 1;
     background-color: var(--bg-body);
     opacity: 1;
-    transition: opacity 400ms ease-in 800ms;
+    transition: opacity var(--welcome-mobile-transition) ease-in var(--welcome-mobile-delay);
 }
 
 .welcome-mobile-fade {
