@@ -3,7 +3,7 @@ function assigneeHTML(i, assignee) {
         <li>
             <label class="flex-btw">
                 <div>${assignee}</div>
-                <input class="checkbox" type="checkbox" id="assignee${i}" name="assignee" value="">
+                <input class="checkbox" type="checkbox" id="assignee${i}" name="assignee" value="" checked>
             </label>
         </li>`
 }
@@ -17,6 +17,12 @@ function inviteContactHTML(){
              <img src="./assets/img/contact-icon.svg" alt="">
         </label>
     </li>`
+}
+
+
+function assigneeBadgeHTML(inital){
+    return /*html*/ `
+    <div class="add-task-assignee" style="background-color: magenta">${inital}</div>`
 }
 
 

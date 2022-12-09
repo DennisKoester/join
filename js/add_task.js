@@ -166,6 +166,7 @@ function inviteContact(input, container, dropdown) {
     if (assignee.value.length >= 0) {
         assignees.push(assignee.value)
         input.value = '';
+        showAssigneBadge(assignee);
     }
     renderAssignees();
     hideInputField(input, container, dropdown);
@@ -179,6 +180,12 @@ function renderAssignees() {
         list.innerHTML += assigneeHTML(i, assignee);
     }
     list.innerHTML += inviteContactHTML();
+}
+
+function showAssigneBadge(assignee){
+    let initial = assignee.value;
+    let list = document.getElementById('add-task-assignees');
+    list.innerHTML += assigneeBadgeHTML(initial);
 }
 
 

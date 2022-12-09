@@ -112,7 +112,7 @@ li div:nth-child(2) {
     gap: 21px;
 }
 
-.dot {
+.color-dot {
     width: 20px;
     height: 20px;
     border: 2px solid #FFFFFF;
@@ -125,12 +125,38 @@ li div:nth-child(2) {
     border: 2px solid #FFFFFF;
 }
 
+.add-task-assignee {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: white;
+    margin: 5px;
+}
+
+.title-field:focus{
+    outline: none !important;
+    border:1px solid gray;
+}
+
+textarea:focus{
+    outline: none !important;
+    border:1px solid gray;
+}
+
 .input-field {
     isolation: isolate;
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
     height: 51px;
+}
+
+.input-field:focus-within{
+    border: 1px solid gray;
 }
 
 .input-style {
@@ -218,6 +244,11 @@ body.overlay .dropdown-overlay {
     position: relative;
     display: flex;
     align-items: center;
+}
+
+.due-date input:focus{
+    outline: none !important;
+    border:1px solid gray;
 }
 
 .due-date-input {
@@ -314,6 +345,11 @@ input[type=date]:invalid::-webkit-datetime-edit {
     border: 1px solid #D1D1D1;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+}
+
+.subtasks-input:focus-within{
+    outline: none !important;
+    border:1px solid gray;
 }
 
 .subtask-btn {
