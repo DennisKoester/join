@@ -1,4 +1,5 @@
 let subtasks = [];
+let assignees = [];
 
 
 function prioUrgent() {
@@ -75,6 +76,8 @@ function dropDownToggle(id, icon) {
  */
 
 
+// Input Fields//
+
 function showInputField(input, container, dropdown, icon) {
     document.getElementById(input).classList.remove('d-none');
     document.getElementById(container).classList.add('d-none');
@@ -99,23 +102,6 @@ function showInputBtns(btns, icon) {
 }
 
 
-function toggleColorSelection() {
-    let selection = document.getElementById('category-colors');
-    selection.classList.toggle('d-none');
-}
-
-// function addNewColorToCategory(){
-//     let input = document.getElementById('category-input').value;
-//     let newCategory = document.getElementById('category-dropdown-container');
-//     newCategory = /*html*/ `
-//     <span>${input}</span>
-//     <div class="dot lightblue"></div>
-//     `
-
-// }
-
-
-
 // Subtask Function //
 
 function addSubtask(input, container, dropdown) {
@@ -123,9 +109,9 @@ function addSubtask(input, container, dropdown) {
     if (inputSubtask.value.length >= 1) {
         subtasks.push(inputSubtask.value);
         inputSubtask.value = '';
-        renderSubtasks();
-        hideInputField(input, container, dropdown);
     }
+    renderSubtasks();
+    hideInputField(input, container, dropdown);
 }
 
 function renderSubtasks() {
@@ -154,12 +140,46 @@ function checkSelectionSubtask(i) {
 }
 
 
-function subTaskHTML(subtask, i) {
-    return /*html*/ `
-    <div class="subtask">
-        <input onclick="checkSelectionSubtask(${i})" type="checkbox" id="subtask${i}" name="subtask" value="subtask">
-        <label for="">${subtask}</label>
-        <img onclick="deleteSubtask(${i})" src="./assets/img/black-x.svg" alt="" class="filter-btn">
-    </div>`;
+
+// Category //
+
+function toggleColorSelection() {
+    let selection = document.getElementById('category-colors');
+    selection.classList.toggle('d-none');
 }
+
+// function addNewColorToCategory(){
+//     let input = document.getElementById('category-input').value;
+//     let newCategory = document.getElementById('category-dropdown-container');
+//     newCategory = /*html*/ `
+//     <span>${input}</span>
+//     <div class="dot lightblue"></div>
+//     `
+
+// }
+
+
+// Assign //
+
+function inviteContact(input, container, dropdown) {
+    let assignee = document.getElementById(input);
+    if (assignee.value.length >= 0) {
+        assignees.push(assignee.value)
+        input.value = '';
+    }
+    renderAssignees();
+    hideInputField(input, container, dropdown);
+}
+
+function renderAssignees() {
+    let list = document.getElementById('assign-dropdown');
+    list.innerHTML = '';
+    for (let i = 0; i < assignees.length; i++) {
+        const assignee = assignees[i];
+        list.innerHTML += assigneeHTML(i, assignee);
+    }
+    list.innerHTML += inviteContactHTML();
+}
+
+
 
