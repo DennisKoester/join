@@ -331,7 +331,8 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 .subtask img {
     margin-left: auto;
-    padding-right: 25px;
+    margin-right: 25px;
+    cursor: pointer;
 }
 
 ::placeholder {

@@ -115,17 +115,18 @@ function toggleColorSelection() {
 // }
 
 
-function addSubtask() {
-    let input = document.getElementById('subtask-input');
-    subtasks.push(input.value);
-    input.value = '';
-    renderSubtasks();
-}
 
-function deleteSubtask(i) {
-    
-}
+// Subtask Function //
 
+function addSubtask(input, container, dropdown) {
+    let inputSubtask = document.getElementById('subtask-input');
+    if (inputSubtask.value.length >= 1) {
+        subtasks.push(inputSubtask.value);
+        inputSubtask.value = '';
+        renderSubtasks();
+        hideInputField(input, container, dropdown);
+    }
+}
 
 function renderSubtasks() {
     list = document.getElementById('subtask-list');
@@ -137,11 +138,28 @@ function renderSubtasks() {
 }
 
 
+function deleteSubtask(i) {
+    subtasks.splice(i, 1);
+    renderSubtasks();
+}
+
+
+function checkSelectionSubtask(i) {
+    let subtaskCheck = document.getElementById(`subtask${i}`);
+    if (subtaskCheck.checked) {
+        console.log("Checked");
+    } else {
+        console.log("Not checked");
+    }
+}
+
+
 function subTaskHTML(subtask, i) {
     return /*html*/ `
     <div class="subtask">
-        <input type="checkbox" id="" name="" value="subtask">
+        <input onclick="checkSelectionSubtask(${i})" type="checkbox" id="subtask${i}" name="subtask" value="subtask">
         <label for="">${subtask}</label>
         <img onclick="deleteSubtask(${i})" src="./assets/img/black-x.svg" alt="">
     </div>`;
 }
+

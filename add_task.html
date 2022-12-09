@@ -165,17 +165,13 @@
                                     <img onclick="hideInputField('subtask-input', 'input-btns', 'plus-icon')"
                                         src="./assets/img/black-x.svg" alt="">
                                     <div class="seperator"></div>
-                                    <img onclick="addSubtask()" src="./assets/img/black-check.svg" alt="">
+                                    <img onclick="addSubtask('subtask-input', 'input-btns', 'plus-icon')" src="./assets/img/black-check.svg" alt="">
                                 </div>
                             </div>
                         </div>
                         <div id="subtask-list" class="width-100">
                             <div class="subtask">
-                                <input type="checkbox" id="" name="" value="subtask">
-                                <label for="">Subtask</label>
-                            </div>
-                            <div class="subtask">
-                                <input type="checkbox" id="" name="" value="subtask">
+                                <input type="checkbox" id="subtask" name="subtask" value="subtask">
                                 <label for="">Subtask</label>
                                 <img onclick="deleteSubtask()"
                                 src="./assets/img/black-x.svg" alt="">
