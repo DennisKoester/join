@@ -1,3 +1,6 @@
+let subtasks = [];
+
+
 function prioUrgent() {
     let btn = document.getElementById('urgend-btn');
     let img = document.getElementById('urgent-btn-img');
@@ -81,15 +84,64 @@ function showInputField(input, container, dropdown, icon) {
 }
 
 
-function clearInputField(input, container, dropdown) {
+function hideInputField(input, container, dropdown) {
     document.getElementById(input).value = '';
     document.getElementById(container).classList.add('d-none');
     document.getElementById(dropdown).classList.remove('d-none');
+    if (input == 'category-input')
+        toggleColorSelection();
 }
 
 
 function showInputBtns(btns, icon) {
     document.getElementById(btns).classList.remove('d-none');
     document.getElementById(icon).classList.add('d-none');
+}
 
+
+function toggleColorSelection() {
+    let selection = document.getElementById('category-colors');
+    selection.classList.toggle('d-none');
+}
+
+// function addNewColorToCategory(){
+//     let input = document.getElementById('category-input').value;
+//     let newCategory = document.getElementById('category-dropdown-container');
+//     newCategory = /*html*/ `
+//     <span>${input}</span>
+//     <div class="dot lightblue"></div>
+//     `
+
+// }
+
+
+function addSubtask() {
+    let input = document.getElementById('subtask-input');
+    subtasks.push(input.value);
+    input.value = '';
+    renderSubtasks();
+}
+
+function deleteSubtask(i) {
+    
+}
+
+
+function renderSubtasks() {
+    list = document.getElementById('subtask-list');
+    list.innerHTML = '';
+    for (let i = 0; i < subtasks.length; i++) {
+        const subtask = subtasks[i];
+        list.innerHTML += subTaskHTML(subtask, i);
+    }
+}
+
+
+function subTaskHTML(subtask, i) {
+    return /*html*/ `
+    <div class="subtask">
+        <input type="checkbox" id="" name="" value="subtask">
+        <label for="">${subtask}</label>
+        <img onclick="deleteSubtask(${i})" src="./assets/img/black-x.svg" alt="">
+    </div>`;
 }

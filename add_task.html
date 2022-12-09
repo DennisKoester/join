@@ -24,7 +24,7 @@
                             style="height: 51px;">
                             <input id="category-input" class="input-style" type="text" placeholder="New category name">
                             <div class="input-btns">
-                                <img onclick="clearInputField('category-input', 'category-input-container', 'category-dropdown-container')"
+                                <img onclick="hideInputField('category-input', 'category-input-container', 'category-dropdown-container')"
                                     src="./assets/img/black-x.svg" alt="">
                                 <div class="seperator"></div>
                                 <img src="./assets/img/black-check.svg" alt="">
@@ -32,7 +32,7 @@
                         </div>
                         <div id="category-dropdown-container" class="dropdown-container select-none" name="category"
                             id="category">
-                            <div onclick="dropDownToggle('category-dropdown', 'triangle1')" class="flex-btw padding">
+                            <div id="custom-category" onclick="dropDownToggle('category-dropdown', 'triangle1')" class="flex-btw padding">
                                 <span>Select task category</span>
                                 <img id="triangle1" src="./assets/img/select-triangle.svg" alt="triangle"
                                     style="padding-top: 2px;">
@@ -42,7 +42,7 @@
                             <div id="category-dropdown" class="dropdown-menu open">
                                 <ul>
                                     <li
-                                        onclick="showInputField('category-input-container', 'category-dropdown-container', 'category-dropdown', 'triangle1')">
+                                        onclick="showInputField('category-input-container', 'category-dropdown-container', 'category-dropdown', 'triangle1'), toggleColorSelection()">
                                         <div>New Category</div>
                                     </li>
                                     <li>
@@ -56,15 +56,15 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="category-colors">
-                            <div class="dot lightblue"></div>
-                            <div class="dot blue"></div>
-                            <div class="dot turquoise"></div>
-                            <div class="dot green"></div>
-                            <div class="dot orange"></div>
-                            <div class="dot red"></div>
-                            <div class="dot lightpink"></div>
-                            <div class="dot pink"></div>
+                        <div id="category-colors" class="category-colors d-none">
+                            <div onclick="addNewColorToCategory('color0')" id="color0" class="dot lightblue"></div>
+                            <div onclick="addNewColorToCategory('color1')" id="color1" class="dot blue"></div>
+                            <div onclick="addNewColorToCategory('color2')" id="color2" class="dot turquoise"></div>
+                            <div onclick="addNewColorToCategory('color3')" id="color3" class="dot green"></div>
+                            <div onclick="addNewColorToCategory('color4')" id="color4" class="dot orange"></div>
+                            <div onclick="addNewColorToCategory('color5')" id="color5" class="dot red"></div>
+                            <div onclick="addNewColorToCategory('color6')" id="color6" class="dot lightpink"></div>
+                            <div onclick="addNewColorToCategory('color7')" id="color7" class="dot pink"></div>
                         </div>
                         <p class="required">This field is required</p>
                     </div>
@@ -75,7 +75,7 @@
                             style="height: 51px;">
                             <input id="assign-input" class="input-style" type="text" placeholder="Contact email">
                             <div class="input-btns">
-                                <img onclick="clearInputField('assign-input', 'assign-input-container', 'assign-dropdown-container')"
+                                <img onclick="hideInputField('assign-input', 'assign-input-container', 'assign-dropdown-container')"
                                     src="./assets/img/black-x.svg" alt="">
                                 <div class="seperator"></div>
                                 <img src="./assets/img/black-check.svg" alt="">
@@ -154,7 +154,6 @@
                         </div>
                     </div>
                     <div class="subtask-container">
-
                         <p><label for="subtasks">Subtasks</label></p>
                         <div class="subtasks-input padding">
                             <input id="subtask-input" onfocus="showInputBtns('input-btns', 'plus-icon' )"
@@ -163,24 +162,23 @@
                                 <img onclick="showInputBtns('input-btns', 'plus-icon' )" id="plus-icon"
                                     class="subtask-btn" src="./assets/img/plus.svg" alt="Plus sign">
                                 <div id="input-btns" class="input-btns d-none">
-                                    <img onclick="clearInputField('subtask-input', 'input-btns', 'plus-icon')"
+                                    <img onclick="hideInputField('subtask-input', 'input-btns', 'plus-icon')"
                                         src="./assets/img/black-x.svg" alt="">
                                     <div class="seperator"></div>
-                                    <img src="./assets/img/black-check.svg" alt="">
+                                    <img onclick="addSubtask()" src="./assets/img/black-check.svg" alt="">
                                 </div>
                             </div>
-
                         </div>
-
-                        <div>
-
+                        <div id="subtask-list" class="width-100">
                             <div class="subtask">
                                 <input type="checkbox" id="" name="" value="subtask">
-                                <label for="">Subtask</label><br>
+                                <label for="">Subtask</label>
                             </div>
                             <div class="subtask">
                                 <input type="checkbox" id="" name="" value="subtask">
-                                <label for="">Subtask</label><br>
+                                <label for="">Subtask</label>
+                                <img onclick="deleteSubtask()"
+                                src="./assets/img/black-x.svg" alt="">
                             </div>
                         </div>
                     </div>
