@@ -112,7 +112,7 @@
     display: flex;
     border-radius: var(--border-radius-main);
     background-color: white;
-    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-badge);
     transition: all 100ms ease-in-out;
     cursor: pointer;
 }

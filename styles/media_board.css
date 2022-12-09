@@ -1,11 +1,11 @@
 @media screen and (max-width: 1000px) {
-    #btn-add-task--main {
+    #btn-add-task {
     width: 51px;
     /* height: 40px; */
     justify-content: center;
     }
 
-    #btn-add-task--main span {
+    #btn-add-task span {
         display: none;
     }
 }
@@ -21,7 +21,7 @@
         max-height: 40px;
     }
 
-    #btn-add-task--main {
+    #btn-add-task {
         margin-left: auto;
         width: 40px;
         max-height: 40px;

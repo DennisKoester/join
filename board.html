@@ -1,4 +1,5 @@
 <div id="content-board">
+    <span class="headline-tooltype">Kanban Project Management Tool</span>
     <div id="headline-board">
         <h1>Board</h1>
         <div id="find-task-container">
@@ -6,7 +7,7 @@
             <div id="find-task--separator"></div>
             <img id="find-task--symb" src="./assets/img/search_icon.svg" alt="search">
         </div>
-        <div id="btn-add-task--main">
+        <div id="btn-add-task">
             <span>Add Task</span>
             <img src="./assets/img/plus.svg" alt="add task">
         </div>
@@ -15,20 +16,40 @@
     <div id="tasks-overview">
         <div class="tasks-status">
             <div class="task-status-title">
-                <span>To do</span>
-                <div><img src="./assets/img/plus.svg" alt="add task"></div>
+                <span class="task-status-title--text">To do</span>
+                <div class="task-status-title--addtask"><img src="./assets/img/plus.svg" alt="add task"></div>
             </div>
             <div id="tasks-todo" class="tasks-list">
-                <div id="todo-0" class="task-card"></div>
+                <div class="no-task">No tasks to do</div>
+                <div id="todo-0" class="task-card">
+                    <div class="task-cat" style="background-color: orange">Category</div>
+                    <div class="task-title">Task title</div>
+                    <div class="task-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, dignissimos nihil qui perferendis, praesentium delectus eum dolorem quo sunt tenetur earum et aliquid corrupti? Nihil ullam excepturi ut dolorem accusamus.</div>
+                    <div class="progress-container">
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar" style="width: 30%"></div>
+                        </div>
+                        <span class="progress-text">1/3 Done</span>
+                    </div>
+                    <div class="task-card--footer">
+                        <div class="assignees">
+                            <div class="assignee" style="background-color: pink">AB</div>
+                            <div class="assignee" style="background-color: green">AB</div>
+                            <div class="assignee" style="background-color: var(--bg-color-main)">+3</div>
+                        </div>
+                        <img src="./assets/img/low.svg" alt="priority low">
+                    </div>
+                </div>
                 <div id="todo-1" class="task-card"></div>
             </div>
         </div>
         <div class="tasks-status">
             <div class="task-status-title">
-                <span>In Progress</span>
-                <div><img src="./assets/img/plus.svg" alt="add task"></div>
+                <span class="task-status-title--text">In Progress</span>
+                <div class="task-status-title--addtask"><img src="./assets/img/plus.svg" alt="add task"></div>
             </div>
             <div id="tasks-progress" class="tasks-list">
+                <div class="no-task">No tasks in progress</div>
                 <div id="progress-0" class="task-card"></div>
                 <div id="progress-1" class="task-card"></div>
                 <div id="progress-2" class="task-card"></div>
@@ -36,19 +57,21 @@
         </div>
         <div class="tasks-status">
             <div class="task-status-title">
-                <span>Awaiting Feedback</span>
-                <div><img src="./assets/img/plus.svg" alt="add task"></div>
+                <span class="task-status-title--text">Awaiting Feedback</span>
+                <div class="task-status-title--addtask"><img src="./assets/img/plus.svg" alt="add task"></div>
             </div>
             <div id="tasks-feedback" class="tasks-list">
+                <div class="no-task">No tasks awaiting feedback</div>
                 <div id="feedback-0" class="task-card"></div>
             </div>
         </div>
         <div class="tasks-status">
             <div class="task-status-title">
-                <span>Done</span>
-                <div><img src="./assets/img/plus.svg" alt="add task"></div>
+                <span class="task-status-title--text">Done</span>
+                <div class="task-status-title--addtask"><img src="./assets/img/plus.svg" alt="add task"></div>
             </div>
             <div id="tasks-done" class="tasks-list">
+                <div class="no-task">No tasks done</div>
                 <div id="done-0" class="task-card"></div>
             </div>
         </div>
