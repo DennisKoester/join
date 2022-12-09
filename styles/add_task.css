@@ -1,7 +1,6 @@
 .add-task-content {
     color: #000000;
     width: 100%;
-    /* padding: 30px; */
     max-width: 1100px;
 }
 
@@ -23,7 +22,7 @@
     align-items: flex-start;
     padding: 0px;
     gap: 14px;
-    width: 422px;
+    width: 100%;
 }
 
 p {
@@ -44,7 +43,6 @@ p {
     padding: 18px 21px;
     gap: 10px;
     isolation: isolate;
-    width: 422px;
     min-height: 119px;
     height: 119px;
     background: #FFFFFF;
@@ -58,7 +56,7 @@ p {
     align-items: flex-start;
     padding: 0px;
     gap: 8px;
-    width: 422px;
+    width: 100%;
     font-weight: 400;
     font-size: 21px;
     line-height: 120%;
@@ -68,7 +66,6 @@ li label {
     display: flex;
     justify-content: space-between;
     height: 51px;
-    width: 422px;
     padding: 0 21px;
     cursor: pointer;
 }
@@ -76,8 +73,6 @@ li label {
 .dropdown-container {
     position: relative;
     isolation: isolate;
-    width: 422px;
-    min-height: 51px;
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
@@ -97,7 +92,7 @@ ul {
 }
 
 li {
-    width: 422px;
+    width: 100%;
     height: 51px;
     display: flex;
     align-items: center;
@@ -132,10 +127,10 @@ li div:nth-child(2) {
 
 .input-field {
     isolation: isolate;
-    min-height: 51px;
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
+    height: 51px;
 }
 
 .input-style {
@@ -163,12 +158,11 @@ li div:nth-child(2) {
 .title-field {
     position: relative;
     isolation: isolate;
-    width: 422px;
-    min-height: 51px;
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
     padding: 0 21px 0 21px;
+    height: 51px;
 }
 
 .seperator {
@@ -198,7 +192,15 @@ body.overlay .dropdown-overlay {
     position: relative;
 }
 
+.checkbox {
+    accent-color: white;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}
+
 .middle-container {
+    margin: 0 59px 0 59px;
     width: 0px;
     border: 1px solid #D1D1D1;
 }
@@ -207,7 +209,7 @@ body.overlay .dropdown-overlay {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    width: 422px;
+    width: 100%;
     padding: 0px;
     gap: 14px;
 }
@@ -222,10 +224,9 @@ body.overlay .dropdown-overlay {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 21px;
+    padding: 0 21px;
     gap: 10px;
     isolation: isolate;
-    width: 422px;
     height: 51px;
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
@@ -247,7 +248,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
 .prio-container {
     padding: 0px;
     gap: 8px;
-    width: 422px;
+    width: 100%;
     height: 113px;
 
 }
@@ -267,7 +268,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     align-items: center;
     padding: 18px 10px;
     gap: 10px;
-    width: 136px;
+    width: 33%;
     height: 51px;
     background-color: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
@@ -293,7 +294,12 @@ input[type=date]:invalid::-webkit-datetime-edit {
     align-items: flex-start;
     padding: 0px;
     gap: 8px;
-    width: 422px;
+    width: 100%;
+}
+
+.subtask-list {
+    max-height: 208px;
+    overflow: auto;
 }
 
 .subtasks-input {
@@ -302,7 +308,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     justify-content: space-between;
     align-items: center;
     isolation: isolate;
-    width: 422px;
+    width: 100%;
     height: 51px;
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
@@ -363,7 +369,6 @@ select {
 
 .content-containers {
     display: flex;
-    justify-content: space-between;
 }
 
 .submit-btns {
@@ -419,6 +424,10 @@ select {
 
 .clear-btn:active img {
     filter: none;
+}
+
+.filter-btn:hover {
+    filter: invert(59%) sepia(97%) saturate(1585%) hue-rotate(165deg) brightness(93%) contrast(90%);
 }
 
 .create-btn {
@@ -490,6 +499,10 @@ select {
 
 .width-100 {
     width: 100%;
+}
+
+.height49 {
+    height: 49px;
 }
 
 /* Colors */

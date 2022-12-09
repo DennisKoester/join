@@ -1,38 +1,40 @@
 <div id="content-add-task" class="content-add-task">
     <div id="add-task-content" class="add-task-content">
         <div class="headline-add-task">
+            <h3 style="display: none;">Kanban Project Management Tool</h3>
             <h1>Add Task</h1>
         </div>
         <form action="">
             <div class="content-containers">
                 <div class="left-container ">
-                    <div class="title-container">
+                    <div class="title-container width-100">
                         <p><label for="title">Title</label></p>
-                        <input id="title" class="title-field" type="text" placeholder="Enter a title" required>
+                        <input id="title" class="title-field width-100" type="text" placeholder="Enter a title"
+                            required>
                         <p class="required">This field is required</p>
                     </div>
-                    <div class="description-container">
+                    <div class="description-container width-100">
                         <p><label for="description">Description</label></p>
-                        <textarea id="description" class="description-area" name="description" id="description"
-                            cols="30" rows="10" placeholder="Enter a description" required
+                        <textarea id="description" class="description-area width-100" name="description"
+                            id="description" cols="30" rows="10" placeholder="Enter a description" required
                             style="resize: vertical;"></textarea>
                         <p class="required">This field is required</p>
                     </div>
                     <div class="select-container">
                         <p><label for="categories">Category</label></p>
-                        <div id="category-input-container" class="flex-btw padding input-field d-none"
-                            style="height: 51px;">
+                        <div id="category-input-container" class="input-field flex-btw padding d-none">
                             <input id="category-input" class="input-style" type="text" placeholder="New category name">
                             <div class="input-btns">
                                 <img onclick="hideInputField('category-input', 'category-input-container', 'category-dropdown-container')"
-                                    src="./assets/img/black-x.svg" alt="">
+                                    src="./assets/img/black-x.svg" alt="" class="filter-btn">
                                 <div class="seperator"></div>
-                                <img src="./assets/img/black-check.svg" alt="">
+                                <img src="./assets/img/black-check.svg" alt="" class="filter-btn">
                             </div>
                         </div>
-                        <div id="category-dropdown-container" class="dropdown-container select-none" name="category"
-                            id="category">
-                            <div id="custom-category" onclick="dropDownToggle('category-dropdown', 'triangle1')" class="flex-btw padding">
+                        <div id="category-dropdown-container" class="dropdown-container select-none width-100"
+                            name="category" id="category">
+                            <div id="custom-category" onclick="dropDownToggle('category-dropdown', 'triangle1')"
+                                class="flex-btw padding height49">
                                 <span>Select task category</span>
                                 <img id="triangle1" src="./assets/img/select-triangle.svg" alt="triangle"
                                     style="padding-top: 2px;">
@@ -71,18 +73,17 @@
 
                     <div class="select-container">
                         <p><label for="assign">Assigned to</label></p>
-                        <div id="assign-input-container" class="flex-btw padding input-field d-none"
-                            style="height: 51px;">
+                        <div id="assign-input-container" class="input-field flex-btw padding d-none">
                             <input id="assign-input" class="input-style" type="text" placeholder="Contact email">
                             <div class="input-btns">
                                 <img onclick="hideInputField('assign-input', 'assign-input-container', 'assign-dropdown-container')"
-                                    src="./assets/img/black-x.svg" alt="">
+                                    src="./assets/img/black-x.svg" alt="" class="filter-btn">
                                 <div class="seperator"></div>
-                                <img src="./assets/img/black-check.svg" alt="">
+                                <img src="./assets/img/black-check.svg" alt="" class="filter-btn">
                             </div>
                         </div>
-                        <div id="assign-dropdown-container" class="dropdown-container select-none">
-                            <div onclick="dropDownToggle('assign-dropdown', 'triangle2')" class="flex-btw padding">
+                        <div id="assign-dropdown-container" class="dropdown-container select-none width-100">
+                            <div onclick="dropDownToggle('assign-dropdown', 'triangle2')" class="flex-btw padding height49">
                                 <span>Select contacts to assign</span>
                                 <img id="triangle2" src="./assets/img/select-triangle.svg" alt="triangle"
                                     style="padding-top: 2px;">
@@ -94,19 +95,19 @@
                                     <li>
                                         <label class="flex-btw">
                                             <div>Christof</div>
-                                            <input type="checkbox" id="" name="" value="subtask">
+                                            <input class="checkbox" type="checkbox" id="" name="" value="subtask">
                                         </label>
                                     </li>
                                     <li>
                                         <label class="flex-btw">
                                             <div>Mario</div>
-                                            <input type="checkbox" id="" name="" value="subtask">
+                                            <input class="checkbox" type="checkbox" id="" name="" value="subtask">
                                         </label>
                                     </li>
                                     <li>
                                         <label class="flex-btw">
                                             <div>Dennis</div>
-                                            <input type="checkbox" id="" name="" value="subtask">
+                                            <input class="checkbox" type="checkbox" id="" name="" value="subtask">
                                         </label>
                                     </li>
                                     <li
@@ -126,11 +127,11 @@
                 <div class="middle-container"></div>
 
                 <div class="right-container">
-                    <div>
+                    <div class="width-100">
                         <p><label for="due-date">Due date</label></p>
                         <div class="due-date">
-                            <input id="date-input" class="due-date-input" type="date" name="due-date" id="due-date"
-                                required placeholder="dd/mm/yyyy">
+                            <input id="date-input" class="due-date-input width-100" type="date" name="due-date"
+                                id="due-date" required placeholder="dd/mm/yyyy">
                         </div>
                         <p class="required">This field is required</p>
                     </div>
@@ -163,20 +164,14 @@
                                     class="subtask-btn" src="./assets/img/plus.svg" alt="Plus sign">
                                 <div id="input-btns" class="input-btns d-none">
                                     <img onclick="hideInputField('subtask-input', 'input-btns', 'plus-icon')"
-                                        src="./assets/img/black-x.svg" alt="">
+                                        src="./assets/img/black-x.svg" alt="" class="filter-btn">
                                     <div class="seperator"></div>
-                                    <img onclick="addSubtask('subtask-input', 'input-btns', 'plus-icon')" src="./assets/img/black-check.svg" alt="">
+                                    <img onclick="addSubtask('subtask-input', 'input-btns', 'plus-icon')"
+                                        src="./assets/img/black-check.svg" alt="" class="filter-btn">
                                 </div>
                             </div>
                         </div>
-                        <div id="subtask-list" class="width-100">
-                            <div class="subtask">
-                                <input type="checkbox" id="subtask" name="subtask" value="subtask">
-                                <label for="">Subtask</label>
-                                <img onclick="deleteSubtask()"
-                                src="./assets/img/black-x.svg" alt="">
-                            </div>
-                        </div>
+                        <div id="subtask-list" class="subtask-list width-100"></div>
                     </div>
                 </div>
             </div>
@@ -186,6 +181,9 @@
                 <img src="./assets/img/clear-x.svg" alt="x icon">
             </button>
             <button class="create-btn">Create Task
+                <img src="./assets/img/create-check.svg" alt="check icon">
+            </button> 
+            <button class="create-btn mobile-btn" style="display: none;">Create
                 <img src="./assets/img/create-check.svg" alt="check icon">
             </button>
         </div>

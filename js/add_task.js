@@ -159,7 +159,7 @@ function subTaskHTML(subtask, i) {
     <div class="subtask">
         <input onclick="checkSelectionSubtask(${i})" type="checkbox" id="subtask${i}" name="subtask" value="subtask">
         <label for="">${subtask}</label>
-        <img onclick="deleteSubtask(${i})" src="./assets/img/black-x.svg" alt="">
+        <img onclick="deleteSubtask(${i})" src="./assets/img/black-x.svg" alt="" class="filter-btn">
     </div>`;
 }
 
