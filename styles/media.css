@@ -17,6 +17,7 @@
     .add-task-content {
         width: 90%;
         margin: auto;
+        margin-top: 10px;
     }
 
     .headline {
@@ -105,5 +106,11 @@
 
     .subtasks-input {
         height: 41px;
+    }
+}
+
+@media(max-width: 380px){
+    .prio-btns-container{
+        flex-direction: column;
     }
 }

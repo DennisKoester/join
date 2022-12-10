@@ -171,7 +171,7 @@ function renderCategories() {
 }
 
 
-function categoryHTML(category, color){
+function categoryHTML(category, color) {
     return /*html*/ `
         <li>
             <div>${category}</div>
@@ -180,14 +180,14 @@ function categoryHTML(category, color){
 }
 
 
-function addCategoryHTML(){
-     return /*html*/ `
+function addCategoryHTML() {
+    return /*html*/ `
         <li onclick="showInputField('category-input-container', 'category-dropdown-container', 'category-dropdown', 'triangle1'), toggleColorSelection()">
             <div>New Category</div>
         </li>`
 }
 
-function addNewColorToCategory(id){
+function addNewColorToCategory(id) {
     let color = id;
     console.log(color);
     return color;
@@ -233,7 +233,7 @@ function showAssigneBadge(assignee) {
     list.innerHTML += assigneeBadgeHTML(initial);
 }
 
-function getDate(){
+function getDate() {
     let input = document.getElementById('date-input');
     let date = new Date(input.value);
     // console.log (date.toLocaleDateString('de-DE')); 

@@ -9,8 +9,8 @@ function assigneeHTML(assignee) {
 }
 
 
-function inviteContactHTML(){
- return /*html*/ `
+function inviteContactHTML() {
+    return /*html*/ `
     <li onclick="showInputField('assign-input-container', 'assign-dropdown-container', 'assign-dropdown', 'triangle2')">
         <label class="flex-btw">
             <div>Invite new contact</div>
@@ -20,7 +20,7 @@ function inviteContactHTML(){
 }
 
 
-function assigneeBadgeHTML(inital){
+function assigneeBadgeHTML(inital) {
     return /*html*/ `
     <div class="add-task-assignee" style="background-color: magenta">${inital}</div>`
 }

@@ -137,14 +137,14 @@ li div:nth-child(2) {
     margin: 5px;
 }
 
-.title-field:focus{
+.title-field:focus {
     outline: none !important;
-    border:1px solid gray;
+    border: 1px solid gray;
 }
 
-textarea:focus{
+textarea:focus {
     outline: none !important;
-    border:1px solid gray;
+    border: 1px solid gray;
 }
 
 .input-field {
@@ -155,7 +155,7 @@ textarea:focus{
     height: 51px;
 }
 
-.input-field:focus-within{
+.input-field:focus-within {
     border: 1px solid gray;
 }
 
@@ -246,9 +246,9 @@ body.overlay .dropdown-overlay {
     align-items: center;
 }
 
-.due-date input:focus{
+.due-date input:focus {
     outline: none !important;
-    border:1px solid gray;
+    border: 1px solid gray;
 }
 
 .due-date-input {
@@ -280,8 +280,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
     padding: 0px;
     gap: 8px;
     width: 100%;
-    height: 113px;
-
 }
 
 .prio-btns-container {
@@ -323,6 +321,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-top: 25px;
     padding: 0px;
     gap: 8px;
     width: 100%;
@@ -347,9 +346,9 @@ input[type=date]:invalid::-webkit-datetime-edit {
     border-radius: 10px;
 }
 
-.subtasks-input:focus-within{
+.subtasks-input:focus-within {
     outline: none !important;
-    border:1px solid gray;
+    border: 1px solid gray;
 }
 
 .subtask-btn {
