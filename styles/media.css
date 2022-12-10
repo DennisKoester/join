@@ -109,8 +109,16 @@
     }
 }
 
-@media(max-width: 380px){
-    .prio-btns-container{
+@media(max-width: 380px) {
+    .prio-btns-container {
         flex-direction: column;
+    }
+
+    .prio-btn {
+        width: 100%;
+    }
+
+    .subtask-container {
+        margin-top: 0;
     }
 }
