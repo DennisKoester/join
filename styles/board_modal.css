@@ -8,12 +8,16 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.6);
-    opacity: 0;
+    /* opacity: 0; */
     transition: opacity 350ms ease-out;
+    z-index: 1000;
+    font-size: 21px;
 }
 
-#modal-content {
+.modal-task-content {
     position: relative;
+    width: 625px;
+    height: 825px;
     max-width: 625px;
     max-height: 825px;
     overflow-y: auto;
@@ -26,11 +30,30 @@
     gap: 25px;
 }
 
-#modal-task-close {
+#btn-edit-task {
+    position: absolute;
+    right: 40px;
+    bottom: 30px;
+    width: 57px;
+    height: 57px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color-main);
+    border-radius: var(--border-radius-btn);
+    cursor: pointer;
+}
+
+#btn-edit-task img {
+    width: 25px;
+}
+
+.modal-task-close {
     position: absolute;
     top: 35px;
     right: 35px;
     width: 25px;
+    cursor: pointer;
 }
 
 #modal-task-cat {
@@ -40,6 +63,8 @@
     width: max-content;
     border-radius: 8px;
     padding: 4px 37px 4px 37px;
+    color: white;
+    font-size: 27px;
 }
 
 #modal-task-title {
@@ -48,6 +73,79 @@
     color: var(--bg-color-main);
 }
 
-#modal-task-desc {
+/* #modal-task-desc {
     font-size: 21px;
+} */
+
+.modal-task-metadata {
+    display: flex;
+    align-items: center;
+    gap: 25px
+}
+
+.modal-task-item-title {
+    /* font-size: 21px; */
+    font-weight: 700;
+}
+
+/* .modal-task-item-value {
+    font-size: 21px;
+} */
+
+#modal-task-prio {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    background-color: orange;
+    padding: 4px 18px;
+    border-radius: var(--border-radius-btn);
+    /* font-size: 21px; */
+}
+
+#modal-task-prio-img {
+    width: 17px;
+}
+
+#modal-task-assignees {
+    display: flex;
+    flex-direction: column;
+    gap: inherit;
+}
+
+.modal-task-assignees-item {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.modal-task-assignee {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+    border: none;
+    margin: unset;
+}
+
+#modal-task-edit {
+    padding: 50px 100px;
+}
+
+#btn-task-edit-ok {
+    position: absolute;
+    right: 40px;
+    bottom: 30px;
+    display: flex;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+    font-weight: 700;
+    color: white;
+    background-color: var(--bg-color-main);
+    border-radius: var(--border-radius-btn);
+    cursor: pointer;
+}
+
+#btn-task-edit-ok img {
+    width: 20px;
 }

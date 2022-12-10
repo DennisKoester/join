@@ -78,13 +78,67 @@
     </div>
 
     <!-- MODAL -->
-    <div id="modal-task" class="d-none">
-        <div id="modal-content">
-            <img id="modal-task-close" src="./assets/img/black-x.svg" alt="close">
+    <div id="modal-task" class="/*d-none*/">
+        <div id="modal-task-display" class="modal-task-content">
+            <img class="modal-task-close" src="./assets/img/black-x.svg" alt="close">
+            <div id="btn-edit-task">
+                <img src="./assets/img/symb_todo.svg" alt="edit">
+            </div>
             <div id="modal-task-cat" style="background-color: orange">Category</div>
             <div id="modal-task-title">Title</div>
             <div id="modal-task-desc">This is the description of the task.</div>
-            
+            <div class="modal-task-metadata">
+                <div class="modal-task-item-title">Due date:</div>
+                <div id="modal-task-date">01.01.2000</div>
+            </div>
+            <div class="modal-task-metadata">
+                <div class="modal-task-item-title">Priority:</div>
+                <div id="modal-task-prio">
+                    <span id="modal-task-prio-text">Urgent</span>
+                    <img id="modal-task-prio-img" src="./assets/img/urgent-white.svg" alt="urgent">
+                </div>
+            </div>
+            <div class="modal-task-item-title">Assigned to:</div>
+            <div id="modal-task-assignees">
+                <div class="modal-task-assignees-item">
+                    <div class="assignee modal-task-assignee" style="background-color: cyan">AB</div>
+                    <span>Aalbert Behringer</span>
+                </div>
+                <div class="modal-task-assignees-item">
+                    <div class="assignee modal-task-assignee" style="background-color: green">CD</div>
+                    <span>Cebert Degen</span>
+                </div>
+                <div class="modal-task-assignees-item">
+                    <div class="assignee modal-task-assignee" style="background-color: blue">EF</div>
+                    <span>Elfi Feger</span>
+                </div>
+                <div class="modal-task-assignees-item">
+                    <div class="assignee modal-task-assignee" style="background-color: magenta">GH</div>
+                    <span>Geraldine Haas</span>
+                </div>
+            </div>
+        </div>
+        <div id="modal-task-edit" class="modal-task-content">
+            <img class="modal-task-close" src="./assets/img/black-x.svg" alt="close">
+            <form action="">
+                <div id="btn-task-edit-ok">
+                    <span>Ok</span>
+                    <img src="./assets/img/symb_done.svg" alt="ok">
+                </div>
+                <div class="title-container width-100">
+                    <p><label for="edit-title">Title</label></p>
+                    <input id="edit-title" class="title-field width-100" type="text" placeholder="Enter a title"
+                        required>
+                    <p class="required">This field is required</p>
+                </div>
+                <div class="description-container width-100">
+                    <p><label for="edit-description">Description</label></p>
+                    <textarea id="edit-description" class="description-area width-100" name="description"
+                        cols="30" rows="10" placeholder="Enter a description" required
+                        style="resize: vertical;"></textarea>
+                    <p class="required">This field is required</p>
+                </div>
+            </form>
         </div>
     </div>
 </div>
