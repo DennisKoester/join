@@ -28,7 +28,7 @@
                                 <img onclick="hideInputField('category-input', 'category-input-container', 'category-dropdown-container')"
                                     src="./assets/img/black-x.svg" alt="" class="filter-btn">
                                 <div class="seperator"></div>
-                                <img src="./assets/img/black-check.svg" alt="" class="filter-btn">
+                                <img onclick="addNewCategory('category-input', 'category-input-container', 'category-dropdown-container')" src="./assets/img/black-check.svg" alt="" class="filter-btn">
                             </div>
                         </div>
                         <div id="category-dropdown-container" class="dropdown-container select-none width-100"
@@ -42,9 +42,8 @@
                             <div onclick="dropDownToggle('category-dropdown', 'triangle1')" class="dropdown-overlay">
                             </div>
                             <div id="category-dropdown" class="dropdown-menu open">
-                                <ul>
-                                    <li
-                                        onclick="showInputField('category-input-container', 'category-dropdown-container', 'category-dropdown', 'triangle1'), toggleColorSelection()">
+                                <ul id="category-list">
+                                    <li onclick="showInputField('category-input-container', 'category-dropdown-container', 'category-dropdown', 'triangle1'), toggleColorSelection()">
                                         <div>New Category</div>
                                     </li>
                                     <li>
@@ -59,14 +58,14 @@
                             </div>
                         </div>
                         <div id="category-colors" class="category-colors d-none">
-                            <div onclick="addNewColorToCategory('color0')" id="color0" class="dot lightblue"></div>
-                            <div onclick="addNewColorToCategory('color1')" id="color1" class="dot blue"></div>
-                            <div onclick="addNewColorToCategory('color2')" id="color2" class="dot turquoise"></div>
-                            <div onclick="addNewColorToCategory('color3')" id="color3" class="dot green"></div>
-                            <div onclick="addNewColorToCategory('color4')" id="color4" class="dot orange"></div>
-                            <div onclick="addNewColorToCategory('color5')" id="color5" class="dot red"></div>
-                            <div onclick="addNewColorToCategory('color6')" id="color6" class="dot lightpink"></div>
-                            <div onclick="addNewColorToCategory('color7')" id="color7" class="dot pink"></div>
+                            <div onclick="addNewColorToCategory('lightblue')" id="color0" class="color-dot lightblue"></div>
+                            <div onclick="addNewColorToCategory('blue')" id="color1" class="color-dot blue"></div>
+                            <div onclick="addNewColorToCategory('turquoise')" id="color2" class="color-dot turquoise"></div>
+                            <div onclick="addNewColorToCategory('green')" id="color3" class="color-dot green"></div>
+                            <div onclick="addNewColorToCategory('orange')" id="color4" class="color-dot orange"></div>
+                            <div onclick="addNewColorToCategory('red')" id="color5" class="color-dot red"></div>
+                            <div onclick="addNewColorToCategory('lightpink')" id="color6" class="color-dot lightpink"></div>
+                            <div onclick="addNewColorToCategory('pink')" id="color7" class="color-dot pink"></div>
                         </div>
                         <p class="required">This field is required</p>
                     </div>
@@ -93,7 +92,7 @@
                             <div onclick="dropDownToggle('assign-dropdown', 'triangle2')" class="dropdown-overlay">
                             </div>
                             <div id="assign-dropdown" class="dropdown-menu open">
-                                <ul>
+                                <ul id="assign-list">
                                     <li
                                         onclick="showInputField('assign-input-container', 'assign-dropdown-container', 'assign-dropdown', 'triangle2')">
                                         <label class="flex-btw">

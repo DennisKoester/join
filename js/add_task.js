@@ -1,5 +1,6 @@
 let subtasks = [];
 let assignees = [];
+let categories = [];
 
 
 function prioUrgent() {
@@ -83,7 +84,7 @@ function showInputField(input, container, dropdown, icon) {
     document.getElementById(container).classList.add('d-none');
     toggleClassList(dropdown, icon, 'open', 'rotate180');
     // input.classList.remove('d-none');
-    // dropdown.classList.add('d-none'); // TODO Why is that not working?!
+    // container.classList.add('d-none'); // TODO Why is that not working?!
 }
 
 
@@ -140,12 +141,56 @@ function checkSelectionSubtask(i) {
 }
 
 
-
 // Category //
 
 function toggleColorSelection() {
     let selection = document.getElementById('category-colors');
     selection.classList.toggle('d-none');
+}
+
+
+function addNewCategory(input, container, dropdown) {
+    let category = document.getElementById(input);
+    if (category.value.length >= 0) {
+        categories.push(category.value)
+        input.value = '';
+    }
+    renderCategories();
+    hideInputField(input, container, dropdown);
+}
+
+
+function renderCategories() {
+    let list = document.getElementById('category-list');
+    list.innerHTML = '';
+    for (let i = 0; i < categories.length; i++) {
+        const category = categories[i];
+        list.innerHTML += categoryHTML(category, color);
+    }
+    list.innerHTML += addCategoryHTML();
+}
+
+
+function categoryHTML(category, color){
+    return /*html*/ `
+        <li>
+            <div>${category}</div>
+            <div class="color-dot ${color}"></div>
+        </li>`
+}
+
+
+function addCategoryHTML(){
+     return /*html*/ `
+        <li onclick="showInputField('category-input-container', 'category-dropdown-container', 'category-dropdown', 'triangle1'), toggleColorSelection()">
+            <div>New Category</div>
+        </li>`
+}
+
+function addNewColorToCategory(id){
+    let color = id;
+    console.log(color);
+    return color;
 }
 
 // function addNewColorToCategory(){
@@ -173,20 +218,29 @@ function inviteContact(input, container, dropdown) {
 }
 
 function renderAssignees() {
-    let list = document.getElementById('assign-dropdown');
+    let list = document.getElementById('assign-list');
     list.innerHTML = '';
     for (let i = 0; i < assignees.length; i++) {
         const assignee = assignees[i];
-        list.innerHTML += assigneeHTML(i, assignee);
+        list.innerHTML += assigneeHTML(assignee);
     }
     list.innerHTML += inviteContactHTML();
 }
 
-function showAssigneBadge(assignee){
+function showAssigneBadge(assignee) {
     let initial = assignee.value;
     let list = document.getElementById('add-task-assignees');
     list.innerHTML += assigneeBadgeHTML(initial);
 }
 
+function getDate(){
+    let input = document.getElementById('date-input');
+    let date = new Date(input.value);
+    // console.log (date.toLocaleDateString('de-DE')); 
+}
+
+/* function checkForRequiered(){
+    check json for values and then add the requieredHTML template to the specific fields
+} */
 
 

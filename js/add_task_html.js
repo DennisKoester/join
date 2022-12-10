@@ -1,9 +1,9 @@
-function assigneeHTML(i, assignee) {
+function assigneeHTML(assignee) {
     return /*html*/ `
         <li>
             <label class="flex-btw">
                 <div>${assignee}</div>
-                <input class="checkbox" type="checkbox" id="assignee${i}" name="assignee" value="" checked>
+                <input class="checkbox" type="checkbox" id="assignee" name="assignee" value="" checked>
             </label>
         </li>`
 }
