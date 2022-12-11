@@ -1,6 +1,6 @@
-let subtasks = [];
 let assignees = [];
 let categories = [];
+let subtasks = [];
 
 
 function prioUrgent() {
@@ -187,21 +187,12 @@ function addCategoryHTML() {
         </li>`
 }
 
+
 function addNewColorToCategory(id) {
     let color = id;
     console.log(color);
     return color;
 }
-
-// function addNewColorToCategory(){
-//     let input = document.getElementById('category-input').value;
-//     let newCategory = document.getElementById('category-dropdown-container');
-//     newCategory = /*html*/ `
-//     <span>${input}</span>
-//     <div class="dot lightblue"></div>
-//     `
-
-// }
 
 
 // Assign //
@@ -217,6 +208,7 @@ function inviteContact(input, container, dropdown) {
     hideInputField(input, container, dropdown);
 }
 
+
 function renderAssignees() {
     let list = document.getElementById('assign-list');
     list.innerHTML = '';
@@ -227,17 +219,20 @@ function renderAssignees() {
     list.innerHTML += inviteContactHTML();
 }
 
+
 function showAssigneBadge(assignee) {
     let initial = assignee.value;
     let list = document.getElementById('add-task-assignees');
     list.innerHTML += assigneeBadgeHTML(initial);
 }
 
+
 function getDate() {
     let input = document.getElementById('date-input');
     let date = new Date(input.value);
     // console.log (date.toLocaleDateString('de-DE')); 
 }
+
 
 /* function checkForRequiered(){
     check json for values and then add the requieredHTML template to the specific fields

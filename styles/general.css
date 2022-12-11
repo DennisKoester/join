@@ -10,6 +10,18 @@
     --dimmed: #D1D1D1;
     --border-dimmed: #A8A8A8;
 
+
+    /* Badge Colors */
+    --orange: #FF8A00;
+    --red: #FF0000;
+    --blue: #0038FF;
+    --lightblue: #8AA4FF;
+    --pink: #E200BE;
+    --lightpink: #FC71FF;
+    --green: #2AD300;
+    --turwuoise: #1FD7C1;
+
+
     /* Geometry */
     --nav-width-desktop: 232px;
     --nav-hight-mobile: 80px;
