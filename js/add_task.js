@@ -65,6 +65,7 @@ function dropDownToggle(id, icon) {
     toggleClassList(id, icon, 'open', 'rotate180');
 }
 
+
 /* function dropDownToggle(box, id) {
     toggleClassList(id, 'd-none');
     document.addEventListener('click', function handleClickOutsideBox(event) {
@@ -86,7 +87,7 @@ function showInputField(hiddenContainer, container, dropdown, icon) {
     // input.classList.remove('d-none');
     // container.classList.add('d-none'); // TODO Why is that not working?!
     if (hiddenContainer == 'category-input-container')
-    toggleColorSelection();
+        toggleColorSelection();
 }
 
 
@@ -116,6 +117,7 @@ function addSubtask(input, container, dropdown) {
     renderSubtasks();
     hideInputField(input, container, dropdown);
 }
+
 
 function renderSubtasks() {
     list = document.getElementById('subtask-list');
