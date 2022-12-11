@@ -79,20 +79,22 @@ function dropDownToggle(id, icon) {
 
 // Input Fields//
 
-function showInputField(input, container, dropdown, icon) {
-    document.getElementById(input).classList.remove('d-none');
+function showInputField(hiddenContainer, container, dropdown, icon) {
+    document.getElementById(hiddenContainer).classList.remove('d-none');
     document.getElementById(container).classList.add('d-none');
     toggleClassList(dropdown, icon, 'open', 'rotate180');
     // input.classList.remove('d-none');
     // container.classList.add('d-none'); // TODO Why is that not working?!
+    if (hiddenContainer == 'category-input-container')
+    toggleColorSelection();
 }
 
 
-function hideInputField(input, container, dropdown) {
+function hideInputField(input, hiddenContainer, container) {
     document.getElementById(input).value = '';
-    document.getElementById(container).classList.add('d-none');
-    document.getElementById(dropdown).classList.remove('d-none');
-    if (input == 'category-input')
+    document.getElementById(hiddenContainer).classList.add('d-none');
+    document.getElementById(container).classList.remove('d-none');
+    if (hiddenContainer == 'category-input-container')
         toggleColorSelection();
 }
 
@@ -199,10 +201,14 @@ function addNewColorToCategory(id) {
 
 function inviteContact(input, container, dropdown) {
     let assignee = document.getElementById(input);
-    if (assignee.value.length >= 0) {
+    let required = document.getElementById('required-assign');
+    if (assignee.value.length >= 1) {
         assignees.push(assignee.value)
         input.value = '';
         showAssigneBadge(assignee);
+        required.classList.add('hidden');
+    } else if (assignees.length == 0) {
+        required.classList.remove('hidden');
     }
     renderAssignees();
     hideInputField(input, container, dropdown);
@@ -226,6 +232,8 @@ function showAssigneBadge(assignee) {
     list.innerHTML += assigneeBadgeHTML(initial);
 }
 
+
+// Date //
 
 function getDate() {
     let input = document.getElementById('date-input');
