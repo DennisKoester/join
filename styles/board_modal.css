@@ -17,9 +17,9 @@
 .modal-task-content {
     position: relative;
     width: 625px;
-    height: 825px;
+    height: 95vh;
     max-width: 625px;
-    max-height: 825px;
+    max-height: 95vh;
     overflow-y: auto;
     border-radius: var(--border-radius-main);
     background-color: white;
@@ -77,6 +77,33 @@
     font-size: 21px;
 } */
 
+#modal-task-subtasks {
+    /* display: flex; */
+    /* flex-direction: column; */
+    width: 100%;
+    max-height: 100px;
+    overflow-y: auto;
+    /* gap: 10px; */
+    margin: 5px 0;
+    border-top: solid 1px var(--dimmed);
+    border-bottom: solid 1px var(--dimmed);
+}
+
+.modal-task-subtask {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    margin: 8px 0;
+}
+
+.modal-task-subtask img {
+    width: 16px;
+}
+
+.modal-task-subtask span {
+    font-size: 16px;
+}
+
 .modal-task-metadata {
     display: flex;
     align-items: center;
@@ -131,12 +158,19 @@
     padding: 50px 100px;
 }
 
+#modal-task-edit form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 #btn-task-edit-ok {
-    position: absolute;
+    /* position: absolute;
     right: 40px;
-    bottom: 30px;
+    bottom: 30px; */
     display: flex;
     align-items: center;
+    margin-left: auto;
     padding: 18px 10px;
     gap: 10px;
     font-weight: 700;
