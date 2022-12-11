@@ -1,62 +1,92 @@
-<div id="content-summary">
-    <div class="headline-summary">
-        <span class="headline-tooltype">Kanban Project Management Tool</span>
-        <h1>Summary</h1>
-        <div id="headline-separator"></div>
-        <span id="headline-sub">Everything in a nutshell!</span>
-    </div>
-    <div id="ui">
-        <div id="data">
-            <div id="sum-in-progress">
-                <div class="sum-badge badge-info badge-in-progress">
-                    <span id="count-tasks-all" class="badge-count">0</span>
-                    <span class="label label-big">Tasks in<br />Board</span>
-                </div>
-                <div class="sum-badge badge-info badge-in-progress">
-                    <span id="count-in-progress" class="badge-count">0</span>
-                    <span class="label label-big">Tasks in<br>Progress</span>
-                </div>
-                <div class="sum-badge badge-info badge-in-progress">
-                    <span id="count-feedback" class="badge-count">0</span>
-                    <span class="label label-big">Awaiting<br>Feedback</span>
-                </div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/fonts.css">
+    <link rel="stylesheet" href="./styles/general.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/media_main.css">
+    <link rel="stylesheet" href="./styles/summary.css">
+    <link rel="stylesheet" href="./styles/media_summary.css">
+    <script src="./js/include_html.js"></script>
+    <script src="./js/script.js"></script>
+    <title>Summary</title>
+</head>
+
+<body onload="init()">
+    <header w3-include-html="./assets/templates/header.html"></header>
+    <nav w3-include-html="./assets/templates/navbar.html"></nav>
+    <div class="content-container">
+        <div id="welcome-mobile" class="welcome-mobile d-none">
+            <span id="welcome-text-mobile">Guten Morgen,</span>
+            <span id="welcome-name-mobile">Sofia Müller</span>
+        </div>
+        <div id="content-summary">
+            <div class="headline-summary">
+                <span class="headline-tooltype">Kanban Project Management Tool</span>
+                <h1>Summary</h1>
+                <div id="headline-separator"></div>
+                <span id="headline-sub">Everything in a nutshell!</span>
             </div>
-            <div id="sum-urgent" class="sum-badge">
-                <img src="./assets/img/symb_urgent_summary.png" alt="urgent">
-                <div class="badge-info">
-                    <div id="count-urgent" class="badge-count-small">0</div>
-                    <div class="label label-small">Urgent</div>
+            <div id="ui">
+                <div id="data">
+                    <div id="sum-in-progress">
+                        <div class="sum-badge badge-info badge-in-progress">
+                            <span id="count-tasks-all" class="badge-count">0</span>
+                            <span class="label label-big">Tasks in<br />Board</span>
+                        </div>
+                        <div class="sum-badge badge-info badge-in-progress">
+                            <span id="count-in-progress" class="badge-count">0</span>
+                            <span class="label label-big">Tasks in<br>Progress</span>
+                        </div>
+                        <div class="sum-badge badge-info badge-in-progress">
+                            <span id="count-feedback" class="badge-count">0</span>
+                            <span class="label label-big">Awaiting<br>Feedback</span>
+                        </div>
+                    </div>
+                    <div id="sum-urgent" class="sum-badge">
+                        <img src="./assets/img/symb_urgent_summary.png" alt="urgent">
+                        <div class="badge-info">
+                            <div id="count-urgent" class="badge-count-small">0</div>
+                            <div class="label label-small">Urgent</div>
+                        </div>
+                        <div id="urgent-separator"></div>
+                        <div id="urgent-date-info">
+                            <span id="urgent-date">January 1, 2000</span>
+                            <span class="label label-small">Upcoming Deadline</span>
+                        </div>
+                    </div>
+                    <div id="sum-todo-done">
+                        <div id="done" class="sum-badge badge-todo">
+                            <div class="badge-todo--icon">
+                                <img src="./assets/img/symb_done.svg" alt="done">
+                            </div>
+                            <div class="badge-info">
+                                <div id="count-done" class="badge-count">0</div>
+                                <div class="label label-big">Done</div>
+                            </div>
+                        </div>
+                        <div id="todo" class="sum-badge badge-todo">
+                            <div class="badge-todo--icon">
+                                <img src="./assets/img/symb_todo.svg" alt="done">
+                            </div>
+                            <div class="badge-info">
+                                <div id="count-todo" class="badge-count">0</div>
+                                <div class="label label-big">To-do</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div id="urgent-separator"></div>
-                <div id="urgent-date-info">
-                    <span id="urgent-date">January 1, 2000</span>
-                    <span class="label label-small">Upcoming Deadline</span>
-                </div>
-            </div>
-            <div id="sum-todo-done">
-                <div id="done" class="sum-badge badge-todo">
-                    <div class="badge-todo--icon">
-                        <img src="./assets/img/symb_done.svg" alt="done">
-                    </div>
-                    <div class="badge-info">
-                        <div id="count-done" class="badge-count">0</div>
-                        <div class="label label-big">Done</div>
-                    </div>
-                </div>
-                <div id="todo" class="sum-badge badge-todo">
-                    <div class="badge-todo--icon">
-                        <img src="./assets/img/symb_todo.svg" alt="done">
-                    </div>
-                    <div class="badge-info">
-                        <div id="count-todo" class="badge-count">0</div>
-                        <div class="label label-big">To-do</div>
-                    </div>
+                <div class="welcome-desk">
+                    <span id="welcome-text-desk">Guten Morgen,</span>
+                    <span id="welcome-name-desk">Sofia Müller</span>
                 </div>
             </div>
         </div>
-        <div class="welcome-desk">
-            <span id="welcome-text-desk">Guten Morgen,</span>
-            <span id="welcome-name-desk">Sofia Müller</span>
-        </div>
     </div>
-</div>
+</body>
+
+</html>

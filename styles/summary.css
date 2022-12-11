@@ -21,12 +21,6 @@
     margin-right: 30px;
 }
 
-.headline-tooltype {
-    display: none;
-    font-size: 19px;
-    margin-bottom: 20px;
-}
-
 #ui {
     display: flex;
     align-items: center;

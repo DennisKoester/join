@@ -53,6 +53,12 @@ header {
     cursor: pointer;
 }
 
+.headline-tooltype {
+    display: none;
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
 nav {
     position: absolute;
     top: 0;
@@ -167,6 +173,11 @@ nav {
 }
 
 .welcome-mobile {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: flex;      
     justify-content: center;
     align-items: center;

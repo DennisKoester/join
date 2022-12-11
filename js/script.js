@@ -2,7 +2,6 @@ const MOBILE_MAX_WIDTH = 940;
 const WELCOME_MSG_DELAY = 800;
 const WELCOME_MSG_TRANS = 400;
 const HEADER_CTX_MENU_ANIM_TIME = 220;
-let currentPage = '';
 
 
 /**
@@ -13,11 +12,14 @@ async function init() {
 
     handleWelcomeOnMobile();
 
-    currentPage = 'add-task';
-    const selected = document.getElementById(`menu-${currentPage}`);
-    selected.classList.add('nav-item-active');
+    controlMenuHighlighting();
     
-    openPage(currentPage, false);
+
+    // currentPage = 'add-task';
+    // const selected = document.getElementById(`menu-${currentPage}`);
+    // selected.classList.add('nav-item-active');
+    
+    // openPage(currentPage, false);
 }
 
 
@@ -25,6 +27,9 @@ async function init() {
  * Controls the welcome screen on mobile view
  */
 function handleWelcomeOnMobile() {
+    let isLogin = new URLSearchParams(window.location.search);
+    if (!isLogin.get('login')) return;
+
     const windowWidth = window.innerWidth;
     const delay = WELCOME_MSG_TRANS + WELCOME_MSG_DELAY + 10;
 
@@ -46,34 +51,34 @@ function handleWelcomeOnMobile() {
  * @param {String} clickedPage The name of the page to be displayed
  * @param {Boolean} isContext True = selected page in context menu
  */
-function openPage(clickedPage, isContext) {
-    const pageToOpen = document.getElementById(clickedPage);
-    const pageToClose = document.getElementById(currentPage);
+// function openPage(clickedPage, isContext) {
+//     const pageToOpen = document.getElementById(clickedPage);
+//     const pageToClose = document.getElementById(currentPage);
 
-    pageToClose.classList.add('d-none');
-    pageToOpen.classList.remove('d-none');
+//     pageToClose.classList.add('d-none');
+//     pageToOpen.classList.remove('d-none');
 
-    if (isContext) {
-        toggleContextMenu();
-    }
+//     if (isContext) {
+//         toggleContextMenu();
+//     }
     
-    controlMenuHighlighting(clickedPage, isContext);
-    currentPage = clickedPage;
-}
+//     controlMenuHighlighting(clickedPage, isContext);
+//     currentPage = clickedPage;
+// }
 
 
 /**
- * Switches the highlighted menu item
- * @param {String} clickedPage The name of the page to be displayed
+ * Highlightes the menu item for the current page
  */
-function controlMenuHighlighting(clickedPage, isContext) {
-    const menuToActivate = document.getElementById(`menu-${clickedPage}`);
-    const menuToDeactivate = document.getElementById(`menu-${currentPage}`);
+function controlMenuHighlighting() {
+    let path = window.location.pathname;
+    path = path.split('/').pop();
+    path = path.split('.').shift();
+    path = 'menu-' + path;
+    console.log(path);
 
-    if (currentPage != 'help') {
-        menuToDeactivate.classList.remove('nav-item-active');
-    }
-    if (clickedPage != 'help' && !isContext) {
+    if (path != 'help') {
+        let menuToActivate = document.getElementById(path);
         menuToActivate.classList.add('nav-item-active');
     }
 }

@@ -30,4 +30,6 @@ function login() {
     localStorage.setItem('user', user);
     localStorage.setItem('pass', pass);
 
+    location.href='./summary.html?login=1';
+
 }
