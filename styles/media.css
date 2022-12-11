@@ -95,8 +95,8 @@
     .mobile-btn {
         display: flex !important;
         position: absolute;
-        top: -20px;
-        width: 124px;
+        /* top: -20px;
+        width: 124px; */
         height: 51px;
     }
 
