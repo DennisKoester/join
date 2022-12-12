@@ -195,7 +195,7 @@
 
     .due-date-input {
         font-size: 15px;
-        padding-left: 10px;
+        padding: 0 10px;
     }
 
     .prio-btn {
@@ -224,7 +224,8 @@
     .padding-input {
         padding: 0 10px;
     }
-}
 
-@media(hover: hover) and (pointer: fine) {
-    .menu-link:hover {
+    header {
+        padding: 0 15px;
+    }
+}
