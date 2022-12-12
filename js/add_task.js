@@ -57,25 +57,25 @@ function prioLow() {
 function toggleClassList(id, icon, classList, classList1) {
     document.getElementById(id).classList.toggle(classList);
     document.getElementById(icon).classList.toggle(classList1);
-    document.body.classList.toggle("overlay");
+    // document.body.classList.toggle("overlay");
 }
+
+
+function dropDownToggle(id, icon) {
+    toggleClassList(id, icon, 'open', 'rotate180');
+}
+
 
 
 // function dropDownToggle(id, icon) {
 //     toggleClassList(id, icon, 'open', 'rotate180');
-// }
+//     window.addEventListener('click', function handleClickOutsideBox(event) {
+//         let area = document.getElementById(id);
+//         if (!area.contains(event.target))
+//         document.getElementById(id).classList.add('d-none');
+//     })
+// };
 
-
-function dropDownToggle(id, icon, list) {
-    // toggleClassList(id, 'd-none');
-    toggleClassList(id, icon, 'open', 'rotate180');
-    document.addEventListener('click', function handleClickOutsideBox(event) {
-        let area = document.getElementById(`${id}`);
-        if (!area.contains(event.target))
-        document.getElementById(list).classListadd('d-none');
-            // addClassList(`${list}`, 'd-none')
-    })
-};
 
 
 

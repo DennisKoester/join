@@ -36,20 +36,20 @@
                                 <p><label for="title">Title</label></p>
                                 <input id="title" class="title-field width-100" type="text" placeholder="Enter a title"
                                     required>
-                                <p class="required">This field is required</p>
+                                <p class="required hidden">This field is required</p>
                             </div>
                             <div class="description-container width-100">
                                 <p><label for="description">Description</label></p>
                                 <textarea id="description" class="description-area width-100" name="description"
                                     cols="30" rows="10" placeholder="Enter a description" required
                                     style="resize: vertical;"></textarea>
-                                <p class="required">This field is required</p>
+                                <p class="required hidden">This field is required</p>
                             </div>
                             <div class="select-container">
                                 <p><label for="categories">Category</label></p>
                                 <div id="category-input-container" class="input-field flex-btw padding-input d-none">
                                     <input id="category-input" class="input-style" type="text"
-                                        placeholder="New category name">
+                                        placeholder="New category name" required>
                                     <div class="input-btns">
                                         <img onclick="hideInputField('category-input', 'category-input-container', 'category-dropdown-container')"
                                             src="./assets/img/black-x.svg" alt="" class="filter-btn">
@@ -60,15 +60,16 @@
                                 </div>
                                 <div id="category-dropdown-container" class="dropdown-container select-none width-100"
                                     name="category">
-                                    <div id="custom-category" onclick="dropDownToggle('category-dropdown', 'triangle1')"
+                                    <div id="custom-category"
+                                        onclick="dropDownToggle('category-dropdown', 'triangle1', 'category-list')"
                                         class="flex-btw padding-input height-input-mobile">
                                         <span>Select task category</span>
                                         <img id="triangle1" src="./assets/img/select-triangle.svg" alt="triangle"
                                             style="padding-top: 2px;">
                                     </div>
-                                    <div onclick="dropDownToggle('category-dropdown', 'triangle1', 'category-list')"
+                                    <!-- <div onclick="dropDownToggle('category-dropdown', 'triangle1', 'category-list')"
                                         class="dropdown-overlay">
-                                    </div>
+                                    </div> -->
                                     <div id="category-dropdown" class="dropdown-menu open">
                                         <ul id="category-list">
                                             <li
@@ -106,14 +107,14 @@
                                     <div onclick="addNewColorToCategory('pink')" id="color7" class="color-dot pink">
                                     </div>
                                 </div>
-                                <p class="required">This field is required</p>
+                                <p class="required hidden">This field is required</p>
                             </div>
 
                             <div class="select-container">
                                 <p><label for="assign">Assigned to</label></p>
                                 <div id="assign-input-container" class="input-field flex-btw padding-input d-none">
                                     <input id="assign-input" class="input-style" type="text"
-                                        placeholder="Contact email">
+                                        placeholder="Contact email" required>
                                     <div class="input-btns">
                                         <img onclick="hideInputField('assign-input', 'assign-input-container', 'assign-dropdown-container')"
                                             src="./assets/img/black-x.svg" alt="" class="filter-btn">
@@ -123,15 +124,15 @@
                                     </div>
                                 </div>
                                 <div id="assign-dropdown-container" class="dropdown-container select-none width-100">
-                                    <div onclick="dropDownToggle('assign-dropdown', 'triangle2')"
+                                    <div onclick="dropDownToggle('assign-dropdown', 'triangle2', 'assign-list')"
                                         class="flex-btw padding-input height-input-mobile">
                                         <span>Select contacts to assign</span>
                                         <img id="triangle2" src="./assets/img/select-triangle.svg" alt="triangle"
                                             style="padding-top: 2px;">
                                     </div>
-                                    <div onclick="dropDownToggle('assign-dropdown', 'triangle2')"
+                                    <!-- <div onclick="dropDownToggle('assign-dropdown', 'triangle2', 'assign-list')"
                                         class="dropdown-overlay">
-                                    </div>
+                                    </div> -->
                                     <div id="assign-dropdown" class="dropdown-menu open">
                                         <ul id="assign-list">
                                             <li
@@ -158,7 +159,7 @@
                                     <input id="date-input" class="due-date-input width-100" type="date" name="due-date"
                                         required placeholder="dd/mm/yyyy">
                                 </div>
-                                <p class="required">This field is required</p>
+                                <p class="required hidden">This field is required</p>
                             </div>
                             <div class="prio-container">
                                 <p style="margin: 0 0 13px 0">Prio</p>
@@ -184,7 +185,7 @@
                                 <p><label for="subtasks">Subtasks</label></p>
                                 <div class="subtasks-input padding-input">
                                     <input id="subtask-input" onfocus="showInputBtns('input-btns', 'plus-icon' )"
-                                        class="input-style" type="text" placeholder="Add new subtask">
+                                        class="input-style" type="text" placeholder="Add new subtask" required>
                                     <div class="input-btns">
                                         <img onclick="showInputBtns('input-btns', 'plus-icon' )" id="plus-icon"
                                             class="subtask-btn" src="./assets/img/plus.svg" alt="Plus sign">
@@ -201,15 +202,15 @@
                             </div>
                         </div>
                     </div>
+                    <div class="submit-btns">
+                        <button type="submit" class="clear-btn">Clear
+                            <img src="./assets/img/clear-x.svg" alt="x icon">
+                        </button>
+                        <button class="create-btn">Create Task
+                            <img src="./assets/img/create-check.svg" alt="check icon">
+                        </button>
+                    </div>
                 </form>
-                <div class="submit-btns">
-                    <button class="clear-btn">Clear
-                        <img src="./assets/img/clear-x.svg" alt="x icon">
-                    </button>
-                    <button class="create-btn">Create Task
-                        <img src="./assets/img/create-check.svg" alt="check icon">
-                    </button>
-                </div>
             </div>
         </div>
     </div>
