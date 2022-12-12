@@ -1,3 +1,7 @@
+.content-container {
+    display: flex;
+}
+
 #content-summary {
     margin-top: 8.5vh;
     margin-left: 120px;

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./styles/media_board.css">
     <link rel="stylesheet" href="./styles/add_task.css">
     <link rel="stylesheet" href="./styles/media_add-task.css">
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
     <script src="./js/include_html.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/add_task.js"></script>
@@ -23,253 +24,255 @@
     <header w3-include-html="./assets/templates/header.html"></header>
     <nav w3-include-html="./assets/templates/navbar.html"></nav>
     <div class="content-container">
-
+        <div id="content-board">
+            <span class="headline-tooltype">Kanban Project Management Tool</span>
+            <div id="headline-board">
+                <h1>Board</h1>
+                <div id="find-task-container">
+                    <input id="find-task--input" type="text" placeholder="Find Task">
+                    <div id="find-task--separator"></div>
+                    <img id="find-task--symb" src="./assets/img/search_icon.svg" alt="search">
+                </div>
+                <div id="btn-add-task">
+                    <span>Add Task</span>
+                    <img src="./assets/img/plus.svg" alt="add task">
+                </div>
+                <div id="break"></div>
+            </div>
+            <div id="tasks-overview">
+                <div class="tasks-status">
+                    <div class="task-status-title">
+                        <span class="task-status-title--text">To do</span>
+                        <div class="task-status-title--addtask"><img src="./assets/img/plus.svg" alt="add task"></div>
+                    </div>
+                    <div id="tasks-todo" class="tasks-list">
+                        <div class="no-task">No tasks to do</div>
+                        <div id="todo-0" class="task-card">
+                            <div class="task-cat" style="background-color: orange">Category</div>
+                            <div class="task-title">Task title</div>
+                            <div class="task-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, dignissimos nihil qui perferendis, praesentium delectus eum dolorem quo sunt tenetur earum et aliquid corrupti? Nihil ullam excepturi ut dolorem accusamus.</div>
+                            <div class="progress-container">
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar" style="width: 30%"></div>
+                                </div>
+                                <span class="progress-text">1/3 Done</span>
+                            </div>
+                            <div class="task-card--footer">
+                                <div class="assignees">
+                                    <div class="assignee" style="background-color: magenta">AB</div>
+                                    <div class="assignee" style="background-color: green">AB</div>
+                                    <div class="assignee" style="background-color: var(--bg-color-main)">+3</div>
+                                </div>
+                                <img src="./assets/img/low.svg" alt="priority low">
+                            </div>
+                        </div>
+                        <div id="todo-1" class="task-card"></div>
+                    </div>
+                </div>
+                <div class="tasks-status">
+                    <div class="task-status-title">
+                        <span class="task-status-title--text">In Progress</span>
+                        <div class="task-status-title--addtask"><img src="./assets/img/plus.svg" alt="add task"></div>
+                    </div>
+                    <div id="tasks-progress" class="tasks-list">
+                        <div class="no-task">No tasks in progress</div>
+                        <div id="progress-0" class="task-card"></div>
+                        <div id="progress-1" class="task-card"></div>
+                        <div id="progress-2" class="task-card"></div>
+                    </div>
+                </div>
+                <div class="tasks-status">
+                    <div class="task-status-title">
+                        <span class="task-status-title--text">Awaiting Feedback</span>
+                        <div class="task-status-title--addtask"><img src="./assets/img/plus.svg" alt="add task"></div>
+                    </div>
+                    <div id="tasks-feedback" class="tasks-list">
+                        <div class="no-task">No tasks awaiting feedback</div>
+                        <div id="feedback-0" class="task-card"></div>
+                    </div>
+                </div>
+                <div class="tasks-status">
+                    <div class="task-status-title">
+                        <span class="task-status-title--text">Done</span>
+                        <div class="task-status-title--addtask"><img src="./assets/img/plus.svg" alt="add task"></div>
+                    </div>
+                    <div id="tasks-done" class="tasks-list">
+                        <div class="no-task">No tasks done</div>
+                        <div id="done-0" class="task-card"></div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- MODAL -->
+            <div id="modal-task" class="/*d-none*/">
+                <!-- View task -->
+                <div class="modal-task-content-wrapper">
+                    <div id="modal-task-display" class="modal-task-content">
+                        <img class="modal-task-close" src="./assets/img/black-x.svg" alt="close">
+                        <div id="btn-edit-task">
+                            <img src="./assets/img/symb_todo.svg" alt="edit">
+                        </div>
+                        <div id="modal-task-cat" style="background-color: orange">Category</div>
+                        <div id="modal-task-title">Title</div>
+                        <div id="modal-task-desc">This is the description of the task.</div>
+                        <div class="modal-task-subtasks">
+                            <div class="modal-task-subtask">
+                                <img src="./assets/img/subtask_open.svg" alt="subtask open">
+                                <span>Subtask 1</span>
+                            </div>
+                            <div class="modal-task-subtask">
+                                <img src="./assets/img/subtask_open.svg" alt="subtask open">
+                                <span>Subtask 2</span>
+                            </div>
+                            <div class="modal-task-subtask">
+                                <img src="./assets/img/subtask_done.svg" alt="subtask open">
+                                <span>Subtask 3</span>
+                            </div>
+                            <div class="modal-task-subtask">
+                                <img src="./assets/img/subtask_done.svg" alt="subtask open">
+                                <span>Subtask 4</span>
+                            </div>
+                        </div>
+                        <div class="modal-task-metadata">
+                            <div class="modal-task-item-title">Due date:</div>
+                            <div id="modal-task-date">01.01.2000</div>
+                        </div>
+                        <div class="modal-task-metadata">
+                            <div class="modal-task-item-title">Priority:</div>
+                            <div id="modal-task-prio">
+                                <span id="modal-task-prio-text">Urgent</span>
+                                <img id="modal-task-prio-img" src="./assets/img/urgent-white.svg" alt="urgent">
+                            </div>
+                        </div>
+                        <div class="modal-task-item-title">Assigned to:</div>
+                        <div id="modal-task-assignees">
+                            <div class="modal-task-assignees-item">
+                                <div class="assignee modal-task-assignee" style="background-color: cyan">AB</div>
+                                <span>Aalbert Behringer</span>
+                            </div>
+                            <div class="modal-task-assignees-item">
+                                <div class="assignee modal-task-assignee" style="background-color: green">CD</div>
+                                <span>Cebert Degen</span>
+                            </div>
+                            <div class="modal-task-assignees-item">
+                                <div class="assignee modal-task-assignee" style="background-color: blue">EF</div>
+                                <span>Elfi Feger</span>
+                            </div>
+                            <div class="modal-task-assignees-item">
+                                <div class="assignee modal-task-assignee" style="background-color: magenta">GH</div>
+                                <span>Geraldine Haas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Edit task -->
+                <div class="modal-task-content-wrapper">
+                    <div id="modal-task-edit" class="modal-task-content">
+                        <img class="modal-task-close" src="./assets/img/black-x.svg" alt="close">
+                        <form action="">
+                            <div class="title-container width-100">
+                                <p><label for="task-edit-title">Title</label></p>
+                                <input id="task-edit-title" class="title-field width-100" type="text" placeholder="Enter a title"
+                                    required>
+                                <p class="required">This field is required</p>
+                            </div>
+                            <div class="description-container width-100">
+                                <p><label for="task-edit-description">Description</label></p>
+                                <textarea id="task-edit-description" class="description-area width-100" name="description"
+                                    cols="30" rows="10" placeholder="Enter a description" required
+                                    style="resize: vertical;"></textarea>
+                                <p class="required">This field is required</p>
+                            </div>
+                            <div class="modal-task-subtasks">
+                                <div class="modal-task-subtask">
+                                    <img src="./assets/img/subtask_open.svg" alt="subtask open">
+                                    <span>Subtask 1</span>
+                                </div>
+                                <div class="modal-task-subtask">
+                                    <img src="./assets/img/subtask_open.svg" alt="subtask open">
+                                    <span>Subtask 2</span>
+                                </div>
+                                <div class="modal-task-subtask">
+                                    <img src="./assets/img/subtask_done.svg" alt="subtask open">
+                                    <span>Subtask 3</span>
+                                </div>
+                                <div class="modal-task-subtask">
+                                    <img src="./assets/img/subtask_done.svg" alt="subtask open">
+                                    <span>Subtask 4</span>
+                                </div>
+                            </div>
+                            <div class="width-100">
+                                <p><label for="task-edit-due-date">Due date</label></p>
+                                <div class="task-edit-due-date">
+                                    <input id="task-edit-date-input" class="due-date-input width-100" type="date" name="due-date"
+                                        required placeholder="dd/mm/yyyy">
+                                </div>
+                                <p class="required">This field is required</p>
+                            </div>
+                            <div class="prio-container">
+                                <p style="margin: 0 0 13px 0">Prio</p>
+                                <div class="prio-btns-container">
+                                    <div onclick="prioUrgent()" id="task-edit-urgend-btn" class="prio-btn"
+                                        style="background-color: #FFFFFF;">
+                                        Urgent
+                                        <img id="urgent-btn-img" src="./assets/img/urgent.svg" alt="Arrows up">
+                                    </div>
+                                    <div onclick="prioMedium()" id="task-edit-medium-btn" class="prio-btn"
+                                        style="background-color: #FFFFFF;">
+                                        Medium
+                                        <img id="medium-btn-img" src="./assets/img/medium.svg" alt="streaght lines">
+                                    </div>
+                                    <div onclick="prioLow()" id="task-edit-low-btn" class="prio-btn" style="background-color: #FFFFFF;">
+                                        Low
+                                        <img id="low-btn-img" src="./assets/img/low.svg" alt="Arrows down">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="select-container">
+                                <p><label for="assign">Assigned to</label></p>
+                                <div id="assign-input-container" class="input-field flex-btw padding d-none">
+                                    <input id="assign-input" class="input-style" type="text" placeholder="Contact email">
+                                    <div class="input-btns">
+                                        <img onclick="hideInputField('assign-input', 'assign-input-container', 'assign-dropdown-container')"
+                                            src="./assets/img/black-x.svg" alt="" class="filter-btn">
+                                        <div class="seperator"></div>
+                                        <img onclick="inviteContact('assign-input', 'assign-input-container', 'assign-dropdown-container')"
+                                            src="./assets/img/black-check.svg" alt="" class="filter-btn">
+                                    </div>
+                                </div>
+                                <div id="assign-dropdown-container" class="dropdown-container select-none width-100">
+                                    <div onclick="dropDownToggle('modal-task-assign-dropdown', 'triangle2')"
+                                        class="flex-btw padding height49">
+                                        <span>Select contacts to assign</span>
+                                        <img id="triangle2" src="./assets/img/select-triangle.svg" alt="triangle"
+                                            style="padding-top: 2px;">
+                                    </div>
+                                    <div onclick="dropDownToggle('modal-task-assign-dropdown', 'triangle2')" class="dropdown-overlay">
+                                    </div>
+                                    <div id="modal-task-assign-dropdown" class="dropdown-menu open">
+                                        <ul id="assign-list">
+                                            <li
+                                                onclick="showInputField('assign-input-container', 'assign-dropdown-container', 'assign-dropdown', 'triangle2')">
+                                                <label class="flex-btw">
+                                                    <div>Invite new contact</div>
+                                                    <img src="./assets/img/contact-icon.svg" alt="">
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="add-task-assignees" class="assignees"></div>
+                                <p class="required">This field is required</p>
+                            </div>
+                            <div id="btn-task-edit-ok">
+                                <span>Ok</span>
+                                <img src="./assets/img/symb_done.svg" alt="ok">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
-
-<div id="content-board">
-    <span class="headline-tooltype">Kanban Project Management Tool</span>
-    <div id="headline-board">
-        <h1>Board</h1>
-        <div id="find-task-container">
-            <input id="find-task--input" type="text" placeholder="Find Task">
-            <div id="find-task--separator"></div>
-            <img id="find-task--symb" src="./assets/img/search_icon.svg" alt="search">
-        </div>
-        <div id="btn-add-task">
-            <span>Add Task</span>
-            <img src="./assets/img/plus.svg" alt="add task">
-        </div>
-        <div id="break"></div>
-    </div>
-    <div id="tasks-overview">
-        <div class="tasks-status">
-            <div class="task-status-title">
-                <span class="task-status-title--text">To do</span>
-                <div class="task-status-title--addtask"><img src="./assets/img/plus.svg" alt="add task"></div>
-            </div>
-            <div id="tasks-todo" class="tasks-list">
-                <div class="no-task">No tasks to do</div>
-                <div id="todo-0" class="task-card">
-                    <div class="task-cat" style="background-color: orange">Category</div>
-                    <div class="task-title">Task title</div>
-                    <div class="task-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, dignissimos nihil qui perferendis, praesentium delectus eum dolorem quo sunt tenetur earum et aliquid corrupti? Nihil ullam excepturi ut dolorem accusamus.</div>
-                    <div class="progress-container">
-                        <div class="progress-bar-bg">
-                            <div class="progress-bar" style="width: 30%"></div>
-                        </div>
-                        <span class="progress-text">1/3 Done</span>
-                    </div>
-                    <div class="task-card--footer">
-                        <div class="assignees">
-                            <div class="assignee" style="background-color: magenta">AB</div>
-                            <div class="assignee" style="background-color: green">AB</div>
-                            <div class="assignee" style="background-color: var(--bg-color-main)">+3</div>
-                        </div>
-                        <img src="./assets/img/low.svg" alt="priority low">
-                    </div>
-                </div>
-                <div id="todo-1" class="task-card"></div>
-            </div>
-        </div>
-        <div class="tasks-status">
-            <div class="task-status-title">
-                <span class="task-status-title--text">In Progress</span>
-                <div class="task-status-title--addtask"><img src="./assets/img/plus.svg" alt="add task"></div>
-            </div>
-            <div id="tasks-progress" class="tasks-list">
-                <div class="no-task">No tasks in progress</div>
-                <div id="progress-0" class="task-card"></div>
-                <div id="progress-1" class="task-card"></div>
-                <div id="progress-2" class="task-card"></div>
-            </div>
-        </div>
-        <div class="tasks-status">
-            <div class="task-status-title">
-                <span class="task-status-title--text">Awaiting Feedback</span>
-                <div class="task-status-title--addtask"><img src="./assets/img/plus.svg" alt="add task"></div>
-            </div>
-            <div id="tasks-feedback" class="tasks-list">
-                <div class="no-task">No tasks awaiting feedback</div>
-                <div id="feedback-0" class="task-card"></div>
-            </div>
-        </div>
-        <div class="tasks-status">
-            <div class="task-status-title">
-                <span class="task-status-title--text">Done</span>
-                <div class="task-status-title--addtask"><img src="./assets/img/plus.svg" alt="add task"></div>
-            </div>
-            <div id="tasks-done" class="tasks-list">
-                <div class="no-task">No tasks done</div>
-                <div id="done-0" class="task-card"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL -->
-    <div id="modal-task" class="/*d-none*/">
-        <!-- View task -->
-        <div id="modal-task-display" class="modal-task-content">
-            <img class="modal-task-close" src="./assets/img/black-x.svg" alt="close">
-            <div id="btn-edit-task">
-                <img src="./assets/img/symb_todo.svg" alt="edit">
-            </div>
-            <div id="modal-task-cat" style="background-color: orange">Category</div>
-            <div id="modal-task-title">Title</div>
-            <div id="modal-task-desc">This is the description of the task.</div>
-            <div id="modal-task-subtasks">
-                <div class="modal-task-subtask">
-                    <img src="./assets/img/subtask_open.svg" alt="subtask open">
-                    <span>Subtask 1</span>
-                </div>
-                <div class="modal-task-subtask">
-                    <img src="./assets/img/subtask_open.svg" alt="subtask open">
-                    <span>Subtask 2</span>
-                </div>
-                <div class="modal-task-subtask">
-                    <img src="./assets/img/subtask_done.svg" alt="subtask open">
-                    <span>Subtask 3</span>
-                </div>
-                <div class="modal-task-subtask">
-                    <img src="./assets/img/subtask_done.svg" alt="subtask open">
-                    <span>Subtask 4</span>
-                </div>
-            </div>
-            <div class="modal-task-metadata">
-                <div class="modal-task-item-title">Due date:</div>
-                <div id="modal-task-date">01.01.2000</div>
-            </div>
-            <div class="modal-task-metadata">
-                <div class="modal-task-item-title">Priority:</div>
-                <div id="modal-task-prio">
-                    <span id="modal-task-prio-text">Urgent</span>
-                    <img id="modal-task-prio-img" src="./assets/img/urgent-white.svg" alt="urgent">
-                </div>
-            </div>
-            <div class="modal-task-item-title">Assigned to:</div>
-            <div id="modal-task-assignees">
-                <div class="modal-task-assignees-item">
-                    <div class="assignee modal-task-assignee" style="background-color: cyan">AB</div>
-                    <span>Aalbert Behringer</span>
-                </div>
-                <div class="modal-task-assignees-item">
-                    <div class="assignee modal-task-assignee" style="background-color: green">CD</div>
-                    <span>Cebert Degen</span>
-                </div>
-                <div class="modal-task-assignees-item">
-                    <div class="assignee modal-task-assignee" style="background-color: blue">EF</div>
-                    <span>Elfi Feger</span>
-                </div>
-                <div class="modal-task-assignees-item">
-                    <div class="assignee modal-task-assignee" style="background-color: magenta">GH</div>
-                    <span>Geraldine Haas</span>
-                </div>
-            </div>
-        </div>
-        <!-- Edit task -->
-        <div id="modal-task-edit" class="modal-task-content">
-            <img class="modal-task-close" src="./assets/img/black-x.svg" alt="close">
-            <form action="">
-                <div class="title-container width-100">
-                    <p><label for="task-edit-title">Title</label></p>
-                    <input id="task-edit-title" class="title-field width-100" type="text" placeholder="Enter a title"
-                        required>
-                    <p class="required">This field is required</p>
-                </div>
-                <div class="description-container width-100">
-                    <p><label for="task-edit-description">Description</label></p>
-                    <textarea id="task-edit-description" class="description-area width-100" name="description"
-                        cols="30" rows="10" placeholder="Enter a description" required
-                        style="resize: vertical;"></textarea>
-                    <p class="required">This field is required</p>
-                </div>
-                <div id="modal-task-subtasks">
-                    <div class="modal-task-subtask">
-                        <img src="./assets/img/subtask_open.svg" alt="subtask open">
-                        <span>Subtask 1</span>
-                    </div>
-                    <div class="modal-task-subtask">
-                        <img src="./assets/img/subtask_open.svg" alt="subtask open">
-                        <span>Subtask 2</span>
-                    </div>
-                    <div class="modal-task-subtask">
-                        <img src="./assets/img/subtask_done.svg" alt="subtask open">
-                        <span>Subtask 3</span>
-                    </div>
-                    <div class="modal-task-subtask">
-                        <img src="./assets/img/subtask_done.svg" alt="subtask open">
-                        <span>Subtask 4</span>
-                    </div>
-                </div>
-                <div class="width-100">
-                    <p><label for="task-edit-due-date">Due date</label></p>
-                    <div class="task-edit-due-date">
-                        <input id="task-edit-date-input" class="due-date-input width-100" type="date" name="due-date"
-                            required placeholder="dd/mm/yyyy">
-                    </div>
-                    <p class="required">This field is required</p>
-                </div>
-                <div class="prio-container">
-                    <p style="margin: 0 0 13px 0">Prio</p>
-                    <div class="prio-btns-container">
-                        <div onclick="prioUrgent()" id="task-edit-urgend-btn" class="prio-btn"
-                            style="background-color: #FFFFFF;">
-                            Urgent
-                            <img id="urgent-btn-img" src="./assets/img/urgent.svg" alt="Arrows up">
-                        </div>
-                        <div onclick="prioMedium()" id="task-edit-medium-btn" class="prio-btn"
-                            style="background-color: #FFFFFF;">
-                            Medium
-                            <img id="medium-btn-img" src="./assets/img/medium.svg" alt="streaght lines">
-                        </div>
-                        <div onclick="prioLow()" id="task-edit-low-btn" class="prio-btn" style="background-color: #FFFFFF;">
-                            Low
-                            <img id="low-btn-img" src="./assets/img/low.svg" alt="Arrows down">
-                        </div>
-                    </div>
-                </div>
-                <div class="select-container">
-                    <p><label for="assign">Assigned to</label></p>
-                    <div id="assign-input-container" class="input-field flex-btw padding d-none">
-                        <input id="assign-input" class="input-style" type="text" placeholder="Contact email">
-                        <div class="input-btns">
-                            <img onclick="hideInputField('assign-input', 'assign-input-container', 'assign-dropdown-container')"
-                                src="./assets/img/black-x.svg" alt="" class="filter-btn">
-                            <div class="seperator"></div>
-                            <img onclick="inviteContact('assign-input', 'assign-input-container', 'assign-dropdown-container')"
-                                src="./assets/img/black-check.svg" alt="" class="filter-btn">
-                        </div>
-                    </div>
-                    <div id="assign-dropdown-container" class="dropdown-container select-none width-100">
-                        <div onclick="dropDownToggle('modal-task-assign-dropdown', 'triangle2')"
-                            class="flex-btw padding height49">
-                            <span>Select contacts to assign</span>
-                            <img id="triangle2" src="./assets/img/select-triangle.svg" alt="triangle"
-                                style="padding-top: 2px;">
-                        </div>
-                        <div onclick="dropDownToggle('modal-task-assign-dropdown', 'triangle2')" class="dropdown-overlay">
-                        </div>
-                        <div id="modal-task-assign-dropdown" class="dropdown-menu open">
-                            <ul id="assign-list">
-                                <li
-                                    onclick="showInputField('assign-input-container', 'assign-dropdown-container', 'assign-dropdown', 'triangle2')">
-                                    <label class="flex-btw">
-                                        <div>Invite new contact</div>
-                                        <img src="./assets/img/contact-icon.svg" alt="">
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div id="add-task-assignees" class="assignees"></div>
-                    <p class="required">This field is required</p>
-                </div>
-                <div id="btn-task-edit-ok">
-                    <span>Ok</span>
-                    <img src="./assets/img/symb_done.svg" alt="ok">
-                </div>
-            </form>
-        </div>
-    </div>
-</div>

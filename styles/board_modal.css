@@ -14,20 +14,24 @@
     font-size: 21px;
 }
 
-.modal-task-content {
-    position: relative;
+.modal-task-content-wrapper {
     width: 625px;
-    height: 95vh;
     max-width: 625px;
-    max-height: 95vh;
-    overflow-y: auto;
     border-radius: var(--border-radius-main);
     background-color: white;
+    overflow: hidden;
+}
+
+.modal-task-content {
+    height: 95vh;
+    max-height: 95vh;
+    position: relative;
     padding: 50px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 25px;
+    overflow-y: auto;
 }
 
 #btn-edit-task {
@@ -77,16 +81,16 @@
     font-size: 21px;
 } */
 
-#modal-task-subtasks {
+.modal-task-subtasks {
     /* display: flex; */
     /* flex-direction: column; */
     width: 100%;
     max-height: 100px;
     overflow-y: auto;
     /* gap: 10px; */
-    margin: 5px 0;
-    border-top: solid 1px var(--dimmed);
-    border-bottom: solid 1px var(--dimmed);
+    /* margin: 5px 0; */
+    /* border-top: solid 1px var(--dimmed); */
+    /* border-bottom: solid 1px var(--dimmed); */
 }
 
 .modal-task-subtask {
