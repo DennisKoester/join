@@ -24,7 +24,7 @@
 
     #menu {
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: space-between;
         /* font-size: 13px; */
         /* align-items: baseline; */
         height: 100%;
@@ -53,6 +53,11 @@
 @media screen and (max-width: 780px) {
     #header-tooltype {
         display: none;
+    }
+
+    .headline-tooltype {
+        display: block;
+        margin-bottom: 20px;
     }
     
     #logo-header-mobile {

@@ -53,11 +53,6 @@
 }
 
 @media screen and (max-width: 780px) {
-    .headline-tooltype {
-        display: block;
-        margin-bottom: 20px;
-    }
-
     .headline-summary h1 {
         font-size: 54px;
         margin-bottom: 20px;

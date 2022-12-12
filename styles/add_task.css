@@ -197,21 +197,21 @@ textarea:focus {
     border: 1px solid #D1D1D1;
 }
 
-.dropdown-overlay {
+/* .dropdown-overlay {
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     visibility: hidden;
-    /* background-color: red; */
+    background-color: red;
 }
 
 body.overlay .dropdown-overlay {
     visibility: visible;
     opacity: 0.4;
-}
+} */
 
 .dropdown-menu {
     z-index: 2;
@@ -501,6 +501,11 @@ select {
     border-radius: 10px;
 }
 
+.mobile-btn {
+    height: 51px;
+    width: 124px;
+}
+
 /* Help Classes */
 
 .hidden {
@@ -528,7 +533,7 @@ select {
 }
 
 
-.padding {
+.padding-input {
     padding: 11px 21px;
 }
 
@@ -536,7 +541,7 @@ select {
     width: 100%;
 }
 
-.height49 {
+.height-input-mobile {
     height: 49px;
 }
 

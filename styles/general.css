@@ -63,6 +63,11 @@ h1 {
     line-height: 120%;
 }
 
+a {
+    color: unset;
+    text-decoration: none;
+}
+
 .d-none {
     display: none !important;
 }

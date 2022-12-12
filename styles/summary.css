@@ -1,3 +1,7 @@
+.content-container {
+    display: flex;
+}
+
 #content-summary {
     margin-top: 8.5vh;
     margin-left: 120px;
@@ -19,12 +23,6 @@
     border-radius: 3px;
     margin-left: 60px;
     margin-right: 30px;
-}
-
-.headline-tooltype {
-    display: none;
-    font-size: 19px;
-    margin-bottom: 20px;
 }
 
 #ui {

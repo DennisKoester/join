@@ -66,16 +66,17 @@ function dropDownToggle(id, icon) {
 }
 
 
-/* function dropDownToggle(box, id) {
-    toggleClassList(id, 'd-none');
-    document.addEventListener('click', function handleClickOutsideBox(event) {
-        let area = document.getElementById(`${box}`);
-        if (!area.contains(event.target))
-            addClassList(`${id}`, 'd-none')
-    })
-};
 
- */
+// function dropDownToggle(id, icon) {
+//     toggleClassList(id, icon, 'open', 'rotate180');
+//     window.addEventListener('click', function handleClickOutsideBox(event) {
+//         let area = document.getElementById(id);
+//         if (!area.contains(event.target))
+//         document.getElementById(id).classList.add('d-none');
+//     })
+// };
+
+
 
 
 // Input Fields//
@@ -84,8 +85,6 @@ function showInputField(hiddenContainer, container, dropdown, icon) {
     document.getElementById(hiddenContainer).classList.remove('d-none');
     document.getElementById(container).classList.add('d-none');
     toggleClassList(dropdown, icon, 'open', 'rotate180');
-    // input.classList.remove('d-none');
-    // container.classList.add('d-none'); // TODO Why is that not working?!
     if (hiddenContainer == 'category-input-container')
         toggleColorSelection();
 }
@@ -169,7 +168,7 @@ function renderCategories() {
     list.innerHTML = '';
     for (let i = 0; i < categories.length; i++) {
         const category = categories[i];
-        list.innerHTML += categoryHTML(category, color);
+        list.innerHTML += categoryHTML(category);
     }
     list.innerHTML += addCategoryHTML();
 }
