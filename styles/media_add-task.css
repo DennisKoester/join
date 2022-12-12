@@ -38,6 +38,24 @@
     }
 }
 
+@media(max-width: 940px) {
+    #header-nav {
+        display: none;
+    }
+
+    .mobile-btn {
+        display: flex !important;
+    }
+
+    .submit-btns {
+        display: none;
+    }
+
+    .right-container {
+        margin-top: 0;
+    }
+}
+
 @media(max-width: 780px) {
     .headline-add-task {
         display: flex;
@@ -47,7 +65,8 @@
 
     .headline-add-task h3 {
         display: block !important;
-        margin-top: 35px;
+        font-weight: 400;
+        font-size: 16px;
     }
 
     .headline-add-task h1 {
@@ -75,29 +94,13 @@
         height: 41px;
     }
 
-    .height49 {
+    .height-input-mobile {
         height: 39px;
     }
 
     .checkbox {
         height: 18px;
         width: 18px;
-    }
-
-    .clear-btn {
-        display: none;
-    }
-
-    .create-btn {
-        display: none;
-    }
-
-    .mobile-btn {
-        display: flex !important;
-        position: absolute;
-        /* top: -20px;
-        width: 124px; */
-        height: 51px;
     }
 
     .prio-btn {
@@ -109,16 +112,116 @@
     }
 }
 
-@media(max-width: 380px) {
-    .prio-btns-container {
-        flex-direction: column;
+@media(max-width: 420px) {
+
+    .mobile-btn {
+        height: 43px;
+        width: 105px;
+        font-size: 15px;
+    }
+
+    .mobile-btn img {
+        height: 15px;
+        width: 15px;
+    }
+
+    .headline-add-task {
+        margin: 5px 0 5px 0;
+    }
+
+    .headline-add-task h3 {
+        margin: 5px;
+    }
+
+    .headline-add-task h1 {
+        font-size: 40px;
+    }
+
+    p {
+        font-size: 15px;
+        padding: 0;
+    }
+
+    ::placeholder {
+        font-size: 15px;
+    }
+
+    .select-container {
+        font-size: 15px;
+    }
+
+    .input-field {
+        height: 32px;
+    }
+
+    textarea {
+        min-height: 60px !important;
+        height: 80px !important;
+    }
+
+    .description-area {
+        padding: 10px 10px;
+    }
+
+    .due-date input {
+        height: 32px;
+    }
+
+    .title-field {
+        height: 32px;
+        padding-left: 10px;
+    }
+
+    #category-dropdown ul li {
+        padding: 0 10px;
+    }
+
+    li {
+        height: 32px;
+    }
+
+    li label {
+        padding: 0 10px;
+    }
+
+    .height-input-mobile {
+        height: 32px;
+    }
+
+    .checkbox {
+        height: 15px;
+        width: 15px;
+    }
+
+    .due-date-input {
+        font-size: 15px;
+        padding-left: 10px;
     }
 
     .prio-btn {
+        height: 32px;
         width: 100%;
+        font-size: 18px;
+    }
+
+    .subtasks-input {
+        height: 32px;
     }
 
     .subtask-container {
         margin-top: 0;
+    }
+
+    .subtask-btn {
+        height: 18px;
+        width: 18px;
+    }
+
+    .prio-btns-container {
+        flex-direction: column;
+    }
+
+    .padding-input {
+        padding: 0 10px;
     }
 }

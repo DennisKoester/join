@@ -501,6 +501,11 @@ select {
     border-radius: 10px;
 }
 
+.mobile-btn {
+    height: 51px;
+    width: 124px;
+}
+
 /* Help Classes */
 
 .hidden {
@@ -528,7 +533,7 @@ select {
 }
 
 
-.padding {
+.padding-input {
     padding: 11px 21px;
 }
 

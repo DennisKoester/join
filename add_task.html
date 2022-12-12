@@ -47,7 +47,7 @@
                             </div>
                             <div class="select-container">
                                 <p><label for="categories">Category</label></p>
-                                <div id="category-input-container" class="input-field flex-btw padding d-none">
+                                <div id="category-input-container" class="input-field flex-btw padding-input d-none">
                                     <input id="category-input" class="input-style" type="text"
                                         placeholder="New category name">
                                     <div class="input-btns">
@@ -61,7 +61,7 @@
                                 <div id="category-dropdown-container" class="dropdown-container select-none width-100"
                                     name="category">
                                     <div id="custom-category" onclick="dropDownToggle('category-dropdown', 'triangle1')"
-                                        class="flex-btw padding height-input-mobile">
+                                        class="flex-btw padding-input height-input-mobile">
                                         <span>Select task category</span>
                                         <img id="triangle1" src="./assets/img/select-triangle.svg" alt="triangle"
                                             style="padding-top: 2px;">
@@ -111,7 +111,7 @@
 
                             <div class="select-container">
                                 <p><label for="assign">Assigned to</label></p>
-                                <div id="assign-input-container" class="input-field flex-btw padding d-none">
+                                <div id="assign-input-container" class="input-field flex-btw padding-input d-none">
                                     <input id="assign-input" class="input-style" type="text"
                                         placeholder="Contact email">
                                     <div class="input-btns">
@@ -124,7 +124,7 @@
                                 </div>
                                 <div id="assign-dropdown-container" class="dropdown-container select-none width-100">
                                     <div onclick="dropDownToggle('assign-dropdown', 'triangle2')"
-                                        class="flex-btw padding height-input-mobile">
+                                        class="flex-btw padding-input height-input-mobile">
                                         <span>Select contacts to assign</span>
                                         <img id="triangle2" src="./assets/img/select-triangle.svg" alt="triangle"
                                             style="padding-top: 2px;">
@@ -182,7 +182,7 @@
                             </div>
                             <div class="subtask-container">
                                 <p><label for="subtasks">Subtasks</label></p>
-                                <div class="subtasks-input padding">
+                                <div class="subtasks-input padding-input">
                                     <input id="subtask-input" onfocus="showInputBtns('input-btns', 'plus-icon' )"
                                         class="input-style" type="text" placeholder="Add new subtask">
                                     <div class="input-btns">
@@ -207,9 +207,6 @@
                         <img src="./assets/img/clear-x.svg" alt="x icon">
                     </button>
                     <button class="create-btn">Create Task
-                        <img src="./assets/img/create-check.svg" alt="check icon">
-                    </button>
-                    <button class="create-btn mobile-btn" style="display: none;">Create
                         <img src="./assets/img/create-check.svg" alt="check icon">
                     </button>
                 </div>
