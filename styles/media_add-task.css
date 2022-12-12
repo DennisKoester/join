@@ -134,7 +134,7 @@
     }
 
     .headline-add-task h1 {
-        font-size: 40px;
+        font-size: 38px;
     }
 
     p {
@@ -225,3 +225,6 @@
         padding: 0 10px;
     }
 }
+
+@media(hover: hover) and (pointer: fine) {
+    .menu-link:hover {

@@ -10,15 +10,18 @@ const HEADER_CTX_MENU_ANIM_TIME = 220;
 async function init() {
     await includeHTML();
 
+    hasTouch();
+
     handleWelcomeOnMobile();
 
     controlMenuHighlighting();
-    
+
+
 
     // currentPage = 'add-task';
     // const selected = document.getElementById(`menu-${currentPage}`);
     // selected.classList.add('nav-item-active');
-    
+
     // openPage(currentPage, false);
 }
 
@@ -61,7 +64,7 @@ function handleWelcomeOnMobile() {
 //     if (isContext) {
 //         toggleContextMenu();
 //     }
-    
+
 //     controlMenuHighlighting(clickedPage, isContext);
 //     currentPage = clickedPage;
 // }
@@ -126,3 +129,29 @@ function hideCtxMenu(ctxMenu) {
 function logout() {
 
 }
+
+// Disable Touch On Mobile //
+
+function hasTouch() {
+    return 'ontouchstart' in document.documentElement
+        || navigator.maxTouchPoints > 0
+        || navigator.msMaxTouchPoints > 0;
+}
+
+if (hasTouch()) { // remove all the :hover stylesheets
+    try { // prevent exception on browsers not supporting DOM styleSheets properly
+        for (let si in document.styleSheets) {
+            const styleSheet = document.styleSheets[si];
+            if (!styleSheet.rules) continue;
+
+            for (var ri = styleSheet.rules.length - 1; ri >= 0; ri--) {
+                if (!styleSheet.rules[ri].selectorText) continue;
+
+                if (styleSheet.rules[ri].selectorText.match(':hover')) {
+                    styleSheet.deleteRule(ri);
+                }
+            }
+        }
+    } catch (ex) { }
+}
+
