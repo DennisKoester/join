@@ -1,5 +1,6 @@
 let currentPrio;
 let currentCategory;
+let currentCategoryColor;
 let currentSubtasks = [];
 let currentAssignees = [];
 
@@ -59,15 +60,16 @@ function prioLow() {
 };
 
 
-function toggleClassList(id, icon, classList, classList1) {
+function toggleClassList(id, classList,) {
     document.getElementById(id).classList.toggle(classList);
-    document.getElementById(icon).classList.toggle(classList1);
+    // document.getElementById(icon).classList.toggle(classList1);
     // document.body.classList.toggle("overlay");
 }
 
 
 function dropDownToggle(id, icon) {
-    toggleClassList(id, icon, 'open', 'rotate180');
+    toggleClassList(id, 'open');
+    toggleClassList(icon, 'rotate180');
 }
 
 
@@ -110,7 +112,9 @@ function addNewTask() {
 function showInputField(hiddenContainer, container, dropdown, icon) {
     document.getElementById(hiddenContainer).classList.remove('d-none');
     document.getElementById(container).classList.add('d-none');
-    toggleClassList(dropdown, icon, 'open', 'rotate180');
+    // toggleClassList(dropdown, icon, 'open', 'rotate180');
+    toggleClassList(dropdown, 'open');
+    toggleClassList(icon, 'rotate180');
     if (hiddenContainer == 'category-input-container')
         toggleColorSelection();
 }
@@ -131,45 +135,6 @@ function showInputBtns(btns, icon) {
 }
 
 
-// Subtask Function //
-
-function addSubtask(input, container, dropdown) {
-    let inputSubtask = document.getElementById('subtask-input');
-    if (inputSubtask.value.length >= 1) {
-        subtasks.push(inputSubtask.value);
-        inputSubtask.value = '';
-    }
-    renderSubtasks();
-    hideInputField(input, container, dropdown);
-}
-
-
-function renderSubtasks() {
-    list = document.getElementById('subtask-list');
-    list.innerHTML = '';
-    for (let i = 0; i < subtasks.length; i++) {
-        const subtask = subtasks[i];
-        list.innerHTML += subTaskHTML(subtask, i);
-    }
-}
-
-
-function deleteSubtask(i) {
-    subtasks.splice(i, 1);
-    renderSubtasks();
-}
-
-
-function checkSelectionSubtask(i) {
-    let subtaskCheck = document.getElementById(`subtask${i}`);
-    if (subtaskCheck.checked) {
-        console.log("Checked");
-    } else {
-        console.log("Not checked");
-    }
-}
-
-
 // Category //
 
 function toggleColorSelection() {
@@ -180,11 +145,9 @@ function toggleColorSelection() {
 
 function addNewCategory(input, container, dropdown) {
     let catInput = document.getElementById(input);
-    // let color = document.getElementById();
     if (catInput.value.length > 0) {
-
-        categories.push(catInput.value)
-        showCategory(catInput);
+        categories.push({ "name": catInput.value, "color": currentCategoryColor });
+        showCategory(catInput, currentCategoryColor);
         catInput.value = '';
     }
     loadCategories();
@@ -193,21 +156,21 @@ function addNewCategory(input, container, dropdown) {
 
 
 function loadCategories() {
-
     let list = document.getElementById('category-list');
     list.innerHTML = '';
     for (let i = 0; i < categories.length; i++) {
-        const category = categories[i];
-        list.innerHTML += categoryHTML(category);
+        let category = categories[i]['name'];
+        let color = categories[i]['color'];
+        list.innerHTML += categoryHTML(category, color);
     }
     list.innerHTML += addCategoryHTML();
 }
 
 
-function showCategory(category) {
+function showCategory(category, color) {
     let field = document.getElementById('selected-category');
     field.innerHTML = '';
-    field.innerHTML = /*html*/ `<span>${category.value}</span>`
+    field.innerHTML = /*html*/ `<span>${category.value}</span><div class="color-dot ${color}">`
 }
 
 
@@ -222,16 +185,17 @@ function categoryHTML(category, color) {
 
 function addCategoryHTML() {
     return /*html*/ `
-        <li onclick="showInputField('category-input-container', 'category-dropdown-container', 'category-dropdown', 'triangle1'), toggleColorSelection()">
+        <li onclick="showInputField('category-input-container', 'category-dropdown-container', 'category-dropdown', 'triangle1')">
             <div>New Category</div>
         </li>`
 }
 
 
-function addNewColorToCategory(id) {
-    let color = id;
-    console.log(color);
-    return color;
+function addNewColorToCategory(id, color) {
+    let dot = document.getElementById(id);
+    currentCategoryColor = color;
+    // dot.classList.toggle('active-color');
+    toggleClassList(dot, 'active-color');
 }
 
 
@@ -285,3 +249,41 @@ function getDate() {
     // console.log (date.toLocaleDateString('de-DE')); 
 }
 
+
+// Subtask Function //
+
+function addSubtask(input, container, dropdown) {
+    let inputSubtask = document.getElementById('subtask-input');
+    if (inputSubtask.value.length >= 1) {
+        subtasks.push(inputSubtask.value);
+        inputSubtask.value = '';
+    }
+    renderSubtasks();
+    hideInputField(input, container, dropdown);
+}
+
+
+function renderSubtasks() {
+    list = document.getElementById('subtask-list');
+    list.innerHTML = '';
+    for (let i = 0; i < subtasks.length; i++) {
+        const subtask = subtasks[i];
+        list.innerHTML += subTaskHTML(subtask, i);
+    }
+}
+
+
+function deleteSubtask(i) {
+    subtasks.splice(i, 1);
+    renderSubtasks();
+}
+
+
+function checkSelectionSubtask(i) {
+    let subtaskCheck = document.getElementById(`subtask${i}`);
+    if (subtaskCheck.checked) {
+        console.log("Checked");
+    } else {
+        console.log("Not checked");
+    }
+}

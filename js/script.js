@@ -16,6 +16,7 @@ async function init() {
 
     controlMenuHighlighting();
 
+    loadCategories();
 
 
     // currentPage = 'add-task';

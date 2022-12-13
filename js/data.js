@@ -34,12 +34,22 @@ let tasks = [
 let categories = [
     {
         "name": "Sales",
-        "color": "red"
+        "color": "lightpink"
     },
 
     {
         "name": "Marketing",
         "color": "blue"
+    },
+
+    {
+        "name": "Design",
+        "color": "turquoise"
+    },
+
+    {
+        "name": "Developement",
+        "color": "red"
     }
 ];
 
