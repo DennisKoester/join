@@ -37,7 +37,7 @@
                             <div id="custom-category"
                                 onclick="dropDownToggle('category-dropdown', 'triangle1', 'category-list')"
                                 class="flex-btw padding-input height-input-mobile">
-                                <span>Select task category</span>
+                                <span id="selected-category">Select task category</span>
                                 <img id="triangle1" src="./assets/img/select-triangle.svg" alt="triangle"
                                     style="padding-top: 2px;">
                             </div>
@@ -50,11 +50,11 @@
                                         onclick="showInputField('category-input-container', 'category-dropdown-container', 'category-dropdown', 'triangle1')">
                                         <div>New Category</div>
                                     </li>
-                                    <li>
+                                    <li onclick="showCategory()">
                                         <div>Test</div>
                                         <div class="color-dot green"></div>
                                     </li>
-                                    <li>
+                                    <li onclick="showCategory()">
                                         <div>Test</div>
                                         <div class="color-dot lightblue"></div>
                                     </li>

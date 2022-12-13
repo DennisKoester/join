@@ -31,7 +31,17 @@ let tasks = [
     []
 ];
 
-let category = [];
+let categories = [
+    {
+        "name": "Sales",
+        "color": "red"
+    },
+
+    {
+        "name": "Marketing",
+        "color": "blue"
+    }
+];
 
 let prio = [
     {

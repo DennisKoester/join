@@ -3,7 +3,7 @@ function assigneeHTML(assignee) {
         <li>
             <label class="flex-btw">
                 <div>${assignee}</div>
-                <input class="checkbox" type="checkbox" id="assignee" name="assignee" value="" checked>
+                <input id="${assignee}" class="checkbox" type="checkbox" id="assignee" name="assignee" value="" checked>
             </label>
         </li>`
 }

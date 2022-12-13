@@ -5,7 +5,6 @@ let currentAssignees = [];
 
 
 let subtasks = [];
-let categories = [];
 let assignees = [];
 
 
@@ -100,13 +99,10 @@ function getDataForNewTask() {
 
 
 function addNewTask() {
-    let task = { title: title.value }
+    let tasks = { title: title.value, }
 }
 
 
-function getCategory() {
-    let cat = document.getElementById()
-}
 
 
 // Input Fields//
@@ -183,17 +179,21 @@ function toggleColorSelection() {
 
 
 function addNewCategory(input, container, dropdown) {
-    let category = document.getElementById(input);
-    if (category.value.length >= 0) {
-        categories.push(category.value)
-        input.value = '';
+    let catInput = document.getElementById(input);
+    // let color = document.getElementById();
+    if (catInput.value.length > 0) {
+
+        categories.push(catInput.value)
+        showCategory(catInput);
+        catInput.value = '';
     }
-    renderCategories();
+    loadCategories();
     hideInputField(input, container, dropdown);
 }
 
 
-function renderCategories() {
+function loadCategories() {
+
     let list = document.getElementById('category-list');
     list.innerHTML = '';
     for (let i = 0; i < categories.length; i++) {
@@ -204,9 +204,16 @@ function renderCategories() {
 }
 
 
+function showCategory(category) {
+    let field = document.getElementById('selected-category');
+    field.innerHTML = '';
+    field.innerHTML = /*html*/ `<span>${category.value}</span>`
+}
+
+
 function categoryHTML(category, color) {
     return /*html*/ `
-        <li>
+        <li onclick="showCategory()">
             <div>${category}</div>
             <div class="color-dot ${color}"></div>
         </li>`
@@ -236,12 +243,12 @@ function inviteContact(input, container, dropdown) {
     if (assignee.value.length >= 1) {
         assignees.push(assignee.value)
         input.value = '';
-        showAssigneBadge(assignee);
         required.classList.add('hidden');
     } else if (assignees.length == 0) {
         required.classList.remove('hidden');
     }
     renderAssignees();
+    showAssigneBadge(assignee);
     hideInputField(input, container, dropdown);
 }
 
@@ -260,9 +267,15 @@ function renderAssignees() {
 function showAssigneBadge(assignee) {
     let initial = assignee.value;
     let list = document.getElementById('add-task-assignees');
+
+
     list.innerHTML += assigneeBadgeHTML(initial);
 }
 
+
+// function setInputValues(assignee){
+//     document.getElementById('assign-input').value = assignee;
+// }
 
 // Date //
 
