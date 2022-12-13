@@ -46,8 +46,9 @@
     .mobile-btn {
         display: flex !important;
         position: fixed;
-        top: 75px;
-        /* right: 25px; */
+        z-index: 99;
+        top: 14.5px;
+        right: 25px;
     }
 
     .clear-btn {
@@ -125,6 +126,7 @@
         height: 43px;
         width: 105px;
         font-size: 15px;
+        top: 18.5px;
     }
 
     .mobile-btn img {
