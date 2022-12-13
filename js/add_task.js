@@ -1,6 +1,12 @@
-let assignees = [];
-let categories = [];
+let currentPrio;
+let currentCategory;
+let currentSubtasks = [];
+let currentAssignees = [];
+
+
 let subtasks = [];
+let categories = [];
+let assignees = [];
 
 
 function prioUrgent() {
@@ -67,6 +73,8 @@ function dropDownToggle(id, icon) {
 
 
 
+//  Hide Dropdown By Clicking Next To It //
+
 // function dropDownToggle(id, icon) {
 //     toggleClassList(id, icon, 'open', 'rotate180');
 //     window.addEventListener('click', function handleClickOutsideBox(event) {
@@ -77,6 +85,28 @@ function dropDownToggle(id, icon) {
 // };
 
 
+
+// Title Field //
+
+function getDataForNewTask() {
+    let title = document.getElementById('title');
+    let desc = document.getElementById('description');
+    let cat = currentCategory;
+    let assignees = currentAssignees;
+    let date = document.getElementById('date-input');
+    let prio = currentPrio;
+    console.log(title.value, desc.value, cat, assignees, date.value, prio)
+}
+
+
+function addNewTask() {
+    let task = { title: title.value }
+}
+
+
+function getCategory() {
+    let cat = document.getElementById()
+}
 
 
 // Input Fields//
@@ -241,10 +271,4 @@ function getDate() {
     let date = new Date(input.value);
     // console.log (date.toLocaleDateString('de-DE')); 
 }
-
-
-/* function checkForRequiered(){
-    check json for values and then add the requieredHTML template to the specific fields
-} */
-
 
