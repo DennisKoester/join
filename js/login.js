@@ -19,16 +19,10 @@ function login() {
     email = email.trim();
     password = password.trim();
     
-    if (email == '' || password == '') {
-        alert('Please fill in all fields');
-        return;
-    }
-
-    let user = JSON.stringify(email);
-    let pass = JSON.stringify(password);
-
-    localStorage.setItem('user', user);
-    localStorage.setItem('pass', pass);
+    // if (email == '' || password == '') {
+    //     alert('Please fill in all fields');
+    //     return;
+    // }
 
     location.href='./summary.html?login=1';
 

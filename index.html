@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./styles/start.css">
     <script src="./js/script.js"></script>
     <script src="./js/login.js"></script>
+    <script src="./js/data.js"></script>
 </head>
 <body onload="animation()">
     <div id="preloader" class="preloader d-none"></div>
@@ -24,14 +25,14 @@
     </div>
     <div class="login_master">
         <div class="login_main">
-            <div class="login_form">
+            <form class="login_form">
                 <h2>Log in</h2>
-                <input id="email" type="text" name="email" placeholder="Email">
-                <input id="password" type="password" name="password" placeholder="Password">
+                <input id="email" type="email" name="email" placeholder="Email" required>
+                <input id="password" type="password" name="password" placeholder="Password" required>
                 <div class="login_form_buttons">
-                    <button class="login_button" onclick="login()">Login</button>
-                    <button class="guest_button" onclick="location.href='./summary.html?login=1'">Guest log in</button></div>
-            </div>
+                <button type="submit" class="login_button" onclick="login()">Login</button>
+                <button class="guest_button" onclick="location.href='./summary.html?login=1'">Guest log in</button></div>
+            </form>
         </div>
     </div>
 </body>

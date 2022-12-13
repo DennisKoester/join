@@ -7,10 +7,11 @@
     <title>Join-SignUp</title>
     <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="./styles/general.css">
-    <link rel="stylesheet" href="./styles/style.css">
+    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
     <link rel="stylesheet" href="./styles/start.css">
     <script src="./js/script.js"></script>
     <script src="./js/sign_up.js"></script>
+    <script src="./js/data.js"></script>
 </head>
 <body>
     <div class="header">
@@ -19,14 +20,14 @@
     <div class="login_master">
         <div class="login_main">
         <!--<div class="goback"><img src="./assets/img/goBack.png"></div>-->
-            <div class="login_form">
+            <form class="login_form">
                 <h2>Sign up</h2>
-                <input id="username" placeholder="Username" class="login_input">
-                <input id="email" type="text" name="email" placeholder="Email">
-                <input id="password" type="password" name="password" placeholder="Password">
+                <input id="username" placeholder="Username" class="login_input" required>
+                <input id="email" type="email" name="email" placeholder="Email" required>
+                <input id="password" type="password" name="password" placeholder="Password" required>
                 <div class="login_form_buttons">
-                    <button class="login_button" onclick="register()">Sign up</button>
-            </div>
+                <button type="submit" class="login_button" onclick="register()">Sign up</button></div>
+            </form>
         </div>
     </div>
 </body>
