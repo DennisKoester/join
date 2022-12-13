@@ -40,9 +40,13 @@
     }
 
     .content-container {
-        top: var(--header-hight-mobile);
+        /* top: var(--header-hight-mobile);
         bottom: var(--nav-hight-mobile);
-        left: 0;
+        left: 0; */
+        margin-left: 0;
+        margin-top: var(--header-hight-mobile);
+        height: calc(100vh - var(--header-hight-mobile) - var(--nav-hight-mobile));
+        width: 100%;
     }
 
     #sub-nav--help, #sub-nav--legal {

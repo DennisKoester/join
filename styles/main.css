@@ -164,11 +164,16 @@ nav {
 } */
 
 .content-container {
-    position: absolute;
+    /* position: absolute;
     top: var(--header-hight-desktop);
     left: var(--nav-width-desktop);
     right: 0;
-    bottom: 0;
+    bottom: 0; */
+    margin-left: var(--nav-width-desktop);
+    margin-top: var(--header-hight-desktop);
+    height: calc(100vh - var(--header-hight-desktop));
+    width: calc(100% - var(--nav-width-desktop));
+    overflow-x: hidden;
     overflow-y: auto;
 }
 
