@@ -45,9 +45,15 @@
 
     .mobile-btn {
         display: flex !important;
+        position: absolute;
+        top: -20px;
     }
 
-    .submit-btns {
+    .clear-btn {
+        display: none;
+    }
+
+    .create-btn {
         display: none;
     }
 
@@ -74,7 +80,7 @@
     }
 
     .input-field {
-        height: 39px;
+        height: 41px;
     }
 
     textarea {
@@ -151,7 +157,15 @@
     }
 
     .input-field {
-        height: 32px;
+        height: 34px;
+    }
+
+    .input-btns img {
+        width: 13px;
+    }
+
+    .input-btns img:last-child {
+        width: 17px;
     }
 
     textarea {

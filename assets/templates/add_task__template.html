@@ -9,22 +9,21 @@
                 <div class="left-container ">
                     <div class="title-container width-100">
                         <p><label for="title">Title</label></p>
-                        <input id="title" class="title-field width-100" type="text" placeholder="Enter a title"
+                        <input id="title" class="title-field width-100" type="text" name="title" placeholder="Enter a title"
                             required>
                         <p class="required hidden">This field is required</p>
                     </div>
                     <div class="description-container width-100">
                         <p><label for="description">Description</label></p>
-                        <textarea id="description" class="description-area width-100" name="description"
-                            cols="30" rows="10" placeholder="Enter a description" required
-                            style="resize: vertical;"></textarea>
+                        <textarea id="description" class="description-area width-100" name="description" cols="30"
+                            rows="10" placeholder="Enter a description" required style="resize: vertical;"></textarea>
                         <p class="required hidden">This field is required</p>
                     </div>
                     <div class="select-container">
                         <p><label for="categories">Category</label></p>
                         <div id="category-input-container" class="input-field flex-btw padding-input d-none">
-                            <input id="category-input" class="input-style" type="text"
-                                placeholder="New category name" required>
+                            <input id="category-input" class="input-style" type="text" name="category" placeholder="New category name"
+                                required>
                             <div class="input-btns">
                                 <img onclick="hideInputField('category-input', 'category-input-container', 'category-dropdown-container')"
                                     src="./assets/img/black-x.svg" alt="" class="filter-btn">
@@ -63,21 +62,18 @@
                             </div>
                         </div>
                         <div id="category-colors" class="category-colors d-none">
-                            <div onclick="addNewColorToCategory('lightblue')" id="color0"
-                                class="color-dot lightblue">
+                            <div onclick="addNewColorToCategory('lightblue')" id="color0" class="color-dot lightblue">
                             </div>
                             <div onclick="addNewColorToCategory('blue')" id="color1" class="color-dot blue">
                             </div>
-                            <div onclick="addNewColorToCategory('turquoise')" id="color2"
-                                class="color-dot turquoise">
+                            <div onclick="addNewColorToCategory('turquoise')" id="color2" class="color-dot turquoise">
                             </div>
                             <div onclick="addNewColorToCategory('green')" id="color3" class="color-dot green">
                             </div>
                             <div onclick="addNewColorToCategory('orange')" id="color4" class="color-dot orange">
                             </div>
                             <div onclick="addNewColorToCategory('red')" id="color5" class="color-dot red"></div>
-                            <div onclick="addNewColorToCategory('lightpink')" id="color6"
-                                class="color-dot lightpink">
+                            <div onclick="addNewColorToCategory('lightpink')" id="color6" class="color-dot lightpink">
                             </div>
                             <div onclick="addNewColorToCategory('pink')" id="color7" class="color-dot pink">
                             </div>
@@ -88,8 +84,8 @@
                     <div class="select-container">
                         <p><label for="assign">Assigned to</label></p>
                         <div id="assign-input-container" class="input-field flex-btw padding-input d-none">
-                            <input id="assign-input" class="input-style" type="text"
-                                placeholder="Contact email" required>
+                            <input id="assign-input" class="input-style" type="text" name="assign" placeholder="Contact email"
+                                required>
                             <div class="input-btns">
                                 <img onclick="hideInputField('assign-input', 'assign-input-container', 'assign-dropdown-container')"
                                     src="./assets/img/black-x.svg" alt="" class="filter-btn">
@@ -131,8 +127,8 @@
                     <div class="width-100">
                         <p><label for="due-date">Due date</label></p>
                         <div class="due-date">
-                            <input id="date-input" class="due-date-input width-100" type="date" name="due-date"
-                                required placeholder="dd/mm/yyyy">
+                            <input id="date-input" class="due-date-input width-100" type="date" name="due-date" required
+                                placeholder="dd/mm/yyyy">
                         </div>
                         <p class="required hidden">This field is required</p>
                     </div>
@@ -149,8 +145,7 @@
                                 Medium
                                 <img id="medium-btn-img" src="./assets/img/medium.svg" alt="streaght lines">
                             </div>
-                            <div onclick="prioLow()" id="low-btn" class="prio-btn"
-                                style="background-color: #FFFFFF;">
+                            <div onclick="prioLow()" id="low-btn" class="prio-btn" style="background-color: #FFFFFF;">
                                 Low
                                 <img id="low-btn-img" src="./assets/img/low.svg" alt="Arrows down">
                             </div>
@@ -182,6 +177,9 @@
                     <img src="./assets/img/clear-x.svg" alt="x icon">
                 </button>
                 <button class="create-btn">Create Task
+                    <img src="./assets/img/create-check.svg" alt="check icon">
+                </button>
+                <button type="submit" class="create-btn mobile-btn" style="display: none;">Create
                     <img src="./assets/img/create-check.svg" alt="check icon">
                 </button>
             </div>
