@@ -16,6 +16,7 @@
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
     <script src="./js/include_html.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/board.js"></script>
     <script src="./js/add_task.js"></script>
     <script src="./js/add_task_html.js"></script>
     <title>Board</title>
@@ -46,8 +47,8 @@
                         <div class="task-status-title--addtask"><img src="./assets/img/plus.svg" alt="add task"></div>
                     </div>
                     <div id="tasks-todo" class="tasks-list">
-                        <div class="no-task">No tasks to do</div>
-                        <div id="todo-0" class="task-card">
+                        <div id="no-task--todo" class="no-task">No tasks to do</div>
+                        <div id="todo-0" class="task-card" onclick="toggleViewTask()">
                             <div class="task-cat" style="background-color: orange">Category</div>
                             <div class="task-title">Task title</div>
                             <div class="task-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, dignissimos nihil qui perferendis, praesentium delectus eum dolorem quo sunt tenetur earum et aliquid corrupti? Nihil ullam excepturi ut dolorem accusamus.</div>
@@ -104,14 +105,15 @@
             </div>
         
             <!-- MODAL -->
-            <div id="modal-task" class="/*d-none*/">
+            <div id="modal-task" class="d-none">
                 <!-- View task -->
                 <div class="modal-task-content-wrapper">
-                    <div id="modal-task-display" class="modal-task-content">
-                        <img class="modal-task-close" src="./assets/img/black-x.svg" alt="close">
-                        <div id="btn-edit-task">
+                    <img class="modal-task-close" src="./assets/img/black-x.svg" onclick="toggleViewTask()" alt="close">
+                    <div id="modal-task-reader" class="modal-task-content reader">
+                        <!-- <img class="modal-task-close" src="./assets/img/black-x.svg" alt="close"> -->
+                        <button id="btn-edit-task" onclick="toggleTaskEditMode()">
                             <img src="./assets/img/symb_todo.svg" alt="edit">
-                        </div>
+                        </button>
                         <div id="modal-task-cat" style="background-color: orange">Category</div>
                         <div id="modal-task-title">Title</div>
                         <div id="modal-task-desc">This is the description of the task.</div>
@@ -164,24 +166,24 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                <!-- </div> -->
                 <!-- Edit task -->
-                <div class="modal-task-content-wrapper">
-                    <div id="modal-task-edit" class="modal-task-content">
-                        <img class="modal-task-close" src="./assets/img/black-x.svg" alt="close">
-                        <form action="">
+                <!-- <div class="modal-task-content-wrapper"> -->
+                    <div id="modal-task-edit" class="modal-task-content editor d-none">
+                        <!-- <img class="modal-task-close" src="./assets/img/black-x.svg" alt="close"> -->
+                        <form onsubmit="saveChanges(); return false;" action="">
                             <div class="title-container width-100">
                                 <p><label for="task-edit-title">Title</label></p>
                                 <input id="task-edit-title" class="title-field width-100" type="text" placeholder="Enter a title"
                                     required>
-                                <p class="required">This field is required</p>
+                                <!-- <p class="required">This field is required</p> -->
                             </div>
                             <div class="description-container width-100">
                                 <p><label for="task-edit-description">Description</label></p>
                                 <textarea id="task-edit-description" class="description-area width-100" name="description"
                                     cols="30" rows="10" placeholder="Enter a description" required
                                     style="resize: vertical;"></textarea>
-                                <p class="required">This field is required</p>
+                                <!-- <p class="required">This field is required</p> -->
                             </div>
                             <div class="modal-task-subtasks">
                                 <div class="modal-task-subtask">
@@ -207,7 +209,7 @@
                                     <input id="task-edit-date-input" class="due-date-input width-100" type="date" name="due-date"
                                         required placeholder="dd/mm/yyyy">
                                 </div>
-                                <p class="required">This field is required</p>
+                                <!-- <p class="required">This field is required</p> -->
                             </div>
                             <div class="prio-container">
                                 <p style="margin: 0 0 13px 0">Prio</p>
@@ -262,12 +264,12 @@
                                     </div>
                                 </div>
                                 <div id="add-task-assignees" class="assignees"></div>
-                                <p class="required">This field is required</p>
+                                <!-- <p class="required">This field is required</p> -->
                             </div>
-                            <div id="btn-task-edit-ok">
+                            <button id="btn-task-edit-ok" type="submit">
                                 <span>Ok</span>
                                 <img src="./assets/img/symb_done.svg" alt="ok">
-                            </div>
+                            </button>
                         </form>
                     </div>
                 </div>

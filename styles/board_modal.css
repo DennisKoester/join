@@ -1,3 +1,8 @@
+button {
+    border: unset;
+    font-size: unset;
+}
+
 #modal-task {
     position: fixed;
     top: 0;
@@ -15,6 +20,7 @@
 }
 
 .modal-task-content-wrapper {
+    position: relative;
     width: 625px;
     max-width: 625px;
     border-radius: var(--border-radius-main);
@@ -25,13 +31,20 @@
 .modal-task-content {
     height: 95vh;
     max-height: 95vh;
-    position: relative;
-    padding: 50px;
+    /* position: relative; */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 25px;
     overflow-y: auto;
+}
+
+.reader {
+    padding: 50px 50px 0;
+}
+
+.editor {
+    padding: 50px 100px 0;
 }
 
 #btn-edit-task {
@@ -156,10 +169,6 @@
     font-size: 16px;
     border: none;
     margin: unset;
-}
-
-#modal-task-edit {
-    padding: 50px 100px;
 }
 
 #modal-task-edit form {
