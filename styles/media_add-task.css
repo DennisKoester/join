@@ -45,8 +45,9 @@
 
     .mobile-btn {
         display: flex !important;
-        position: absolute;
-        top: -20px;
+        position: fixed;
+        top: 75px;
+        /* right: 25px; */
     }
 
     .clear-btn {
