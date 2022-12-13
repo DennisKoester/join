@@ -3,7 +3,7 @@ button {
     font-size: unset;
 }
 
-#modal-task {
+.modal-container {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -19,13 +19,16 @@ button {
     font-size: 21px;
 }
 
-.modal-task-content-wrapper {
+.modal-wrapper {
     position: relative;
-    width: 625px;
-    max-width: 625px;
     border-radius: var(--border-radius-main);
     background-color: white;
     overflow: hidden;
+}
+
+.modal-task-wrapper {
+    width: 625px;
+    max-width: 625px;
 }
 
 .modal-task-content {
@@ -195,4 +198,10 @@ button {
 
 #btn-task-edit-ok img {
     width: 20px;
+}
+
+.modal-add-task-content {
+    height: 95vh;
+    max-height: 95vh;
+    overflow-y: auto;
 }

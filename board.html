@@ -34,21 +34,21 @@
                     <div id="find-task--separator"></div>
                     <img id="find-task--symb" src="./assets/img/search_icon.svg" alt="search">
                 </div>
-                <div id="btn-add-task">
+                <button id="btn-add-task" onclick="toggleModal('modal-add-task')">
                     <span>Add Task</span>
                     <img src="./assets/img/plus.svg" alt="add task">
-                </div>
+                </button>
                 <div id="break"></div>
             </div>
             <div id="tasks-overview">
                 <div class="tasks-status">
                     <div class="task-status-title">
                         <span class="task-status-title--text">To do</span>
-                        <div class="task-status-title--addtask"><img src="./assets/img/plus.svg" alt="add task"></div>
+                        <button class="task-status-title--addtask" onclick="toggleModal('modal-add-task')"><img src="./assets/img/plus.svg" alt="add task"></button>
                     </div>
                     <div id="tasks-todo" class="tasks-list">
                         <div id="no-task--todo" class="no-task">No tasks to do</div>
-                        <div id="todo-0" class="task-card" onclick="toggleViewTask()">
+                        <div id="todo-0" class="task-card" onclick="toggleModal('modal-task')">
                             <div class="task-cat" style="background-color: orange">Category</div>
                             <div class="task-title">Task title</div>
                             <div class="task-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, dignissimos nihil qui perferendis, praesentium delectus eum dolorem quo sunt tenetur earum et aliquid corrupti? Nihil ullam excepturi ut dolorem accusamus.</div>
@@ -73,7 +73,7 @@
                 <div class="tasks-status">
                     <div class="task-status-title">
                         <span class="task-status-title--text">In Progress</span>
-                        <div class="task-status-title--addtask"><img src="./assets/img/plus.svg" alt="add task"></div>
+                        <button class="task-status-title--addtask" onclick="toggleModal('modal-add-task')"><img src="./assets/img/plus.svg" alt="add task"></button>
                     </div>
                     <div id="tasks-progress" class="tasks-list">
                         <div class="no-task">No tasks in progress</div>
@@ -85,7 +85,7 @@
                 <div class="tasks-status">
                     <div class="task-status-title">
                         <span class="task-status-title--text">Awaiting Feedback</span>
-                        <div class="task-status-title--addtask"><img src="./assets/img/plus.svg" alt="add task"></div>
+                        <button class="task-status-title--addtask" onclick="toggleModal('modal-add-task')"><img src="./assets/img/plus.svg" alt="add task"></button>
                     </div>
                     <div id="tasks-feedback" class="tasks-list">
                         <div class="no-task">No tasks awaiting feedback</div>
@@ -95,7 +95,7 @@
                 <div class="tasks-status">
                     <div class="task-status-title">
                         <span class="task-status-title--text">Done</span>
-                        <div class="task-status-title--addtask"><img src="./assets/img/plus.svg" alt="add task"></div>
+                        <button class="task-status-title--addtask" onclick="toggleModal('modal-add-task')"><img src="./assets/img/plus.svg" alt="add task"></button>
                     </div>
                     <div id="tasks-done" class="tasks-list">
                         <div class="no-task">No tasks done</div>
@@ -104,11 +104,11 @@
                 </div>
             </div>
         
-            <!-- MODAL -->
-            <div id="modal-task" class="d-none">
-                <!-- View task -->
-                <div class="modal-task-content-wrapper">
-                    <img class="modal-task-close" src="./assets/img/black-x.svg" onclick="toggleViewTask()" alt="close">
+            <!-- MODAL View/Edit Task-->
+            <div id="modal-task" class="modal-container d-none">
+                <!-- /// View task /// -->
+                <div class="modal-wrapper modal-task-wrapper">
+                    <img class="modal-task-close" src="./assets/img/black-x.svg" onclick="toggleModal('modal-task')" alt="close">
                     <div id="modal-task-reader" class="modal-task-content reader">
                         <!-- <img class="modal-task-close" src="./assets/img/black-x.svg" alt="close"> -->
                         <button id="btn-edit-task" onclick="toggleTaskEditMode()">
@@ -167,7 +167,7 @@
                         </div>
                     </div>
                 <!-- </div> -->
-                <!-- Edit task -->
+                <!-- /// Edit task /// -->
                 <!-- <div class="modal-task-content-wrapper"> -->
                     <div id="modal-task-edit" class="modal-task-content editor d-none">
                         <!-- <img class="modal-task-close" src="./assets/img/black-x.svg" alt="close"> -->
@@ -274,6 +274,16 @@
                     </div>
                 </div>
             </div>
+            <!-- END: MODAL View/Edit Task -->
+
+            <!-- MODAL: Add task -->
+            <div id="modal-add-task" class="modal-container d-none">
+                <div class="modal-wrapper">
+                    <img class="modal-task-close" src="./assets/img/black-x.svg" onclick="toggleModal('modal-add-task')" alt="close">
+                    <div class="modal-add-task-content" w3-include-html="./assets/templates/add_task__template.html"></div>
+                </div>
+            </div>
+            <!-- END: MODAL Add task -->
         </div>
     </div>
 </body>

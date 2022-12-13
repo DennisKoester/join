@@ -1,5 +1,5 @@
-function toggleViewTask() {
-    const modal = document.getElementById('modal-task');
+function toggleModal(id) {
+    const modal = document.getElementById(id);
     modal.classList.toggle('d-none');
 }
 
