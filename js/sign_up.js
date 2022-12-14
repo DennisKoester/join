@@ -1,4 +1,6 @@
-function register() {
+function register(e) {
+    e.preventDefault();
+
     let username = document.getElementById("username");
     let email = document.getElementById("email");
     let password = document.getElementById("password");
@@ -8,5 +10,7 @@ function register() {
     let usersAsString = JSON.stringify(users);
     localStorage.setItem('users', usersAsString);
 
-    window.location.href = './index.html'
+    window.location.href = './index.html?msg=Deine Registrierung war erfolgreich, du kannst dich jetzt einloggen!';
+
+    return false;
 }

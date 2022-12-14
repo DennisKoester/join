@@ -12,6 +12,30 @@
     margin-left: 30px;
     margin-right: 30px;
     padding: 30px;
+    height: 182px;
+}
+
+.d-none {
+    display: none;
+}
+
+.signup-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: slideup 1s ease-in;
+}
+
+@keyframes slideup {
+    0% {height: 0;}
+    100% {height: 80px;}
 }
 
 .signup {
@@ -43,6 +67,42 @@
 .login_logo {
     margin-bottom: 20px;
 }
+
+.join-logo {
+    position: absolute;
+    top: 20px;
+    left: 60px;
+    width: 100px;
+    height: auto;
+    border-style: solid;
+    border-color: #f5f5f5;
+    background-color: #f5f5f5;
+    animation: slideLogo 1s ease-in-out;
+    animation-direction: normal;
+}
+
+@keyframes slideLogo {
+    0% {
+        width: 700px;
+        left: 32%;
+        top: 20vh;
+        border-width: 250px;
+    }
+
+    50% {
+        width: 700px;
+        left: 32%;
+        top: 20vh;
+        border-width: 250px;
+    }
+
+    100% {
+        left: 60px;
+        top: 20px;
+        border-width: 0;
+    }
+}
+
 
 .login_form {
     display: flex;
