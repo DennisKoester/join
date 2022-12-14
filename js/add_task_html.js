@@ -41,7 +41,8 @@ function assigneeBadgeHTML(inital) {
 function subTaskHTML(subtask, i) {
     return /*html*/ `
     <div class="subtask">
-        <input onclick="checkSelectionSubtask(${i})" type="checkbox" id="subtask${i}" name="subtask" value="subtask">
+        <img src="./assets/img/checkbox-checked.svg" alt="checkbox unchecked">
+        <!-- <input onclick="checkSelectionSubtask(${i})" type="checkbox" id="subtask${i}" name="subtask" value="subtask"> -->
         <label for="">${subtask}</label>
         <img onclick="deleteSubtask(${i})" src="./assets/img/black-x.svg" alt="" class="filter-btn">
     </div>`;

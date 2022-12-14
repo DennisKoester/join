@@ -294,11 +294,11 @@ function deleteSubtask(i) {
 }
 
 
-function checkSelectionSubtask(i) {
+/* function checkSelectionSubtask(i) {
     let subtaskCheck = document.getElementById(`subtask${i}`);
     if (subtaskCheck.checked) {
         console.log("Checked");
     } else {
         console.log("Not checked");
     }
-}
+} */
