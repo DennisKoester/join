@@ -1,13 +1,12 @@
 function register() {
-    let username = document.getElementById("username").value;
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
+    let username = document.getElementById("username");
+    let email = document.getElementById("email");
+    let password = document.getElementById("password");
 
-    users.push({name: username, email: email, password: password})
+    users.push({name: username.value, email: email.value, password: password.value});
 
     let usersAsString = JSON.stringify(users);
     localStorage.setItem('users', usersAsString);
 
-
-    console.log(users);
+    window.location.href = './index.html'
 }

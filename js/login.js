@@ -10,20 +10,26 @@ function animation() {
 
 
 function login() {
-    let email = document.getElementById('email').value;
-    let password = document.getElementById('password').value;
+    let email = document.getElementById('email');
+    let password = document.getElementById('password');
     
-    console.log(email);
-    console.log(password);
+    console.log(email.value);
+    console.log(password.value);
 
-    email = email.trim();
-    password = password.trim();
+    email.value = email.value.trim();
+    password.value = password.value.trim();
+
+    let user = users.find(u => u.email == email.value && u.password == password.value);
+    console.log(user);
+    if (user) {
+        window.location.href='./summary.html?login=1';
+    } else alert('Der eingegebene Benutzer ist nicht vorhanden');
     
     // if (email == '' || password == '') {
     //     alert('Please fill in all fields');
     //     return;
     // }
 
-    location.href='./summary.html?login=1';
+    
 
 }
