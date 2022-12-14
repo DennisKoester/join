@@ -5,9 +5,6 @@ let currentSubtasks = [];
 let currentAssignees = [];
 
 
-let assignees = [];
-
-
 function prioUrgent() {
     let btn = document.getElementById('urgend-btn');
     let img = document.getElementById('urgent-btn-img');
@@ -215,38 +212,62 @@ function resetActiveColor() {
 // Assign //
 
 function inviteContact(input, container, dropdown) {
+    // let required = document.getElementById('required-assign');
+
     let assignee = document.getElementById(input);
-    let required = document.getElementById('required-assign');
-    if (assignee.value.length >= 1) {
-        assignees.push(assignee.value)
-        input.value = '';
-        required.classList.add('hidden');
-    } else if (assignees.length == 0) {
-        required.classList.remove('hidden');
+    if (assignee.value.includes('@')) {
+        currentAssignees.push(assignee.value);
+        assignee.value = '';
+        loadAssignees();
+        showAssigneBadge(assignee);
+        hideInputField(input, container, dropdown);
+
+    } else {
+
     }
-    renderAssignees();
-    showAssigneBadge(assignee);
-    hideInputField(input, container, dropdown);
 }
 
 
-function renderAssignees() {
-    let list = document.getElementById('assign-list');
+function loadAssignees() {
+    let list = document.getElementById('assignee-list');
+
     list.innerHTML = '';
-    for (let i = 0; i < assignees.length; i++) {
-        const assignee = assignees[i];
-        list.innerHTML += assigneeHTML(assignee);
+    for (let i = 0; i < currentAssignees.length; i++) {
+        const assignee = currentAssignees[i];
+        list.innerHTML += assigneeHTML(assignee, i);
+        showAssigneBadge(i, assignee)
     }
     list.innerHTML += inviteContactHTML();
 }
 
 
-function showAssigneBadge(assignee) {
-    let initial = assignee.value;
-    let list = document.getElementById('add-task-assignees');
+function showAssigneBadge(i) {
+    let badgeList = document.getElementById('add-task-assignees');
+    let initials = getInitials(i)
+
+    badgeList.innerHTML += assigneeBadgeHTML(initials);
+}
 
 
-    list.innerHTML += assigneeBadgeHTML(initial);
+function getInitials(i) {
+    const fullName = currentAssignees[i].split(' ');
+    const initials = fullName.shift().charAt(0) + fullName.pop().charAt(0);
+    console.log(initials)
+    return initials.toUpperCase();
+
+}
+
+
+function selectAssignee(i) {
+    let checkbox = document.getElementById(`checkbox${i}`);
+    let checked = './assets/img/checkbox-assignee-checked.svg';
+    let unchecked = './assets/img/checkbox-assignee-unchecked.svg';
+
+    if (checkbox.src.indexOf("unchecked") != -1) { // TODO Why != -1 ??
+        checkbox.src = checked;
+    } else {
+        checkbox.src = unchecked;
+    }
 }
 
 
