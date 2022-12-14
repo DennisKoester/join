@@ -212,38 +212,49 @@ function resetActiveColor() {
 // Assign //
 
 function inviteContact(input, container, dropdown) {
+    // let required = document.getElementById('required-assign');
+
     let assignee = document.getElementById(input);
-    let required = document.getElementById('required-assign');
-    if (assignee.value.length >= 1) {
-        assignees.push(assignee.value)
+    if (assignee.value.includes('@')) {
+        users.push({ "name": assignee.value })
         input.value = '';
-        required.classList.add('hidden');
-    } else if (assignees.length == 0) {
-        required.classList.remove('hidden');
+        loadAssignees();
+        showAssigneBadge(assignee);
+        hideInputField(input, container, dropdown);
+
+    } else {
+
     }
-    loadAssignees();
-    showAssigneBadge(assignee);
-    hideInputField(input, container, dropdown);
 }
 
 
 function loadAssignees() {
-    let list = document.getElementById('assign-list');
+    let list = document.getElementById('assignee-list');
+
     list.innerHTML = '';
     for (let i = 0; i < users.length; i++) {
         const assignee = users[i]['name'];
         list.innerHTML += assigneeHTML(assignee, i);
+        showAssigneBadge(i, assignee)
     }
     list.innerHTML += inviteContactHTML();
 }
 
 
-function showAssigneBadge(assignee) {
-    let initial = assignee.value;
-    let list = document.getElementById('add-task-assignees');
+function showAssigneBadge(i) {
+    let badgeList = document.getElementById('add-task-assignees');
+    let initials = getInitials(i)
+
+    badgeList.innerHTML += assigneeBadgeHTML(initials);
+}
 
 
-    list.innerHTML += assigneeBadgeHTML(initial);
+function getInitials(i) {
+    const fullName = users[i]['name'].split(' ');
+    const initials = fullName.shift().charAt(0) + fullName.pop().charAt(0);
+    console.log(initials)
+    return initials.toUpperCase();
+
 }
 
 
@@ -251,12 +262,12 @@ function selectAssignee(i) {
     let checkbox = document.getElementById(`checkbox${i}`);
     let checked = './assets/img/checkbox-assignee-checked.svg';
     let unchecked = './assets/img/checkbox-assignee-unchecked.svg';
-    if (checkbox.src.indexOf(unchecked)) {
+
+    if (checkbox.src.indexOf("unchecked") != -1) { // TODO Why != -1 ??
         checkbox.src = checked;
     } else {
         checkbox.src = unchecked;
     }
-
 }
 
 

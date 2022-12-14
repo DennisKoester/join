@@ -9,7 +9,7 @@ let users = [
     },
 
     {
-        "name": "Test User2",
+        "name": "User Test",
         "email": "",
         "password": "",
         "phone": "",
