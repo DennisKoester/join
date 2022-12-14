@@ -115,7 +115,7 @@ function showInputField(hiddenContainer, container, dropdown, icon) {
     toggleClassList(dropdown, 'open');
     toggleClassList(icon, 'rotate180');
     if (hiddenContainer == 'category-input-container')
-        toggleColorSelection();
+        toggleClassList('category-colors', 'd-none');
 }
 
 
@@ -124,7 +124,8 @@ function hideInputField(input, hiddenContainer, container) {
     document.getElementById(hiddenContainer).classList.add('d-none');
     document.getElementById(container).classList.remove('d-none');
     if (hiddenContainer == 'category-input-container')
-        toggleColorSelection();
+        toggleClassList('category-colors', 'd-none');
+
 }
 
 
@@ -136,23 +137,22 @@ function showInputBtns(btns, icon) {
 
 // Category //
 
-function toggleColorSelection() {
-    let selection = document.getElementById('category-colors');
-    selection.classList.toggle('d-none');
-}
-
-
 function addNewCategory(input, container, dropdown) {
     let catInput = document.getElementById(input);
     if (catInput.value.length > 0 && currentCategoryColor !== false) {
-        categories.push({ "name": catInput.value, "color": currentCategoryColor });
-        showCategory(catInput, currentCategoryColor);
+        pushCategory(catInput, currentCategoryColor);
+        showCategory(catInput.value, currentCategoryColor);
         catInput.value = '';
         currentCategoryColor = false; // TODO Is that the right way????
         loadCategories();
         hideInputField(input, container, dropdown);
         resetActiveColor();
     }
+}
+
+
+function pushCategory(catInput, currentCategoryColor) {
+    categories.push({ "name": catInput.value, "color": currentCategoryColor });
 }
 
 
@@ -167,27 +167,32 @@ function loadCategories() {
     list.innerHTML += addCategoryHTML();
 }
 
-function selectCategory(category, color) {
+
+
+
+
+// HTML //
+
+
+function showCategory(category, color) {
     let field = document.getElementById('selected-category');
     field.innerHTML = '';
     field.innerHTML = /*html*/ `<div>${category}</div><div class="color-dot ${color}" style="margin-left: 10px;">`
 }
 
 
-function showCategory(category, color) {
-    let field = document.getElementById('selected-category');
-    field.innerHTML = '';
-    field.innerHTML = /*html*/ `<div>${category.value}</div><div class="color-dot ${color}" style="margin-left: 10px;">`
-}
-
-
 function categoryHTML(category, color) {
     return /*html*/ `
-        <li onclick="selectCategory(${category}, ${color})">
+        <li onclick="showCategory('${category}', '${color}')">
             <div>${category}</div>
             <div class="color-dot ${color}"></div>
         </li>`
 }
+
+
+
+
+
 
 
 function addNewColorToCategory(color, id) {

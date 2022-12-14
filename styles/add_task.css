@@ -540,7 +540,6 @@ select {
 
 .open {
     display: none;
-    transition: 1s ease-in-out;
 }
 
 .select-none {
