@@ -8,6 +8,21 @@ function addCategoryHTML() {
 }
 
 
+function selectedCategoryHTML(category, color) {
+    return /*html*/ `
+        <div>${category}</div><div class="color-dot ${color}" style="margin-left: 10px;">`
+}
+
+
+function categoryHTML(category, color) {
+    return /*html*/ `
+        <li onclick="selectCategory('${category}', '${color}')">
+            <div>${category}</div>
+            <div class="color-dot ${color}"></div>
+        </li>`
+}
+
+
 // Assignee Section //
 
 function assigneeHTML(assignee) {

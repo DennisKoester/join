@@ -59,15 +59,16 @@ function prioLow() {
 };
 
 
+// Help Functions //
+
 function toggleClassList(id, classList,) {
     document.getElementById(id).classList.toggle(classList);
-    // document.getElementById(icon).classList.toggle(classList1);
     // document.body.classList.toggle("overlay");
 }
 
 
 function dropDownToggle(id, icon) {
-    toggleClassList(id, 'open');
+    toggleClassList(id, 'd-none');
     toggleClassList(icon, 'rotate180');
 }
 
@@ -76,7 +77,7 @@ function dropDownToggle(id, icon) {
 //  Hide Dropdown By Clicking Next To It //
 
 // function dropDownToggle(id, icon) {
-//     toggleClassList(id, icon, 'open', 'rotate180');
+//     toggleClassList(id, icon, 'd-none', 'rotate180');
 //     window.addEventListener('click', function handleClickOutsideBox(event) {
 //         let area = document.getElementById(id);
 //         if (!area.contains(event.target))
@@ -88,7 +89,7 @@ function dropDownToggle(id, icon) {
 
 // Title Field //
 
-function getDataForNewTask() {
+/* function getDataForNewTask() {
     let title = document.getElementById('title');
     let desc = document.getElementById('description');
     let cat = currentCategory;
@@ -101,32 +102,37 @@ function getDataForNewTask() {
 
 function addNewTask() {
     let tasks = { title: title.value, }
-}
+} */
 
 
 
 
 // Input Fields//
 
-function showInputField(hiddenContainer, container, dropdown, icon) {
-    document.getElementById(hiddenContainer).classList.remove('d-none');
-    document.getElementById(container).classList.add('d-none');
-    // toggleClassList(dropdown, icon, 'open', 'rotate180');
-    toggleClassList(dropdown, 'open');
-    toggleClassList(icon, 'rotate180');
-    if (hiddenContainer == 'category-input-container')
+function showInputField(inputContainer, container, dropdown, icon) {
+    toggleClassList(inputContainer, 'd-none');
+    toggleClassList(container, 'd-none');
+    toggleDropdown(dropdown, icon);
+    if (inputContainer == 'category-input-container')
         toggleClassList('category-colors', 'd-none');
 }
 
 
-function hideInputField(input, hiddenContainer, container) {
+function hideInputField(input, inputContainer, container) {
     document.getElementById(input).value = '';
-    document.getElementById(hiddenContainer).classList.add('d-none');
-    document.getElementById(container).classList.remove('d-none');
-    if (hiddenContainer == 'category-input-container')
+    toggleClassList(inputContainer, 'd-none');
+    toggleClassList(container, 'd-none');
+    if (inputContainer == 'category-input-container')
         toggleClassList('category-colors', 'd-none');
 
 }
+
+
+function toggleDropdown(dropdown, icon) {
+    toggleClassList(dropdown, 'd-none');
+    toggleClassList(icon, 'rotate180');
+}
+
 
 
 function showInputBtns(btns, icon) {
@@ -141,12 +147,11 @@ function addNewCategory(input, container, dropdown) {
     let catInput = document.getElementById(input);
     if (catInput.value.length > 0 && currentCategoryColor !== false) {
         pushCategory(catInput, currentCategoryColor);
-        showCategory(catInput.value, currentCategoryColor);
-        catInput.value = '';
-        currentCategoryColor = false; // TODO Is that the right way????
+        selectCategory(catInput.value, currentCategoryColor);
         loadCategories();
         hideInputField(input, container, dropdown);
         resetActiveColor();
+        currentCategoryColor = false; // TODO Is that the right way????
     }
 }
 
@@ -168,37 +173,20 @@ function loadCategories() {
 }
 
 
-
-
-
-// HTML //
-
-
-function showCategory(category, color) {
-    let field = document.getElementById('selected-category');
-    field.innerHTML = '';
-    field.innerHTML = /*html*/ `<div>${category}</div><div class="color-dot ${color}" style="margin-left: 10px;">`
-}
-
-
-function categoryHTML(category, color) {
-    return /*html*/ `
-        <li onclick="showCategory('${category}', '${color}')">
-            <div>${category}</div>
-            <div class="color-dot ${color}"></div>
-        </li>`
-}
-
-
-
-
-
-
-
 function addNewColorToCategory(color, id) {
     currentCategoryColor = color;
 
     toggleActiveColor(id)
+}
+
+
+function selectCategory(category, color) {
+    let field = document.getElementById('selected-category');
+    let dropdown = document.getElementById('category-dropdown');
+    field.innerHTML = '';
+    field.innerHTML = selectedCategoryHTML(category, color);
+    if (!dropdown.classList.contains('d-none'))
+        toggleDropdown('category-dropdown', 'triangle1');
 }
 
 

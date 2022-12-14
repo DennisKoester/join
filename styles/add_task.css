@@ -538,10 +538,6 @@ select {
     align-items: center;
 }
 
-.open {
-    display: none;
-}
-
 .select-none {
     user-select: none;
 }
