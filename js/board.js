@@ -1,6 +1,11 @@
 function toggleModal(id) {
     const modal = document.getElementById(id);
     modal.classList.toggle('d-none');
+
+    if (id == 'modal-add-task') {
+        const headerNav = document.getElementById('header-nav');
+        headerNav.classList.toggle('header-nav-modal');
+    }
 }
 
 function toggleTaskEditMode() {
