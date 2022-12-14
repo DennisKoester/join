@@ -149,9 +149,10 @@ function addNewCategory(input, container, dropdown) {
         showCategory(catInput, currentCategoryColor);
         catInput.value = '';
         currentCategoryColor = false; // TODO Is that the right way????
+        loadCategories();
+        hideInputField(input, container, dropdown);
+        resetActiveColor();
     }
-    loadCategories();
-    hideInputField(input, container, dropdown);
 }
 
 
@@ -166,7 +167,7 @@ function loadCategories() {
     list.innerHTML += addCategoryHTML();
 }
 
-function choosenCategory(category, color) {
+function selectCategory(category, color) {
     let field = document.getElementById('selected-category');
     field.innerHTML = '';
     field.innerHTML = /*html*/ `<div>${category}</div><div class="color-dot ${color}" style="margin-left: 10px;">`
@@ -182,33 +183,37 @@ function showCategory(category, color) {
 
 function categoryHTML(category, color) {
     return /*html*/ `
-        <li onclick="choosenCategory(${category}, ${color})">
+        <li onclick="selectCategory(${category}, ${color})">
             <div>${category}</div>
             <div class="color-dot ${color}"></div>
         </li>`
 }
 
 
-
-
-function addNewColorToCategory(color) {
+function addNewColorToCategory(color, id) {
     currentCategoryColor = color;
 
+    toggleActiveColor(id)
+}
+
+
+function toggleActiveColor(id) {
     let btnContainer = document.getElementById("category-colors");
     let btns = btnContainer.getElementsByClassName("color-dot");
 
     for (let i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function () {
-            let current = document.getElementsByClassName("active");
+        btns[i].classList.remove('active');
+    }
+    toggleClassList(`color${id}`, 'active');
+}
 
-            // If there's no active class
-            if (current.length > 0) {
-                current[0].className = current[0].className.replace(" active", "");
-            }
 
-            // Add the active class to the current/clicked button
-            this.className += " active";
-        });
+function resetActiveColor() {
+    let btnContainer = document.getElementById("category-colors");
+    let btns = btnContainer.getElementsByClassName("color-dot");
+
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].classList.remove('active');
     }
 }
 
