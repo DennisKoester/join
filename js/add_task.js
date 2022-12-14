@@ -5,9 +5,6 @@ let currentSubtasks = [];
 let currentAssignees = [];
 
 
-let assignees = [];
-
-
 function prioUrgent() {
     let btn = document.getElementById('urgend-btn');
     let img = document.getElementById('urgent-btn-img');
@@ -224,18 +221,18 @@ function inviteContact(input, container, dropdown) {
     } else if (assignees.length == 0) {
         required.classList.remove('hidden');
     }
-    renderAssignees();
+    loadAssignees();
     showAssigneBadge(assignee);
     hideInputField(input, container, dropdown);
 }
 
 
-function renderAssignees() {
+function loadAssignees() {
     let list = document.getElementById('assign-list');
     list.innerHTML = '';
-    for (let i = 0; i < assignees.length; i++) {
-        const assignee = assignees[i];
-        list.innerHTML += assigneeHTML(assignee);
+    for (let i = 0; i < users.length; i++) {
+        const assignee = users[i]['name'];
+        list.innerHTML += assigneeHTML(assignee, i);
     }
     list.innerHTML += inviteContactHTML();
 }
@@ -247,6 +244,19 @@ function showAssigneBadge(assignee) {
 
 
     list.innerHTML += assigneeBadgeHTML(initial);
+}
+
+
+function selectAssignee(i) {
+    let checkbox = document.getElementById(`checkbox${i}`);
+    let checked = './assets/img/checkbox-assignee-checked.svg';
+    let unchecked = './assets/img/checkbox-assignee-unchecked.svg';
+    if (checkbox.src.indexOf(unchecked)) {
+        checkbox.src = checked;
+    } else {
+        checkbox.src = unchecked;
+    }
+
 }
 
 

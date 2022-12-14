@@ -106,11 +106,6 @@
         height: 39px;
     }
 
-    .checkbox {
-        height: 18px;
-        width: 18px;
-    }
-
     .prio-btn {
         height: 41px;
     }
@@ -208,11 +203,6 @@
 
     .height-input-mobile {
         height: 32px;
-    }
-
-    .checkbox {
-        height: 15px;
-        width: 15px;
     }
 
     .due-date-input {

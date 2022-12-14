@@ -18,6 +18,8 @@ async function init() {
 
     loadCategories();
 
+    loadAssignees();
+
 
     // currentPage = 'add-task';
     // const selected = document.getElementById(`menu-${currentPage}`);

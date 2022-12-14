@@ -1,6 +1,15 @@
 let users = [
     {
-        "name": "",
+        "name": "Test User",
+        "email": "",
+        "password": "",
+        "phone": "",
+        "short_name": "",
+        "color": ""
+    },
+
+    {
+        "name": "Test User2",
         "email": "",
         "password": "",
         "phone": "",

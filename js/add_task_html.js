@@ -25,12 +25,13 @@ function categoryHTML(category, color) {
 
 // Assignee Section //
 
-function assigneeHTML(assignee) {
+function assigneeHTML(assignee, i) {
     return /*html*/ `
-        <li>
+        <li onclick="selectAssignee(${i})">
             <label class="flex-btw">
                 <div>${assignee}</div>
-                <input id="${assignee}" class="checkbox" type="checkbox" id="assignee" name="assignee" value="" checked>
+                <img id="checkbox${i}" class="checkbox" src="./assets/img/checkbox-assignee-checked.svg" alt="checkbox">
+                <!-- <input id="${assignee}" class="checkbox" type="checkbox" id="assignee" name="assignee" value="" checked> -->
             </label>
         </li>`
 }
@@ -56,7 +57,7 @@ function assigneeBadgeHTML(inital) {
 function subTaskHTML(subtask, i) {
     return /*html*/ `
     <div class="subtask">
-        <img src="./assets/img/checkbox-unchecked.svg" alt="checkbox unchecked">
+        <img src="./assets/img/checkbox-unchecked.svg" alt="checkbox">
         <!-- <input onclick="checkSelectionSubtask(${i})" type="checkbox" id="subtask${i}" name="subtask" value="subtask"> -->
         <label for="">${subtask}</label>
         <img onclick="deleteSubtask(${i})" src="./assets/img/black-x.svg" alt="" class="filter-btn">
