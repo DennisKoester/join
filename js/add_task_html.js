@@ -1,3 +1,15 @@
+// Category Section //
+
+function addCategoryHTML() {
+    return /*html*/ `
+        <li onclick="showInputField('category-input-container', 'category-dropdown-container', 'category-dropdown', 'triangle1')">
+            <div>New Category</div>
+        </li>`
+}
+
+
+// Assignee Section //
+
 function assigneeHTML(assignee) {
     return /*html*/ `
         <li>

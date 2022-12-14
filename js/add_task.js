@@ -1,11 +1,10 @@
 let currentPrio;
 let currentCategory;
-let currentCategoryColor;
+let currentCategoryColor = false;
 let currentSubtasks = [];
 let currentAssignees = [];
 
 
-let subtasks = [];
 let assignees = [];
 
 
@@ -145,10 +144,11 @@ function toggleColorSelection() {
 
 function addNewCategory(input, container, dropdown) {
     let catInput = document.getElementById(input);
-    if (catInput.value.length > 0) {
+    if (catInput.value.length > 0 && currentCategoryColor !== false) {
         categories.push({ "name": catInput.value, "color": currentCategoryColor });
         showCategory(catInput, currentCategoryColor);
         catInput.value = '';
+        currentCategoryColor = false; // TODO Is that the right way????
     }
     loadCategories();
     hideInputField(input, container, dropdown);
@@ -166,6 +166,12 @@ function loadCategories() {
     list.innerHTML += addCategoryHTML();
 }
 
+function choosenCategory(category, color) {
+    let field = document.getElementById('selected-category');
+    field.innerHTML = '';
+    field.innerHTML = /*html*/ `<div>${category}</div><div class="color-dot ${color}" style="margin-left: 10px;">`
+}
+
 
 function showCategory(category, color) {
     let field = document.getElementById('selected-category');
@@ -176,24 +182,17 @@ function showCategory(category, color) {
 
 function categoryHTML(category, color) {
     return /*html*/ `
-        <li onclick="showCategory()">
+        <li onclick="choosenCategory(${category}, ${color})">
             <div>${category}</div>
             <div class="color-dot ${color}"></div>
         </li>`
 }
 
 
-function addCategoryHTML() {
-    return /*html*/ `
-        <li onclick="showInputField('category-input-container', 'category-dropdown-container', 'category-dropdown', 'triangle1')">
-            <div>New Category</div>
-        </li>`
-}
 
 
 function addNewColorToCategory(color) {
     currentCategoryColor = color;
-
 
     let btnContainer = document.getElementById("category-colors");
     let btns = btnContainer.getElementsByClassName("color-dot");
@@ -271,7 +270,7 @@ function getDate() {
 function addSubtask(input, container, dropdown) {
     let inputSubtask = document.getElementById('subtask-input');
     if (inputSubtask.value.length >= 1) {
-        subtasks.push(inputSubtask.value);
+        currentSubtasks.push(inputSubtask.value);
         inputSubtask.value = '';
     }
     renderSubtasks();
@@ -282,15 +281,15 @@ function addSubtask(input, container, dropdown) {
 function renderSubtasks() {
     list = document.getElementById('subtask-list');
     list.innerHTML = '';
-    for (let i = 0; i < subtasks.length; i++) {
-        const subtask = subtasks[i];
+    for (let i = 0; i < currentSubtasks.length; i++) {
+        let subtask = currentSubtasks[i];
         list.innerHTML += subTaskHTML(subtask, i);
     }
 }
 
 
 function deleteSubtask(i) {
-    subtasks.splice(i, 1);
+    currentSubtasks.splice(i, 1);
     renderSubtasks();
 }
 
