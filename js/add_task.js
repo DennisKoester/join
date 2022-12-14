@@ -170,7 +170,7 @@ function loadCategories() {
 function showCategory(category, color) {
     let field = document.getElementById('selected-category');
     field.innerHTML = '';
-    field.innerHTML = /*html*/ `<span>${category.value}</span><div class="color-dot ${color}">`
+    field.innerHTML = /*html*/ `<div>${category.value}</div><div class="color-dot ${color}" style="margin-left: 10px;">`
 }
 
 
@@ -191,12 +191,28 @@ function addCategoryHTML() {
 }
 
 
-function addNewColorToCategory(id, color) {
-    let dot = document.getElementById(id);
+function addNewColorToCategory(color) {
     currentCategoryColor = color;
-    // dot.classList.toggle('active-color');
-    toggleClassList(dot, 'active-color');
+
+
+    let btnContainer = document.getElementById("category-colors");
+    let btns = btnContainer.getElementsByClassName("color-dot");
+
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            let current = document.getElementsByClassName("active");
+
+            // If there's no active class
+            if (current.length > 0) {
+                current[0].className = current[0].className.replace(" active", "");
+            }
+
+            // Add the active class to the current/clicked button
+            this.className += " active";
+        });
+    }
 }
+
 
 
 // Assign //

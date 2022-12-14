@@ -14,7 +14,7 @@ function inviteContactHTML() {
     <li onclick="showInputField('assign-input-container', 'assign-dropdown-container', 'assign-dropdown', 'triangle2')">
         <label class="flex-btw">
             <div>Invite new contact</div>
-             <img src="./assets/img/contact-icon.svg" alt="">
+             <img src="./assets/img/contact-icon.svg" alt="contact icon">
         </label>
     </li>`
 }
