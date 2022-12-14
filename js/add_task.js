@@ -216,8 +216,8 @@ function inviteContact(input, container, dropdown) {
 
     let assignee = document.getElementById(input);
     if (assignee.value.includes('@')) {
-        users.push({ "name": assignee.value })
-        input.value = '';
+        currentAssignees.push(assignee.value);
+        assignee.value = '';
         loadAssignees();
         showAssigneBadge(assignee);
         hideInputField(input, container, dropdown);
@@ -232,8 +232,8 @@ function loadAssignees() {
     let list = document.getElementById('assignee-list');
 
     list.innerHTML = '';
-    for (let i = 0; i < users.length; i++) {
-        const assignee = users[i]['name'];
+    for (let i = 0; i < currentAssignees.length; i++) {
+        const assignee = currentAssignees[i];
         list.innerHTML += assigneeHTML(assignee, i);
         showAssigneBadge(i, assignee)
     }
@@ -250,7 +250,7 @@ function showAssigneBadge(i) {
 
 
 function getInitials(i) {
-    const fullName = users[i]['name'].split(' ');
+    const fullName = currentAssignees[i].split(' ');
     const initials = fullName.shift().charAt(0) + fullName.pop().charAt(0);
     console.log(initials)
     return initials.toUpperCase();
