@@ -1,0 +1,9 @@
+.header-nav-modal {
+    display: flex;
+}
+
+@media screen and (max-width: 940px) {
+    .header-nav-modal {
+        display: none;
+    }
+}
