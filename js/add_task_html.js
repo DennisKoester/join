@@ -27,7 +27,7 @@ function categoryHTML(category, color) {
 
 function assigneeHTML(assignee, i) {
     return /*html*/ `
-        <li onclick="selectAssignee(${i})">
+        <li onclick="selectAssignee(${i}, ${assignee})">
             <label class="flex-btw">
                 <div>${assignee}</div>
                 <img id="checkbox${i}" class="checkbox" src="./assets/img/checkbox-assignee-checked.svg" alt="checkbox">

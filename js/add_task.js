@@ -214,6 +214,26 @@ function resetActiveColor() {
 function inviteContact(input, container, dropdown) {
     // let required = document.getElementById('required-assign');
 
+    let assignInput = document.getElementById(input);
+
+    for (let i = 0; i < users.length; i++) {
+        let email = users[i]['email'];
+        let name = users[i]['name'];
+        if (email === assignInput.value) {
+            currentAssignees.push(name);
+            loadAssignees();
+            assignInput.value = '';
+            hideInputField(input, container, dropdown);
+
+            console.log(currentAssignees);
+        }
+    }
+}
+
+
+/* function inviteContact(input, container, dropdown) {
+    // let required = document.getElementById('required-assign');
+
     let assignee = document.getElementById(input);
     if (assignee.value.includes('@')) {
         currentAssignees.push(assignee.value);
@@ -225,36 +245,44 @@ function inviteContact(input, container, dropdown) {
     } else {
 
     }
-}
+} */
 
 
 function loadAssignees() {
     let list = document.getElementById('assignee-list');
-
+    let badgeList = document.getElementById('add-task-assignees');
     list.innerHTML = '';
+    badgeList.innerHTML = '';
+
     for (let i = 0; i < currentAssignees.length; i++) {
-        const assignee = currentAssignees[i];
+        let assignee = currentAssignees[i];
         list.innerHTML += assigneeHTML(assignee, i);
-        showAssigneBadge(i, assignee)
+        showAssigneBadge(assignee)
     }
     list.innerHTML += inviteContactHTML();
 }
 
 
-function showAssigneBadge(i) {
+function showAssigneBadge(assignee) {
     let badgeList = document.getElementById('add-task-assignees');
-    let initials = getInitials(i)
+    let initials = getInitials(assignee)
 
     badgeList.innerHTML += assigneeBadgeHTML(initials);
 }
 
 
-function getInitials(i) {
-    const fullName = currentAssignees[i].split(' ');
+function getInitials(name) {
+    const fullName = name.split(' ');
     const initials = fullName.shift().charAt(0) + fullName.pop().charAt(0);
     console.log(initials)
     return initials.toUpperCase();
 
+}
+
+
+function selectAssignee(i, assignee) {
+    currentAssignees.splice()
+    loadAssignees();
 }
 
 
@@ -270,10 +298,6 @@ function selectAssignee(i) {
     }
 }
 
-
-// function setInputValues(assignee){
-//     document.getElementById('assign-input').value = assignee;
-// }
 
 // Date //
 
