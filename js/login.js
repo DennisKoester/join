@@ -4,11 +4,7 @@ function init() {
 }
 
 function animation() {
-    var loader = document.getElementById('preloader');
-
-    window.addEventListener('load', function () {
-        loader.style.display = 'none';
-    });
+    setTimeout(() => {document.getElementById('preloader').classList.add('d_none')}, 1000);
 }
 
 function signUpQuery() {
@@ -16,7 +12,7 @@ function signUpQuery() {
     const msg = urlParams.get('msg');
     if(msg) {
         document.getElementById('msg-box').innerHTML = msg;
-        document.getElementById('msg-box').classList.remove('d-none');
+        document.getElementById('msg-box').classList.remove('d_none');
     }
 }
 
