@@ -78,16 +78,16 @@
 
 @keyframes slideLogo {
     0% {
-        width: 200px;
+        width: 272px;
         left: 40%;
-        top: 40vh;
+        top: 30vh;
 
     }
 
     50% {
-        width: 200px;
+        width: 272px;
         left: 40%;
-        top: 40vh;
+        top: 30vh;
 
     }
 
@@ -201,3 +201,25 @@
     animation: fadeOpacityOut 2s ease 0s 1 normal forwards;
 }
 
+@media (max-width:1250px) {
+    @keyframes slideLogo {
+        0% {
+            width: 272px;
+            left: 35%;
+            top: 30vh;
+    
+        }
+    
+        50% {
+            width: 272px;
+            left: 35%;
+            top: 30vh;
+    
+        }
+    
+        100% {
+            left: 60px;
+            top: 28px;
+        }
+    }
+}
