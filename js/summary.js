@@ -1,3 +1,6 @@
+/**
+ * Initialises the summary
+ */
 function initSummary() {
     getNumberTasksAll();
     getNumberTasksTodo();
@@ -8,6 +11,9 @@ function initSummary() {
 }
 
 
+/**
+ * Calculates the number of all tasks and displays it
+ */
 function getNumberTasksAll() {
     const tasksAll = document.getElementById('count-tasks-all');
     let allTasks = 0;
@@ -19,6 +25,10 @@ function getNumberTasksAll() {
     tasksAll.innerHTML = allTasks;
 }
 
+
+/**
+ * Calculates the number of the tasks in status "to do" and displays it
+ */
 function getNumberTasksTodo() {
     const todoCount = document.getElementById('count-todo');
     const tasksTodo = tasks[0].length;
@@ -26,6 +36,10 @@ function getNumberTasksTodo() {
     todoCount.innerHTML = tasksTodo;
 }
 
+
+/**
+ * Calculates the number of the tasks in status "in progress" and displays it
+ */
 function getNumberTasksInProgress() {
     const inProgressCount = document.getElementById('count-in-progress');
     const tasksInProgress = tasks[1].length;
@@ -33,6 +47,10 @@ function getNumberTasksInProgress() {
     inProgressCount.innerHTML = tasksInProgress;
 }
 
+
+/**
+ * Calculates the number of the tasks in status "awaiting feedback" and displays it
+ */
 function getNumberTasksFeedback() {
     const feedbackCount = document.getElementById('count-feedback');
     const tasksFeedback = tasks[2].length;
@@ -40,6 +58,10 @@ function getNumberTasksFeedback() {
     feedbackCount.innerHTML = tasksFeedback;
 }
 
+
+/**
+ * Calculates the number of the tasks in status "done" and displays it
+ */
 function getNumberTasksDone() {
     const doneCount = document.getElementById('count-done');
     const tasksDone = tasks[3].length;
@@ -47,6 +69,10 @@ function getNumberTasksDone() {
     doneCount.innerHTML = tasksDone;
 }
 
+
+/**
+ * Calculates the number of the tasks with prio "urgent" and displays the respective data
+ */
 function getTasksUrgent() {
     const countUrgent = getNumberTasksUrgent();
     displayUrgentDate(countUrgent);
@@ -70,6 +96,11 @@ function getNumberTasksUrgent() {
     return counter;
 }
 
+
+/**
+ * Displays the date of the task with prio "urgent" that is due earliest
+ * @param {Array} countUrgent List of tasks with prio "urgent"
+ */
 function displayUrgentDate(countUrgent) {
     const urgentDate = document.getElementById('urgent-date');
 
@@ -81,6 +112,12 @@ function displayUrgentDate(countUrgent) {
     }
 }
 
+
+/**
+ * Calculates the earliest due date of tasks with prio "urgent"
+ * @param {Array} countUrgent List of tasks with prio "urgent"
+ * @returns The earliest due date of tasks with prio "urgent"
+ */
 function getUrgentDateNearest(countUrgent) {
     if (countUrgent.length > 1) {
         let dates = [];
@@ -97,6 +134,12 @@ function getUrgentDateNearest(countUrgent) {
     }
 }
 
+
+/**
+ * Parses a date as string from "YYYY-MM-DD" to "MMM DD, YYYY" (e. g. October 23, 2022)
+ * @param {String} date
+ * @returns The date as string in the required format
+ */
 function parseDate(date) {
     const dateAsArray = date.split('-');
     const day = dateAsArray[2];
@@ -106,6 +149,11 @@ function parseDate(date) {
     return `${month} ${day}, ${year}`;
 }
 
+
+/**
+ * Sets the label of the "Urgent" badge depending on the number of tasks with prio "urgent"
+ * @param {Array} countUrgent A list of tasks with prio "urgent"
+ */
 function setUrgentLabel(countUrgent) {
     const urgentLabel = document.getElementById('urgent-label');
 
