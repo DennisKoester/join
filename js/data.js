@@ -28,13 +28,13 @@ let users = [
 ];
 
 let tasks = [
-    [
+    [ // To-Do
         {
             "title": "Task A",
-            "desc": "Do this and that",
+            "desc": "Do some stuff",
             "cat": "Design",
-            "date": "13.01.2023",
-            "prio": 0,
+            "date": "2023-02-15",
+            "prio": 2,
             "subtasks": [
                 {
                     "title": "Subtask A",
@@ -43,14 +43,93 @@ let tasks = [
                 {
                     "title": "Subtask B",
                     "status": true
-                }
+                },
             ],
             "assignees": ['joe.m@test.de', 'test@test.com'] // mail-address
         }
     ],
-    [],
-    [],
-    []
+    [ // In Progress
+        {
+            "title": "Task B",
+            "desc": "Do this and that",
+            "cat": "Developement",
+            "date": "2023-01-13",
+            "prio": 2,
+            "subtasks": [
+                {
+                    "title": "Subtask A",
+                    "status": false
+                },
+                {
+                    "title": "Subtask B",
+                    "status": true
+                },
+                {
+                    "title": "Subtask C",
+                    "status": true
+                }
+            ],
+            "assignees": ['user@test.de', 'test@test.com'] // mail-address
+        },
+        {
+            "title": "Task E",
+            "desc": "Improve the code",
+            "cat": "Developement",
+            "date": "2023-03-13",
+            "prio": 0,
+            "subtasks": [
+                {
+                    "title": "Subtask A",
+                    "status": false
+                },
+                {
+                    "title": "Subtask B",
+                    "status": false
+                }
+            ],
+            "assignees": ['user@test.de', 'test@test.com'] // mail-address
+        }
+    ],
+    [ // Awaiting Feedback
+        {
+            "title": "Task C",
+            "desc": "Do more stuff",
+            "cat": "Marketing",
+            "date": "2023-01-22",
+            "prio": 2,
+            "subtasks": [
+                {
+                    "title": "Subtask A",
+                    "status": false
+                },
+            ],
+            "assignees": ['joe.m@test.de'] // mail-address
+        }
+    ],
+    [ // Done
+        {
+            "title": "Task D",
+            "desc": "Sell some stuff",
+            "cat": "Sales",
+            "date": "2023-03-14",
+            "prio": 2,
+            "subtasks": [
+                {
+                    "title": "Subtask A",
+                    "status": false
+                },
+                {
+                    "title": "Subtask B",
+                    "status": true
+                },
+                {
+                    "title": "Subtask C",
+                    "status": true
+                }
+            ],
+            "assignees": ['joe.m@test.de', 'user@test.de'] // mail-address
+        }
+    ]
 ];
 
 let categories = [
@@ -75,11 +154,11 @@ let categories = [
     }
 ];
 
-let prio = [
+const prio = [
     {
-        "name": "Urgent",
-        "color": "#FF3D00",
-        "sign": "./assets/img/urgent-white.svg"
+        "name": "Low",
+        "color": "#7AE229",
+        "sign": "./assets/img/low-white.svg"
     },
     {
         "name": "Medium",
@@ -87,8 +166,23 @@ let prio = [
         "sign": "./assets/img/medium-white.svg"
     },
     {
-        "name": "Low",
-        "color": "#7AE229",
-        "sign": "./assets/img/low-white.svg"
+        "name": "Urgent",
+        "color": "#FF3D00",
+        "sign": "./assets/img/urgent-white.svg"
     }
+];
+
+const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
 ];

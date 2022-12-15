@@ -13,11 +13,13 @@
     <link rel="stylesheet" href="./styles/media_summary.css">
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
     <script src="./js/include_html.js"></script>
+    <script src="./js/data.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/summary.js"></script>
     <title>Summary</title>
 </head>
 
-<body onload="init()">
+<body onload="init(), initSummary()">
     <header w3-include-html="./assets/templates/header.html"></header>
     <nav w3-include-html="./assets/templates/navbar.html"></nav>
     <div class="content-container">
@@ -35,20 +37,20 @@
             <div id="ui">
                 <div id="data">
                     <div id="sum-in-progress">
-                        <div class="sum-badge badge-info badge-in-progress">
+                        <a href="./board.html" class="sum-badge badge-info badge-in-progress">
                             <span id="count-tasks-all" class="badge-count">0</span>
-                            <span class="label label-big">Tasks in<br />Board</span>
-                        </div>
-                        <div class="sum-badge badge-info badge-in-progress">
+                            <span class="label label-big">Tasks in<br>Board</span>
+                        </a>
+                        <a href="./board.html" class="sum-badge badge-info badge-in-progress">
                             <span id="count-in-progress" class="badge-count">0</span>
                             <span class="label label-big">Tasks in<br>Progress</span>
-                        </div>
-                        <div class="sum-badge badge-info badge-in-progress">
+                        </a>
+                        <a href="./board.html" class="sum-badge badge-info badge-in-progress">
                             <span id="count-feedback" class="badge-count">0</span>
                             <span class="label label-big">Awaiting<br>Feedback</span>
-                        </div>
+                        </a>
                     </div>
-                    <div id="sum-urgent" class="sum-badge">
+                    <a href="./board.html" id="sum-urgent" class="sum-badge">
                         <img src="./assets/img/symb_urgent_summary.png" alt="urgent">
                         <div class="badge-info">
                             <div id="count-urgent" class="badge-count-small">0</div>
@@ -57,11 +59,11 @@
                         <div id="urgent-separator"></div>
                         <div id="urgent-date-info">
                             <span id="urgent-date">January 1, 2000</span>
-                            <span class="label label-small">Upcoming Deadline</span>
+                            <span id="urgent-label" class="label label-small">Upcoming Deadline</span>
                         </div>
-                    </div>
+                    </a>
                     <div id="sum-todo-done">
-                        <div id="done" class="sum-badge badge-todo">
+                        <a href="./board.html" id="done" class="sum-badge badge-todo">
                             <div class="badge-todo--icon">
                                 <img src="./assets/img/symb_done.svg" alt="done">
                             </div>
@@ -69,8 +71,8 @@
                                 <div id="count-done" class="badge-count">0</div>
                                 <div class="label label-big">Done</div>
                             </div>
-                        </div>
-                        <div id="todo" class="sum-badge badge-todo">
+                        </a>
+                        <a href="./board.html" id="todo" class="sum-badge badge-todo">
                             <div class="badge-todo--icon">
                                 <img src="./assets/img/symb_todo.svg" alt="done">
                             </div>
@@ -78,7 +80,7 @@
                                 <div id="count-todo" class="badge-count">0</div>
                                 <div class="label label-big">To-do</div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="welcome-desk">
