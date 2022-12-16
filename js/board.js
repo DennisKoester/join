@@ -1,19 +1,30 @@
 /**
  * Renders all tasks to the board
  */
-function initBoard() {
+function renderTasks() {
     for (let i = 0; i < tasks.length; i++) {
-        const statusContainer = document.getElementById(`tasks-status-${i}`);
-        statusContainer.innerHTML = '';
-        if (tasks[i].length == 0) {
-            showMsgNoTask(i, true);
-        }
-        else {
-            showMsgNoTask(i, false);
-            for (let t = 0; t < tasks[i].length; t++) {
-                renderTaskCard(i, t);
-            }
-            
+        renderTasksStatus(i);
+    }
+}
+
+
+/**
+ * Renders all tasks of the respective status
+ * @param {Number} statusId The ID of the respective status
+ */
+function renderTasksStatus(statusId) {
+    const statusContainer = document.getElementById(`tasks-status-${statusId}`);
+    statusContainer.innerHTML = '';
+    if (tasks[statusId].length == 0) {
+        showMsgNoTask(statusId, true);
+    }
+    else {
+        showMsgNoTask(statusId, false);
+        for (let t = 0; t < tasks[statusId].length; t++) {
+            const cat = getCategory(statusId, t);
+            const catColor = getCategoryColor(cat);
+            const prio = getPriority(statusId, t);
+            statusContainer.innerHTML += renderTaskCard(statusId, t, cat, catColor, prio);
         }
     }
 }
@@ -31,6 +42,76 @@ function showMsgNoTask(statusId, isVisible) {
     else {
         msg.classList.add('d-none');
     }
+}
+
+
+function getCategory(statusId, taskId) {
+    return tasks[statusId][taskId]['cat'];
+}
+
+
+function getCategoryColor(category) {
+    const id = categories.findIndex(item => item['name'] == category);
+    return categories[id]['color'];
+}
+
+
+function getSubtasksProgress(statusId, taskId) {
+    if (tasks[statusId][taskId]['subtasks'].length == 0) return '';
+
+    return renderSubtasksProgress(statusId, taskId);
+}
+
+
+function getSubtasksDone(statusId, taskId) {
+    return tasks[statusId][taskId]['subtasks'].filter(item => item['status']).length;
+}
+
+
+function getSubtasksDoneInPerc(statusId, taskId) {
+    const subtasksDone = getSubtasksDone(statusId, taskId);
+    const subtasksCount = tasks[statusId][taskId]['subtasks'].length;
+    
+    return (subtasksDone / subtasksCount) * 100;
+}
+
+
+function getAssignees(statusId, taskId) {
+    const assigneesCount = tasks[statusId][taskId]['assignees'].length;
+    const assigneesDisplayMax = assigneesCount > 3 ? 2 : assigneesCount;
+    let assigneesList = '';
+
+    for (let a = 0; a < assigneesDisplayMax; a++) {
+        assigneesList += createAssigneeBadge(statusId, taskId, a);
+    }
+
+    if (assigneesCount > 3) assigneesList += renderAssignees(false);
+
+    return assigneesList;
+}
+
+
+function createAssigneeBadge(statusId, taskId, assigneeId) {
+    const mail = tasks[statusId][taskId]['assignees'][assigneeId];
+    const id = users.findIndex(user => user['email'] == mail);
+    const color = users[id]['color'];
+    const short = users[id]['short_name'];
+
+    return renderAssignees(true, color, short);
+}
+
+
+function getPriority(statusId, taskId) {
+    return tasks[statusId][taskId]['prio'];
+}
+
+/**
+ * Opens the task viewer
+ * @param {Number} statusId The ID of the respective status
+ * @param {Number} taskId The ID of the task within the status
+ */
+function openViewer(statusId, taskId) {
+    toggleModal('modal-task');
 }
 
 

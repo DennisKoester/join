@@ -5,7 +5,7 @@ let users = [
         "password": "",
         "phone": "",
         "short_name": "TU",
-        "color": "hsl(200, 240, 120)"
+        "color": "HSL(300, 100%, 50%)"
     },
 
     {
@@ -14,7 +14,7 @@ let users = [
         "password": "",
         "phone": "",
         "short_name": "UT",
-        "color": "hsl(120, 240, 120)"
+        "color": "HSL(120, 100%, 50%)"
     },
 
     {
@@ -23,7 +23,7 @@ let users = [
         "password": "",
         "phone": "",
         "short_name": "JM",
-        "color": "hsl(80, 240, 120)"
+        "color": "HSL(180, 100%, 50%)"
     }
 ];
 
@@ -158,17 +158,20 @@ const prio = [
     {
         "name": "Low",
         "color": "#7AE229",
-        "sign": "./assets/img/low-white.svg"
+        "sign-white": "./assets/img/low-white.svg",
+        "sign-color": "./assets/img/low.svg"
     },
     {
         "name": "Medium",
         "color": "#FFA800",
-        "sign": "./assets/img/medium-white.svg"
+        "sign-white": "./assets/img/medium-white.svg",
+        "sign-color": "./assets/img/medium.svg"
     },
     {
         "name": "Urgent",
         "color": "#FF3D00",
-        "sign": "./assets/img/urgent-white.svg"
+        "sign-white": "./assets/img/urgent-white.svg",
+        "sign-color": "./assets/img/urgent.svg"
     }
 ];
 
