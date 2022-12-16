@@ -118,6 +118,21 @@
     position: relative;
 }
 
+.error-style {
+    position: absolute;
+    text-align: center;
+    bottom: 30px;
+    left: 100px;
+    right: 100px;
+    color: red;
+}
+
+.error-login {
+    margin-top: 30px;
+    text-align: center;
+    color: red;
+}
+
 .login_main {
     display: flex;
     justify-content: center;

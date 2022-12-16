@@ -19,26 +19,22 @@ function signUpQuery() {
 function login(e) {
     e.preventDefault();
 
-    let users = JSON.parse(localStorage.getItem('users'))
     let email = document.getElementById('email');
     let password = document.getElementById('password');
-    
-    console.log(email.value);
-    console.log(password.value);
 
-    email.value = email.value.trim();
-    password.value = password.value.trim();
+    //load users
+    if(JSON.parse(localStorage.getItem('users'))) {
+        users = JSON.parse(localStorage.getItem('users'));
+    }
 
+    //checking if user exists
     let user = users.find(u => u.email == email.value && u.password == password.value);
-    console.log(user);
+
     if (user) {
         window.location.href='./summary.html?login=1';
-    } else alert('Der eingegebene Benutzer ist nicht vorhanden');
-    
-    // if (email == '' || password == '') {
-    //     alert('Please fill in all fields');
-    //     return;
-    // }
+    } else {
+        document.getElementById('error-login').innerHTML = 'Der eingegebene Benutzer ist nicht vorhanden!';
+    }
 
     return false
 
