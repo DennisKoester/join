@@ -22,19 +22,49 @@ window.addEventListener("load", function () {
 });
 
 
-/* function setPrio(index, id) {
+function setPrio(index, id) {
     let btns = document.getElementsByClassName("prio-btn");
+    // let btn = document.getElementById(id);
+    let img = document.getElementById(`${id}-img`); // TODO NOT working
+    let color = prio[index]['color'];
+    let signWhite = prio[index]['sign-white'];
+    let signColor = prio[index]['sign-color'];
 
     for (let i = 0; i < btns.length; i++) {
-        if () {
-            prio[index]['name'] etc
+        let btn = btns[i];
+
+        btn.style.backgroundColor = '#FFFFFF';
+        btn.style.color = 'black';
+        img.src = signColor;
+
+        if (index === 2) {
+            btn.style.backgroundColor = color;
+            btn.style.color = 'white';
+            img.src = signWhite;
+            currentPrio = index;
+        } if (index === 1) {
+            btn.style.backgroundColor = color;
+            btn.style.color = 'white';
+            img.src = signWhite;
+            currentPrio = index;
+        } if (index === 0) {
+            btn.style.backgroundColor = color;
+            btn.style.color = 'white';
+            img.src = signWhite;
+            currentPrio = index;
         }
-        // btns[i].classList.remove('active');
     }
-} */
+}
 
 
-function prioUrgent() {
+/* else {
+    btn.style.backgroundColor = '#FFFFFF';
+    btn.style.color = 'black';
+    img.src = signColor; */
+
+
+
+/* function prioUrgent() {
     let btn = document.getElementById('urgend-btn');
     let img = document.getElementById('urgent-btn-img');
     backgroundColor = btn.style.backgroundColor;
@@ -82,7 +112,7 @@ function prioLow() {
         btn.style.color = 'black';
         img.src = "./assets/img/low.svg"
     }
-};
+}; */
 
 
 // Help Functions //
