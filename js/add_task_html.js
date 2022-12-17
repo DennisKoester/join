@@ -48,9 +48,9 @@ function inviteContactHTML() {
 }
 
 
-function assigneeBadgeHTML(initals) {
+function assigneeBadgeHTML(initals, color) {
     return /*html*/ `
-    <div class="add-task-assignee" style="background-color: magenta">${initals}</div>`
+    <div class="add-task-assignee" style="background-color: ${color}">${initals}</div>`
 }
 
 

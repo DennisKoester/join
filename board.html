@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,6 +25,7 @@
     <script src="./js/add_task_html.js"></script>
     <title>Board</title>
 </head>
+
 <body onload="init(), renderTasks()">
     <header w3-include-html="./assets/templates/header.html"></header>
     <nav w3-include-html="./assets/templates/navbar.html"></nav>
@@ -47,14 +49,17 @@
                 <div class="tasks-status">
                     <div class="task-status-title">
                         <span class="task-status-title--text">To do</span>
-                        <button class="task-status-title--addtask" onclick="openAddTask()"><img src="./assets/img/plus.svg" alt="add task"></button>
+                        <button class="task-status-title--addtask" onclick="openAddTask()"><img
+                                src="./assets/img/plus.svg" alt="add task"></button>
                     </div>
                     <div id="no-task-status-0" class="no-task d-none">No tasks to do</div>
                     <div id="tasks-status-0" class="tasks-list">
                         <div id="task-0-0" class="task-card" onclick="openViewer(statusId, taskId)">
                             <div class="task-cat" style="background-color: orange">Category</div>
                             <div class="task-title">Task title</div>
-                            <div class="task-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, dignissimos nihil qui perferendis, praesentium delectus eum dolorem quo sunt tenetur earum et aliquid corrupti? Nihil ullam excepturi ut dolorem accusamus.</div>
+                            <div class="task-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Ipsam, dignissimos nihil qui perferendis, praesentium delectus eum dolorem quo sunt
+                                tenetur earum et aliquid corrupti? Nihil ullam excepturi ut dolorem accusamus.</div>
                             <div class="progress-container">
                                 <div class="progress-bar-bg">
                                     <div class="progress-bar" style="width: 30%"></div>
@@ -76,7 +81,8 @@
                 <div class="tasks-status">
                     <div class="task-status-title">
                         <span class="task-status-title--text">In Progress</span>
-                        <button class="task-status-title--addtask" onclick="openAddTask()"><img src="./assets/img/plus.svg" alt="add task"></button>
+                        <button class="task-status-title--addtask" onclick="openAddTask()"><img
+                                src="./assets/img/plus.svg" alt="add task"></button>
                     </div>
                     <div id="no-task-status-1" class="no-task d-none">No tasks in progress</div>
                     <div id="tasks-status-1" class="tasks-list">
@@ -88,7 +94,8 @@
                 <div class="tasks-status">
                     <div class="task-status-title">
                         <span class="task-status-title--text">Awaiting Feedback</span>
-                        <button class="task-status-title--addtask" onclick="openAddTask()"><img src="./assets/img/plus.svg" alt="add task"></button>
+                        <button class="task-status-title--addtask" onclick="openAddTask()"><img
+                                src="./assets/img/plus.svg" alt="add task"></button>
                     </div>
                     <div id="no-task-status-2" class="no-task d-none">No tasks awaiting feedback</div>
                     <div id="tasks-status-2" class="tasks-list">
@@ -98,7 +105,8 @@
                 <div class="tasks-status">
                     <div class="task-status-title">
                         <span class="task-status-title--text">Done</span>
-                        <button class="task-status-title--addtask" onclick="openAddTask()"><img src="./assets/img/plus.svg" alt="add task"></button>
+                        <button class="task-status-title--addtask" onclick="openAddTask()"><img
+                                src="./assets/img/plus.svg" alt="add task"></button>
                     </div>
                     <div id="no-task-status-3" class="no-task d-none">No tasks done</div>
                     <div id="tasks-status-3" class="tasks-list">
@@ -106,12 +114,13 @@
                     </div>
                 </div>
             </div>
-        
+
             <!-- MODAL View/Edit Task-->
             <div id="modal-task" class="modal-container d-none">
                 <!-- /// View task /// -->
                 <div class="modal-wrapper modal-task-wrapper">
-                    <img class="modal-task-close" src="./assets/img/black-x.svg" onclick="toggleModal('modal-task')" alt="close">
+                    <img class="modal-task-close" src="./assets/img/black-x.svg" onclick="toggleModal('modal-task')"
+                        alt="close">
                     <div id="modal-task-reader" class="modal-task-content reader">
                         <!-- <img class="modal-task-close" src="./assets/img/black-x.svg" alt="close"> -->
                         <button id="btn-edit-task" onclick="toggleTaskEditMode()">
@@ -169,9 +178,9 @@
                             </div>
                         </div>
                     </div>
-                <!-- </div> -->
-                <!-- /// Edit task /// -->
-                <!-- <div class="modal-task-content-wrapper"> -->
+                    <!-- </div> -->
+                    <!-- /// Edit task /// -->
+                    <!-- <div class="modal-task-content-wrapper"> -->
                     <div id="modal-task-edit" class="modal-task-content editor d-none">
                         <!-- <img class="modal-task-close" src="./assets/img/black-x.svg" alt="close"> -->
                         <form onsubmit="saveChanges(); return false;" action="">
@@ -183,8 +192,9 @@
                             </div>
                             <div class="description-container width-100">
                                 <p><label for="description">Description</label></p>
-                                <textarea id="description" class="description-area width-100" name="description" cols="30"
-                                    rows="10" placeholder="Enter a description" required style="resize: vertical;"></textarea>
+                                <textarea id="description" class="description-area width-100" name="description"
+                                    cols="30" rows="10" placeholder="Enter a description" required
+                                    style="resize: vertical;"></textarea>
                                 <p class="required hidden">This field is required</p>
                             </div>
                             <!-- <div class="modal-task-subtasks">
@@ -208,8 +218,8 @@
                             <div class="width-100">
                                 <p><label for="due-date">Due date</label></p>
                                 <div class="due-date">
-                                    <input id="date-input" class="due-date-input width-100" type="date" name="due-date" required
-                                        placeholder="dd/mm/yyyy">
+                                    <input id="date-input" class="due-date-input width-100" type="date" name="due-date"
+                                        required placeholder="dd/mm/yyyy">
                                 </div>
                                 <p class="required hidden">This field is required</p>
                             </div>
@@ -226,7 +236,8 @@
                                         Medium
                                         <img id="medium-btn-img" src="./assets/img/medium.svg" alt="streaght lines">
                                     </div>
-                                    <div onclick="prioLow()" id="low-btn" class="prio-btn" style="background-color: #FFFFFF;">
+                                    <div onclick="prioLow()" id="low-btn" class="prio-btn"
+                                        style="background-color: #FFFFFF;">
                                         Low
                                         <img id="low-btn-img" src="./assets/img/low.svg" alt="Arrows down">
                                     </div>
@@ -302,12 +313,15 @@
             <!-- MODAL: Add task -->
             <div id="modal-add-task" class="modal-container d-none">
                 <div class="modal-wrapper">
-                    <img class="modal-task-close" src="./assets/img/black-x.svg" onclick="toggleModal('modal-add-task')" alt="close">
-                    <div class="modal-add-task-content" w3-include-html="./assets/templates/add_task__template.html"></div>
+                    <img class="modal-task-close" src="./assets/img/black-x.svg" onclick="toggleModal('modal-add-task')"
+                        alt="close">
+                    <div class="modal-add-task-content" w3-include-html="./assets/templates/add_task__template.html">
+                    </div>
                 </div>
             </div>
             <!-- END: MODAL Add task -->
         </div>
     </div>
 </body>
+
 </html>

@@ -1,6 +1,6 @@
 let currentPrio;
 let currentCategory;
-let currentCategoryColor = false;
+let currentCategoryColor = '';
 let currentSubtasks = [];
 let currentAssignees = [];
 
@@ -20,6 +20,18 @@ window.addEventListener("load", function () {
     // do things after the DOM loads fully
     console.log("Everything is loaded");
 });
+
+
+/* function setPrio(index, id) {
+    let btns = document.getElementsByClassName("prio-btn");
+
+    for (let i = 0; i < btns.length; i++) {
+        if () {
+            prio[index]['name'] etc
+        }
+        // btns[i].classList.remove('active');
+    }
+} */
 
 
 function prioUrgent() {
@@ -110,6 +122,7 @@ function hideInputField(input, inputContainer, container) {
     toggleClassList(container, 'd-none');
     if (inputContainer == 'category-input-container')
         toggleClassList('category-colors', 'd-none');
+    resetActiveColor();
 }
 
 
@@ -123,13 +136,13 @@ function showInputBtns(btns, icon) {
 
 function addNewCategory(input, container, dropdown) {
     let catInput = document.getElementById(input);
-    if (catInput.value.length > 0 && currentCategoryColor !== false) {
+    if (catInput.value.length > 0 && currentCategoryColor) {
         pushCategory(catInput, currentCategoryColor);
         selectCategory(catInput.value, currentCategoryColor);
         loadCategories();
         hideInputField(input, container, dropdown);
         resetActiveColor();
-        currentCategoryColor = false; // TODO Is that the right way????
+        currentCategoryColor = '';
     }
 }
 
@@ -169,8 +182,7 @@ function selectCategory(category, color) {
 
 
 function toggleActiveColor(id) {
-    let btnContainer = document.getElementById("category-colors");
-    let btns = btnContainer.getElementsByClassName("color-dot");
+    let btns = document.querySelectorAll("#category-colors .color-dot");
 
     for (let i = 0; i < btns.length; i++) {
         btns[i].classList.remove('active');
@@ -180,8 +192,7 @@ function toggleActiveColor(id) {
 
 
 function resetActiveColor() {
-    let btnContainer = document.getElementById("category-colors");
-    let btns = btnContainer.getElementsByClassName("color-dot");
+    let btns = document.querySelectorAll("#category-colors .color-dot");
 
     for (let i = 0; i < btns.length; i++) {
         btns[i].classList.remove('active');
@@ -228,9 +239,9 @@ function showAssigneeBadge() {
 
     for (let i = 0; i < currentAssignees.length; i++) {
         let initials = currentAssignees[i]['short_name'];
-        badgeList.innerHTML += assigneeBadgeHTML(initials);
+        let color = currentAssignees[i]['color'];
+        badgeList.innerHTML += assigneeBadgeHTML(initials, color);
     }
-
 }
 
 
@@ -256,7 +267,7 @@ function changeCheckbox(i) {
     let checked = './assets/img/checkbox-assignee-checked.svg';
     let unchecked = './assets/img/checkbox-assignee-unchecked.svg';
 
-    if (checkbox.src.indexOf("unchecked") != -1) { // TODO Why != -1 ??
+    if (checkbox.src.indexOf("unchecked") >= 0) { // TODO Why !== -1 ?? IndexOf gives "-1" back when nothing is found.
         checkbox.src = checked;
     } else {
         checkbox.src = unchecked;
@@ -280,9 +291,9 @@ function addSubtask(input, container, dropdown) {
     if (inputSubtask.value.length >= 1) {
         currentSubtasks.push(inputSubtask.value);
         inputSubtask.value = '';
+        hideInputField(input, container, dropdown);
     }
     renderSubtasks();
-    hideInputField(input, container, dropdown);
 }
 
 
@@ -300,12 +311,6 @@ function deleteSubtask(i) {
     currentSubtasks.splice(i, 1);
     renderSubtasks();
 }
-
-
-
-
-
-
 
 
 /* function checkSelectionSubtask(i) {

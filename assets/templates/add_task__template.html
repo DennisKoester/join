@@ -4,7 +4,7 @@
             <h3 style="display: none;">Kanban Project Management Tool</h3>
             <h1>Add Task</h1>
         </div>
-        <form action="">
+        <form action="" onsubmit="">
             <div class="content-containers">
                 <div class="left-container ">
                     <div class="title-container width-100">
@@ -123,25 +123,26 @@
                     <div class="width-100">
                         <p><label for="due-date">Due date</label></p>
                         <div class="due-date">
-                            <input onfocus="this.showPicker()" id="date-input" class="due-date-input width-100" type="date" name="due-date" required
-                                placeholder="dd/mm/yyyy">
+                            <input onfocus="this.showPicker()" id="date-input" class="due-date-input width-100"
+                                type="date" name="due-date" required placeholder="dd/mm/yyyy">
                         </div>
                         <p class="required hidden">This field is required</p>
                     </div>
                     <div class="prio-container">
                         <p style="margin: 0 0 13px 0">Prio</p>
                         <div class="prio-btns-container">
-                            <div onclick="prioUrgent()" id="urgend-btn" class="prio-btn"
+                            <div onclick="prioUrgent(2, 'urgend-btn')" id="urgend-btn" class="prio-btn"
                                 style="background-color: #FFFFFF;">
                                 Urgent
                                 <img id="urgent-btn-img" src="./assets/img/urgent.svg" alt="Arrows up">
                             </div>
-                            <div onclick="prioMedium()" id="medium-btn" class="prio-btn"
+                            <div onclick="prioMedium(1, 'medium-btn')" id="medium-btn" class="prio-btn"
                                 style="background-color: #FFFFFF;">
                                 Medium
                                 <img id="medium-btn-img" src="./assets/img/medium.svg" alt="streaght lines">
                             </div>
-                            <div onclick="prioLow()" id="low-btn" class="prio-btn" style="background-color: #FFFFFF;">
+                            <div onclick="prioLow(0, 'low-btn')" id="low-btn" class="prio-btn"
+                                style="background-color: #FFFFFF;">
                                 Low
                                 <img id="low-btn-img" src="./assets/img/low.svg" alt="Arrows down">
                             </div>
