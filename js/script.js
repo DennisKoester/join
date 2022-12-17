@@ -16,9 +16,6 @@ async function init() {
 
     controlMenuHighlighting();
 
-    loadCategories();
-
-    loadAssignees();
 
 
     // currentPage = 'add-task';

@@ -5,6 +5,25 @@ let currentSubtasks = [];
 let currentAssignees = [];
 
 
+async function initAddTask() {
+
+    // loadCategories();
+    // loadAssignees();
+
+    setTimeout(() => {
+        loadCategories();
+        loadAssignees();
+    }, 200)                      //TODO Different way?! 
+
+}
+
+
+window.addEventListener("load", function () {
+    // do things after the DOM loads fully
+    console.log("Everything is loaded");
+});
+
+
 function prioUrgent() {
     let btn = document.getElementById('urgend-btn');
     let img = document.getElementById('urgent-btn-img');
@@ -68,40 +87,6 @@ function dropDownToggle(id, icon) {
     toggleClassList(id, 'd-none');
     toggleClassList(icon, 'rotate180');
 }
-
-
-
-//  Hide Dropdown By Clicking Next To It //
-
-// function dropDownToggle(id, icon) {
-//     toggleClassList(id, icon, 'd-none', 'rotate180');
-//     window.addEventListener('click', function handleClickOutsideBox(event) {
-//         let area = document.getElementById(id);
-//         if (!area.contains(event.target))
-//         document.getElementById(id).classList.add('d-none');
-//     })
-// };
-
-
-
-// Title Field //
-
-/* function getDataForNewTask() {
-    let title = document.getElementById('title');
-    let desc = document.getElementById('description');
-    let cat = currentCategory;
-    let assignees = currentAssignees;
-    let date = document.getElementById('date-input');
-    let prio = currentPrio;
-    console.log(title.value, desc.value, cat, assignees, date.value, prio)
-}
-
-
-function addNewTask() {
-    let tasks = { title: title.value, }
-} */
-
-
 
 
 // Input Fields//
@@ -219,7 +204,7 @@ function inviteContact(input, container, dropdown) {
     for (let i = 0; i < users.length; i++) {
         let email = users[i]['email'];
         let name = users[i]['name'];
-        if (email === assignInput.value) {
+        if (email === assignInput.value && !currentAssignees.includes(name)) {
             currentAssignees.push(name);
             loadAssignees();
             assignInput.value = '';
@@ -229,23 +214,6 @@ function inviteContact(input, container, dropdown) {
         }
     }
 }
-
-
-/* function inviteContact(input, container, dropdown) {
-    // let required = document.getElementById('required-assign');
-
-    let assignee = document.getElementById(input);
-    if (assignee.value.includes('@')) {
-        currentAssignees.push(assignee.value);
-        assignee.value = '';
-        loadAssignees();
-        showAssigneBadge(assignee);
-        hideInputField(input, container, dropdown);
-
-    } else {
-
-    }
-} */
 
 
 function loadAssignees() {
@@ -265,7 +233,7 @@ function loadAssignees() {
 
 function showAssigneBadge(assignee) {
     let badgeList = document.getElementById('add-task-assignees');
-    let initials = getInitials(assignee)
+    let initials = getInitials(assignee);
 
     badgeList.innerHTML += assigneeBadgeHTML(initials);
 }
@@ -276,17 +244,18 @@ function getInitials(name) {
     const initials = fullName.shift().charAt(0) + fullName.pop().charAt(0);
     console.log(initials)
     return initials.toUpperCase();
-
-}
-
-
-function selectAssignee(i, assignee) {
-    currentAssignees.splice()
-    loadAssignees();
 }
 
 
 function selectAssignee(i) {
+    currentAssignees.splice(i, 1);
+    console.log(currentAssignees);
+    changeCheckbox(i);
+    // loadAssignees();
+}
+
+
+function changeCheckbox(i) {
     let checkbox = document.getElementById(`checkbox${i}`);
     let checked = './assets/img/checkbox-assignee-checked.svg';
     let unchecked = './assets/img/checkbox-assignee-unchecked.svg';
@@ -337,6 +306,12 @@ function deleteSubtask(i) {
 }
 
 
+
+
+
+
+
+
 /* function checkSelectionSubtask(i) {
     let subtaskCheck = document.getElementById(`subtask${i}`);
     if (subtaskCheck.checked) {
@@ -344,4 +319,34 @@ function deleteSubtask(i) {
     } else {
         console.log("Not checked");
     }
+} */
+
+
+/*  Hide Dropdown By Clicking Next To It //
+
+function dropDownToggle(id, icon) {
+    toggleClassList(id, icon, 'd-none', 'rotate180');
+    window.addEventListener('click', function handleClickOutsideBox(event) {
+        let area = document.getElementById(id);
+        if (!area.contains(event.target))
+        document.getElementById(id).classList.add('d-none');
+    })
+}; */
+
+
+// Title Field //
+
+/* function getDataForNewTask() {
+    let title = document.getElementById('title');
+    let desc = document.getElementById('description');
+    let cat = currentCategory;
+    let assignees = currentAssignees;
+    let date = document.getElementById('date-input');
+    let prio = currentPrio;
+    console.log(title.value, desc.value, cat, assignees, date.value, prio)
+}
+
+
+function addNewTask() {
+    let tasks = { title: title.value, }
 } */

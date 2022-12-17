@@ -13,15 +13,15 @@
     <link rel="stylesheet" href="./styles/media_add-task.css">
     <link rel="stylesheet" href="./styles/special_add-task.css">
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
-    <script src="./js/data.js"></script>
     <script src="./js/include_html.js"></script>
+    <script src="./js/data.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/add_task.js"></script>
     <script src="./js/add_task_html.js"></script>
     <title>Join Kanban Add Task</title>
 </head>
 
-<body onload="init()">
+<body onload="init(), initAddTask()">
     <header w3-include-html="./assets/templates/header.html"></header>
     <nav w3-include-html="./assets/templates/navbar.html"></nav>
     <div class="content-container" w3-include-html="./assets/templates/add_task__template.html"></div>
