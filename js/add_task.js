@@ -42,12 +42,12 @@ function setPrio(index, id) {
             btn.style.color = 'white';
             img.src = signWhite;
             currentPrio = index;
-        } if (index === 1) {
+        } else if (index === 1) {
             btn.style.backgroundColor = color;
             btn.style.color = 'white';
             img.src = signWhite;
             currentPrio = index;
-        } if (index === 0) {
+        } else if (index === 0) {
             btn.style.backgroundColor = color;
             btn.style.color = 'white';
             img.src = signWhite;
