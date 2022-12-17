@@ -8,11 +8,9 @@ let currentAssignees = [];
 async function initAddTask() {
 
     // loadCategories();
-    // loadAssignees();
 
     setTimeout(() => {
         loadCategories();
-        loadAssignees();
     }, 200)                      //TODO Different way?! 
 
 }
@@ -83,10 +81,16 @@ function toggleClassList(id, classList,) {
 }
 
 
-function dropDownToggle(id, icon) {
-    toggleClassList(id, 'd-none');
+function toggleDropdown(dropdown, icon) {
+    toggleClassList(dropdown, 'd-none');
     toggleClassList(icon, 'rotate180');
 }
+
+
+// function dropDownToggle(id, icon) {
+//     toggleClassList(id, 'd-none');
+//     toggleClassList(icon, 'rotate180');
+// }
 
 
 // Input Fields//
@@ -106,15 +110,7 @@ function hideInputField(input, inputContainer, container) {
     toggleClassList(container, 'd-none');
     if (inputContainer == 'category-input-container')
         toggleClassList('category-colors', 'd-none');
-
 }
-
-
-function toggleDropdown(dropdown, icon) {
-    toggleClassList(dropdown, 'd-none');
-    toggleClassList(icon, 'rotate180');
-}
-
 
 
 function showInputBtns(btns, icon) {
@@ -193,65 +189,65 @@ function resetActiveColor() {
 }
 
 
-
 // Assign //
 
 function inviteContact(input, container, dropdown) {
-    // let required = document.getElementById('required-assign');
-
     let assignInput = document.getElementById(input);
+    let user = users.find(element => element['email'] == assignInput.value);
+    let assignedUser = currentAssignees.find(element => element['email'] == assignInput.value);
 
-    for (let i = 0; i < users.length; i++) {
-        let email = users[i]['email'];
-        let name = users[i]['name'];
-        if (email === assignInput.value && !currentAssignees.includes(name)) {
-            currentAssignees.push(name);
-            loadAssignees();
-            assignInput.value = '';
-            hideInputField(input, container, dropdown);
+    if (user && !assignedUser) {
+        currentAssignees.push(user);
+        assignInput.value = '';
+        renderAssignees();
+        hideInputField(input, container, dropdown);
 
-            console.log(currentAssignees);
-        }
+        console.log(currentAssignees);
     }
 }
 
 
-function loadAssignees() {
+function renderAssignees() {
     let list = document.getElementById('assignee-list');
     let badgeList = document.getElementById('add-task-assignees');
     list.innerHTML = '';
     badgeList.innerHTML = '';
 
     for (let i = 0; i < currentAssignees.length; i++) {
-        let assignee = currentAssignees[i];
-        list.innerHTML += assigneeHTML(assignee, i);
-        showAssigneBadge(assignee)
+        let assignee = currentAssignees[i]['name'];
+        list.innerHTML += assigneeHTML(i, assignee);
     }
+    showAssigneeBadge();
     list.innerHTML += inviteContactHTML();
 }
 
 
-function showAssigneBadge(assignee) {
+function showAssigneeBadge() {
     let badgeList = document.getElementById('add-task-assignees');
-    let initials = getInitials(assignee);
+    badgeList.innerHTML = '';
 
-    badgeList.innerHTML += assigneeBadgeHTML(initials);
+    for (let i = 0; i < currentAssignees.length; i++) {
+        let initials = currentAssignees[i]['short_name'];
+        badgeList.innerHTML += assigneeBadgeHTML(initials);
+    }
+
 }
 
 
-function getInitials(name) {
-    const fullName = name.split(' ');
-    const initials = fullName.shift().charAt(0) + fullName.pop().charAt(0);
-    console.log(initials)
-    return initials.toUpperCase();
-}
+function selectAssignee(i, assignee) {
+    let user = currentAssignees.find(element => element['name'] == assignee);
 
-
-function selectAssignee(i) {
-    currentAssignees.splice(i, 1);
-    console.log(currentAssignees);
+    if (!user) {
+        let user = users.find(element => element['name'] == assignee);
+        currentAssignees.push(user);
+    } else {
+        let index = currentAssignees.findIndex(element => element['name'] == assignee);
+        currentAssignees.splice(index, 1);
+    }
     changeCheckbox(i);
-    // loadAssignees();
+    showAssigneeBadge();
+
+    console.log(currentAssignees);
 }
 
 
@@ -324,7 +320,7 @@ function deleteSubtask(i) {
 
 /*  Hide Dropdown By Clicking Next To It //
 
-function dropDownToggle(id, icon) {
+function toggleDropdown(id, icon) {
     toggleClassList(id, icon, 'd-none', 'rotate180');
     window.addEventListener('click', function handleClickOutsideBox(event) {
         let area = document.getElementById(id);
