@@ -150,6 +150,7 @@
     align-items: center;
     font-size: 16px;
     color: var(--border-dimmed);
+    margin-bottom: 30px;
 }
 
 .task-card {

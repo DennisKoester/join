@@ -37,7 +37,7 @@
                     <div id="find-task--separator"></div>
                     <img id="find-task--symb" src="./assets/img/search_icon.svg" alt="search">
                 </div>
-                <button id="btn-add-task" onclick="toggleModal('modal-add-task')">
+                <button id="btn-add-task" onclick="openAddTask()">
                     <span>Add Task</span>
                     <img src="./assets/img/plus.svg" alt="add task">
                 </button>
@@ -47,7 +47,7 @@
                 <div class="tasks-status">
                     <div class="task-status-title">
                         <span class="task-status-title--text">To do</span>
-                        <button class="task-status-title--addtask" onclick="toggleModal('modal-add-task')"><img src="./assets/img/plus.svg" alt="add task"></button>
+                        <button class="task-status-title--addtask" onclick="openAddTask()"><img src="./assets/img/plus.svg" alt="add task"></button>
                     </div>
                     <div id="no-task-status-0" class="no-task d-none">No tasks to do</div>
                     <div id="tasks-status-0" class="tasks-list">
@@ -76,7 +76,7 @@
                 <div class="tasks-status">
                     <div class="task-status-title">
                         <span class="task-status-title--text">In Progress</span>
-                        <button class="task-status-title--addtask" onclick="toggleModal('modal-add-task')"><img src="./assets/img/plus.svg" alt="add task"></button>
+                        <button class="task-status-title--addtask" onclick="openAddTask()"><img src="./assets/img/plus.svg" alt="add task"></button>
                     </div>
                     <div id="no-task-status-1" class="no-task d-none">No tasks in progress</div>
                     <div id="tasks-status-1" class="tasks-list">
@@ -88,7 +88,7 @@
                 <div class="tasks-status">
                     <div class="task-status-title">
                         <span class="task-status-title--text">Awaiting Feedback</span>
-                        <button class="task-status-title--addtask" onclick="toggleModal('modal-add-task')"><img src="./assets/img/plus.svg" alt="add task"></button>
+                        <button class="task-status-title--addtask" onclick="openAddTask()"><img src="./assets/img/plus.svg" alt="add task"></button>
                     </div>
                     <div id="no-task-status-2" class="no-task d-none">No tasks awaiting feedback</div>
                     <div id="tasks-status-2" class="tasks-list">
@@ -98,7 +98,7 @@
                 <div class="tasks-status">
                     <div class="task-status-title">
                         <span class="task-status-title--text">Done</span>
-                        <button class="task-status-title--addtask" onclick="toggleModal('modal-add-task')"><img src="./assets/img/plus.svg" alt="add task"></button>
+                        <button class="task-status-title--addtask" onclick="openAddTask()"><img src="./assets/img/plus.svg" alt="add task"></button>
                     </div>
                     <div id="no-task-status-3" class="no-task d-none">No tasks done</div>
                     <div id="tasks-status-3" class="tasks-list">
@@ -120,7 +120,7 @@
                         <div id="modal-task-cat" style="background-color: orange">Category</div>
                         <div id="modal-task-title">Title</div>
                         <div id="modal-task-desc">This is the description of the task.</div>
-                        <div class="modal-task-subtasks">
+                        <div id="modal-task-subtasks">
                             <div class="modal-task-subtask">
                                 <img src="./assets/img/subtask_open.svg" alt="subtask open">
                                 <span>Subtask 1</span>

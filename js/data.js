@@ -110,15 +110,13 @@ let tasks = [
                 
             ],
             "assignees": ['joe.m@test.de'] // mail-address
-        }
-    ],
-    [ // Done
+        },
         {
             "title": "Task D",
             "desc": "Sell some stuff",
             "cat": "Sales",
             "date": "2023-03-14",
-            "prio": 2,
+            "prio": 1,
             "subtasks": [
                 {
                     "title": "Subtask A",
@@ -135,6 +133,9 @@ let tasks = [
             ],
             "assignees": ['joe.m@test.de', 'user@test.de'] // mail-address
         }
+    ],
+    [ // Done
+        
     ]
 ];
 

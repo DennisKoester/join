@@ -108,15 +108,6 @@ function getPriority(statusId, taskId) {
     return tasks[statusId][taskId]['prio'];
 }
 
-/**
- * Opens the task viewer
- * @param {Number} statusId The ID of the respective status
- * @param {Number} taskId The ID of the task within the status
- */
-function openViewer(statusId, taskId) {
-    toggleModal('modal-task');
-}
-
 
 /**
  * Toggles the visibility of a modal
@@ -126,10 +117,40 @@ function toggleModal(id) {
     const modal = document.getElementById(id);
     modal.classList.toggle('d-none');
 
-    if (id == 'modal-add-task') {
-        const headerNav = document.getElementById('header-nav');
-        headerNav.classList.toggle('header-nav-modal');
-    }
+    if (id == 'modal-task') controlReaderVisibility();
+
+    if (id == 'modal-add-task') controlHeaderNavVisibility()
+}
+
+
+/**
+ * Ensures that the reader mode is active upon opening the task viewer
+ */
+function controlReaderVisibility() {
+    const viewer = document.getElementById('modal-task-reader');
+    if (viewer.classList.contains('d-none')) toggleTaskEditMode();
+}
+
+
+/**
+ * Controls the visibility of the header navigation when "AddTask" overlay is open
+ */
+function controlHeaderNavVisibility() {
+    const headerNav = document.getElementById('header-nav');
+    headerNav.classList.toggle('header-nav-modal');
+}
+
+
+/**
+ * Opens the task viewer
+ * @param {Number} statusId The ID of the respective status
+ * @param {Number} taskId The ID of the task within the status
+ */
+function openViewer(statusId, taskId) {
+
+    // TODO: Render data
+
+    toggleModal('modal-task');
 }
 
 
@@ -145,11 +166,25 @@ function toggleTaskEditMode() {
 
 
 /**
+ * Opens the modal to create a new task
+ */
+function openAddTask() {
+
+    // TODO: Render data
+
+    toggleModal('modal-add-task');
+}
+
+
+/**
  * Saves the changes made in the editor modal
  */
 function saveChanges() {
 
-    // TODO: Write the changes to the Array and the Server
+    // TODO:
+    // - Write the changes to the Array and the Server
+    // - Update reader mode
+    // - Update board overview
 
     toggleTaskEditMode();
 
