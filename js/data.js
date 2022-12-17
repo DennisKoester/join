@@ -24,6 +24,15 @@ let users = [
         "phone": "",
         "short_name": "JM",
         "color": "HSL(180, 100%, 50%)"
+    },
+
+    {
+        "name": "Maria Mutschler",
+        "email": "mamu@test.de",
+        "password": "",
+        "phone": "",
+        "short_name": "MM",
+        "color": "HSL(36, 100%, 50%)"
     }
 ];
 
@@ -45,14 +54,14 @@ let tasks = [
                     "status": true
                 },
             ],
-            "assignees": ['joe.m@test.de', 'test@test.com'] // mail-address
+            "assignees": ['joe.m@test.de', 'test@test.com', 'user@test.de', 'mamu@test.de'] // mail-address
         }
     ],
     [ // In Progress
         {
             "title": "Task B",
             "desc": "Do this and that",
-            "cat": "Developement",
+            "cat": "Sales",
             "date": "2023-01-13",
             "prio": 2,
             "subtasks": [
@@ -98,10 +107,7 @@ let tasks = [
             "date": "2023-01-22",
             "prio": 2,
             "subtasks": [
-                {
-                    "title": "Subtask A",
-                    "status": false
-                },
+                
             ],
             "assignees": ['joe.m@test.de'] // mail-address
         }

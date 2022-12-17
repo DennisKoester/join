@@ -85,7 +85,10 @@ function getAssignees(statusId, taskId) {
         assigneesList += createAssigneeBadge(statusId, taskId, a);
     }
 
-    if (assigneesCount > 3) assigneesList += renderAssignees(false);
+    if (assigneesCount > 3) {
+        const diff = assigneesCount - assigneesDisplayMax;
+        assigneesList += renderAssigneesMore(diff);
+    }
 
     return assigneesList;
 }
@@ -97,7 +100,7 @@ function createAssigneeBadge(statusId, taskId, assigneeId) {
     const color = users[id]['color'];
     const short = users[id]['short_name'];
 
-    return renderAssignees(true, color, short);
+    return renderAssignees(color, short);
 }
 
 

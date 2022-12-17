@@ -28,15 +28,15 @@ function renderSubtasksProgress(statusId, taskId) {
 }
 
 
-function renderAssignees(isAssignee, color, shortName) {
-    if (isAssignee) {
-        return `
-            <div class="assignee" style="background-color: ${color}">${shortName}</div>
-        `;
-    }
-    else {
-        return `
-            <div class="assignee" style="background-color: var(--bg-color-main)">+3</div>
-        `;
-    }
+function renderAssignees(color, shortName) {
+    return `
+        <div class="assignee" style="background-color: ${color}">${shortName}</div>
+    `;
+}
+
+
+function renderAssigneesMore(diff) {
+    return `
+        <div class="assignee" style="background-color: var(--bg-color-main)">+${diff}</div>
+    `;
 }
