@@ -127,26 +127,30 @@ function getUrgentDateNearest(countUrgent) {
         }
 
         dates.sort();
-        return parseDate(dates[0]);
+        return formatDate(dates[0]);
     }
     else {
-        return parseDate(countUrgent[0]);
+        return formatDate(countUrgent[0]);
     }
 }
 
 
 /**
- * Parses a date as string from "YYYY-MM-DD" to "MMM DD, YYYY" (e. g. October 23, 2022)
+ * Formats the given date as "MMM DD, YYYY" (e. g. October 23, 2022)
  * @param {String} date
  * @returns The date as string in the required format
  */
-function parseDate(date) {
-    const dateAsArray = date.split('-');
-    const day = dateAsArray[2];
-    const month = months[parseInt(dateAsArray[1])];
-    const year = dateAsArray[0];
+function formatDate(date) {
+    // const dateAsArray = date.split('-');
+    // const day = dateAsArray[2];
+    // const month = months[parseInt(dateAsArray[1])];
+    // const year = dateAsArray[0];
 
-    return `${month} ${day}, ${year}`;
+    // return `${month} ${day}, ${year}`;
+
+    const dateAsString = new Date(date + 'T00:00:00.000');
+
+    return dateAsString.toLocaleDateString('en', {year: 'numeric', month: 'long', day: 'numeric'});
 }
 
 
