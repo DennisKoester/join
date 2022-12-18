@@ -1,13 +1,25 @@
-function register(e) {
+async function init() {
+    setURL('http://developerakademie.com/smallest_backend_ever');
+
+    await downloadFromServer();
+}
+
+async function register(e) {
     e.preventDefault();
 
     let username = document.getElementById("username");
     let email = document.getElementById("email");
     let password = document.getElementById("password");  
     
+    // localstorage version
     if(JSON.parse(localStorage.getItem('users'))) {
         users = JSON.parse(localStorage.getItem('users'));
     }
+
+    // await downloadFromServer();
+    // if(JSON.parse(backend.getItem('users'))) {
+    //     users = JSON.parse(backend.getItem('users'));
+    // }
 
     //checking if e-mail is already in use
     let user = users.find(u => u.email == email.value);
@@ -20,9 +32,13 @@ function register(e) {
     let h = Math.floor(Math.random() * 359);
     let color = `hsl(${h}, 50%, 95%)`;
 
-    //save data in users array and local storage
-    users.push({name: username.value, email: email.value, password: password.value, color: color});
+    let initials = getInitials(username.value);
 
+    //save data in users array
+    users.push({name: username.value, email: email.value, password: password.value, short_name: initials, color: color});
+    //await backend.setItem('users', JSON.stringify(users));
+
+    // local storage version
     let usersAsString = JSON.stringify(users);
     localStorage.setItem('users', usersAsString);
 
@@ -31,4 +47,11 @@ function register(e) {
     }
 
     return false;
+}
+
+function getInitials(name) {
+    const fullName = name.split(' ');
+    const initials = fullName.shift().charAt(0) + fullName.pop().charAt(0);
+    console.log(initials);
+    return initials.toUpperCase();
 }

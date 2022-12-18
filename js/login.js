@@ -1,6 +1,7 @@
 function init() {
     animation();
     signUpQuery();
+    setURL('http://developerakademie.com/smallest_backend_ever');
 }
 
 function animation() {
