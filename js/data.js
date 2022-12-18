@@ -128,6 +128,14 @@ let tasks = [
                 },
                 {
                     "title": "Subtask C",
+                    "status": false
+                },
+                {
+                    "title": "Subtask D",
+                    "status": false
+                },
+                {
+                    "title": "Subtask E",
                     "status": true
                 }
             ],
@@ -142,7 +150,7 @@ let tasks = [
 let categories = [
     {
         "name": "Sales",
-        "color": "lightpink"
+        "color": "#FC71FF"
     },
 
     {

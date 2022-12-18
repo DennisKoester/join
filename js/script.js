@@ -70,15 +70,23 @@ function handleWelcomeOnMobile() {
 // }
 
 
-/**
- * Highlightes the menu item for the current page
- */
-function controlMenuHighlighting() {
+function getPageName() {
     let path = window.location.pathname;
     path = path.split('/').pop();
     path = path.split('.').shift();
     path = 'menu-' + path;
+    
     console.log(path);
+
+    return path;
+}
+
+
+/**
+ * Highlightes the menu item for the current page
+ */
+function controlMenuHighlighting() {
+    const path = getPageName();
 
     if (path != 'help') {
         let menuToActivate = document.getElementById(path);

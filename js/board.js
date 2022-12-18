@@ -162,6 +162,7 @@ async function openViewer(statusId, taskId) {
     
     
     // TODO: Render data
+    readData(statusId, taskId);
     
     
     toggleModal('modal-task');
@@ -183,12 +184,12 @@ function toggleTaskEditMode() {
 
 
 /**
- * Opens the modal to create a new task
+ * Opens the modal for creating a new task
  */
 async function openAddTask() {
     await loadHTML('modal-add-task-content', './assets/templates/add_task__template.html')
 
-
+    initAddTask();
     // TODO: Render data
 
 

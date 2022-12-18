@@ -40,3 +40,24 @@ function renderAssigneesMore(diff) {
         <div class="assignee" style="background-color: var(--bg-color-main)">+${diff}</div>
     `;
 }
+
+
+function renderSubtaskStatic(desc, statusSign) {
+    const altTxt = statusSign.indexOf('checked') >= 0 ? 'closed' : 'open';
+    return `
+        <div class="modal-task-subtask">
+            <img src="${statusSign}" alt="${altTxt}">
+            <span>${desc}</span>
+        </div>
+    `;
+}
+
+
+function renderAssigneesListFull(name, shortName, color) {
+    return `
+        <div class="modal-task-assignees-item">
+            <div class="assignee modal-task-assignee" style="background-color: ${color}">${shortName}</div>
+            <span>${name}</span>
+        </div>
+    `;
+}

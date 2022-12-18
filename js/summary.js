@@ -150,7 +150,7 @@ function formatDate(date) {
 
     const dateAsString = new Date(date + 'T00:00:00.000');
 
-    return dateAsString.toLocaleDateString('en', {year: 'numeric', month: 'long', day: 'numeric'});
+    return dateAsString.toLocaleDateString('en-GB', {year: 'numeric', month: 'long', day: 'numeric'});
 }
 
 
