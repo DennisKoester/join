@@ -1,4 +1,4 @@
-function readData(statusId, taskId) {
+function renderDataToViewer(statusId, taskId) {
     writeCategory(getCategory(statusId, taskId));
     writeTitle(tasks[statusId][taskId]['title']);
     writeDescription(tasks[statusId][taskId]['desc']);
@@ -19,25 +19,31 @@ function writeCategory(category) {
 
 
 function writeTitle(title) {
-    const titleElem = document.getElementById('modal-task-title');
+    const titleElemViewer = document.getElementById('modal-task-title');
+    const titleElemEditor = document.querySelector('#modal-task-edit #title');
 
-    titleElem.innerHTML = title;
+    titleElemViewer.innerHTML = title;
+    titleElemEditor.value = title;
 }
 
 
 function writeDescription(desc) {
-    const descElem = document.getElementById('modal-task-desc');
+    const descElemViewer = document.getElementById('modal-task-desc');
+    const descElemEditor = document.querySelector('#modal-task-edit #description')
 
-    descElem.innerHTML = desc;
+    descElemViewer.innerHTML = desc;
+    descElemEditor.value = desc;
 }
 
 
 function writeDate(dateAsString) {
-    const dateElem = document.getElementById('modal-task-date');
+    const dateElemViewer = document.getElementById('modal-task-date');
+    const dateElemEditor = document.querySelector('#modal-task-edit #date-input');
     let date = new Date(dateAsString + "T00:00:00.000");
 
     date = date.toLocaleDateString('en-GB', {year: 'numeric', month: '2-digit', day: '2-digit'});
-    dateElem.innerHTML = date;
+    dateElemViewer.innerHTML = date;
+    dateElemEditor.value = dateAsString;
 }
 
 

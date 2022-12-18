@@ -162,7 +162,7 @@ async function openViewer(statusId, taskId) {
     
     
     // TODO: Render data
-    readData(statusId, taskId);
+    renderDataToViewer(statusId, taskId);
     
     
     toggleModal('modal-task');
