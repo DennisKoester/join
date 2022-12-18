@@ -100,7 +100,7 @@ function createAssigneeBadge(statusId, taskId, assigneeId) {
     const color = users[id]['color'];
     const short = users[id]['short_name'];
 
-    return renderAssignees(color, short);
+    return renderAssigneesList(color, short);
 }
 
 
@@ -117,9 +117,20 @@ function toggleModal(id) {
     const modal = document.getElementById(id);
     modal.classList.toggle('d-none');
 
-    if (id == 'modal-task') controlReaderVisibility();
+    if (id == 'modal-task') {
+        controlReaderVisibility();
+        if (modal.classList.contains('d-none')) {
+            modal.innerHTML = '';
+        }
+    }
 
-    if (id == 'modal-add-task') controlHeaderNavVisibility()
+    if (id == 'modal-add-task') {
+        controlHeaderNavVisibility();
+        if (modal.classList.contains('d-none')) {
+            const modalContentContainer = document.getElementById('modal-add-task-content');
+            modalContentContainer.innerHTML = '';
+        }
+    }
 }
 
 
@@ -146,11 +157,17 @@ function controlHeaderNavVisibility() {
  * @param {Number} statusId The ID of the respective status
  * @param {Number} taskId The ID of the task within the status
  */
-function openViewer(statusId, taskId) {
-
+async function openViewer(statusId, taskId) {
+    await loadHTML('modal-task', './assets/templates/view_task__template.html')
+    
+    
     // TODO: Render data
-
+    
+    
     toggleModal('modal-task');
+    // setTimeout(() => {
+    //     toggleModal('modal-task');
+    // }, 500);
 }
 
 
@@ -168,11 +185,17 @@ function toggleTaskEditMode() {
 /**
  * Opens the modal to create a new task
  */
-function openAddTask() {
+async function openAddTask() {
+    await loadHTML('modal-add-task-content', './assets/templates/add_task__template.html')
+
 
     // TODO: Render data
 
+
     toggleModal('modal-add-task');
+    // setTimeout(() => {
+    //     toggleModal('modal-add-task');
+    // }, 500);
 }
 
 

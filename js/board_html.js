@@ -28,7 +28,7 @@ function renderSubtasksProgress(statusId, taskId) {
 }
 
 
-function renderAssignees(color, shortName) {
+function renderAssigneesList(color, shortName) {
     return `
         <div class="assignee" style="background-color: ${color}">${shortName}</div>
     `;
