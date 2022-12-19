@@ -25,7 +25,7 @@ function writeCategory(category) {
     const catId = categories.findIndex(item => item['name'] == category);
     const catElem = document.getElementById('modal-task-cat');
 
-    catElem.style.backgroundColor = categories[catId]['color'];
+    catElem.classList.add(categories[catId]['color']);
     catElem.innerHTML = category;
 }
 
@@ -86,10 +86,7 @@ function writePrio(priority) {
 
 
 function setPrioBtn(priority) {
-    
-    // TODO: check f() in add_task.js for final parameters
-    const prioName = prio[priority]['name'].toLowerCase();
-    setPrio(priority, `${prioName}-btn`);
+    setPrio(priority);
 }
 
 

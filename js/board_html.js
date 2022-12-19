@@ -1,7 +1,7 @@
 function renderTaskCard(statusId, taskId, taskCat, taskCatColor, taskPrio) {
     return /*html*/ `
         <div id="task-${statusId}-${taskId}" class="task-card" onclick="openViewer(${statusId}, ${taskId})">
-            <div class="task-cat" style="background-color: ${taskCatColor}">${taskCat}</div>
+            <div class="task-cat ${taskCatColor}">${taskCat}</div>
             <div class="task-title">${tasks[statusId][taskId]['title']}</div>
             <div class="task-description">${tasks[statusId][taskId]['desc']}</div>
             ${getSubtasksProgress(statusId, taskId)}
