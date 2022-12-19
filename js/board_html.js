@@ -53,6 +53,16 @@ function renderSubtaskStatic(desc, statusSign) {
 }
 
 
+function renderSubtaskDynamic(index, desc, checkbox) {
+    return /*html*/ `
+    <div class="subtask">
+        <img src="${checkbox}" onclick="checkSelectionSubtask(${index})" style="cursor: pointer" alt="checkbox">
+        <label for="">${desc}</label>
+        <img onclick="deleteSubtask(${index})" src="./assets/img/black-x.svg" alt="" class="filter-btn">
+    </div>`;
+}
+
+
 function renderAssigneesListFull(name, shortName, color) {
     return `
         <div class="modal-task-assignees-item">

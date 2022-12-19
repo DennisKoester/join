@@ -163,6 +163,7 @@ async function openViewer(statusId, taskId) {
     
     // TODO: Render data
     renderDataToViewer(statusId, taskId);
+    renderDataToEditor(statusId, taskId);
     
     
     toggleModal('modal-task');

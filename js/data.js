@@ -150,7 +150,7 @@ let tasks = [
 let categories = [
     {
         "name": "Sales",
-        "color": "#FC71FF"
+        "color": "lightpink"
     },
 
     {

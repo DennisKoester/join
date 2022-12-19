@@ -1,19 +1,23 @@
 function renderDataToViewer(statusId, taskId) {
+    let task = tasks[statusId][taskId];
     writeCategory(getCategory(statusId, taskId));
-    writeTitleViewer(tasks[statusId][taskId]['title']);
-    writeDescViewer(tasks[statusId][taskId]['desc']);
-    writeDateViewer(tasks[statusId][taskId]['date']);
+    writeTitleViewer(task['title']);
+    writeDescViewer(task['desc']);
+    writeDateViewer(task['date']);
     writePrio(getPriority(statusId, taskId));
-    listSubtasks(tasks[statusId][taskId]['subtasks']);
-    listAssignees(tasks[statusId][taskId]['assignees']);
+    listSubtasksViewer(task['subtasks']);
+    listAssigneesViewer(task['assignees']);
 }
 
 
 function renderDataToEditor(statusId, taskId) {
-    writeTitleEditor(tasks[statusId][taskId]['title']);
-    writeDescEditor(tasks[statusId][taskId]['desc']);
-    writeDateEditor(tasks[statusId][taskId]['date']);
+    let task = tasks[statusId][taskId];
+    writeTitleEditor(task['title']);
+    writeDescEditor(task['desc']);
+    writeDateEditor(task['date']);
     setPrioBtn(getPriority(statusId, taskId));
+    listAssigneesEditor(task['assignees']);
+    listSubtasksEditor(task['subtasks']);
 }
 
 
@@ -83,23 +87,43 @@ function writePrio(priority) {
 
 function setPrioBtn(priority) {
     
+    // TODO: check f() in add_task.js for final parameters
+    const prioName = prio[priority]['name'].toLowerCase();
+    setPrio(priority, `${prioName}-btn`);
 }
 
 
-function listSubtasks(subtasks) {
+function listSubtasksViewer(subtasks) {
     const subtasksElem = document.getElementById('modal-task-subtasks');
-    const subtasksCount = subtasks.length;
 
     subtasksElem.innerHTML = '';
 
     if (subtasks.length == 0) return;
 
-    for (let i = 0; i < subtasksCount; i++) {
+    for (let i = 0; i < subtasks.length; i++) {
         const desc = subtasks[i]['title'];
         const status = subtasks[i]['status'];
         let statusSign = getStatusSign(status);
 
         subtasksElem.innerHTML += renderSubtaskStatic(desc, statusSign);
+    }
+}
+
+
+function listSubtasksEditor(subtasks) {
+    const subtasksList = document.getElementById('subtask-list');
+    currentSubtasks = Array.from(subtasks);
+
+    subtasksList.innerHTML = '';
+
+    if (currentSubtasks.length == 0) return;
+
+    for (let i = 0; i < currentSubtasks.length; i++) {
+        const desc = currentSubtasks[i]['title'];
+        const status = currentSubtasks[i]['status'];
+        let statusSign = getStatusSign(status);
+
+        subtasksList.innerHTML += renderSubtaskDynamic(i, desc, statusSign);
     }
 }
 
@@ -114,7 +138,7 @@ function getStatusSign(status) {
 }
 
 
-function listAssignees(assignees) {
+function listAssigneesViewer(assignees) {
     const assigneesElem = document.getElementById('modal-task-assignees');
     assigneesElem.innerHTML = '';
 
@@ -126,4 +150,15 @@ function listAssignees(assignees) {
 
         assigneesElem.innerHTML += renderAssigneesListFull(name, shortName, color);
     }
+}
+
+
+function listAssigneesEditor(assignees) {
+    currentAssignees = [];
+    for (let i = 0; i < assignees.length; i++) {
+        currentAssignees.push(users.find(item => item['email'] == assignees[i]));
+    }
+
+    // currentAssignees = Array.from(assignees);
+    renderAssignees();
 }

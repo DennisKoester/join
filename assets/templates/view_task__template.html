@@ -87,15 +87,18 @@
             <div class="prio-container">
                 <p style="margin: 0 0 13px 0">Prio</p>
                 <div class="prio-btns-container">
-                    <div onclick="prioUrgent()" id="urgent-btn" class="prio-btn" style="background-color: #FFFFFF;">
+                    <div onclick="setPrio(2, 'urgent-btn')" id="urgent-btn" class="prio-btn"
+                        style="background-color: #FFFFFF;">
                         Urgent
                         <img id="urgent-btn-img" src="./assets/img/urgent.svg" alt="Arrows up">
                     </div>
-                    <div onclick="prioMedium()" id="medium-btn" class="prio-btn" style="background-color: #FFFFFF;">
+                    <div onclick="setPrio(1, 'medium-btn')" id="medium-btn" class="prio-btn"
+                        style="background-color: #FFFFFF;">
                         Medium
                         <img id="medium-btn-img" src="./assets/img/medium.svg" alt="streaght lines">
                     </div>
-                    <div onclick="prioLow()" id="low-btn" class="prio-btn" style="background-color: #FFFFFF;">
+                    <div onclick="setPrio(0, 'low-btn')" id="low-btn" class="prio-btn"
+                        style="background-color: #FFFFFF;">
                         Low
                         <img id="low-btn-img" src="./assets/img/low.svg" alt="Arrows down">
                     </div>
@@ -104,8 +107,8 @@
             <div class="select-container">
                 <p><label for="assign">Assigned to</label></p>
                 <div id="assign-input-container" class="input-field flex-btw padding-input d-none">
-                    <input id="assign-input" class="input-style" type="text" name="assign" placeholder="Contact email"
-                        required>
+                    <input id="assign-input" class="input-style" type="text" name="assign"
+                        placeholder="Contact email" required>
                     <div class="input-btns">
                         <img onclick="hideInputField('assign-input', 'assign-input-container', 'assign-dropdown-container')"
                             src="./assets/img/black-x.svg" alt="" class="filter-btn">
@@ -115,7 +118,7 @@
                     </div>
                 </div>
                 <div id="assign-dropdown-container" class="dropdown-container select-none width-100">
-                    <div onclick="toggleDropdown('assign-dropdown', 'triangle2', 'assign-list')"
+                    <div onclick="toggleDropdown('assign-dropdown', 'triangle2', 'assignee-list')"
                         class="flex-btw padding-input height-input-mobile">
                         <span>Select contacts to assign</span>
                         <img id="triangle2" src="./assets/img/select-triangle.svg" alt="triangle"
@@ -124,8 +127,8 @@
                     <!-- <div onclick="toggleDropdown('assign-dropdown', 'triangle2', 'assign-list')"
                         class="dropdown-overlay">
                     </div> -->
-                    <div id="assign-dropdown" class="dropdown-menu open">
-                        <ul id="assign-list">
+                    <div id="assign-dropdown" class="dropdown-menu d-none">
+                        <ul id="assignee-list">
                             <li
                                 onclick="showInputField('assign-input-container', 'assign-dropdown-container', 'assign-dropdown', 'triangle2')">
                                 <label class="flex-btw">
