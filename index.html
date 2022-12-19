@@ -32,11 +32,16 @@
             <form onsubmit="return login(event)" class="login_form">
                 <h2>Log in</h2>
                 <img class="margin_underline" src="./assets/img/Vector 5.png">
-                <input id="email" type="email" name="email" placeholder="Email" required>
-                <input id="password" type="password" name="password" placeholder="Password" required>
+                <input class="input_email" id="email" type="email" name="email" placeholder="Email" required>
+                <input class="input_password" id="password" type="password" name="password" placeholder="Password" required>
+                <div>
+                    <input class="checkbox" type="checkbox" id="remember-me" name="remember-me">
+                    <label for="remember-me">Remember me</label>
+                    <a class="password_forgotten" href="#">Forgot my password</a>
+                </div>
                 <div class="login_form_buttons">
-                <button type="submit" class="login_button">Log in</button>
-                <button class="guest_button" onclick="location.href='./summary.html?login=1'">Guest Log in</button></div>
+                    <button type="submit" class="login_button">Log in</button>
+                    <button class="guest_button" onclick="location.href='./summary.html?login=1'">Guest Log in</button></div>
                 <div id="error-login" class="error-login"></div>
             </form>
         </div>
