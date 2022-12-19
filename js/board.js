@@ -45,17 +45,34 @@ function showMsgNoTask(statusId, isVisible) {
 }
 
 
+/**
+ * Evaluates the category of the task
+ * @param {Number} statusId The status ID
+ * @param {Number} taskId The task's ID within the status
+ * @returns Category as String
+ */
 function getCategory(statusId, taskId) {
     return tasks[statusId][taskId]['cat'];
 }
 
 
+/**
+ * Evaluates the color of the task's category 
+ * @param {String} category The category of the task
+ * @returns Color as String
+ */
 function getCategoryColor(category) {
     const id = categories.findIndex(item => item['name'] == category);
     return categories[id]['color'];
 }
 
 
+/**
+ * Initiates the rendering of the progress information
+ * @param {Number} statusId The ID of the status
+ * @param {Number} taskId The task's ID within the status
+ * @returns HTML
+ */
 function getSubtasksProgress(statusId, taskId) {
     if (tasks[statusId][taskId]['subtasks'].length == 0) return '';
 
@@ -63,11 +80,23 @@ function getSubtasksProgress(statusId, taskId) {
 }
 
 
+/**
+ * Evaluates the number of subtasks done
+ * @param {Number} statusId The ID of the status
+ * @param {Number} taskId The task's ID within the status
+ * @returns Array with subtasks done
+ */
 function getSubtasksDone(statusId, taskId) {
     return tasks[statusId][taskId]['subtasks'].filter(item => item['status']).length;
 }
 
 
+/**
+ * Evaluates the percentage of subtasks done
+ * @param {Number} statusId The ID of the status
+ * @param {Number} taskId The task's ID within the status
+ * @returns Percentual value of subtasks done
+ */
 function getSubtasksDoneInPerc(statusId, taskId) {
     const subtasksDone = getSubtasksDone(statusId, taskId);
     const subtasksCount = tasks[statusId][taskId]['subtasks'].length;
@@ -76,6 +105,12 @@ function getSubtasksDoneInPerc(statusId, taskId) {
 }
 
 
+/**
+ * Evluates the list of assignees depending wheter there are more than 3 assignees or not
+ * @param {Number} statusId The ID of the status
+ * @param {Number} taskId The task's ID within the status
+ * @returns HTML
+ */
 function getAssignees(statusId, taskId) {
     const assigneesCount = tasks[statusId][taskId]['assignees'].length;
     const assigneesDisplayMax = assigneesCount > 3 ? 2 : assigneesCount;
@@ -94,6 +129,13 @@ function getAssignees(statusId, taskId) {
 }
 
 
+/**
+ * Renders the badges of the assignees to the viewer
+ * @param {Number} statusId The ID of the status
+ * @param {Number} taskId The task's ID within the status
+ * @param {Number} assigneeId The ID of the assignee
+ * @returns HMTL
+ */
 function createAssigneeBadge(statusId, taskId, assigneeId) {
     const mail = tasks[statusId][taskId]['assignees'][assigneeId];
     const id = users.findIndex(user => user['email'] == mail);
@@ -104,6 +146,12 @@ function createAssigneeBadge(statusId, taskId, assigneeId) {
 }
 
 
+/**
+ * Evaluates the priority of the task
+ * @param {Number} statusId The ID of the status
+ * @param {Number} taskId The task's ID within the status
+ * @returns Priority as String
+ */
 function getPriority(statusId, taskId) {
     return tasks[statusId][taskId]['prio'];
 }
@@ -202,7 +250,7 @@ async function openAddTask() {
 
 
 /**
- * Saves the changes made in the editor modal
+ * Saves the changes made in the task editor
  */
 function saveChanges() {
 
@@ -212,5 +260,4 @@ function saveChanges() {
     // - Update board overview
 
     toggleTaskEditMode();
-
 }

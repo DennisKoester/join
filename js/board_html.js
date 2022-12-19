@@ -1,3 +1,12 @@
+/**
+ * Renders the task card to the board
+ * @param {Number} statusId The status ID (0-3)
+ * @param {Number} taskId The task ID within the status
+ * @param {String} taskCat The category name
+ * @param {String} taskCatColor The category color
+ * @param {Number} taskPrio The task's priority
+ * @returns HTML
+ */
 function renderTaskCard(statusId, taskId, taskCat, taskCatColor, taskPrio) {
     return /*html*/ `
         <div id="task-${statusId}-${taskId}" class="task-card" onclick="openViewer(${statusId}, ${taskId})">
@@ -16,6 +25,12 @@ function renderTaskCard(statusId, taskId, taskCat, taskCatColor, taskPrio) {
 }
 
 
+/**
+ * Renders the progress information
+ * @param {Number} statusId The status ID (0-3)
+ * @param {Number} taskId The task ID within the status
+ * @returns 
+ */
 function renderSubtasksProgress(statusId, taskId) {
     return /*html*/ `
         <div class="progress-container">
@@ -28,6 +43,12 @@ function renderSubtasksProgress(statusId, taskId) {
 }
 
 
+/**
+ * Renders the list of assignees as badges with short names
+ * @param {String} color The user's color
+ * @param {String} shortName The user's short name
+ * @returns HTML
+ */
 function renderAssigneesList(color, shortName) {
     return `
         <div class="assignee" style="background-color: ${color}">${shortName}</div>
@@ -35,6 +56,11 @@ function renderAssigneesList(color, shortName) {
 }
 
 
+/**
+ * Renders a badge to show the number of assignees whose badge is not shown if there are more than 3 assignees
+ * @param {Number} diff The difference of number of assignees minus 2
+ * @returns HTML
+ */
 function renderAssigneesMore(diff) {
     return `
         <div class="assignee" style="background-color: var(--bg-color-main)">+${diff}</div>
@@ -42,6 +68,12 @@ function renderAssigneesMore(diff) {
 }
 
 
+/**
+ * Renders the subtask list to the task viewer
+ * @param {String} desc The subtask's description
+ * @param {String} statusSign The URL of the status sign
+ * @returns HTML
+ */
 function renderSubtaskStatic(desc, statusSign) {
     const altTxt = statusSign.indexOf('checked') >= 0 ? 'closed' : 'open';
     return `
@@ -53,6 +85,13 @@ function renderSubtaskStatic(desc, statusSign) {
 }
 
 
+/**
+ * Renders the subtask list to the task editor
+ * @param {Number} index The ID of the subtask in the current listing
+ * @param {String} desc The description of the subtask
+ * @param {String} checkbox The URL of the status sign
+ * @returns HTML
+ */
 function renderSubtaskDynamic(index, desc, checkbox) {
     return /*html*/ `
     <div class="subtask">
@@ -63,6 +102,13 @@ function renderSubtaskDynamic(index, desc, checkbox) {
 }
 
 
+/**
+ * Renders the assignee list to the task viewer
+ * @param {String} name The name of the assignee
+ * @param {String} shortName The short name of the assignee
+ * @param {String} color The user's color
+ * @returns HTML
+ */
 function renderAssigneesListFull(name, shortName, color) {
     return `
         <div class="modal-task-assignees-item">

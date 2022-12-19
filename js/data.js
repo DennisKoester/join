@@ -147,6 +147,7 @@ let tasks = [
     ]
 ];
 
+// 'color' refers to CSS classes
 let categories = [
     {
         "name": "Sales",
