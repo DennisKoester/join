@@ -510,6 +510,36 @@ select {
     width: 124px;
 }
 
+.added-popup {
+    position: fixed;
+    bottom: -200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    width: 326px;
+    height: 74px;
+    background: #2A3647;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    color: white;
+    font-size: 21px;
+    line-height: 120%;
+    gap: 30px;
+    overflow: hidden;
+}
+
+.transition {
+    transform: translateY(-200px);
+    transition: transform 0.4s ease-in-out;
+}
+
+.added-popup img {
+    height: 26px;
+    width: 22px;
+    object-fit: contain;
+}
+
 /* Help Classes */
 
 .hidden {
@@ -530,6 +560,11 @@ select {
 .flex-align-center {
     display: flex;
     align-items: center;
+}
+
+.flex-just-center {
+    display: flex;
+    justify-content: center;
 }
 
 .select-none {
@@ -583,3 +618,4 @@ select {
 .turquoise {
     background-color: #1FD7C1;
 }
+

@@ -25,8 +25,8 @@ function setPrio(index) {
     let btns = document.getElementsByClassName("prio-btn");
 
     for (let i = 0; i < btns.length; i++) {
-        let btn = btns[2-i];
-        let id = prio[i]['name'].toLocaleLowerCase()+'-btn-img';
+        let btn = btns[2 - i];
+        let id = prio[i]['name'].toLocaleLowerCase() + '-btn-img';
         let img = document.getElementById(id);
         let color = prio[i]['color'];
         let signWhite = prio[i]['sign-white'];
@@ -46,64 +46,6 @@ function setPrio(index) {
         }
     }
 }
-
-
-/* else {
-    btn.style.backgroundColor = '#FFFFFF';
-    btn.style.color = 'black';
-    img.src = signColor; */
-
-
-
-/* function prioUrgent() {
-    let btn = document.getElementById('urgent-btn');
-    let img = document.getElementById('urgent-btn-img');
-    backgroundColor = btn.style.backgroundColor;
-
-    if (backgroundColor == 'rgb(255, 255, 255)') {
-        btn.style.backgroundColor = '#FF3D00';
-        btn.style.color = 'white';
-        img.src = "./assets/img/urgent-white.svg"
-    } else {
-        btn.style.backgroundColor = '#FFFFFF';
-        btn.style.color = 'black';
-        img.src = "./assets/img/urgent.svg"
-    }
-};
-
-
-function prioMedium() {
-    let btn = document.getElementById('medium-btn');
-    let img = document.getElementById('medium-btn-img');
-    backgroundColor = btn.style.backgroundColor;
-
-    if (backgroundColor == 'rgb(255, 255, 255)') {
-        btn.style.backgroundColor = '#FFA800';
-        btn.style.color = 'white';
-        img.src = "./assets/img/medium-white.svg"
-    } else {
-        btn.style.backgroundColor = '#FFFFFF';
-        btn.style.color = 'black';
-        img.src = "./assets/img/medium.svg"
-    }
-};
-
-
-function prioLow() {
-    const btn = document.getElementById('low-btn');
-    let img = document.getElementById('low-btn-img');
-    backgroundColor = btn.style.backgroundColor;
-
-    if (backgroundColor == 'rgb(255, 255, 255)') {
-        btn.style.backgroundColor = '#7AE229';
-        btn.style.color = 'white';
-        img.src = "./assets/img/low-white.svg"
-    } else {
-        btn.style.backgroundColor = '#FFFFFF';
-        btn.style.color = 'black';
-        img.src = "./assets/img/low.svg"
-    }
-}; */
 
 
 // Help Functions //
@@ -332,6 +274,25 @@ function deleteSubtask(i) {
     currentSubtasks.splice(i, 1);
     renderSubtasks();
 }
+
+
+function createTask() {
+    showAddedTaskPopup();
+}
+
+function showAddedTaskPopup() {
+    let popup = document.getElementById('added-popup');
+    popup.classList.add('transition');
+    setTimeout(function () {
+        popup.classList.remove('transition');
+    }, 1500);
+}
+
+
+
+
+
+
 
 
 /* function checkSelectionSubtask(i) {

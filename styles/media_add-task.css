@@ -36,6 +36,10 @@
     .right-container {
         margin-top: 14px;
     }
+
+    .transition {
+        transform: translateY(-300px);
+    }
 }
 
 @media(max-width: 940px) {
@@ -239,5 +243,18 @@
 
     header {
         padding: 0 15px;
+    }
+
+    .added-popup {
+        width: 260.8px;
+        height: 43px;
+        gap: 14px;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+
+    .added-popup img {
+        height: 24px;
+        width: 20px;
     }
 }

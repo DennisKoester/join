@@ -141,8 +141,7 @@
                                 Medium
                                 <img id="medium-btn-img" src="./assets/img/medium.svg" alt="streaght lines">
                             </div>
-                            <div onclick="setPrio(0)" id="low-btn" class="prio-btn"
-                                style="background-color: #FFFFFF;">
+                            <div onclick="setPrio(0)" id="low-btn" class="prio-btn" style="background-color: #FFFFFF;">
                                 Low
                                 <img id="low-btn-img" src="./assets/img/low.svg" alt="Arrows down">
                             </div>
@@ -170,16 +169,22 @@
                 </div>
             </div>
             <div class="submit-btns">
-                <button type="submit" class="clear-btn">Clear
+                <button class="clear-btn">Clear
                     <img src="./assets/img/clear-x.svg" alt="x icon">
                 </button>
-                <button class="create-btn">Create Task
+                <button onclick="createTask()" type="submit" class="create-btn">Create Task
                     <img src="./assets/img/create-check.svg" alt="check icon">
                 </button>
-                <button type="submit" class="create-btn mobile-btn" style="display: none;">Create
+                <button onclick="createTask()" type="submit" class="create-btn mobile-btn" style="display: none;">Create
                     <img src="./assets/img/create-check.svg" alt="check icon">
                 </button>
             </div>
         </form>
+        <div id="added-popup" class="flex-just-center">
+            <div class="added-popup">
+                <div>Task added to board</div>
+                <img src="./assets/img/symb_board.png" alt="board symbol">
+            </div>
+        </div>
     </div>
 </div>
