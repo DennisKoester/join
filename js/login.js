@@ -1,7 +1,7 @@
-function init() {
+async function init() {
     animation();
     signUpQuery();
-    setURL('http://developerakademie.com/smallest_backend_ever');
+    setURL('https://gruppe-392.developerakademie.net/smallest_backend_ever');   
 }
 
 function animation() {
@@ -17,15 +17,19 @@ function signUpQuery() {
     }
 }
 
-function login(e) {
+async function login(e) {
     e.preventDefault();
 
     let email = document.getElementById('email');
     let password = document.getElementById('password');
 
     //load users
-    if(JSON.parse(localStorage.getItem('users'))) {
-        users = JSON.parse(localStorage.getItem('users'));
+    //if(JSON.parse(localStorage.getItem('users'))) {
+    //    users = JSON.parse(localStorage.getItem('users'));
+    //}
+    await downloadFromServer();
+    if(await JSON.parse(backend.getItem('users'))) {
+        users = await JSON.parse(backend.getItem('users'));
     }
 
     //checking if user exists

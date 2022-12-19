@@ -8,7 +8,6 @@
     <title>Join</title>
     <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="./styles/general.css">
-    <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/start.css">
     <script src="./js/script.js"></script>
     <script src="./js/login.js"></script>
@@ -32,11 +31,12 @@
         <div class="login_main">
             <form onsubmit="return login(event)" class="login_form">
                 <h2>Log in</h2>
+                <img class="margin_underline" src="./assets/img/Vector 5.png">
                 <input id="email" type="email" name="email" placeholder="Email" required>
                 <input id="password" type="password" name="password" placeholder="Password" required>
                 <div class="login_form_buttons">
-                <button type="submit" class="login_button">Login</button>
-                <button class="guest_button" onclick="location.href='./summary.html?login=1'">Guest log in</button></div>
+                <button type="submit" class="login_button">Log in</button>
+                <button class="guest_button" onclick="location.href='./summary.html?login=1'">Guest Log in</button></div>
                 <div id="error-login" class="error-login"></div>
             </form>
         </div>

@@ -1,7 +1,5 @@
 async function init() {
-    setURL('http://developerakademie.com/smallest_backend_ever');
-
-    await downloadFromServer();
+    setURL('https://gruppe-392.developerakademie.net/smallest_backend_ever');
 }
 
 async function register(e) {
@@ -12,14 +10,13 @@ async function register(e) {
     let password = document.getElementById("password");  
     
     // localstorage version
-    if(JSON.parse(localStorage.getItem('users'))) {
-        users = JSON.parse(localStorage.getItem('users'));
+    // if(JSON.parse(localStorage.getItem('users'))) {
+    //    users = JSON.parse(localStorage.getItem('users'));
+    //}
+    await downloadFromServer();
+    if(await JSON.parse(backend.getItem('users'))) {
+        users = await JSON.parse(backend.getItem('users'));
     }
-
-    // await downloadFromServer();
-    // if(JSON.parse(backend.getItem('users'))) {
-    //     users = JSON.parse(backend.getItem('users'));
-    // }
 
     //checking if e-mail is already in use
     let user = users.find(u => u.email == email.value);
@@ -30,17 +27,17 @@ async function register(e) {
 
     //generate random colors
     let h = Math.floor(Math.random() * 359);
-    let color = `hsl(${h}, 50%, 95%)`;
+    let color = `hsl(${h}, 100%, 50%)`;
 
     let initials = getInitials(username.value);
 
     //save data in users array
     users.push({name: username.value, email: email.value, password: password.value, short_name: initials, color: color});
-    //await backend.setItem('users', JSON.stringify(users));
+    await backend.setItem('users', JSON.stringify(users));
 
     // local storage version
-    let usersAsString = JSON.stringify(users);
-    localStorage.setItem('users', usersAsString);
+    // let usersAsString = JSON.stringify(users);
+    // localStorage.setItem('users', usersAsString);
 
     //load index.html
     window.location.href = './index.html?msg=Deine Registrierung war erfolgreich, du kannst dich jetzt einloggen!';
