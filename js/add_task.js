@@ -65,7 +65,7 @@ function setPrio(index, id) {
 
 
 /* function prioUrgent() {
-    let btn = document.getElementById('urgend-btn');
+    let btn = document.getElementById('urgent-btn');
     let img = document.getElementById('urgent-btn-img');
     backgroundColor = btn.style.backgroundColor;
 
