@@ -22,7 +22,8 @@ async function register(e) {
     let user = users.find(u => u.email == email.value);
 
     if(user) {
-        document.getElementById('error-message').innerHTML = 'Die eingegebene E-Mail Adresse wird bereits verwendet, bitte versuche es mit einer anderen Adresse!';
+        //document.getElementById('error-message').innerHTML = 'Die eingegebene E-Mail Adresse wird bereits verwendet, bitte versuche es mit einer anderen Adresse!';
+        alert('Die eingegebene E-Mail Adresse wird bereits verwendet, bitte versuche es mit einer anderen Adresse!');
     } else {
 
     //generate random colors

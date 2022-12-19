@@ -38,7 +38,8 @@ async function login(e) {
     if (user) {
         window.location.href='./summary.html?login=1';
     } else {
-        document.getElementById('error-login').innerHTML = 'Der eingegebene Benutzer ist nicht vorhanden!';
+        //document.getElementById('error-login').innerHTML = 'Der eingegebene Benutzer ist nicht vorhanden!';
+        alert('Der eingegebene Benutzer ist nicht vorhanden!')
     }
 
     return false
