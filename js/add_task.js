@@ -11,8 +11,7 @@ async function initAddTask() {
 
     setTimeout(() => {
         loadCategories();
-    }, 200)                      //TODO Different way?! 
-
+    }, 500)                      //TODO Different way?! 
 }
 
 
@@ -22,36 +21,28 @@ window.addEventListener("load", function () {
 });
 
 
-function setPrio(index, id) {
+function setPrio(index) {
     let btns = document.getElementsByClassName("prio-btn");
-    // let btn = document.getElementById(id);
-    let img = document.getElementById(`${id}-img`); // TODO NOT working
-    let color = prio[index]['color'];
-    let signWhite = prio[index]['sign-white'];
-    let signColor = prio[index]['sign-color'];
 
     for (let i = 0; i < btns.length; i++) {
-        let btn = btns[i];
+        let btn = btns[2-i];
+        let id = prio[i]['name'].toLocaleLowerCase()+'-btn-img';
+        let img = document.getElementById(id);
+        let color = prio[i]['color'];
+        let signWhite = prio[i]['sign-white'];
+        let signColor = prio[i]['sign-color'];
 
-        btn.style.backgroundColor = '#FFFFFF';
-        btn.style.color = 'black';
-        img.src = signColor;
-
-        if (index === 2) {
+        if (index === i) {
             btn.style.backgroundColor = color;
             btn.style.color = 'white';
             img.src = signWhite;
             currentPrio = index;
-        } else if (index === 1) {
-            btn.style.backgroundColor = color;
-            btn.style.color = 'white';
-            img.src = signWhite;
-            currentPrio = index;
-        } else if (index === 0) {
-            btn.style.backgroundColor = color;
-            btn.style.color = 'white';
-            img.src = signWhite;
-            currentPrio = index;
+            // console.log(currentPrio);
+        }
+        else {
+            btn.style.backgroundColor = '#FFFFFF';
+            btn.style.color = 'black';
+            img.src = signColor;
         }
     }
 }
