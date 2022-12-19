@@ -1,11 +1,19 @@
 function renderDataToViewer(statusId, taskId) {
     writeCategory(getCategory(statusId, taskId));
-    writeTitle(tasks[statusId][taskId]['title']);
-    writeDescription(tasks[statusId][taskId]['desc']);
-    writeDate(tasks[statusId][taskId]['date']);
+    writeTitleViewer(tasks[statusId][taskId]['title']);
+    writeDescViewer(tasks[statusId][taskId]['desc']);
+    writeDateViewer(tasks[statusId][taskId]['date']);
     writePrio(getPriority(statusId, taskId));
     listSubtasks(tasks[statusId][taskId]['subtasks']);
     listAssignees(tasks[statusId][taskId]['assignees']);
+}
+
+
+function renderDataToEditor(statusId, taskId) {
+    writeTitleEditor(tasks[statusId][taskId]['title']);
+    writeDescEditor(tasks[statusId][taskId]['desc']);
+    writeDateEditor(tasks[statusId][taskId]['date']);
+    setPrioBtn(getPriority(statusId, taskId));
 }
 
 
@@ -18,31 +26,46 @@ function writeCategory(category) {
 }
 
 
-function writeTitle(title) {
+function writeTitleViewer(title) {
     const titleElemViewer = document.getElementById('modal-task-title');
-    const titleElemEditor = document.querySelector('#modal-task-edit #title');
 
     titleElemViewer.innerHTML = title;
+}
+
+
+function writeTitleEditor(title) {
+    const titleElemEditor = document.querySelector('#modal-task-edit #title');
+
     titleElemEditor.value = title;
 }
 
 
-function writeDescription(desc) {
+function writeDescViewer(desc) {
     const descElemViewer = document.getElementById('modal-task-desc');
-    const descElemEditor = document.querySelector('#modal-task-edit #description')
 
     descElemViewer.innerHTML = desc;
+}
+
+
+function writeDescEditor(desc) {
+    const descElemEditor = document.querySelector('#modal-task-edit #description')
+
     descElemEditor.value = desc;
 }
 
 
-function writeDate(dateAsString) {
+function writeDateViewer(dateAsString) {
     const dateElemViewer = document.getElementById('modal-task-date');
-    const dateElemEditor = document.querySelector('#modal-task-edit #date-input');
     let date = new Date(dateAsString + "T00:00:00.000");
 
     date = date.toLocaleDateString('en-GB', {year: 'numeric', month: '2-digit', day: '2-digit'});
     dateElemViewer.innerHTML = date;
+}
+
+
+function writeDateEditor(dateAsString) {
+    const dateElemEditor = document.querySelector('#modal-task-edit #date-input');
+
     dateElemEditor.value = dateAsString;
 }
 
@@ -55,6 +78,11 @@ function writePrio(priority) {
     prioElem.style.backgroundColor = prio[priority]['color'];
     prioName.innerHTML = prio[priority]['name'];
     prioImg.src = prio[priority]['sign-white'];
+}
+
+
+function setPrioBtn(priority) {
+    
 }
 
 
