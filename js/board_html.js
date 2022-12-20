@@ -95,9 +95,9 @@ function renderSubtaskStatic(desc, statusSign) {
 function renderSubtaskDynamic(index, desc, checkbox) {
     return /*html*/ `
     <div class="subtask">
-        <img src="${checkbox}" onclick="checkSelectionSubtask(${index})" style="cursor: pointer" alt="checkbox">
+        <img id="subtask-status-${index}" src="${checkbox}" onclick="toggleStatusSubtask(${index})" style="cursor: pointer" alt="checkbox">
         <label for="">${desc}</label>
-        <img onclick="deleteSubtask(${index})" src="./assets/img/black-x.svg" alt="" class="filter-btn">
+        <img onclick="deleteSubtaskEditor(${index})" src="./assets/img/black-x.svg" alt="" class="filter-btn">
     </div>`;
 }
 

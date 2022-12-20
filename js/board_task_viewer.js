@@ -108,9 +108,14 @@ function listSubtasksViewer(subtasks) {
 
 
 function listSubtasksEditor(subtasks) {
-    const subtasksList = document.getElementById('subtask-list');
     currentSubtasks = Array.from(subtasks);
 
+    renderSubtasksEditor();
+}
+
+
+function renderSubtasksEditor() {
+    const subtasksList = document.getElementById('subtask-list');
     subtasksList.innerHTML = '';
 
     if (currentSubtasks.length == 0) return;
@@ -125,6 +130,30 @@ function listSubtasksEditor(subtasks) {
 }
 
 
+function addSubtaskEditor(input, container, dropdown) {
+    const inputSubtask = document.getElementById('subtask-input');
+    
+    if (inputSubtask.value.length >= 1) {
+        currentSubtasks.push({
+            'title': inputSubtask.value,
+            'status': false
+        });
+        inputSubtask.value = '';
+        hideInputField(input, container, dropdown);
+    }
+    addSubtaskToList();
+}
+
+
+function addSubtaskToList() {
+    const subtasksList = document.getElementById('subtask-list');
+    const index = currentSubtasks.length - 1;
+    const desc = currentSubtasks[index]['title'];
+    const statusSign = getStatusSign(false);
+    subtasksList.innerHTML += renderSubtaskDynamic(index, desc, statusSign);
+}
+
+
 function getStatusSign(status) {
     if (status) {
         return './assets/img/checkbox-checked.svg';
@@ -132,6 +161,20 @@ function getStatusSign(status) {
     else {
         return './assets/img/checkbox-unchecked.svg';
     }
+}
+
+
+function deleteSubtaskEditor(index) {
+    currentSubtasks.splice(index, 1);
+    renderSubtasksEditor();
+}
+
+
+function toggleStatusSubtask(index) {
+    const checkbox = document.getElementById(`subtask-status-${index}`);
+    let status = currentSubtasks[index]['status'];
+    currentSubtasks[index]['status'] = !status;
+    checkbox.src = getStatusSign(currentSubtasks[index]['status']);
 }
 
 
