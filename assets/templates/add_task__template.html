@@ -4,7 +4,7 @@
             <h3 style="display: none;">Kanban Project Management Tool</h3>
             <h1>Add Task</h1>
         </div>
-        <form action="" onsubmit="">
+        <form action="" onsubmit="handleSubmit()">
             <div class="content-containers">
                 <div class="left-container ">
                     <div class="title-container width-100">
@@ -169,7 +169,7 @@
                 </div>
             </div>
             <div class="submit-btns">
-                <button class="clear-btn">Clear
+                <button type="reset" class="clear-btn">Clear
                     <img src="./assets/img/clear-x.svg" alt="x icon">
                 </button>
                 <button onclick="createTask()" type="submit" class="create-btn">Create Task

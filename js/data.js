@@ -5,7 +5,8 @@ let users = [
         "password": "",
         "phone": "",
         "short_name": "TU",
-        "color": "HSL(300, 100%, 50%)"
+        "color": "HSL(300, 100%, 50%)",
+        "image": ""
     },
 
     {
@@ -14,7 +15,8 @@ let users = [
         "password": "",
         "phone": "",
         "short_name": "UT",
-        "color": "HSL(120, 100%, 50%)"
+        "color": "HSL(120, 100%, 50%)",
+        "image": ""
     },
 
     {
@@ -23,7 +25,8 @@ let users = [
         "password": "",
         "phone": "",
         "short_name": "JM",
-        "color": "HSL(180, 100%, 50%)"
+        "color": "HSL(180, 100%, 50%)",
+        "image": ""
     },
 
     {
@@ -32,7 +35,8 @@ let users = [
         "password": "",
         "phone": "",
         "short_name": "MM",
-        "color": "HSL(36, 100%, 50%)"
+        "color": "HSL(36, 100%, 50%)",
+        "image": ""
     }
 ];
 
@@ -107,7 +111,7 @@ let tasks = [
             "date": "2023-01-22",
             "prio": 2,
             "subtasks": [
-                
+
             ],
             "assignees": ['joe.m@test.de'] // mail-address
         },
@@ -143,7 +147,7 @@ let tasks = [
         }
     ],
     [ // Done
-        
+
     ]
 ];
 

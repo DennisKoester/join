@@ -7,11 +7,9 @@ let currentAssignees = [];
 
 async function initAddTask() {
 
-    // loadCategories();
+    await init();
+    await loadCategories();
 
-    setTimeout(() => {
-        loadCategories();
-    }, 500)                      //TODO Different way?! 
 }
 
 
@@ -114,7 +112,7 @@ function pushCategory(catInput, currentCategoryColor) {
 }
 
 
-function loadCategories() {
+async function loadCategories() {
     let list = document.getElementById('category-list');
     list.innerHTML = '';
     for (let i = 0; i < categories.length; i++) {
@@ -293,7 +291,6 @@ function getDataForNewTask() {
         
     }
 }
-
 
 
 function addNewTask() {
