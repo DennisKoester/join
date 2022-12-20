@@ -1,3 +1,5 @@
+let openedTask = [];
+
 /**
  * Renders all tasks to the board
  */
@@ -208,6 +210,7 @@ function controlHeaderNavVisibility() {
 async function openViewer(statusId, taskId) {
     await loadHTML('modal-task', './assets/templates/view_task__template.html')
     
+    openedTask = [statusId, taskId];
     
     // TODO: Render data
     renderDataToViewer(statusId, taskId);
