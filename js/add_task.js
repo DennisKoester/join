@@ -1,5 +1,5 @@
-let currentPrio;
-let currentCategory;
+let currentPrio = '';
+let currentCategory = '';
 let currentCategoryColor = '';
 let currentSubtasks = [];
 let currentAssignees = [];
@@ -37,7 +37,6 @@ function setPrio(index) {
             btn.style.color = 'white';
             img.src = signWhite;
             currentPrio = index;
-            // console.log(currentPrio);
         }
         else {
             btn.style.backgroundColor = '#FFFFFF';
@@ -141,6 +140,7 @@ function selectCategory(category, color) {
     field.innerHTML = selectedCategoryHTML(category, color);
     if (!dropdown.classList.contains('d-none'))
         toggleDropdown('category-dropdown', 'triangle1');
+    currentCategory = category;
 }
 
 
@@ -276,9 +276,47 @@ function deleteSubtask(i) {
 }
 
 
-function createTask() {
+// Create Task //
+
+/* function createTask() {
+    addNewTask();
     showAddedTaskPopup();
 }
+
+
+function getDataForNewTask() {
+
+    for (let i = 0; i < currentAssignees.length; i++) {
+        let assignee = currentAssignees[i]['email'];
+        let subtask = currentSubtasks[i]['title'];
+
+        
+    }
+}
+
+
+
+function addNewTask() {
+    let title = document.getElementById('title');
+    let desc = document.getElementById('description');
+    let cat = currentCategory;
+    let date = document.getElementById('date-input');
+    let prio = currentPrio;
+
+
+    // let newTasks = { title: title.value, desc: desc.value, cat: cat, date: date.value, prio: prio, subtasks["title"]: subtask, assignees: [assignee] };
+    tasks.push(newTask);
+
+    currentPrio = '';
+    currentCategory = '';
+    currentCategoryColor = '';
+    currentSubtasks = [];
+    currentAssignees = [];
+}
+
+
+
+
 
 function showAddedTaskPopup() {
     let popup = document.getElementById('added-popup');
@@ -289,8 +327,31 @@ function showAddedTaskPopup() {
 }
 
 
+function clearAddTask(){
+
+} */
 
 
+
+
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; //January is 0!
+var yyyy = today.getFullYear();
+
+if (dd < 10) {
+    dd = '0' + dd;
+}
+
+if (mm < 10) {
+    mm = '0' + mm;
+}
+
+today = yyyy + '-' + mm + '-' + dd;
+document.getElementById("date-input").setAttribute("min", today);
+
+
+// document.getElementById('date-input').min = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
 
 
 
@@ -317,19 +378,9 @@ function toggleDropdown(id, icon) {
 }; */
 
 
-// Title Field //
-
-/* function getDataForNewTask() {
-    let title = document.getElementById('title');
-    let desc = document.getElementById('description');
-    let cat = currentCategory;
-    let assignees = currentAssignees;
-    let date = document.getElementById('date-input');
-    let prio = currentPrio;
-    console.log(title.value, desc.value, cat, assignees, date.value, prio)
-}
 
 
-function addNewTask() {
-    let tasks = { title: title.value, }
-} */
+
+
+
+
