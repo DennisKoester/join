@@ -37,6 +37,11 @@
         margin-top: 14px;
     }
 
+    .submit-btns {
+        position: relative;
+        top: 0;
+    }
+
     .transition {
         transform: translateY(-300px);
     }

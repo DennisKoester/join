@@ -38,19 +38,19 @@ p {
     color: rgb(255, 58, 58);
 }
 
-#required1{
+#required1 {
     margin: 4px 0 0 0;
 }
 
-#required2{
+#required2 {
     margin: 0;
 }
 
-#required3{
+#required3 {
     margin: -8px 0 14px 0;
 }
 
-#required5{
+#required5 {
     margin: 9px 0 0 0;
 }
 
@@ -430,7 +430,8 @@ select {
     justify-content: flex-end;
     padding: 0px;
     gap: 25px;
-    margin-top: 48px;
+    position: fixed;
+    top: 800px;
 }
 
 .clear-btn {
@@ -633,4 +634,3 @@ select {
 .turquoise {
     background-color: #1FD7C1;
 }
-

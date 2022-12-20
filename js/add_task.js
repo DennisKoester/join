@@ -278,7 +278,7 @@ function deleteSubtask(i) {
 
 function createNewTask() {
     getDataForNewTask();
-    // showAddedTaskPopup();
+    showAddedTaskPopup();
     // clearAllAddTaskData();
 }
 
