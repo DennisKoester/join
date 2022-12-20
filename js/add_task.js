@@ -276,33 +276,64 @@ function deleteSubtask(i) {
 
 // Create Task //
 
-/* function createTask() {
-    addNewTask();
-    showAddedTaskPopup();
+function createNewTask() {
+    getDataForNewTask();
+    // showAddedTaskPopup();
+    // clearAllAddTaskData();
 }
 
 
 function getDataForNewTask() {
-
-    for (let i = 0; i < currentAssignees.length; i++) {
-        let assignee = currentAssignees[i]['email'];
-        let subtask = currentSubtasks[i]['title'];
-
-        
-    }
-}
-
-
-function addNewTask() {
     let title = document.getElementById('title');
     let desc = document.getElementById('description');
     let cat = currentCategory;
     let date = document.getElementById('date-input');
     let prio = currentPrio;
+    let assignee = [emailOfCurrentAssignee()];
+    let subtask = [subtaskLoop()];
+    let assignees = currentSubtasks;
+    let subtasks = currentSubtasks;
+
+    handleSubmit(title, desc, cat, date, assignee, prio);
+    // addNewTask(title, desc, cat, date, prio, assignee, subtask);
+}
 
 
-    // let newTasks = { title: title.value, desc: desc.value, cat: cat, date: date.value, prio: prio, subtasks["title"]: subtask, assignees: [assignee] };
+function emailOfCurrentAssignee() {
+    for (let i = 0; i < currentAssignees.length; i++) {
+        let assignee = currentAssignees[i]['email'];
+
+        return assignee;
+    }
+}
+
+
+function subtaskLoop() {
+    for (let i = 0; i < currentSubtasks.length; i++) {
+        let subtask = currentSubtasks[i];
+
+        return subtask;
+    }
+}
+
+
+function addNewTask(title, desc, cat, date, prio, assignee, subtask) {
+
+    /*  let newTask = {
+ 
+         title: title.value,
+         desc: desc.value,
+         cat: cat,
+         date: date.value,
+         prio: prio,
+         subtasks['title']: subtask,
+         subtasks['status']: false,
+         assignees: [assignee]
+     }; */
+
+
     tasks.push(newTask);
+    backend.setItem('tasks', JSON.stringify(tasks));
 
     currentPrio = '';
     currentCategory = '';
@@ -310,8 +341,6 @@ function addNewTask() {
     currentSubtasks = [];
     currentAssignees = [];
 }
-
-
 
 
 
@@ -324,14 +353,36 @@ function showAddedTaskPopup() {
 }
 
 
-function clearAddTask(){
+function clearAllAddTaskData() {
+    currentPrio = '';
+    currentCategory = '';
+    currentCategoryColor = '';
+    currentSubtasks = [];
+    currentAssignees = [];
+}
 
-} */
+
+function handleSubmit(title, desc, cat, date, assignee, prio) {
+
+    let allData = [title.value, desc.value, cat, assignee, date.value, prio];
+
+    for (let i = 0; i < allData.length; i++) {
+        const value = allData[i];
+        let required = document.getElementById(`required${i}`);
+
+        if (allData[i] == 0) {
+            required.classList.remove('hidden');
+        } else {
+            required.classList.add('hidden');
+        }
+    }
+}
 
 
 
 
-var today = new Date();
+
+/* var today = new Date();
 var dd = today.getDate();
 var mm = today.getMonth() + 1; //January is 0!
 var yyyy = today.getFullYear();
@@ -345,7 +396,7 @@ if (mm < 10) {
 }
 
 today = yyyy + '-' + mm + '-' + dd;
-document.getElementById("date-input").setAttribute("min", today);
+document.getElementById("date-input").setAttribute("min", today); */
 
 
 // document.getElementById('date-input').min = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];

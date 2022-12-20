@@ -4,182 +4,176 @@
             <h3 style="display: none;">Kanban Project Management Tool</h3>
             <h1>Add Task</h1>
         </div>
-        <form action="" onsubmit="handleSubmit()">
-            <div class="content-containers">
-                <div class="left-container ">
-                    <div class="title-container width-100">
-                        <p><label for="title">Title</label></p>
-                        <input id="title" class="title-field width-100" type="text" name="title"
-                            placeholder="Enter a title" required>
-                        <p class="required hidden">This field is required</p>
+        <div class="content-containers">
+            <div class="left-container ">
+                <div class="title-container width-100">
+                    <p><label for="title">Title</label></p>
+                    <input id="title" class="title-field width-100" type="text" name="title"
+                        placeholder="Enter a title">
+                    <p id="required0" class="required hidden">This field is required</p>
+                </div>
+                <div class="description-container width-100">
+                    <p><label for="description">Description</label></p>
+                    <textarea id="description" class="description-area width-100" name="description" cols="30" rows="10"
+                        placeholder="Enter a description" style="resize: vertical;"></textarea>
+                    <p id="required1" class="required hidden">This field is required</p>
+                </div>
+                <div class="select-container">
+                    <p><label for="categories">Category</label></p>
+                    <div id="category-input-container" class="input-field flex-btw padding-input d-none">
+                        <input id="category-input" class="input-style" type="text" name="category"
+                            placeholder="New category name">
+                        <div class="input-btns">
+                            <img onclick="hideInputField('category-input', 'category-input-container', 'category-dropdown-container')"
+                                src="./assets/img/black-x.svg" alt="" class="filter-btn">
+                            <div class="seperator"></div>
+                            <img onclick="addNewCategory('category-input', 'category-input-container', 'category-dropdown-container')"
+                                src="./assets/img/black-check.svg" alt="" class="filter-btn">
+                        </div>
                     </div>
-                    <div class="description-container width-100">
-                        <p><label for="description">Description</label></p>
-                        <textarea id="description" class="description-area width-100" name="description" cols="30"
-                            rows="10" placeholder="Enter a description" required style="resize: vertical;"></textarea>
-                        <p class="required hidden">This field is required</p>
+                    <div id="category-dropdown-container" class="dropdown-container select-none width-100"
+                        name="category">
+                        <div id="custom-category"
+                            onclick="toggleDropdown('category-dropdown', 'triangle1', 'category-list')"
+                            class="flex-btw padding-input height-input-mobile">
+                            <div id="selected-category" class="flex-align-center">Select task category</div>
+                            <img id="triangle1" src="./assets/img/select-triangle.svg" alt="triangle"
+                                style="padding-top: 2px;">
+                        </div>
+                        <!-- <div onclick="toggleDropdown('category-dropdown', 'triangle1', 'category-list')"
+                                class="dropdown-overlay">
+                            </div> -->
+                        <div id="category-dropdown" class="dropdown-menu d-none">
+                            <ul id="category-list">
+                                <li
+                                    onclick="showInputField('category-input-container', 'category-dropdown-container', 'category-dropdown', 'triangle1')">
+                                    <div>New Category</div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="select-container">
-                        <p><label for="categories">Category</label></p>
-                        <div id="category-input-container" class="input-field flex-btw padding-input d-none">
-                            <input id="category-input" class="input-style" type="text" name="category"
-                                placeholder="New category name" required>
-                            <div class="input-btns">
-                                <img onclick="hideInputField('category-input', 'category-input-container', 'category-dropdown-container')"
+                    <div id="category-colors" class="category-colors d-none">
+                        <div onclick="addNewColorToCategory('lightblue', '0')" id="color0" class="color-dot lightblue">
+                        </div>
+                        <div onclick="addNewColorToCategory('blue', '1')" id="color1" class="color-dot blue">
+                        </div>
+                        <div onclick="addNewColorToCategory('turquoise', '2')" id="color2" class="color-dot turquoise">
+                        </div>
+                        <div onclick="addNewColorToCategory('green', '3')" id="color3" class="color-dot green">
+                        </div>
+                        <div onclick="addNewColorToCategory('orange', '4')" id="color4" class="color-dot orange">
+                        </div>
+                        <div onclick="addNewColorToCategory('red', '5')" id="color5" class="color-dot red">
+                        </div>
+                        <div onclick="addNewColorToCategory('lightpink', '6')" id="color6" class="color-dot lightpink">
+                        </div>
+                        <div onclick="addNewColorToCategory('pink', '7')" id="color7" class="color-dot pink">
+                        </div>
+                    </div>
+                    <p id="required2" class="required hidden">This field is required</p>
+                </div>
+
+                <div class="select-container">
+                    <p><label for="assign">Assigned to</label></p>
+                    <div id="assign-input-container" class="input-field flex-btw padding-input d-none">
+                        <input id="assign-input" class="input-style" type="text" name="assign"
+                            placeholder="Contact email">
+                        <div class="input-btns">
+                            <img onclick="hideInputField('assign-input', 'assign-input-container', 'assign-dropdown-container')"
+                                src="./assets/img/black-x.svg" alt="" class="filter-btn">
+                            <div class="seperator"></div>
+                            <img onclick="inviteContact('assign-input', 'assign-input-container', 'assign-dropdown-container')"
+                                src="./assets/img/black-check.svg" alt="" class="filter-btn">
+                        </div>
+                    </div>
+                    <div id="assign-dropdown-container" class="dropdown-container select-none width-100">
+                        <div onclick="toggleDropdown('assign-dropdown', 'triangle2', 'assignee-list')"
+                            class="flex-btw padding-input height-input-mobile">
+                            <span>Select contacts to assign</span>
+                            <img id="triangle2" src="./assets/img/select-triangle.svg" alt="triangle"
+                                style="padding-top: 2px;">
+                        </div>
+                        <!-- <div onclick="toggleDropdown('assign-dropdown', 'triangle2', 'assign-list')"
+                                class="dropdown-overlay">
+                            </div> -->
+                        <div id="assign-dropdown" class="dropdown-menu d-none">
+                            <ul id="assignee-list">
+                                <li
+                                    onclick="showInputField('assign-input-container', 'assign-dropdown-container', 'assign-dropdown', 'triangle2')">
+                                    <label class="flex-btw">
+                                        <div>Invite new contact</div>
+                                        <img src="./assets/img/contact-icon.svg" alt="">
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="add-task-assignees" class="assignees"></div>
+                    <p id="required3" id="required-assign" class="required hidden">This field is required</p>
+                </div>
+            </div>
+
+            <div class="middle-container"></div>
+
+            <div class="right-container">
+                <div class="width-100">
+                    <p><label for="due-date">Due date</label></p>
+                    <div class="due-date">
+                        <input onfocus="this.showPicker()" id="date-input" class="due-date-input width-100" type="date"
+                            name="due-date">
+                    </div>
+                    <p id="required4" class="required hidden">This field is required</p>
+                </div>
+                <div class="prio-container">
+                    <p style="margin: 0 0 13px 0">Prio</p>
+                    <div class="prio-btns-container">
+                        <div onclick="setPrio(2)" id="urgent-btn" class="prio-btn" style="background-color: #FFFFFF;">
+                            Urgent
+                            <img id="urgent-btn-img" src="./assets/img/urgent.svg" alt="Arrows up">
+                        </div>
+                        <div onclick="setPrio(1)" id="medium-btn" class="prio-btn" style="background-color: #FFFFFF;">
+                            Medium
+                            <img id="medium-btn-img" src="./assets/img/medium.svg" alt="streaght lines">
+                        </div>
+                        <div onclick="setPrio(0)" id="low-btn" class="prio-btn" style="background-color: #FFFFFF;">
+                            Low
+                            <img id="low-btn-img" src="./assets/img/low.svg" alt="Arrows down">
+                        </div>
+                    </div>
+                    <p id="required5" class="required hidden">This field is required</p>
+                </div>
+                <div class="subtask-container">
+                    <p><label for="subtasks">Subtasks</label></p>
+                    <div class="subtasks-input padding-input">
+                        <input id="subtask-input" onfocus="showInputBtns('input-btns', 'plus-icon' )"
+                            class="input-style" type="text" placeholder="Add new subtask">
+                        <div class="input-btns">
+                            <img onclick="showInputBtns('input-btns', 'plus-icon' )" id="plus-icon" class="subtask-btn"
+                                src="./assets/img/plus.svg" alt="Plus sign">
+                            <div id="input-btns" class="input-btns d-none">
+                                <img onclick="hideInputField('subtask-input', 'input-btns', 'plus-icon')"
                                     src="./assets/img/black-x.svg" alt="" class="filter-btn">
                                 <div class="seperator"></div>
-                                <img onclick="addNewCategory('category-input', 'category-input-container', 'category-dropdown-container')"
+                                <img onclick="addSubtask('subtask-input', 'input-btns', 'plus-icon')"
                                     src="./assets/img/black-check.svg" alt="" class="filter-btn">
                             </div>
                         </div>
-                        <div id="category-dropdown-container" class="dropdown-container select-none width-100"
-                            name="category">
-                            <div id="custom-category"
-                                onclick="toggleDropdown('category-dropdown', 'triangle1', 'category-list')"
-                                class="flex-btw padding-input height-input-mobile">
-                                <div id="selected-category" class="flex-align-center">Select task category</div>
-                                <img id="triangle1" src="./assets/img/select-triangle.svg" alt="triangle"
-                                    style="padding-top: 2px;">
-                            </div>
-                            <!-- <div onclick="toggleDropdown('category-dropdown', 'triangle1', 'category-list')"
-                                class="dropdown-overlay">
-                            </div> -->
-                            <div id="category-dropdown" class="dropdown-menu d-none">
-                                <ul id="category-list">
-                                    <li
-                                        onclick="showInputField('category-input-container', 'category-dropdown-container', 'category-dropdown', 'triangle1')">
-                                        <div>New Category</div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div id="category-colors" class="category-colors d-none">
-                            <div onclick="addNewColorToCategory('lightblue', '0')" id="color0"
-                                class="color-dot lightblue">
-                            </div>
-                            <div onclick="addNewColorToCategory('blue', '1')" id="color1" class="color-dot blue">
-                            </div>
-                            <div onclick="addNewColorToCategory('turquoise', '2')" id="color2"
-                                class="color-dot turquoise">
-                            </div>
-                            <div onclick="addNewColorToCategory('green', '3')" id="color3" class="color-dot green">
-                            </div>
-                            <div onclick="addNewColorToCategory('orange', '4')" id="color4" class="color-dot orange">
-                            </div>
-                            <div onclick="addNewColorToCategory('red', '5')" id="color5" class="color-dot red">
-                            </div>
-                            <div onclick="addNewColorToCategory('lightpink', '6')" id="color6"
-                                class="color-dot lightpink">
-                            </div>
-                            <div onclick="addNewColorToCategory('pink', '7')" id="color7" class="color-dot pink">
-                            </div>
-                        </div>
-                        <p class="required hidden">This field is required</p>
                     </div>
-
-                    <div class="select-container">
-                        <p><label for="assign">Assigned to</label></p>
-                        <div id="assign-input-container" class="input-field flex-btw padding-input d-none">
-                            <input id="assign-input" class="input-style" type="text" name="assign"
-                                placeholder="Contact email" required>
-                            <div class="input-btns">
-                                <img onclick="hideInputField('assign-input', 'assign-input-container', 'assign-dropdown-container')"
-                                    src="./assets/img/black-x.svg" alt="" class="filter-btn">
-                                <div class="seperator"></div>
-                                <img onclick="inviteContact('assign-input', 'assign-input-container', 'assign-dropdown-container')"
-                                    src="./assets/img/black-check.svg" alt="" class="filter-btn">
-                            </div>
-                        </div>
-                        <div id="assign-dropdown-container" class="dropdown-container select-none width-100">
-                            <div onclick="toggleDropdown('assign-dropdown', 'triangle2', 'assignee-list')"
-                                class="flex-btw padding-input height-input-mobile">
-                                <span>Select contacts to assign</span>
-                                <img id="triangle2" src="./assets/img/select-triangle.svg" alt="triangle"
-                                    style="padding-top: 2px;">
-                            </div>
-                            <!-- <div onclick="toggleDropdown('assign-dropdown', 'triangle2', 'assign-list')"
-                                class="dropdown-overlay">
-                            </div> -->
-                            <div id="assign-dropdown" class="dropdown-menu d-none">
-                                <ul id="assignee-list">
-                                    <li
-                                        onclick="showInputField('assign-input-container', 'assign-dropdown-container', 'assign-dropdown', 'triangle2')">
-                                        <label class="flex-btw">
-                                            <div>Invite new contact</div>
-                                            <img src="./assets/img/contact-icon.svg" alt="">
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div id="add-task-assignees" class="assignees"></div>
-                        <p id="required-assign" class="required hidden">This field is required</p>
-                    </div>
-                </div>
-
-                <div class="middle-container"></div>
-
-                <div class="right-container">
-                    <div class="width-100">
-                        <p><label for="due-date">Due date</label></p>
-                        <div class="due-date">
-                            <input onfocus="this.showPicker()" id="date-input" class="due-date-input width-100"
-                                type="date" name="due-date" required>
-                        </div>
-                        <p class="required hidden">This field is required</p>
-                    </div>
-                    <div class="prio-container">
-                        <p style="margin: 0 0 13px 0">Prio</p>
-                        <div class="prio-btns-container">
-                            <div onclick="setPrio(2)" id="urgent-btn" class="prio-btn"
-                                style="background-color: #FFFFFF;">
-                                Urgent
-                                <img id="urgent-btn-img" src="./assets/img/urgent.svg" alt="Arrows up">
-                            </div>
-                            <div onclick="setPrio(1)" id="medium-btn" class="prio-btn"
-                                style="background-color: #FFFFFF;">
-                                Medium
-                                <img id="medium-btn-img" src="./assets/img/medium.svg" alt="streaght lines">
-                            </div>
-                            <div onclick="setPrio(0)" id="low-btn" class="prio-btn" style="background-color: #FFFFFF;">
-                                Low
-                                <img id="low-btn-img" src="./assets/img/low.svg" alt="Arrows down">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="subtask-container">
-                        <p><label for="subtasks">Subtasks</label></p>
-                        <div class="subtasks-input padding-input">
-                            <input id="subtask-input" onfocus="showInputBtns('input-btns', 'plus-icon' )"
-                                class="input-style" type="text" placeholder="Add new subtask">
-                            <div class="input-btns">
-                                <img onclick="showInputBtns('input-btns', 'plus-icon' )" id="plus-icon"
-                                    class="subtask-btn" src="./assets/img/plus.svg" alt="Plus sign">
-                                <div id="input-btns" class="input-btns d-none">
-                                    <img onclick="hideInputField('subtask-input', 'input-btns', 'plus-icon')"
-                                        src="./assets/img/black-x.svg" alt="" class="filter-btn">
-                                    <div class="seperator"></div>
-                                    <img onclick="addSubtask('subtask-input', 'input-btns', 'plus-icon')"
-                                        src="./assets/img/black-check.svg" alt="" class="filter-btn">
-                                </div>
-                            </div>
-                        </div>
-                        <div id="subtask-list" class="subtask-list width-100"></div>
-                    </div>
+                    <div id="subtask-list" class="subtask-list width-100"></div>
                 </div>
             </div>
-            <div class="submit-btns">
-                <button type="reset" class="clear-btn">Clear
-                    <img src="./assets/img/clear-x.svg" alt="x icon">
-                </button>
-                <button onclick="createTask()" type="submit" class="create-btn">Create Task
-                    <img src="./assets/img/create-check.svg" alt="check icon">
-                </button>
-                <button onclick="createTask()" type="submit" class="create-btn mobile-btn" style="display: none;">Create
-                    <img src="./assets/img/create-check.svg" alt="check icon">
-                </button>
-            </div>
-        </form>
+        </div>
+        <div class="submit-btns">
+            <button type="reset" class="clear-btn">Clear
+                <img src="./assets/img/clear-x.svg" alt="x icon">
+            </button>
+            <button onclick="createNewTask()" type="" class="create-btn">Create Task
+                <img src="./assets/img/create-check.svg" alt="check icon">
+            </button>
+            <button onclick="createNewTask()" type="" class="create-btn mobile-btn" style="display: none;">Create
+                <img src="./assets/img/create-check.svg" alt="check icon">
+            </button>
+        </div>
         <div id="added-popup" class="flex-just-center">
             <div class="added-popup">
                 <div>Task added to board</div>
