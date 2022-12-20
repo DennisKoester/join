@@ -1,4 +1,4 @@
-async function init() {
+async function render() {
     animation();
     signUpQuery();
     setURL('https://gruppe-392.developerakademie.net/smallest_backend_ever');   

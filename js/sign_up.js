@@ -1,6 +1,4 @@
-async function init() {
-    setURL('https://gruppe-392.developerakademie.net/smallest_backend_ever');
-}
+
 
 async function register(e) {
     e.preventDefault();
@@ -8,14 +6,13 @@ async function register(e) {
     let username = document.getElementById("username");
     let email = document.getElementById("email");
     let password = document.getElementById("password");  
-    
-    // localstorage version
-    // if(JSON.parse(localStorage.getItem('users'))) {
-    //    users = JSON.parse(localStorage.getItem('users'));
-    //}
-    await downloadFromServer();
-    if(await JSON.parse(backend.getItem('users'))) {
-        users = await JSON.parse(backend.getItem('users'));
+ 
+    // await downloadFromServer();
+    // if(await JSON.parse(backend.getItem('users'))) {
+    //     users = await JSON.parse(backend.getItem('users'));
+    // }
+    if(await loadBackend('users')) {
+        await loadBackend('users');
     }
 
     //checking if e-mail is already in use
@@ -35,10 +32,6 @@ async function register(e) {
     //save data in users array
     users.push({name: username.value, email: email.value, password: password.value, short_name: initials, color: color});
     await backend.setItem('users', JSON.stringify(users));
-
-    // local storage version
-    // let usersAsString = JSON.stringify(users);
-    // localStorage.setItem('users', usersAsString);
 
     //load index.html
     window.location.href = './index.html?msg=Deine Registrierung war erfolgreich, du kannst dich jetzt einloggen!';
