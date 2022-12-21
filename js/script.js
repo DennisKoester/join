@@ -25,14 +25,27 @@ async function init() {
     // openPage(currentPage, false);
 }
 
+
 /**
  * loading data from server and return it in variable
+ * @param {string} key 
+ * @returns 
  */
-async function loadFromServer(param) {
+async function loadFromServer(key) {
     await downloadFromServer();
-    if(await JSON.parse(backend.getItem(`${param}`))) {
-       return param = await JSON.parse(backend.getItem(`${param}`));
-    }
+    let item = JSON.parse(backend.getItem(key)) || [];
+    return Array.from(item);
+}
+
+
+/**
+ * Saves the data to the server
+ * @param {String} key 
+ * @param {Array} item 
+ */
+async function saveOnServer(key, item) {
+    itemAsString = JSON.stringify(item);
+    await backend.setItem(key, itemAsString);
 }
 
 /**

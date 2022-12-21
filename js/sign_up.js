@@ -14,16 +14,12 @@ async function registerUser(e) {
     if(user) {
         alert('Die eingegebene E-Mail Adresse wird bereits verwendet, bitte versuche es mit einer anderen Adresse!');
     } else {
-    await saveOnServer(username, email, password, initials, color);
-    window.location.href = './index.html?msg=success';
+        users.push({name: username.value, email: email.value, password: password.value, short_name: initials, color: color});
+        await saveOnServer('users', users);
+        window.location.href = './index.html?msg=success';
     }
 
     return false;
-}
-
-async function saveOnServer(username, email, password, initials, color) {
-    users.push({name: username.value, email: email.value, password: password.value, short_name: initials, color: color});
-    await backend.setItem('users', JSON.stringify(users));
 }
 
 function getInitials(name) {
