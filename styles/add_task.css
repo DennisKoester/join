@@ -528,7 +528,7 @@ select {
 
 .added-popup {
     position: fixed;
-    bottom: -200px;
+    /* bottom: -200px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -543,11 +543,32 @@ select {
     line-height: 120%;
     gap: 30px;
     overflow: hidden;
+    opacity: 0;
+    animation: transition 3s;
 }
 
 .transition {
-    transform: translateY(-200px);
-    transition: transform 0.4s ease-in-out;
+    /* transition: all 1s ease-in-out; */
+    /* transform: translateY(-200px); */
+}
+
+@keyframes transition {
+    0% {
+        /* transform: translateY(0%); */
+        bottom: 15%;
+        opacity: 0;
+    }
+
+    30% {
+        /* transform: translateY(-100%); */
+        bottom: 40%;
+        opacity: 1;
+    }
+
+    100% {
+        bottom: 40%;
+        opacity: 1;
+    }
 }
 
 .added-popup img {
