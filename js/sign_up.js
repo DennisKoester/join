@@ -1,4 +1,4 @@
-async function register(e) {
+async function registerUser(e) {
     e.preventDefault();
 
     let username = document.getElementById("username");
@@ -15,8 +15,9 @@ async function register(e) {
         alert('Die eingegebene E-Mail Adresse wird bereits verwendet, bitte versuche es mit einer anderen Adresse!');
     } else {
     await saveOnServer(username, email, password, initials, color);
-    window.location.href = './index.html?msg=Deine Registrierung war erfolgreich, du kannst dich jetzt einloggen!';
+    window.location.href = './index.html?msg=success';
     }
+
     return false;
 }
 

@@ -1,3 +1,5 @@
+let currentUser
+
 /**
  * Initialises the summary
  */
@@ -8,6 +10,27 @@ function initSummary() {
     getNumberTasksFeedback();
     getNumberTasksDone();
     getTasksUrgent();
+    setCurrentUser();
+}
+
+
+/**
+ * Checking if guest log in, else Loading currentUser and changing welcome message
+ */
+function setCurrentUser() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const login = urlParams.get('login');
+    const user = urlParams.get('user');
+    if(login || JSON.parse(localStorage.getItem('currentUser')) == 'Guest') {
+        currentUser = 'Guest';
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        document.getElementById('welcome-name-mobile').innerHTML = currentUser;
+        document.getElementById('welcome-name-desk').innerHTML = currentUser;
+    } else {
+    currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    document.getElementById('welcome-name-mobile').innerHTML = currentUser['name'];
+    document.getElementById('welcome-name-desk').innerHTML = currentUser['name'];
+    }
 }
 
 

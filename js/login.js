@@ -1,3 +1,5 @@
+let currentUser;
+
 async function render() {
     animation();
     signUpQuery();
@@ -11,7 +13,7 @@ function signUpQuery() {
     const urlParams = new URLSearchParams(window.location.search);
     const msg = urlParams.get('msg');
     if(msg) {
-        document.getElementById('msg-box').innerHTML = msg;
+        document.getElementById('msg-box').innerHTML = 'Deine Registrierung war erfolgreich, du kannst dich jetzt einloggen!';
         document.getElementById('msg-box').classList.remove('d_none');
     }
 }
@@ -22,21 +24,20 @@ async function login(e) {
     let email = document.getElementById('email');
     let password = document.getElementById('password');
 
-    //load users
-    //if(JSON.parse(localStorage.getItem('users'))) {
-    //    users = JSON.parse(localStorage.getItem('users'));
-    //}
     users = await loadFromServer('users');
     //checking if user exists
-    let user = users.find(u => u.email == email.value && u.password == password.value);
+    currentUser = users.find(u => u.email == email.value && u.password == password.value);
 
-    if (user) {
-        window.location.href='./summary.html?login=1';
+    if (currentUser) {
+        saveUserOnServer();
+        window.location.href='./summary.html';
     } else {
-        //document.getElementById('error-login').innerHTML = 'Der eingegebene Benutzer ist nicht vorhanden!';
         alert('Der eingegebene Benutzer ist nicht vorhanden!')
     }
 
     return false
+}
 
+function saveUserOnServer() {
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
 }

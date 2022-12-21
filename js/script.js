@@ -25,11 +25,14 @@ async function init() {
     // openPage(currentPage, false);
 }
 
+/**
+ * loading data from server and return it in variable
+ */
 async function loadFromServer(param) {
     await downloadFromServer();
     if(await JSON.parse(backend.getItem(`${param}`))) {
        return param = await JSON.parse(backend.getItem(`${param}`));
-   }
+    }
 }
 
 /**
