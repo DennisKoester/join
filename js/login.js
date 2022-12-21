@@ -1,7 +1,6 @@
 async function render() {
     animation();
     signUpQuery();
-    setURL('https://gruppe-392.developerakademie.net/smallest_backend_ever');   
 }
 
 function animation() {
@@ -27,11 +26,7 @@ async function login(e) {
     //if(JSON.parse(localStorage.getItem('users'))) {
     //    users = JSON.parse(localStorage.getItem('users'));
     //}
-    await downloadFromServer();
-    if(await JSON.parse(backend.getItem('users'))) {
-        users = await JSON.parse(backend.getItem('users'));
-    }
-
+    users = await loadFromServer('users');
     //checking if user exists
     let user = users.find(u => u.email == email.value && u.password == password.value);
 

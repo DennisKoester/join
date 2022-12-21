@@ -25,14 +25,11 @@ async function init() {
     // openPage(currentPage, false);
 }
 
-async function loadBackend(param) {
-    setURL('https://gruppe-392.developerakademie.net/smallest_backend_ever');
+async function loadFromServer(param) {
     await downloadFromServer();
-    param = await JSON.parse(backend.getItem(`${param}`));
-}
-
-async function loadBackend(param) {
-    
+    if(await JSON.parse(backend.getItem(`${param}`))) {
+       return param = await JSON.parse(backend.getItem(`${param}`));
+   }
 }
 
 /**
