@@ -104,6 +104,21 @@ function listSubtasksViewer(subtasks) {
 
         subtasksElem.innerHTML += renderSubtaskStatic(desc, statusSign);
     }
+
+    subtasksElem.style.minHeight = `${calcContainerHeight(subtasks.length)}px`;
+}
+
+
+function calcContainerHeight(elemCount) {
+    const elemSubtask = document.getElementsByClassName('modal-task-subtask')[0];
+    const styles = window.getComputedStyle(elemSubtask);
+    const marginTop = styles.marginTop.split('px')[0];
+    const marginBtm = styles.marginBottom.split('px')[0];
+    const fontSize = styles.fontSize.split('px')[0];
+    let minHeight = (fontSize + marginTop + marginBtm) * elemCount;
+    if (minHeight > 100) minHeight = 100;
+
+    return minHeight;
 }
 
 
@@ -211,8 +226,6 @@ function saveChanges() {
     
     // TODO:
     // - Write the changes to the Server
-    // - Update reader mode
-    // - Update board overview
     
     const data = [
         {
@@ -237,8 +250,8 @@ function saveChanges() {
 
     writeDataToArray();
 
-    // Upcoming: Re-render task viewer
-    // Upcoming: Re-render task card
+    renderDataToViewer(openedTask['statusId'], openedTask['taskId']);
+    updateTaskCard();
 
     toggleTaskEditMode();
 }
@@ -280,4 +293,17 @@ function getAssigneesEmails() {
         assigneesEmails.push(currentAssignees[i]['email']);
     }
     return assigneesEmails;
+}
+
+
+function updateTaskCard() {
+    const statusId = openedTask['statusId'];
+    const taskId = openedTask['taskId'];
+    const taskCard = document.getElementById(`task-${statusId}-${taskId}`);
+    const cat = getCategory(statusId, taskId);
+    const catColor = getCategoryColor(cat);
+    const prio = getPriority(statusId, taskId);
+
+    // taskCard.innerHTML = '';
+    taskCard.innerHTML = renderTaskCardContent(statusId, taskId, cat, catColor, prio);
 }

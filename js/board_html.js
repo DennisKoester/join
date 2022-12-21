@@ -10,16 +10,32 @@
 function renderTaskCard(statusId, taskId, taskCat, taskCatColor, taskPrio) {
     return /*html*/ `
         <div id="task-${statusId}-${taskId}" class="task-card" onclick="openViewer(${statusId}, ${taskId})">
-            <div class="task-cat ${taskCatColor}">${taskCat}</div>
-            <div class="task-title">${tasks[statusId][taskId]['title']}</div>
-            <div class="task-description">${tasks[statusId][taskId]['desc']}</div>
-            ${getSubtasksProgress(statusId, taskId)}
-            <div class="task-card--footer">
-                <div class="assignees">
-                    ${getAssignees(statusId, taskId)}
-                </div>
-                <img src="${prio[taskPrio]['sign-color']}" alt="${prio[taskPrio]['name']}">
+            ${renderTaskCardContent(statusId, taskId, taskCat, taskCatColor, taskPrio)}
+        </div>
+    `;
+}
+
+
+/**
+ * Renders the content of the task card
+ * @param {Number} statusId The status ID (0-3)
+ * @param {Number} taskId The task ID within the status
+ * @param {String} taskCat The category name
+ * @param {String} taskCatColor The category color
+ * @param {Number} taskPrio The task's priority
+ * @returns HTML
+ */
+function renderTaskCardContent(statusId, taskId, taskCat, taskCatColor, taskPrio) {
+    return `
+        <div class="task-cat ${taskCatColor}">${taskCat}</div>
+        <div class="task-title">${tasks[statusId][taskId]['title']}</div>
+        <div class="task-description">${tasks[statusId][taskId]['desc']}</div>
+        ${getSubtasksProgress(statusId, taskId)}
+        <div class="task-card--footer">
+            <div class="assignees">
+                ${getAssignees(statusId, taskId)}
             </div>
+            <img src="${prio[taskPrio]['sign-color']}" alt="${prio[taskPrio]['name']}">
         </div>
     `;
 }
