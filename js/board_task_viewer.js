@@ -202,3 +202,82 @@ function listAssigneesEditor(assignees) {
     // currentAssignees = Array.from(assignees);
     renderAssignees();
 }
+
+
+/**
+ * Saves the changes made in the task editor
+ */
+function saveChanges() {
+    
+    // TODO:
+    // - Write the changes to the Server
+    // - Update reader mode
+    // - Update board overview
+    
+    const data = [
+        {
+            'value': document.getElementById('title').value,
+            'required': document.getElementById('required0')
+        },
+        {
+            'value': document.getElementById('description').value,
+            'required': document.getElementById('required1')
+        },
+        {
+            'value': document.getElementById('date-input').value,
+            'required': document.getElementById('required4')
+        },
+        {
+            'value': currentAssignees,
+            'required': document.getElementById('required3')
+        }
+    ];
+
+    if (!validateData(data)) return;
+
+    writeDataToArray();
+
+    // Upcoming: Re-render task viewer
+    // Upcoming: Re-render task card
+
+    toggleTaskEditMode();
+}
+
+
+function validateData(data) {
+    let isFormValid = true;
+    for (let i = 0; i < data.length; i++) {
+        const currData = data[i]['value'].length;
+        const currRequ = data[i]['required'];
+
+        if (currData == 0) {
+            isFormValid = false;
+            currRequ.classList.remove('hidden');
+        }
+        else {
+            currRequ.classList.add('hidden');
+        }
+    }
+
+    return isFormValid;
+}
+
+
+function writeDataToArray() {
+    currTask = tasks[openedTask.statusId][openedTask.taskId];
+    currTask['title'] = document.getElementById('title').value;
+    currTask['desc'] = document.getElementById('description').value;
+    currTask['date'] = document.getElementById('date-input').value;
+    currTask['prio'] = currentPrio;
+    currTask['subtasks'] = Array.from(currentSubtasks);
+    currTask['assignees'] = Array.from(getAssigneesEmails());
+}
+
+
+function getAssigneesEmails() {
+    let assigneesEmails = [];
+    for (let i = 0; i < currentAssignees.length; i++) {
+        assigneesEmails.push(currentAssignees[i]['email']);
+    }
+    return assigneesEmails;
+}

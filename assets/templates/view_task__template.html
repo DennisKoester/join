@@ -63,52 +63,50 @@
     <!-- <div class="modal-task-content-wrapper"> -->
     <div id="modal-task-edit" class="modal-task-content editor d-none">
         <!-- <img class="modal-task-close" src="./assets/img/black-x.svg" alt="close"> -->
-        <form onsubmit="saveChanges(); return false;" action="">
+        <!-- <div> -->
             <div class="title-container width-100">
                 <p><label for="title">Title</label></p>
-                <input id="title" class="title-field width-100" type="text" name="title" placeholder="Enter a title"
-                    required>
-                <p class="required hidden">This field is required</p>
+                <input id="title" class="title-field width-100" type="text" name="title"
+                    placeholder="Enter a title">
+                <p id="required0" class="required hidden">This field is required</p>
             </div>
             <div class="description-container width-100">
                 <p><label for="description">Description</label></p>
                 <textarea id="description" class="description-area width-100" name="description" cols="30" rows="10"
-                    placeholder="Enter a description" required style="resize: vertical;"></textarea>
-                <p class="required hidden">This field is required</p>
+                    placeholder="Enter a description" style="resize: vertical;"></textarea>
+                <p id="required1" class="required hidden">This field is required</p>
             </div>
             <div class="width-100">
                 <p><label for="due-date">Due date</label></p>
                 <div class="due-date">
-                    <input onfocus="this.showPicker()" id="date-input" class="due-date-input width-100"
-                        type="date" name="due-date" required>
+                    <input onfocus="this.showPicker()" id="date-input" class="due-date-input width-100" type="date"
+                        name="due-date">
                 </div>
-                <p class="required hidden">This field is required</p>
+                <p id="required4" class="required hidden">This field is required</p>
             </div>
             <div class="prio-container">
                 <p style="margin: 0 0 13px 0">Prio</p>
                 <div class="prio-btns-container">
-                    <div onclick="setPrio(2, 'urgent-btn')" id="urgent-btn" class="prio-btn"
-                        style="background-color: #FFFFFF;">
+                    <div onclick="setPrio(2)" id="urgent-btn" class="prio-btn" style="background-color: #FFFFFF;">
                         Urgent
                         <img id="urgent-btn-img" src="./assets/img/urgent.svg" alt="Arrows up">
                     </div>
-                    <div onclick="setPrio(1, 'medium-btn')" id="medium-btn" class="prio-btn"
-                        style="background-color: #FFFFFF;">
+                    <div onclick="setPrio(1)" id="medium-btn" class="prio-btn" style="background-color: #FFFFFF;">
                         Medium
                         <img id="medium-btn-img" src="./assets/img/medium.svg" alt="streaght lines">
                     </div>
-                    <div onclick="setPrio(0, 'low-btn')" id="low-btn" class="prio-btn"
-                        style="background-color: #FFFFFF;">
+                    <div onclick="setPrio(0)" id="low-btn" class="prio-btn" style="background-color: #FFFFFF;">
                         Low
                         <img id="low-btn-img" src="./assets/img/low.svg" alt="Arrows down">
                     </div>
                 </div>
+                <p id="required5" class="required hidden">This field is required</p>
             </div>
             <div class="select-container">
                 <p><label for="assign">Assigned to</label></p>
                 <div id="assign-input-container" class="input-field flex-btw padding-input d-none">
                     <input id="assign-input" class="input-style" type="text" name="assign"
-                        placeholder="Contact email" required>
+                        placeholder="Contact email">
                     <div class="input-btns">
                         <img onclick="hideInputField('assign-input', 'assign-input-container', 'assign-dropdown-container')"
                             src="./assets/img/black-x.svg" alt="" class="filter-btn">
@@ -125,8 +123,8 @@
                             style="padding-top: 2px;">
                     </div>
                     <!-- <div onclick="toggleDropdown('assign-dropdown', 'triangle2', 'assign-list')"
-                        class="dropdown-overlay">
-                    </div> -->
+                            class="dropdown-overlay">
+                        </div> -->
                     <div id="assign-dropdown" class="dropdown-menu d-none">
                         <ul id="assignee-list">
                             <li
@@ -140,7 +138,7 @@
                     </div>
                 </div>
                 <div id="add-task-assignees" class="assignees"></div>
-                <p id="required-assign" class="required hidden">This field is required</p>
+                <p id="required3" id="required-assign" class="required hidden">This field is required</p>
             </div>
             <div class="subtask-container">
                 <p><label for="subtasks">Subtasks</label></p>
@@ -161,10 +159,10 @@
                 </div>
                 <div id="subtask-list" class="subtask-list width-100"></div>
             </div>
-            <button id="btn-task-edit-ok" type="submit">
+            <button id="btn-task-edit-ok" onclick="saveChanges()">
                 <span>Ok</span>
                 <img src="./assets/img/symb_done.svg" alt="ok">
             </button>
-        </form>
+        <!-- </div> -->
     </div>
 </div>

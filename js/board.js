@@ -1,4 +1,4 @@
-let openedTask = [];
+let openedTask = {statusId: -1, taskId: -1};
 
 /**
  * Renders all tasks to the board
@@ -210,7 +210,8 @@ function controlHeaderNavVisibility() {
 async function openViewer(statusId, taskId) {
     await loadHTML('modal-task', './assets/templates/view_task__template.html')
     
-    openedTask = [statusId, taskId];
+    openedTask.statusId = statusId;
+    openedTask.taskId = taskId;
     
     // TODO: Render data
     renderDataToViewer(statusId, taskId);
@@ -249,18 +250,4 @@ async function openAddTask() {
     // setTimeout(() => {
     //     toggleModal('modal-add-task');
     // }, 500);
-}
-
-
-/**
- * Saves the changes made in the task editor
- */
-function saveChanges() {
-
-    // TODO:
-    // - Write the changes to the Array and the Server
-    // - Update reader mode
-    // - Update board overview
-
-    toggleTaskEditMode();
 }
