@@ -9,8 +9,7 @@ async function initAddTask() {
 
     await init();
     await loadCategories();
-    await date();
-
+    await dateLimitation();
 }
 
 
@@ -18,32 +17,6 @@ window.addEventListener("load", function () {
     // do things after the DOM loads fully
     console.log("Everything is loaded");
 });
-
-
-function setPrio(index) {
-    let btns = document.getElementsByClassName("prio-btn");
-
-    for (let i = 0; i < btns.length; i++) {
-        let btn = btns[2 - i];
-        let id = prio[i]['name'].toLocaleLowerCase() + '-btn-img';
-        let img = document.getElementById(id);
-        let color = prio[i]['color'];
-        let signWhite = prio[i]['sign-white'];
-        let signColor = prio[i]['sign-color'];
-
-        if (index === i) {
-            btn.style.backgroundColor = color;
-            btn.style.color = 'white';
-            img.src = signWhite;
-            currentPrio = index;
-        }
-        else {
-            btn.style.backgroundColor = '#FFFFFF';
-            btn.style.color = 'black';
-            img.src = signColor;
-        }
-    }
-}
 
 
 // Help Functions //
@@ -58,12 +31,6 @@ function toggleDropdown(dropdown, icon) {
     toggleClassList(dropdown, 'd-none');
     toggleClassList(icon, 'rotate180');
 }
-
-
-// function dropDownToggle(id, icon) {
-//     toggleClassList(id, 'd-none');
-//     toggleClassList(icon, 'rotate180');
-// }
 
 
 // Input Fields//
@@ -237,11 +204,31 @@ function changeCheckbox(i) {
 }
 
 
-// Date //
+// Prio //
 
-function getDate() {
-    let input = document.getElementById('date-input');
-    let date = new Date(input.value);
+function setPrio(index) {
+    let btns = document.getElementsByClassName("prio-btn");
+
+    for (let i = 0; i < btns.length; i++) {
+        let btn = btns[2 - i];
+        let id = prio[i]['name'].toLowerCase() + '-btn-img';
+        let img = document.getElementById(id);
+        let color = prio[i]['color'];
+        let signWhite = prio[i]['sign-white'];
+        let signColor = prio[i]['sign-color'];
+
+        if (index === i) {
+            btn.style.backgroundColor = color;
+            btn.style.color = 'white';
+            img.src = signWhite;
+            currentPrio = index;
+        }
+        else {
+            btn.style.backgroundColor = '#FFFFFF';
+            btn.style.color = 'black';
+            img.src = signColor;
+        }
+    }
 }
 
 
@@ -283,7 +270,6 @@ function deleteSubtask(i) {
 function createNewTask() {
     getDataForNewTask();
     showAddedTaskPopup();
-    // clearAllAddTaskData();
 }
 
 
@@ -325,6 +311,7 @@ function addNewTask(title, desc, date, assigneesMail) {
     backend.setItem('tasks', JSON.stringify(tasks));
 
     // clearAllAddTaskData();
+    // clearInputs();
 }
 
 
@@ -340,28 +327,6 @@ function clearAllAddTaskData() {
     currentSubtasks = [];
     currentAssignees = [];
 }
-
-
-
-/* function showAddedTaskPopup() {
-    let popup = document.getElementById('added-popup');
-    popup.animate([
-        {
-            
-            opacity: 0
-        }, 
-        {
-            
-            opacity: 1
-        }
-
-    ], {
-        duration: 1500
-    });
-} */
-
-
-
 
 
 function handleSubmit(title, desc, cat, date, assignee, prio) {
@@ -381,8 +346,7 @@ function handleSubmit(title, desc, cat, date, assignee, prio) {
 }
 
 
-
-function date() {
+function dateLimitation() {
 
     var today = new Date();
     var dd = today.getDate();
@@ -404,14 +368,34 @@ function date() {
 
 
 
-/* function checkSelectionSubtask(i) {
-    let subtaskCheck = document.getElementById(`subtask${i}`);
-    if (subtaskCheck.checked) {
-        console.log("Checked");
-    } else {
-        console.log("Not checked");
-    }
+
+/* function showAddedTaskPopup() {
+    let popup = document.getElementById('added-popup');
+    popup.animate([
+        {
+
+            opacity: 0
+        },
+        {
+
+            opacity: 1
+        }
+
+    ], {
+        duration: 1500
+    });
 } */
+
+
+
+// Date //
+
+/* function getDate() {
+    let input = document.getElementById('date-input');
+    let date = new Date(input.value);
+} */
+
+
 
 
 /*  Hide Dropdown By Clicking Next To It //
