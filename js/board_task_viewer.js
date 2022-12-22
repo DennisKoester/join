@@ -249,7 +249,9 @@ async function saveChanges() {
     renderDataToViewer(openedTask['statusId'], openedTask['taskId']);
     updateTaskCard();
 
-    await saveOnServer('tasks', tasks);
+    try {
+        await saveOnServer('tasks', tasks);
+    } catch {}
 
     toggleTaskEditMode();
 }

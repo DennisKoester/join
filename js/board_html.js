@@ -9,7 +9,8 @@
  */
 function renderTaskCard(statusId, taskId, taskCat, taskCatColor, taskPrio) {
     return /*html*/ `
-        <div id="task-${statusId}-${taskId}" class="task-card" onclick="openViewer(${statusId}, ${taskId})">
+        <div id="task-${statusId}-${taskId}" class="task-card" onclick="openViewer(${statusId}, ${taskId})"
+                draggable="true" ondragstart="dragStart(${statusId}, ${taskId})">
             ${renderTaskCardContent(statusId, taskId, taskCat, taskCatColor, taskPrio)}
         </div>
     `;

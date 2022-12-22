@@ -242,3 +242,10 @@
     margin-right: -6px;
     border: 1px solid white;
 }
+
+.wildcard {
+    width: var(--task-card-width);
+    height: 230px;
+    border: dashed 1px var(--border-dimmed);
+    border-radius: var(--border-radius-main);
+}
