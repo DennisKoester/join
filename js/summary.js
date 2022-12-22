@@ -3,7 +3,8 @@ let currentUser
 /**
  * Initialises the summary
  */
-function initSummary() {
+async function initSummary() {
+    await init();
     getNumberTasksAll();
     getNumberTasksTodo();
     getNumberTasksInProgress();

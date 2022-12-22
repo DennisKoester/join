@@ -9,29 +9,38 @@ let users = [
         "image": ""
     },
     {
-        "name": "Test User",
-        "email": "test@test.com",
+        "name": "Alfred User",
+        "email": "alfred@test.com",
         "password": "",
         "phone": "",
-        "short_name": "TU",
+        "short_name": "AU",
+        "color": "HSL(200, 100%, 50%)",
+        "image": ""
+    },
+    {
+        "name": "Heiner Müller",
+        "email": "hmueller@company.com",
+        "password": "test123",
+        "phone": "",
+        "short_name": "HM",
         "color": "HSL(300, 100%, 50%)",
         "image": ""
     },
 
     {
-        "name": "User Test",
-        "email": "user@test.de",
-        "password": "",
+        "name": "Sofia Maier",
+        "email": "smaier@company.com",
+        "password": "test987",
         "phone": "",
-        "short_name": "UT",
+        "short_name": "SM",
         "color": "HSL(120, 100%, 50%)",
         "image": ""
     },
 
     {
         "name": "Joe May",
-        "email": "joe.m@test.de",
-        "password": "",
+        "email": "jmay@company.com",
+        "password": "test246",
         "phone": "",
         "short_name": "JM",
         "color": "HSL(180, 100%, 50%)",
@@ -40,11 +49,31 @@ let users = [
 
     {
         "name": "Maria Mutschler",
-        "email": "mamu@test.de",
-        "password": "",
+        "email": "mmutschler@company.com",
+        "password": "test135",
         "phone": "",
         "short_name": "MM",
         "color": "HSL(36, 100%, 50%)",
+        "image": ""
+    },
+
+    {
+        "name": "Rainer Zufall",
+        "email": "rzufall@company.com",
+        "password": "test567",
+        "phone": "",
+        "short_name": "RZ",
+        "color": "HSL(85, 100%, 50%)",
+        "image": ""
+    },
+
+    {
+        "name": "Ali Alles",
+        "email": "aalles@company.com",
+        "password": "test765",
+        "phone": "",
+        "short_name": "AA",
+        "color": "HSL(280, 100%, 50%)",
         "image": ""
     },
 
@@ -77,7 +106,7 @@ let tasks = [
                     "status": true
                 },
             ],
-            "assignees": ['joe.m@test.de', 'test@test.com', 'user@test.de', 'mamu@test.de'] // mail-address
+            "assignees": ['jmay@company.com', 'hmueller@company.com', 'smaier@company.com', 'mmutschler@company.com'] // mail-address
         }
     ],
     [ // In Progress
@@ -101,7 +130,7 @@ let tasks = [
                     "status": true
                 }
             ],
-            "assignees": ['user@test.de', 'test@test.com'] // mail-address
+            "assignees": ['aalles@company.com', 'rzufall@company.com'] // mail-address
         },
         {
             "title": "Task E",
@@ -119,7 +148,7 @@ let tasks = [
                     "status": false
                 }
             ],
-            "assignees": ['user@test.de', 'test@test.com'] // mail-address
+            "assignees": ['aalles@company.com', 'hmueller@company.com'] // mail-address
         }
     ],
     [ // Awaiting Feedback
@@ -132,7 +161,7 @@ let tasks = [
             "subtasks": [
 
             ],
-            "assignees": ['joe.m@test.de'] // mail-address
+            "assignees": ['jmay@company.com'] // mail-address
         },
         {
             "title": "Task D",
@@ -162,7 +191,7 @@ let tasks = [
                     "status": true
                 }
             ],
-            "assignees": ['joe.m@test.de', 'user@test.de'] // mail-address
+            "assignees": ['rzufall@company.com', 'smaier@company.com'] // mail-address
         }
     ],
     [ // Done

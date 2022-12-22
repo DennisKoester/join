@@ -32,8 +32,9 @@ async function init() {
  * @returns 
  */
 async function loadFromServer(key) {
+    let item = [];
     await downloadFromServer();
-    let item = JSON.parse(backend.getItem(key)) || [];
+    item = JSON.parse(backend.getItem(key)) || [];
     return Array.from(item);
 }
 
