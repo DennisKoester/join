@@ -222,11 +222,7 @@ function listAssigneesEditor(assignees) {
 /**
  * Saves the changes made in the task editor
  */
-function saveChanges() {
-    
-    // TODO:
-    // - Write the changes to the Server
-    
+async function saveChanges() {    
     const data = [
         {
             'value': document.getElementById('title').value,
@@ -252,6 +248,8 @@ function saveChanges() {
 
     renderDataToViewer(openedTask['statusId'], openedTask['taskId']);
     updateTaskCard();
+
+    await saveOnServer('tasks', tasks);
 
     toggleTaskEditMode();
 }

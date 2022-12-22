@@ -2,6 +2,8 @@ let openedTask = {statusId: -1, taskId: -1};
 
 async function initBoard() {
     await init();
+    users = await loadFromServer('users');
+    tasks = await loadFromServer('tasks');
     renderTasks();
 }
 
