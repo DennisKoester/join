@@ -92,6 +92,7 @@ nav {
     display: flex;
     align-items: center;
     width: 100%;
+    min-height: 47px;
     padding: 8px 50px;
     gap: 15px;
     cursor: pointer;

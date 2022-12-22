@@ -26,9 +26,13 @@ button {
     overflow: hidden;
 }
 
-.modal-task-wrapper {
+.modal-taskview-wrapper {
     width: 625px;
     max-width: 625px;
+}
+
+.modal-addtask-wrapper {
+    width: 75%;
 }
 
 .modal-task-content {
