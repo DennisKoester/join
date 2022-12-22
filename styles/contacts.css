@@ -1,0 +1,92 @@
+.flex-contacts-page {
+    display: flex;
+}
+
+.contacts-menu {
+    position: relative;
+    background-color: white;
+    width: 40%;
+    height: calc(100vh - 90px);
+}
+
+#contacts-menu-scrollable {
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    overflow-y: auto;
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 30%;
+}
+
+.contacts-container {
+    padding-left: 50px;
+    padding-top: 70px;
+}
+
+.contacts-headline {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 70px;
+    gap: 30px;
+}
+
+.contacts-subheadline {
+    font-size: 25px;
+}
+
+.contact-page-button {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 52px;
+    bottom: 67px;
+    background-color: var(--bg-color-main);
+    border: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    gap: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.contact-button-logo {
+    height: 22px;
+    width: auto;
+}
+
+.contact-div {
+    display: flex;
+    padding: 10px 20px;
+    border-radius: 9px;
+    gap: 30px;
+    cursor: pointer;
+}
+
+.username-initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border-color: white;
+    font-size: 18px;
+    /* background-color: aqua; */
+    color: white;
+}
+
+.users-email {
+    color: var(--highlight);
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.contacts-underline {
+    height: 2px;
+    width: 100%;
+    background-color: lightgray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

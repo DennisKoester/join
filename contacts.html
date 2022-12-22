@@ -9,17 +9,33 @@
     <link rel="stylesheet" href="./styles/general.css">
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/media_main.css">
+    <link rel="stylesheet" href="./styles/contacts.css">
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
     <script src="./js/include_html.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/contacts.js"></script>
+    <script src="./js/data.js"></script>
     <title>Document</title>
 </head>
 
-<body onload="init()">
+<body onload="init(), renderContacts()">
     <header w3-include-html="./assets/templates/header.html"></header>
     <nav w3-include-html="./assets/templates/navbar.html"></nav>
     <div class="content-container">
-
+        <div class="flex-contacts-page">
+            <div class="contacts-menu">
+                <div id="contacts-menu-scrollable"></div>
+            </div>
+            <div class="contacts-container">
+                <div class="contacts-headline">
+                    <h1>Contacts</h1>
+                    <img src="./assets/img/vertical-blue-line.png">
+                    <span class="contacts-subheadline">Better with a team</span>
+                </div>
+                <div id="contact-div"></div>
+                <button class="contact-page-button">New contact <img class="contact-button-logo" src="./assets/img/contact-button-logo.png"></button>
+            </div>
+        </div>
     </div>
 </body>
 
