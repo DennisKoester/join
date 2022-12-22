@@ -1,5 +1,11 @@
 let openedTask = {statusId: -1, taskId: -1};
 
+async function initBoard() {
+    await init();
+    renderTasks();
+}
+
+
 /**
  * Renders all tasks to the board
  */
