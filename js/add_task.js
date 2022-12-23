@@ -367,14 +367,23 @@ function dateLimitation() {
 }
 
 
-/* function showAddedTaskPopup() {
-    let popup = document.getElementById('added-popup');
-    popup.style.animation = "transition 3s";
-} */
-
-
 function showAddedTaskPopup() {
-    let popup = document.querySelector('added-popup');
+    let popup = document.getElementById('popup-btn');
+
+    popup.classList.add('animation');
+    setTimeout(function () {
+        removeAnimate(popup);
+    }, 2000);
+}
+
+
+function removeAnimate(popup) {
+    popup.classList.remove('animation');
+}
+
+
+/* function showAddedTaskPopup() {
+    let popup = document.querySelector('.added-popup');
     popup.animate([
         0 % {
             bottom: '15%',
@@ -394,22 +403,7 @@ function showAddedTaskPopup() {
     ], {
         duration: 1500
     });
-}
-
-
-/* function showAddedTaskPopup() {
-    let popup = document.getElementById('added-popup');
-    popup.animate([
-        {
-            bottom: '15%',
-        }
-
-    ]);
 } */
-
-
-
-
 
 
 /*  Hide Dropdown By Clicking Next To It //

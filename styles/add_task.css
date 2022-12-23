@@ -528,7 +528,6 @@ select {
 
 .added-popup {
     position: fixed;
-    /* bottom: -200px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -544,26 +543,26 @@ select {
     gap: 30px;
     overflow: hidden;
     opacity: 0;
-    /* animation: transition 3s; */
 }
 
-.transition {
-    /* transition: all 1s ease-in-out; */
+.animation{
+    animation: transition 3s;
 }
+
 
  @keyframes transition {
     0% {
-        bottom: 15%;
+        bottom: 10%;
         opacity: 0;
     }
 
     30% {
-        bottom: 40%;
+        bottom: 35%;
         opacity: 1;
     }
 
     100% {
-        bottom: 40%;
+        bottom: 35%;
         opacity: 1;
     }
 }
