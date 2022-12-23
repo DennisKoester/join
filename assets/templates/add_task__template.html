@@ -118,8 +118,8 @@
             <div class="right-container">
                 <div class="width-100">
                     <p><label for="due-date">Due date</label></p>
-                    <div class="due-date">
-                        <input onfocus="this.showPicker()" id="date-input" class="due-date-input width-100" type="date"
+                    <div class="due-date" onclick="handleSubmitForInputs(4, 'date-input')">
+                        <input onfocus="this.showPicker(), handleSubmitForInputs(4, 'date-input')" id="date-input" class="due-date-input width-100" type="date"
                             name="due-date">
                     </div>
                     <p id="required4" class="required hidden">This field is required</p>

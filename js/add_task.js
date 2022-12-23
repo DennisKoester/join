@@ -110,7 +110,7 @@ function selectCategory(category, color) {
     if (!dropdown.classList.contains('d-none'))
         toggleDropdown('category-dropdown', 'triangle1');
     currentCategory = category;
-    handleSubmitForOne(2, currentCategory);
+    handleSubmitSingle(2, currentCategory);
 }
 
 
@@ -230,6 +230,7 @@ function setPrio(index) {
             btn.style.color = 'white';
             img.src = signWhite;
             currentPrio = index;
+            handleSubmitSingle(5, currentPrio + 1);
         }
         else {
             btn.style.backgroundColor = '#FFFFFF';
@@ -237,7 +238,6 @@ function setPrio(index) {
             img.src = signColor;
         }
     }
-    handleSubmitSingle(5, currentPrio + 1);
 }
 
 
@@ -346,6 +346,7 @@ function clearAllInputs() {
     renderAssignees();
     loadCategories();
     renderSubtasks();
+    resetValidation();
 }
 
 
@@ -378,7 +379,9 @@ function handleSubmit() {
     }
 }
 
-function handleSubmitForOne(id, input) {
+// Validation //
+
+/* function handleSubmitForOne(id, input) {
 
     for (let i = 0; i < input.length; i++) {
         const value = input[i];
@@ -390,7 +393,8 @@ function handleSubmitForOne(id, input) {
             required.classList.add('hidden');
         }
     }
-}
+} */
+
 
 function handleSubmitSingle(id, input) {
     let required = document.getElementById(`required${id}`);
@@ -402,6 +406,7 @@ function handleSubmitSingle(id, input) {
     }
 }
 
+
 function handleSubmitForInputs(id, input) {
     let required = document.getElementById(`required${id}`);
     let value = document.getElementById(input).value;
@@ -410,6 +415,15 @@ function handleSubmitForInputs(id, input) {
         required.classList.remove('hidden');
     } else {
         required.classList.add('hidden');
+    }
+}
+
+
+function resetValidation() {
+
+    for (let i = 0; i < 6; i++) {
+        let text = document.getElementById(`required${i}`);
+        text.classList.add('hidden');
     }
 }
 
