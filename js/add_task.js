@@ -22,12 +22,22 @@ window.addEventListener("load", function () {
 
 // Help Functions //
 
+/**
+ * 
+ * @param {number} id The ID of the element
+ * @param {object} classList The classlist which will be toggled
+ */
 function toggleClassList(id, classList,) {
     document.getElementById(id).classList.toggle(classList);
     // document.body.classList.toggle("overlay");
 }
 
 
+/**
+ * 
+ * @param {object} dropdown The dropdown container
+ * @param {object} icon The triangle icon
+ */
 function toggleDropdown(dropdown, icon) {
     toggleClassList(dropdown, 'd-none');
     toggleClassList(icon, 'rotate180');
@@ -36,6 +46,13 @@ function toggleDropdown(dropdown, icon) {
 
 // Input Fields//
 
+/**
+ * 
+ * @param {object} inputContainer The input container
+ * @param {object} container The dropdown container
+ * @param {object} dropdown The dropdown itself
+ * @param {object} icon The triangle icon
+ */
 function showInputField(inputContainer, container, dropdown, icon) {
     toggleClassList(inputContainer, 'd-none');
     toggleClassList(container, 'd-none');
@@ -45,16 +62,28 @@ function showInputField(inputContainer, container, dropdown, icon) {
 }
 
 
+/**
+ * 
+ * @param {object} input The input field
+ * @param {object} inputContainer The input container
+ * @param {object} container The dropwdown container
+ */
 function hideInputField(input, inputContainer, container) {
     document.getElementById(input).value = '';
     toggleClassList(inputContainer, 'd-none');
     toggleClassList(container, 'd-none');
-    if (inputContainer == 'category-input-container')
+    if (inputContainer == 'category-input-container') {
         toggleClassList('category-colors', 'd-none');
-    resetActiveColor();
+        resetActiveColor();
+    }
 }
 
 
+/**
+ * 
+ * @param {object} btns The Buttons from the input fields
+ * @param {object} icon The triangle icon
+ */
 function showInputBtns(btns, icon) {
     document.getElementById(btns).classList.remove('d-none');
     document.getElementById(icon).classList.add('d-none');
@@ -63,6 +92,12 @@ function showInputBtns(btns, icon) {
 
 // Category Section //
 
+/**
+ * 
+ * @param {object} input The input field
+ * @param {object} container The category container
+ * @param {object} dropdown The category dropdown menu
+ */
 function addNewCategory(input, container, dropdown) {
     let catInput = document.getElementById(input);
     if (catInput.value.length > 0 && currentCategoryColor) {
@@ -76,6 +111,11 @@ function addNewCategory(input, container, dropdown) {
 }
 
 
+/**
+ * 
+ * @param {object} catInput The category input field
+ * @param {object} currentCategoryColor The current category color
+ */
 function pushCategory(catInput, currentCategoryColor) {
 
     let newCategory =
@@ -293,7 +333,7 @@ function getDataForNewTask() {
     if (validation == true) {
         addNewTask(title, desc, date, assigneesMail);
         showAddedTaskPopup();
-        // directsToBoard();
+        directsToBoard();
     }
 }
 
@@ -325,7 +365,7 @@ function addNewTask(title, desc, date, assigneesMail) {
 }
 
 
-function resetAddTask(){
+function resetAddTask() {
     clearAllInputs();
     loadCategories();
     renderAssignees();
@@ -379,23 +419,30 @@ function submitValidation() {
             required.classList.add('hidden');
         }
     }
-    // validationForm();
+    finalValidation();
 }
 
 
-/* function validationForm() {
-
-    for (let i = 0; i < allData.length; i++) {
-        const value = allData[i];
-
-        if (value >= 1) {
-            return validation = true;
-
-        } else {
-            return validation = false;
-        }
+function finalValidation() {
+    let elementIds = ['required0', 'required1', 'required2', 'required3', 'required4', 'required5'];
+    let className = 'hidden';
+    let hasClassResults = hasClass(elementIds, className);
+    if (!hasClassResults.includes(false)) {
+        validation = true;
+    } else {
+        validation = false;
     }
-} */
+    console.log(hasClassResults);  // [true, false, false]
+    console.log(validation);
+}
+
+
+function hasClass(elementIds, className) {
+    return elementIds.map(id => {
+        let element = document.getElementById(id);
+        return element.classList.contains(className);
+    });
+}
 
 
 function validationForField(id, input) {
