@@ -8,13 +8,13 @@
             <div class="left-container ">
                 <div class="title-container width-100">
                     <p><label for="title">Title</label></p>
-                    <input id="title" class="title-field width-100" type="text" name="title"
+                    <input id="title" class="title-field width-100" onkeyup="handleSubmitForInputs(0, 'title')" type="text" name="title"
                         placeholder="Enter a title">
                     <p id="required0" class="required hidden">This field is required</p>
                 </div>
                 <div class="description-container width-100">
                     <p><label for="description">Description</label></p>
-                    <textarea id="description" class="description-area width-100" name="description" cols="30" rows="10"
+                    <textarea id="description" class="description-area width-100" onkeyup="handleSubmitForInputs(1, 'description')" name="description" cols="30" rows="10"
                         placeholder="Enter a description" style="resize: vertical;"></textarea>
                     <p id="required1" class="required hidden">This field is required</p>
                 </div>
@@ -162,7 +162,7 @@
                     <div id="subtask-list" class="subtask-list width-100"></div>
                 </div>
                 <div class="submit-btns submit-btns2">
-                    <button type="reset" class="clear-btn">Clear
+                    <button onclick="clearAllInputs()" type="reset" class="clear-btn">Clear
                         <img src="./assets/img/clear-x.svg" alt="x icon">
                     </button>
                     <button onclick="createNewTask()" type="" class="create-btn">Create Task

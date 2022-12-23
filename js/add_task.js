@@ -60,15 +60,15 @@ function showInputBtns(btns, icon) {
 }
 
 
-// Category //
+// Category Section //
 
 function addNewCategory(input, container, dropdown) {
     let catInput = document.getElementById(input);
     if (catInput.value.length > 0 && currentCategoryColor) {
-        pushCategory(catInput, currentCategoryColor);
+        pushCategory(catInput.value, currentCategoryColor);
         selectCategory(catInput.value, currentCategoryColor);
-        loadCategories();
         hideInputField(input, container, dropdown);
+        loadCategories();
         resetActiveColor();
         currentCategoryColor = '';
     }
@@ -76,7 +76,17 @@ function addNewCategory(input, container, dropdown) {
 
 
 function pushCategory(catInput, currentCategoryColor) {
-    categories.push({ "name": catInput.value, "color": currentCategoryColor });
+
+    let newCategory =
+
+    {
+        "name": catInput,
+        "color": currentCategoryColor
+    }
+
+    categories.push(newCategory);
+    backend.setItem('categories', JSON.stringify(categories));
+
 }
 
 
@@ -92,13 +102,6 @@ async function loadCategories() {
 }
 
 
-function addNewColorToCategory(color, id) {
-    currentCategoryColor = color;
-
-    toggleActiveColor(id)
-}
-
-
 function selectCategory(category, color) {
     let field = document.getElementById('selected-category');
     let dropdown = document.getElementById('category-dropdown');
@@ -107,6 +110,13 @@ function selectCategory(category, color) {
     if (!dropdown.classList.contains('d-none'))
         toggleDropdown('category-dropdown', 'triangle1');
     currentCategory = category;
+    handleSubmitForOne(2, currentCategory);
+}
+
+
+function addNewColorToCategory(color, id) {
+    currentCategoryColor = color;
+    toggleActiveColor(id);
 }
 
 
@@ -129,7 +139,7 @@ function resetActiveColor() {
 }
 
 
-// Assign //
+// Assignee Section //
 
 function inviteContact(input, container, dropdown) {
     let assignInput = document.getElementById(input);
@@ -141,8 +151,7 @@ function inviteContact(input, container, dropdown) {
         assignInput.value = '';
         renderAssignees();
         hideInputField(input, container, dropdown);
-
-        console.log(currentAssignees);
+        handleSubmitSingle(3, currentAssignees);
     }
 }
 
@@ -186,8 +195,7 @@ function selectAssignee(i, assignee) {
     }
     changeCheckbox(i);
     showAssigneeBadge();
-
-    console.log(currentAssignees);
+    handleSubmitSingle(3, currentAssignees);
 }
 
 
@@ -204,7 +212,7 @@ function changeCheckbox(i) {
 }
 
 
-// Prio //
+// Prio Section //
 
 function setPrio(index) {
     let btns = document.getElementsByClassName("prio-btn");
@@ -229,6 +237,7 @@ function setPrio(index) {
             img.src = signColor;
         }
     }
+    handleSubmitSingle(5, currentPrio + 1);
 }
 
 
@@ -268,9 +277,9 @@ function deleteSubtask(i) {
 // Create Task //
 
 function createNewTask() {
-    // getDataForNewTask();
-    // showAddedTaskPopup();
+    getDataForNewTask();
     showAddedTaskPopup();
+    // directsToBoard();
 }
 
 
@@ -311,28 +320,51 @@ function addNewTask(title, desc, date, assigneesMail) {
     tasks[0].push(newTask);
     backend.setItem('tasks', JSON.stringify(tasks));
 
-    // clearAllAddTaskData();
-    // clearInputs();
+    // clearAllInputs();
 }
 
 
-function clearInputs() {
+function clearAllInputs() {
+    let title = document.getElementById('title');
+    let desc = document.getElementById('description');
+    let date = document.getElementById('date-input');
+    let cat = document.getElementById('selected-category');
+    let subtask = document.getElementById('subtask-input');
 
+    cat.innerHTML = 'Select task category';
+    title.value = '';
+    desc.value = '';
+    date.value = '';
+    subtask.value = '';
+    currentPrio = -1;
+    currentAssignees = [];
+    currentCategory = [];
+    currentCategoryColor = '';
+    currentSubtasks = [];
+
+    setPrio();
+    renderAssignees();
+    loadCategories();
+    renderSubtasks();
 }
 
 
-function clearAllAddTaskData() {
+/* function clearAllAddTaskData() {
     currentPrio = '';
     currentCategory = '';
     currentCategoryColor = '';
     currentSubtasks = [];
     currentAssignees = [];
-}
+} */
 
 
-function handleSubmit(title, desc, cat, date, assignee, prio) {
+function handleSubmit() {
+    let title = document.getElementById('title');
+    let desc = document.getElementById('description');
+    let date = document.getElementById('date-input');
+    let assigneesMail = emailOfCurrentAssignee();
 
-    let allData = [title.value, desc.value, cat, assignee, date.value, prio + 1];
+    let allData = [title.value, desc.value, currentCategory, assigneesMail, date.value, currentPrio + 1];
 
     for (let i = 0; i < allData.length; i++) {
         const value = allData[i];
@@ -343,6 +375,41 @@ function handleSubmit(title, desc, cat, date, assignee, prio) {
         } else {
             required.classList.add('hidden');
         }
+    }
+}
+
+function handleSubmitForOne(id, input) {
+
+    for (let i = 0; i < input.length; i++) {
+        const value = input[i];
+        let required = document.getElementById(`required${id}`);
+
+        if (value == 0) {
+            required.classList.remove('hidden');
+        } else {
+            required.classList.add('hidden');
+        }
+    }
+}
+
+function handleSubmitSingle(id, input) {
+    let required = document.getElementById(`required${id}`);
+
+    if (input == 0) {
+        required.classList.remove('hidden');
+    } else {
+        required.classList.add('hidden');
+    }
+}
+
+function handleSubmitForInputs(id, input) {
+    let required = document.getElementById(`required${id}`);
+    let value = document.getElementById(input).value;
+
+    if (value == 0) {
+        required.classList.remove('hidden');
+    } else {
+        required.classList.add('hidden');
     }
 }
 
@@ -373,13 +440,21 @@ function showAddedTaskPopup() {
     popup.classList.add('animation');
     setTimeout(function () {
         removeAnimate(popup);
-    }, 2000);
+    }, 3000);
 }
 
 
 function removeAnimate(popup) {
     popup.classList.remove('animation');
 }
+
+
+function directsToBoard() {
+    setTimeout(function () {
+        window.location.href = "board.html";
+    }, 2000)
+}
+
 
 
 /* function showAddedTaskPopup() {
