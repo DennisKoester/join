@@ -23,9 +23,9 @@ window.addEventListener("load", function () {
 // Help Functions //
 
 /**
- * 
+ * Toggles a class list of an element
  * @param {number} id The ID of the element
- * @param {object} classList The classlist which will be toggled
+ * @param {string} classList The classlist which will be toggled
  */
 function toggleClassList(id, classList,) {
     document.getElementById(id).classList.toggle(classList);
@@ -34,9 +34,9 @@ function toggleClassList(id, classList,) {
 
 
 /**
- * 
- * @param {object} dropdown The dropdown container
- * @param {object} icon The triangle icon
+ * Toggles the visibility of the dropdown menu
+ * @param {string} dropdown The dropdown container
+ * @param {string} icon The triangle icon
  */
 function toggleDropdown(dropdown, icon) {
     toggleClassList(dropdown, 'd-none');
@@ -47,11 +47,11 @@ function toggleDropdown(dropdown, icon) {
 // Input Fields//
 
 /**
- * 
- * @param {object} inputContainer The input container
- * @param {object} container The dropdown container
- * @param {object} dropdown The dropdown itself
- * @param {object} icon The triangle icon
+ * Shows the input field and the color selection if needed
+ * @param {string} inputContainer The input container
+ * @param {string} container The dropdown container
+ * @param {string} dropdown The dropdown itself
+ * @param {string} icon The triangle icon
  */
 function showInputField(inputContainer, container, dropdown, icon) {
     toggleClassList(inputContainer, 'd-none');
@@ -63,10 +63,10 @@ function showInputField(inputContainer, container, dropdown, icon) {
 
 
 /**
- * 
- * @param {object} input The input field
- * @param {object} inputContainer The input container
- * @param {object} container The dropwdown container
+ * Hides the input field and the color selection if needed
+ * @param {string} input The input field
+ * @param {string} inputContainer The input container
+ * @param {string} container The dropwdown container
  */
 function hideInputField(input, inputContainer, container) {
     document.getElementById(input).value = '';
@@ -80,9 +80,9 @@ function hideInputField(input, inputContainer, container) {
 
 
 /**
- * 
- * @param {object} btns The Buttons from the input fields
- * @param {object} icon The triangle icon
+ * Shows the buttons inside the input field
+ * @param {string} btns The Buttons from the input fields
+ * @param {string} icon The triangle icon
  */
 function showInputBtns(btns, icon) {
     document.getElementById(btns).classList.remove('d-none');
@@ -93,10 +93,10 @@ function showInputBtns(btns, icon) {
 // Category Section //
 
 /**
- * 
- * @param {object} input The input field
- * @param {object} container The category container
- * @param {object} dropdown The category dropdown menu
+ * Adds a new category to the selection
+ * @param {string} input The input field
+ * @param {string} container The category container
+ * @param {string} dropdown The category dropdown menu
  */
 function addNewCategory(input, container, dropdown) {
     let catInput = document.getElementById(input);
@@ -112,9 +112,9 @@ function addNewCategory(input, container, dropdown) {
 
 
 /**
- * 
- * @param {object} catInput The category input field
- * @param {object} currentCategoryColor The current category color
+ * Pushes a new category to the selection on the server
+ * @param {string} catInput The category input field
+ * @param {string} currentCategoryColor The current category color
  */
 function pushCategory(catInput, currentCategoryColor) {
 
@@ -131,6 +131,9 @@ function pushCategory(catInput, currentCategoryColor) {
 }
 
 
+/**
+ * Loads all categories from the server inside the selection
+ */
 async function loadCategories() {
     let list = document.getElementById('category-list');
     list.innerHTML = '';
@@ -143,6 +146,11 @@ async function loadCategories() {
 }
 
 
+/**
+ * Selects a category for the task and validates the field
+ * @param {string} category Clicked category
+ * @param {string} color Belonging color of the category
+ */
 function selectCategory(category, color) {
     let field = document.getElementById('selected-category');
     let dropdown = document.getElementById('category-dropdown');
@@ -155,12 +163,21 @@ function selectCategory(category, color) {
 }
 
 
+/**
+ * Adds a new color to the category which will be added
+ * @param {string} color The selected color
+ * @param {number} id The ID of the selected color
+ */
 function addNewColorToCategory(color, id) {
     currentCategoryColor = color;
     toggleActiveColor(id);
 }
 
 
+/**
+ * Toggles the active color selection
+ * @param {number} id The ID of the selected color
+ */
 function toggleActiveColor(id) {
     let btns = document.querySelectorAll("#category-colors .color-dot");
 
@@ -171,6 +188,9 @@ function toggleActiveColor(id) {
 }
 
 
+/**
+ * Resets the active color
+ */
 function resetActiveColor() {
     let btns = document.querySelectorAll("#category-colors .color-dot");
 
@@ -182,6 +202,13 @@ function resetActiveColor() {
 
 // Assignee Section //
 
+
+/**
+ * Adds a contact from the listed contacts on the server and validates the field
+ * @param {string} input The assignees input field
+ * @param {string} container The assignees input container
+ * @param {string} dropdown The assignees dropdown container
+ */
 function inviteContact(input, container, dropdown) {
     let assignInput = document.getElementById(input);
     let user = users.find(element => element['email'] == assignInput.value);
@@ -197,6 +224,9 @@ function inviteContact(input, container, dropdown) {
 }
 
 
+/**
+ * Renders the added assignees
+ */
 function renderAssignees() {
     let list = document.getElementById('assignee-list');
     let badgeList = document.getElementById('add-task-assignees');
@@ -212,6 +242,9 @@ function renderAssignees() {
 }
 
 
+/**
+ * Shows the Badges of selected assignees
+ */
 function showAssigneeBadge() {
     let badgeList = document.getElementById('add-task-assignees');
     badgeList.innerHTML = '';
@@ -224,6 +257,11 @@ function showAssigneeBadge() {
 }
 
 
+/**
+ * Selects an assignee for the task
+ * @param {number} i Index of the selected assignee
+ * @param {object} assignee Name of the assignee
+ */
 function selectAssignee(i, assignee) {
     let user = currentAssignees.find(element => element['name'] == assignee);
 
@@ -240,6 +278,10 @@ function selectAssignee(i, assignee) {
 }
 
 
+/**
+ * Toggles the checkbox if is selected or not
+ * @param {number} i Index of the clicked checkbox
+ */
 function changeCheckbox(i) {
     let checkbox = document.getElementById(`checkbox${i}`);
     let checked = './assets/img/checkbox-assignee-checked.svg';
