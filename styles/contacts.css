@@ -13,9 +13,9 @@
     position: absolute;
     left: 0; top: 0; right: 0; bottom: 0;
     overflow-y: auto;
-    padding-top: 50px;
+    padding-top: 10px;
     padding-left: 100px;
-    padding-right: 30%;
+    padding-right: 100px;
 }
 
 .contacts-container {
@@ -73,7 +73,6 @@
     border-radius: 50%;
     border-color: white;
     font-size: 18px;
-    /* background-color: aqua; */
     color: white;
 }
 
@@ -86,7 +85,95 @@
 .contacts-underline {
     height: 2px;
     width: 100%;
-    background-color: lightgray;
+    background-color: var(--dimmed);
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.alphabet-letter {
+    padding: 10px;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.contact-div-big {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 9px;
+    gap: 30px;
+}
+
+.contact-div-big img {
+    cursor: pointer;
+}
+
+.username-big {
+    font-size: 45px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.username-initials-big {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: white;
+    font-size: 45px;
+    margin-right: 10px;
+    background-color: aqua;
+    color: white;
+}
+
+.contact-and-edit {
+    display: flex;
+    justify-items: flex-start;
+    gap: 80px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}
+
+.contact-information {
+    font-size: 20px;
+}
+
+.edit-contact {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #2A3647;
+    cursor: pointer;
+}
+
+.edit-contact-text {
+    margin-top: 10px;
+}
+
+.email-margins {
+    margin-bottom: 15px;
+}
+
+.phone-margins {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.users-email-big {
+    color: var(--highlight);
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@media (max-width:1450px) {
+    #contacts-menu-scrollable {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
 }

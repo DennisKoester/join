@@ -5,7 +5,7 @@ function renderContacts() {
         for(let j = 0; j < users.length; j++) {
             if(alphabet[i] == users[j]['name'].charAt(0)) {
                 let container = document.getElementById('contacts-menu-scrollable');
-                container.innerHTML += alphabet[i];
+                container.innerHTML += `<div class="alphabet-letter">${alphabet[i]}</div>`;
                 container.innerHTML += `<div class="contacts-underline"></div>`;
                 break;
             }

@@ -1,23 +1,5 @@
 let users = [
     {
-        "name": "Alfred User",
-        "email": "alfred@test.com",
-        "password": "",
-        "phone": "",
-        "short_name": "AU",
-        "color": "HSL(200, 100%, 50%)",
-        "image": ""
-    },
-    {
-        "name": "Alfred User",
-        "email": "alfred@test.com",
-        "password": "",
-        "phone": "",
-        "short_name": "AU",
-        "color": "HSL(200, 100%, 50%)",
-        "image": ""
-    },
-    {
         "name": "Heiner Müller",
         "email": "hmueller@company.com",
         "password": "test123",
@@ -74,16 +56,6 @@ let users = [
         "phone": "",
         "short_name": "AA",
         "color": "HSL(280, 100%, 50%)",
-        "image": ""
-    },
-
-    {
-        "name": "Ursula Leicht",
-        "email": "ursula@test.de",
-        "password": "",
-        "phone": "",
-        "short_name": "UL",
-        "color": "HSL(230, 100%, 50%)",
         "image": ""
     }
 ];
