@@ -333,7 +333,7 @@ function getDataForNewTask() {
     if (validation == true) {
         addNewTask(title, desc, date, assigneesMail);
         showAddedTaskPopup();
-        directsToBoard();
+        // directsToBoard();
     }
 }
 
