@@ -18,7 +18,7 @@
         display: none;
     }
 
-    #sub-nav--help, #sub-nav--legal {
+    .context-header--item {
         display: block;
     }
 
@@ -47,10 +47,6 @@
         margin-top: var(--header-hight-mobile);
         height: calc(100vh - var(--header-hight-mobile) - var(--nav-hight-mobile));
         width: 100%;
-    }
-
-    #sub-nav--help, #sub-nav--legal {
-        display: unset;
     }
 }
 

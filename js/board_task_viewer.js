@@ -1,3 +1,37 @@
+/**
+ * Opens the task viewer
+ * @param {Number} statusId The ID of the respective status
+ * @param {Number} taskId The ID of the task within the status
+ */
+async function openViewer(statusId, taskId) {
+    await loadHTML('modal-task', './assets/templates/view_task__template.html')
+    
+    openedTask.statusId = statusId;
+    openedTask.taskId = taskId;
+    
+    // TODO: Render data
+    renderDataToViewer(statusId, taskId);
+    renderDataToEditor(statusId, taskId);
+    
+    
+    toggleModal('modal-task');
+    // setTimeout(() => {
+    //     toggleModal('modal-task');
+    // }, 500);
+}
+
+
+/**
+ * Toggles between reading mode and editing mode in the task viewer modal
+ */
+function toggleTaskEditMode() {
+    const reader = document.getElementById('modal-task-reader');
+    const editor = document.getElementById('modal-task-edit');
+    reader.classList.toggle('d-none');
+    editor.classList.toggle('d-none');
+}
+
+
 function renderDataToViewer(statusId, taskId) {
     let task = tasks[statusId][taskId];
     writeCategory(getCategory(statusId, taskId));

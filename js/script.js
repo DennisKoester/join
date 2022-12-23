@@ -119,10 +119,11 @@ function controlMenuHighlighting() {
 
 
 /**
- * Toggles the visibility of the header context menu
+ * Toggles the visibility of the context menu
+ * @param {Object} ctxMenuId The ID of the context menu
  */
-function toggleContextMenu() {
-    const ctxMenu = document.getElementById('contextMenu');
+function toggleContextMenu(ctxMenuId) {
+    const ctxMenu = document.getElementById(ctxMenuId);
 
     if (ctxMenu.classList.contains('d-none')) {
         showCtxMenu(ctxMenu);
@@ -134,23 +135,23 @@ function toggleContextMenu() {
 
 
 /**
- * Shows the header context menu
- * @param {Object} ctxMenu The header context menu
+ * Shows the context menu
+ * @param {Object} ctxMenu The context menu
  */
 function showCtxMenu(ctxMenu) {
     ctxMenu.classList.remove('d-none');
     setTimeout(() => {
-        ctxMenu.classList.add('sub-nav-show');
+        ctxMenu.classList.add('context--show');
     }, 1);
 }
 
 
 /**
- * Hides the header context menu
- * @param {Object} ctxMenu The header context menu
+ * Hides the context menu
+ * @param {Object} ctxMenu The context menu
  */
 function hideCtxMenu(ctxMenu) {
-    ctxMenu.classList.remove('sub-nav-show');
+    ctxMenu.classList.remove('context--show');
     setTimeout(() => {
         ctxMenu.classList.add('d-none');
     }, HEADER_CTX_MENU_ANIM_TIME);

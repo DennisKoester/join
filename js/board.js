@@ -1,4 +1,5 @@
 let openedTask = {statusId: -1, taskId: -1};
+let isTouchDevice = false;
 
 async function initBoard() {
     await init();
@@ -9,6 +10,13 @@ async function initBoard() {
         console.log('Data not loaded from server.');
     }
     renderTasks();
+
+    // Check for touch device
+    try {
+        document.createEvent('TouchEvent');
+        isTouchDevice = true;
+    }
+    catch { /* no change necessary */ }
 }
 
 
@@ -225,37 +233,86 @@ function controlHeaderNavVisibility() {
 }
 
 
-/**
- * Opens the task viewer
- * @param {Number} statusId The ID of the respective status
- * @param {Number} taskId The ID of the task within the status
- */
-async function openViewer(statusId, taskId) {
-    await loadHTML('modal-task', './assets/templates/view_task__template.html')
-    
-    openedTask.statusId = statusId;
-    openedTask.taskId = taskId;
-    
-    // TODO: Render data
-    renderDataToViewer(statusId, taskId);
-    renderDataToEditor(statusId, taskId);
-    
-    
-    toggleModal('modal-task');
-    // setTimeout(() => {
-    //     toggleModal('modal-task');
-    // }, 500);
+function clickOnTask(event, statusId, taskId) {
+    if (isTouchDevice) {
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+        openTaskContext(statusId, taskId, mouseX, mouseY);
+    }
+    else {
+        openViewer(statusId, taskId);
+    }
 }
 
 
-/**
- * Toggles between reading mode and editing mode in the task viewer modal
- */
-function toggleTaskEditMode() {
-    const reader = document.getElementById('modal-task-reader');
-    const editor = document.getElementById('modal-task-edit');
-    reader.classList.toggle('d-none');
-    editor.classList.toggle('d-none');
+function openTaskContext(statusId, taskId, posX, posY) {
+    const ctxMenu = document.getElementById('context-menu-task');
+    setClickParams(statusId, taskId);
+    defineCtxSub(statusId);
+    controlPosTaskCtx(ctxMenu, posX, posY);
+    controlVisTaskCtx();
+    
+    console.log('Opening task context ...')
+}
+
+
+function setClickParams(statusId, taskId) {
+    const clickEvents = [
+        'openViewer',
+        'moveTaskTodo',
+        'moveTaskProgress',
+        'moveTaskFeedback',
+        'moveTaskDone'
+    ]
+    const ctxDetails = document.getElementById('context-task--details');
+    const subItems = document.querySelectorAll('#context-sub--move span');
+    let elements = [ctxDetails];
+    elements = elements.concat(Array.from(subItems));
+
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].setAttribute('onclick', `${clickEvents[i]}(${statusId}, ${taskId})`);
+    }
+}
+
+
+function controlPosTaskCtx(ctxMenu, posX, posY) {
+    if (ctxMenu.classList.contains('d-none')) {
+        ctxMenu.style.top = `${posY}px`;
+        ctxMenu.style.left = `${posX}px`;
+    }
+}
+
+
+function controlVisTaskCtx() {
+    const ctxMain = document.getElementById('context-menu-task');
+    const ctxSub = document.getElementById('context-sub--move');
+    const isMainOff = ctxMain.classList.contains('d-none');
+    const isSubOff = ctxSub.classList.contains('d-none');
+
+    if (!isMainOff && !isSubOff) {
+        toggleContextMenu('context-sub--move');
+    }
+
+    toggleContextMenu('context-menu-task');
+}
+
+
+function defineCtxSub(statusId) {
+    const subItems = document.querySelectorAll('#context-sub--move span');
+    
+    for (let i = 0; i < subItems.length; i++) {
+        if (i == statusId) {
+            subItems[i].classList.add('d-none');
+        }
+        else {
+            subItems[i].classList.remove('d-none');
+        }
+    }
+}
+
+
+function openContextSub() {
+    toggleContextMenu('context-sub--move');
 }
 
 

@@ -123,6 +123,18 @@
                 </div>
             </div>
 
+            <!-- Context menu -->
+            <div id="context-menu-task" class="context context-main *context-task d-none">
+                <span id="context-task--details" onclick="openViewer()">Show details</span>
+                <span id="context-task--move" onclick="openContextSub()">Move task …
+                    <div id="context-sub--move" class="context context-sub d-none">
+                        <span onclick="moveTaskTodo()">To do</span>
+                        <span onclick="moveTaskProgress()">In Progress</span>
+                        <span onclick="moveTaskFeedback()">Await. Feedb.</span>
+                        <span onclick="moveTaskDone()">Done</span>
+                </span>
+            </div>
+
             <!-- MODAL View/Edit Task -->
             <div id="modal-task" class="modal-container d-none"></div>
             <!-- END: MODAL View/Edit Task -->
