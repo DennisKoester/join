@@ -163,6 +163,9 @@
     padding: 18px 19px;
     cursor: pointer;
 }
+.task-card:hover {
+    box-shadow: var(--shadow-hover);
+}
 
 .task-cat {
     padding: 4px 25px;
@@ -248,4 +251,8 @@
     height: 230px;
     border: dashed 1px var(--border-dimmed);
     border-radius: var(--border-radius-main);
+}
+
+.task-card--dragged {
+    transform: rotate(5deg);
 }

@@ -5,7 +5,9 @@ async function initBoard() {
     try {
         users = await loadFromServer('users');
         tasks = await loadFromServer('tasks');
-    } catch {}
+    } catch {
+        console.log('Data not loaded from server.');
+    }
     renderTasks();
 }
 
@@ -33,12 +35,23 @@ function renderTasksStatus(statusId) {
     else {
         showMsgNoTask(statusId, false);
         for (let t = 0; t < tasks[statusId].length; t++) {
-            const cat = getCategory(statusId, t);
-            const catColor = getCategoryColor(cat);
-            const prio = getPriority(statusId, t);
-            statusContainer.innerHTML += renderTaskCard(statusId, t, cat, catColor, prio);
+            renderSingleTaskCard(statusId, t, statusContainer);
         }
     }
+}
+
+
+/**
+ * Renders a single task card to its respective status container
+ * @param {Number} statusId The status ID
+ * @param {Number} taskId The task's ID within the status
+ * @param {Object} container The status container
+ */
+function renderSingleTaskCard(statusId, taskId, container) {
+    const cat = getCategory(statusId, taskId);
+    const catColor = getCategoryColor(cat);
+    const prio = getPriority(statusId, taskId);
+    container.innerHTML += renderTaskCard(statusId, taskId, cat, catColor, prio);
 }
 
 

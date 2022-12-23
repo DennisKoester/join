@@ -251,7 +251,9 @@ async function saveChanges() {
 
     try {
         await saveOnServer('tasks', tasks);
-    } catch {}
+    } catch {
+        console.log('[tasks] not saved on server.');
+    }
 
     toggleTaskEditMode();
 }
