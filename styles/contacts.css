@@ -5,7 +5,7 @@
 .contacts-menu {
     position: relative;
     background-color: white;
-    width: 40%;
+    width: 35%;
     height: calc(100vh - 90px);
 }
 
@@ -21,6 +21,11 @@
 .contacts-container {
     padding-left: 50px;
     padding-top: 70px;
+}
+
+.contacts-selected {
+    background-color: var(--bg-color-main);
+    color: white;
 }
 
 .contacts-headline {
@@ -68,9 +73,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 35px;
-    width: 35px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
+    border-style: solid;
+    border-width: 1px;
     border-color: white;
     font-size: 18px;
     color: white;
@@ -171,7 +178,7 @@
     cursor: pointer;
 }
 
-@media (max-width:1450px) {
+@media (max-width:1750px) {
     #contacts-menu-scrollable {
         padding-left: 30px;
         padding-right: 30px;
