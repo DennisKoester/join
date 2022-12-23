@@ -3,6 +3,7 @@ let currentCategory = '';
 let currentCategoryColor = '';
 let currentSubtasks = [];
 let currentAssignees = [];
+let validation = false;
 
 
 async function initAddTask() {
@@ -110,7 +111,7 @@ function selectCategory(category, color) {
     if (!dropdown.classList.contains('d-none'))
         toggleDropdown('category-dropdown', 'triangle1');
     currentCategory = category;
-    handleSubmitSingle(2, currentCategory);
+    validationForField(2, currentCategory);
 }
 
 
@@ -151,7 +152,7 @@ function inviteContact(input, container, dropdown) {
         assignInput.value = '';
         renderAssignees();
         hideInputField(input, container, dropdown);
-        handleSubmitSingle(3, currentAssignees);
+        validationForField(3, currentAssignees);
     }
 }
 
@@ -195,7 +196,7 @@ function selectAssignee(i, assignee) {
     }
     changeCheckbox(i);
     showAssigneeBadge();
-    handleSubmitSingle(3, currentAssignees);
+    validationForField(3, currentAssignees);
 }
 
 
@@ -230,7 +231,7 @@ function setPrio(index) {
             btn.style.color = 'white';
             img.src = signWhite;
             currentPrio = index;
-            handleSubmitSingle(5, currentPrio + 1);
+            validationForField(5, currentPrio + 1);
         }
         else {
             btn.style.backgroundColor = '#FFFFFF';
@@ -278,8 +279,6 @@ function deleteSubtask(i) {
 
 function createNewTask() {
     getDataForNewTask();
-    showAddedTaskPopup();
-    // directsToBoard();
 }
 
 
@@ -290,8 +289,12 @@ function getDataForNewTask() {
     let assigneesMail = emailOfCurrentAssignee();
 
 
-    handleSubmit(title, desc, date, assigneesMail);
-    addNewTask(title, desc, date, assigneesMail);
+    submitValidation(title, desc, date, assigneesMail);
+    if (validation == true) {
+        addNewTask(title, desc, date, assigneesMail);
+        showAddedTaskPopup();
+        // directsToBoard();
+    }
 }
 
 
@@ -319,47 +322,46 @@ function addNewTask(title, desc, date, assigneesMail) {
 
     tasks[0].push(newTask);
     backend.setItem('tasks', JSON.stringify(tasks));
-
-    // clearAllInputs();
 }
 
+
+function resetAddTask(){
+    clearAllInputs();
+    loadCategories();
+    renderAssignees();
+    resetActiveColor();
+    setPrio();
+    renderSubtasks();
+    resetValidation();
+}
 
 function clearAllInputs() {
     let title = document.getElementById('title');
     let desc = document.getElementById('description');
     let date = document.getElementById('date-input');
     let cat = document.getElementById('selected-category');
+    let catInput = document.getElementById('category-input');
+    let assignee = document.getElementById('assign-input');
     let subtask = document.getElementById('subtask-input');
 
     cat.innerHTML = 'Select task category';
     title.value = '';
     desc.value = '';
     date.value = '';
+    assignee.value = '';
+    catInput.value = '';
     subtask.value = '';
     currentPrio = -1;
     currentAssignees = [];
     currentCategory = [];
     currentCategoryColor = '';
     currentSubtasks = [];
-
-    setPrio();
-    renderAssignees();
-    loadCategories();
-    renderSubtasks();
-    resetValidation();
 }
 
 
-/* function clearAllAddTaskData() {
-    currentPrio = '';
-    currentCategory = '';
-    currentCategoryColor = '';
-    currentSubtasks = [];
-    currentAssignees = [];
-} */
+// Validation //
 
-
-function handleSubmit() {
+function submitValidation() {
     let title = document.getElementById('title');
     let desc = document.getElementById('description');
     let date = document.getElementById('date-input');
@@ -377,26 +379,26 @@ function handleSubmit() {
             required.classList.add('hidden');
         }
     }
+    // validationForm();
 }
 
-// Validation //
 
-/* function handleSubmitForOne(id, input) {
+/* function validationForm() {
 
-    for (let i = 0; i < input.length; i++) {
-        const value = input[i];
-        let required = document.getElementById(`required${id}`);
+    for (let i = 0; i < allData.length; i++) {
+        const value = allData[i];
 
-        if (value == 0) {
-            required.classList.remove('hidden');
+        if (value >= 1) {
+            return validation = true;
+
         } else {
-            required.classList.add('hidden');
+            return validation = false;
         }
     }
 } */
 
 
-function handleSubmitSingle(id, input) {
+function validationForField(id, input) {
     let required = document.getElementById(`required${id}`);
 
     if (input == 0) {
@@ -407,7 +409,7 @@ function handleSubmitSingle(id, input) {
 }
 
 
-function handleSubmitForInputs(id, input) {
+function validationForInput(id, input) {
     let required = document.getElementById(`required${id}`);
     let value = document.getElementById(input).value;
 
