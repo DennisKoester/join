@@ -309,7 +309,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     align-items: center;
     padding: 0px;
     gap: 10px;
-
+    user-select: none;
 }
 
 .prio-btn {
@@ -544,7 +544,7 @@ select {
     gap: 30px;
     overflow: hidden;
     opacity: 0;
-    animation: transition 3s;
+    /* animation: transition 3s; */
 }
 
 .transition {
@@ -552,15 +552,13 @@ select {
     /* transform: translateY(-200px); */
 }
 
-@keyframes transition {
+/* @keyframes transition {
     0% {
-        /* transform: translateY(0%); */
         bottom: 15%;
         opacity: 0;
     }
 
     30% {
-        /* transform: translateY(-100%); */
         bottom: 40%;
         opacity: 1;
     }
@@ -569,7 +567,7 @@ select {
         bottom: 40%;
         opacity: 1;
     }
-}
+} */
 
 .added-popup img {
     height: 26px;

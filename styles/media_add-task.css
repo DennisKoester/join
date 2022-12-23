@@ -97,6 +97,7 @@
     textarea {
         min-height: 93px !important;
         height: 93px !important;
+        resize: none !important;
     }
 
     .due-date input {

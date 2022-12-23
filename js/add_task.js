@@ -268,7 +268,8 @@ function deleteSubtask(i) {
 // Create Task //
 
 function createNewTask() {
-    getDataForNewTask();
+    // getDataForNewTask();
+    // showAddedTaskPopup();
     showAddedTaskPopup();
 }
 
@@ -369,23 +370,39 @@ function dateLimitation() {
 
 
 
-/* function showAddedTaskPopup() {
+function showAddedTaskPopup() {
     let popup = document.getElementById('added-popup');
     popup.animate([
-        {
-
+        0 % {
+            bottom: '15%',
             opacity: 0
         },
-        {
 
+        30 % {
+            bottom: '40%',
+            opacity: 1
+        },
+
+        100 % {
+            bottom: '40%',
             opacity: 1
         }
 
     ], {
         duration: 1500
     });
-} */
+}
 
+
+/* function showAddedTaskPopup() {
+    let popup = document.getElementById('added-popup');
+    popup.animate([
+        {
+            bottom: '15%',
+        }
+
+    ]);
+} */
 
 
 // Date //
