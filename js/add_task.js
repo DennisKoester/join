@@ -367,11 +367,14 @@ function dateLimitation() {
 }
 
 
-
+/* function showAddedTaskPopup() {
+    let popup = document.getElementById('added-popup');
+    popup.style.animation = "transition 3s";
+} */
 
 
 function showAddedTaskPopup() {
-    let popup = document.getElementById('added-popup');
+    let popup = document.querySelector('added-popup');
     popup.animate([
         0 % {
             bottom: '15%',
@@ -405,12 +408,6 @@ function showAddedTaskPopup() {
 } */
 
 
-// Date //
-
-/* function getDate() {
-    let input = document.getElementById('date-input');
-    let date = new Date(input.value);
-} */
 
 
 
