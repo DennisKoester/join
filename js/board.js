@@ -1,6 +1,7 @@
 let openedTask = {statusId: -1, taskId: -1};
 let isTouchDevice = false;
 let clickPos = {x: 0, y: 0};
+let searchResult = [[], [], [], []];
 
 async function initBoard() {
     await init();
@@ -246,118 +247,6 @@ function clickOnTask(event, statusId, taskId) {
 }
 
 
-function openTaskContext(statusId, taskId, posX, posY) {
-    const ctxMenu = document.getElementById('context-menu-task');
-    setClickParams(statusId, taskId);
-    defineCtxSub(statusId);
-    controlPosTaskCtx(ctxMenu, posX, posY);
-    controlVisTaskCtx();
-    
-    console.log('Opening task context ...')
-}
-
-
-function setClickParams(statusId, taskId) {
-    // const clickEvents = [
-    //     'openViewer',
-    //     'moveTaskTodo',
-    //     'moveTaskProgress',
-    //     'moveTaskFeedback',
-    //     'moveTaskDone'
-    // ]
-    const ctxDetails = document.getElementById('context-task--details');
-    const subItems = document.querySelectorAll('#context-sub--move span');
-    
-    ctxDetails.setAttribute('onclick', `openViewer(${statusId}, ${taskId})`);
-
-    for (let i = 0; i < subItems.length; i++) {
-        // Function definition: moveTask({move from}, {move to}, {task ID})
-        subItems[i].setAttribute('onclick', `moveTaskByCtx(${statusId}, ${i}, ${taskId})`);
-    }
-}
-
-
-function controlPosTaskCtx(ctxMenu, posX, posY) {
-    if (ctxMenu.classList.contains('d-none')) {
-        clickPos.x = posX;
-        clickPos.y = posY;
-        ctxMenu.style.top = `${posY - 50}px`;
-        ctxMenu.style.left = `${posX - 70}px`;
-    }
-}
-
-
-function controlVisTaskCtx() {
-    const ctxMain = document.getElementById('context-menu-task');
-    const ctxSub = document.getElementById('context-sub--move');
-    const isMainOff = ctxMain.classList.contains('d-none');
-    const isSubOff = ctxSub.classList.contains('d-none');
-
-    if (!isMainOff && !isSubOff) {
-        toggleContextMenu('context-sub--move');
-    }
-
-    toggleContextMenu('context-menu-task');
-}
-
-
-function defineCtxSub(statusId) {
-    const subItems = document.querySelectorAll('#context-sub--move span');
-    
-    for (let i = 0; i < subItems.length; i++) {
-        if (i == statusId) {
-            subItems[i].classList.add('d-none');
-        }
-        else {
-            subItems[i].classList.remove('d-none');
-        }
-    }
-}
-
-
-function openContextSub() {
-    controlContextSubPos();
-    toggleContextMenu('context-sub--move');
-}
-
-
-function controlContextSubPos() {
-    const boundary = {
-        right: window.innerWidth,
-        bottom: window.innerHeight
-    };
-    const ctxSub = document.getElementById('context-sub--move');
-
-    if (boundary.right - clickPos.x < 200) {
-        ctxSub.style.left = 'unset';
-        ctxSub.style.right = '100%';
-    }
-    else {
-        ctxSub.style.right = 'unset';
-        ctxSub.style.left = '100%';
-    }
-
-    if (boundary.bottom - clickPos.y < 180) {
-        ctxSub.style.top = 'unset';
-        ctxSub.style.bottom = '-8px';
-    }
-    else {
-        ctxSub.style.bottom = 'unset';
-        ctxSub.style.top = '20px';
-    }
-}
-
-
-function moveTaskByCtx(moveFrom, moveTo, taskId) {
-    selectedTask.status = moveFrom;
-    selectedTask.task = taskId;
-
-    controlVisTaskCtx();
-
-    moveTask(moveTo);
-}
-
-
 /**
  * Opens the modal for creating a new task
  */
@@ -371,4 +260,55 @@ async function openAddTask() {
     // setTimeout(() => {
     //     toggleModal('modal-add-task');
     // }, 500);
+}
+
+
+function searchTasks() {
+    const searchTerm = document.getElementById('find-task--input').value.toLowerCase();
+    searchResult = [[], [], [], []];
+
+    if (!searchTerm) {
+        renderTasks();
+        
+        console.log('Suche zurückgesetzt.', searchResult);
+        
+        return;
+    }
+
+    for (let i = 0; i < tasks.length; i++) {
+        for (let t = 0; t < tasks[i].length; t++) {
+            if (tasks[i][t]['title'].toLowerCase().indexOf(searchTerm) >= 0 ||
+                tasks[i][t]['desc'].toLowerCase().indexOf(searchTerm) >= 0) {
+                    searchResult[i].push({statusId: i, taskId: t});
+            }
+        }
+    }
+
+    console.log('Suchergebnis:', searchResult);
+
+    renderSearchResult();
+}
+
+
+function renderSearchResult() {
+    for (let i = 0; i < searchResult.length; i++) {
+        renderTasksStatusBySearch(i);
+    }
+}
+
+
+function renderTasksStatusBySearch(statusId) {
+    const statusContainer = document.getElementById(`tasks-status-${statusId}`);
+    statusContainer.innerHTML = '';
+    if (searchResult[statusId].length == 0) {
+        showMsgNoTask(statusId, true);
+    }
+    else {
+        showMsgNoTask(statusId, false);
+        for (let t = 0; t < searchResult[statusId].length; t++) {
+            renderSingleTaskCard(searchResult[statusId][t].statusId,
+                                    searchResult[statusId][t].taskId,
+                                    statusContainer);
+        }
+    }
 }

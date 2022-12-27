@@ -78,11 +78,17 @@ function toggleWildcards() {
 
 function moveTask(targetStatus) {
     const statusContainer = document.getElementById(`tasks-status-${targetStatus}`)
+    const searchTerm = document.getElementById('find-task--input').value;
     updateData(targetStatus);
-    renderTasksStatus(selectedTask.status);
-    renderSingleTaskCard(targetStatus, tasks[targetStatus].length - 1, statusContainer);
-
-    if (tasks[targetStatus].length == 1) showMsgNoTask(targetStatus, false);
+    
+    if (!searchTerm) {
+        renderTasksStatus(selectedTask.status);
+        renderSingleTaskCard(targetStatus, tasks[targetStatus].length - 1, statusContainer);
+        if (tasks[targetStatus].length == 1) showMsgNoTask(targetStatus, false);
+    }
+    else {
+        searchTasks();
+    }
 }
 
 
@@ -95,4 +101,109 @@ function updateData(targetStatus) {
     } catch {
         console.log('[tasks] not saved on server.');
     }
+}
+
+
+function openTaskContext(statusId, taskId, posX, posY) {
+    const ctxMenu = document.getElementById('context-menu-task');
+    setClickParams(statusId, taskId);
+    defineCtxSub(statusId);
+    controlPosTaskCtx(ctxMenu, posX, posY);
+    controlVisTaskCtx();
+    
+    console.log('Opening task context ...')
+}
+
+
+function setClickParams(statusId, taskId) {
+    const ctxDetails = document.getElementById('context-task--details');
+    const subItems = document.querySelectorAll('#context-sub--move span');
+    
+    ctxDetails.setAttribute('onclick', `openViewer(${statusId}, ${taskId})`);
+
+    for (let i = 0; i < subItems.length; i++) {
+        // Function definition: moveTask({move from}, {move to}, {task ID})
+        subItems[i].setAttribute('onclick', `moveTaskByCtx(${statusId}, ${i}, ${taskId})`);
+    }
+}
+
+
+function controlPosTaskCtx(ctxMenu, posX, posY) {
+    if (ctxMenu.classList.contains('d-none')) {
+        clickPos.x = posX;
+        clickPos.y = posY;
+        ctxMenu.style.top = `${posY - 50}px`;
+        ctxMenu.style.left = `${posX - 70}px`;
+    }
+}
+
+
+function controlVisTaskCtx() {
+    const ctxMain = document.getElementById('context-menu-task');
+    const ctxSub = document.getElementById('context-sub--move');
+    const isMainOff = ctxMain.classList.contains('d-none');
+    const isSubOff = ctxSub.classList.contains('d-none');
+
+    if (!isMainOff && !isSubOff) {
+        toggleContextMenu('context-sub--move');
+    }
+
+    toggleContextMenu('context-menu-task');
+}
+
+
+function defineCtxSub(statusId) {
+    const subItems = document.querySelectorAll('#context-sub--move span');
+    
+    for (let i = 0; i < subItems.length; i++) {
+        if (i == statusId) {
+            subItems[i].classList.add('d-none');
+        }
+        else {
+            subItems[i].classList.remove('d-none');
+        }
+    }
+}
+
+
+function openContextSub() {
+    controlContextSubPos();
+    toggleContextMenu('context-sub--move');
+}
+
+
+function controlContextSubPos() {
+    const boundary = {
+        right: window.innerWidth,
+        bottom: window.innerHeight
+    };
+    const ctxSub = document.getElementById('context-sub--move');
+
+    if (boundary.right - clickPos.x < 200) {
+        ctxSub.style.left = 'unset';
+        ctxSub.style.right = '100%';
+    }
+    else {
+        ctxSub.style.right = 'unset';
+        ctxSub.style.left = '100%';
+    }
+
+    if (boundary.bottom - clickPos.y < 180) {
+        ctxSub.style.top = 'unset';
+        ctxSub.style.bottom = '-8px';
+    }
+    else {
+        ctxSub.style.bottom = 'unset';
+        ctxSub.style.top = '20px';
+    }
+}
+
+
+function moveTaskByCtx(moveFrom, moveTo, taskId) {
+    selectedTask.status = moveFrom;
+    selectedTask.task = taskId;
+
+    controlVisTaskCtx();
+
+    moveTask(moveTo);
 }
