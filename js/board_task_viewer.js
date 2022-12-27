@@ -5,6 +5,8 @@
  */
 async function openViewer(statusId, taskId) {
     await loadHTML('modal-task', './assets/templates/view_task__template.html')
+
+    if (isTouchDevice) controlVisTaskCtx();
     
     openedTask.statusId = statusId;
     openedTask.taskId = taskId;

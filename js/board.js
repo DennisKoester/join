@@ -257,28 +257,29 @@ function openTaskContext(statusId, taskId, posX, posY) {
 
 
 function setClickParams(statusId, taskId) {
-    const clickEvents = [
-        'openViewer',
-        'moveTaskTodo',
-        'moveTaskProgress',
-        'moveTaskFeedback',
-        'moveTaskDone'
-    ]
+    // const clickEvents = [
+    //     'openViewer',
+    //     'moveTaskTodo',
+    //     'moveTaskProgress',
+    //     'moveTaskFeedback',
+    //     'moveTaskDone'
+    // ]
     const ctxDetails = document.getElementById('context-task--details');
     const subItems = document.querySelectorAll('#context-sub--move span');
-    let elements = [ctxDetails];
-    elements = elements.concat(Array.from(subItems));
+    
+    ctxDetails.setAttribute('onclick', `openViewer(${statusId}, ${taskId})`);
 
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].setAttribute('onclick', `${clickEvents[i]}(${statusId}, ${taskId})`);
+    for (let i = 0; i < subItems.length; i++) {
+        // Function definition: moveTask({move from}, {move to}, {task ID})
+        subItems[i].setAttribute('onclick', `moveTaskByCtx(${statusId}, ${i}, ${taskId})`);
     }
 }
 
 
 function controlPosTaskCtx(ctxMenu, posX, posY) {
     if (ctxMenu.classList.contains('d-none')) {
-        ctxMenu.style.top = `${posY}px`;
-        ctxMenu.style.left = `${posX}px`;
+        ctxMenu.style.top = `${posY - 45}px`;
+        ctxMenu.style.left = `${posX - 65}px`;
     }
 }
 
@@ -313,6 +314,16 @@ function defineCtxSub(statusId) {
 
 function openContextSub() {
     toggleContextMenu('context-sub--move');
+}
+
+
+function moveTaskByCtx(moveFrom, moveTo, taskId) {
+    selectedTask.status = moveFrom;
+    selectedTask.task = taskId;
+
+    controlVisTaskCtx();
+
+    moveTask(moveTo);
 }
 
 
