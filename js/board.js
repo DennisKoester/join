@@ -1,5 +1,6 @@
 let openedTask = {statusId: -1, taskId: -1};
 let isTouchDevice = false;
+let clickPos = {x: 0, y: 0};
 
 async function initBoard() {
     await init();
@@ -278,8 +279,10 @@ function setClickParams(statusId, taskId) {
 
 function controlPosTaskCtx(ctxMenu, posX, posY) {
     if (ctxMenu.classList.contains('d-none')) {
-        ctxMenu.style.top = `${posY - 45}px`;
-        ctxMenu.style.left = `${posX - 65}px`;
+        clickPos.x = posX;
+        clickPos.y = posY;
+        ctxMenu.style.top = `${posY - 50}px`;
+        ctxMenu.style.left = `${posX - 70}px`;
     }
 }
 
@@ -313,7 +316,27 @@ function defineCtxSub(statusId) {
 
 
 function openContextSub() {
+    controlContextSubPos();
     toggleContextMenu('context-sub--move');
+}
+
+
+function controlContextSubPos() {
+    const boundary = {
+        right: window.innerWidth,
+        bottom: window.innerHeight
+    };
+    const ctxSub = document.getElementById('context-sub--move');
+
+    if (boundary.right - clickPos.x < 200) {
+        ctxSub.style.left = 'unset';
+        ctxSub.style.right = '100%';
+    }
+
+    if (boundary.bottom - clickPos.y < 180) {
+        ctxSub.style.top = 'unset';
+        ctxSub.style.bottom = '-8px';
+    }
 }
 
 
