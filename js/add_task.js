@@ -373,7 +373,7 @@ function getDataForNewTask() {
     if (submitValidation(title, desc, date, assigneesMail)) {
         addNewTask(title, desc, date, assigneesMail);
         showAddedTaskPopup();
-        // directsToBoard();
+        directsToBoard();
     }
 }
 
@@ -532,9 +532,14 @@ function removeAnimate(popup) {
 
 
 function directsToBoard() {
-    setTimeout(function () {
-        window.location.href = "board.html";
-    }, 2000)
+    let url = window.location.pathname;
+    if (url.indexOf('board') > -1) {
+        toggleModal('modal-add-task'); // Change function for board add task modal
+    } else {
+        setTimeout(function () {
+            window.location.href = "board.html";
+        }, 2000)
+    }
 }
 
 

@@ -48,10 +48,6 @@
 }
 
 @media(max-width: 940px) {
-    #header-nav {
-        display: none;
-    }
-
     .mobile-btn {
         display: flex !important;
         position: fixed;
