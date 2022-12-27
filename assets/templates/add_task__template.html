@@ -54,21 +54,21 @@
                         </div>
                     </div>
                     <div id="category-colors" class="category-colors d-none">
-                        <div onclick="addNewColorToCategory('lightblue', '0')" id="color0" class="color-dot lightblue">
+                        <div onclick="addNewColorToCategory('lightblue', 0)" id="color0" class="color-dot lightblue">
                         </div>
-                        <div onclick="addNewColorToCategory('blue', '1')" id="color1" class="color-dot blue">
+                        <div onclick="addNewColorToCategory('blue', 1)" id="color1" class="color-dot blue">
                         </div>
-                        <div onclick="addNewColorToCategory('turquoise', '2')" id="color2" class="color-dot turquoise">
+                        <div onclick="addNewColorToCategory('turquoise', 2)" id="color2" class="color-dot turquoise">
                         </div>
-                        <div onclick="addNewColorToCategory('green', '3')" id="color3" class="color-dot green">
+                        <div onclick="addNewColorToCategory('green', 3)" id="color3" class="color-dot green">
                         </div>
-                        <div onclick="addNewColorToCategory('orange', '4')" id="color4" class="color-dot orange">
+                        <div onclick="addNewColorToCategory('orange', 4)" id="color4" class="color-dot orange">
                         </div>
-                        <div onclick="addNewColorToCategory('red', '5')" id="color5" class="color-dot red">
+                        <div onclick="addNewColorToCategory('red', 5)" id="color5" class="color-dot red">
                         </div>
-                        <div onclick="addNewColorToCategory('lightpink', '6')" id="color6" class="color-dot lightpink">
+                        <div onclick="addNewColorToCategory('lightpink', 6)" id="color6" class="color-dot lightpink">
                         </div>
-                        <div onclick="addNewColorToCategory('pink', '7')" id="color7" class="color-dot pink">
+                        <div onclick="addNewColorToCategory('pink', 7)" id="color7" class="color-dot pink">
                         </div>
                     </div>
                     <p id="required2" class="required hidden">This field is required</p>
@@ -119,7 +119,7 @@
             <div class="right-container">
                 <div class="width-100">
                     <p><label for="due-date">Due date</label></p>
-                    <div class="due-date" onclick="validationForInput(4, 'date-input')">
+                    <div class="due-date" onchange="validationForInput(4, 'date-input')">
                         <input onfocus="this.showPicker(), validationForInput(4, 'date-input')" id="date-input"
                             class="due-date-input width-100" type="date" name="due-date">
                     </div>
@@ -187,11 +187,7 @@
 </div>
 
 <script>
- /*    document.getElementById('assign-input').onkeydown = function (e) {
-        if (e.keyCode == 13) {
-            inviteContact();
-        }
-    }; */
+     
 
-   
+
 </script>

@@ -3,7 +3,6 @@ let currentCategory = '';
 let currentCategoryColor = '';
 let currentSubtasks = [];
 let currentAssignees = [];
-let validation = false;
 
 
 async function initAddTask() {
@@ -57,6 +56,7 @@ function showInputField(inputContainer, container, dropdown, icon) {
     toggleClassList(inputContainer, 'd-none');
     toggleClassList(container, 'd-none');
     toggleDropdown(dropdown, icon);
+    enterFunction(inputContainer);
     if (inputContainer == 'category-input-container')
         toggleClassList('category-colors', 'd-none');
 }
@@ -260,7 +260,7 @@ function showAssigneeBadge() {
 /**
  * Selects an assignee for the task
  * @param {number} i Index of the selected assignee
- * @param {object} assignee Name of the assignee
+ * @param {string} assignee Name of the assignee
  */
 function selectAssignee(i, assignee) {
     let user = currentAssignees.find(element => element['name'] == assignee);
@@ -370,9 +370,7 @@ function getDataForNewTask() {
     let date = document.getElementById('date-input');
     let assigneesMail = emailOfCurrentAssignee();
 
-
-    submitValidation(title, desc, date, assigneesMail);
-    if (validation == true) {
+    if (submitValidation(title, desc, date, assigneesMail)) {
         addNewTask(title, desc, date, assigneesMail);
         showAddedTaskPopup();
         // directsToBoard();
@@ -448,42 +446,21 @@ function submitValidation() {
     let desc = document.getElementById('description');
     let date = document.getElementById('date-input');
     let assigneesMail = emailOfCurrentAssignee();
+    let validation = true;
 
     let allData = [title.value, desc.value, currentCategory, assigneesMail, date.value, currentPrio + 1];
 
     for (let i = 0; i < allData.length; i++) {
         const value = allData[i];
         let required = document.getElementById(`required${i}`);
-
         if (value == 0) {
             required.classList.remove('hidden');
+            validation = false;
         } else {
             required.classList.add('hidden');
         }
     }
-    finalValidation();
-}
-
-
-function finalValidation() {
-    let elementIds = ['required0', 'required1', 'required2', 'required3', 'required4', 'required5'];
-    let className = 'hidden';
-    let hasClassResults = hasClass(elementIds, className);
-    if (!hasClassResults.includes(false)) {
-        validation = true;
-    } else {
-        validation = false;
-    }
-    console.log(hasClassResults);  // [true, false, false]
-    console.log(validation);
-}
-
-
-function hasClass(elementIds, className) {
-    return elementIds.map(id => {
-        let element = document.getElementById(id);
-        return element.classList.contains(className);
-    });
+    return validation;
 }
 
 
@@ -561,29 +538,19 @@ function directsToBoard() {
 }
 
 
+function enterFunction(inputContainer) {
+    let input = document.querySelector(`#${inputContainer} input`);
 
-/* function showAddedTaskPopup() {
-    let popup = document.querySelector('.added-popup');
-    popup.animate([
-        0 % {
-            bottom: '15%',
-            opacity: 0
-        },
-
-        30 % {
-            bottom: '40%',
-            opacity: 1
-        },
-
-        100 % {
-            bottom: '40%',
-            opacity: 1
+    input.addEventListener("keydown", function (e) {
+        if (e.code == "Enter") {
+            if (inputContainer == 'assign-input-container') {
+                inviteContact('assign-input', 'assign-input-container', 'assign-dropdown-container');
+            } else {
+                addNewCategory('category-input', 'category-input-container', 'category-dropdown-container');
+            }
         }
-
-    ], {
-        duration: 1500
     });
-} */
+}
 
 
 /*  Hide Dropdown By Clicking Next To It //

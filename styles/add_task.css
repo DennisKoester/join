@@ -549,7 +549,6 @@ select {
     animation: transition 3s;
 }
 
-
  @keyframes transition {
     0% {
         bottom: 10%;
