@@ -7,9 +7,13 @@ async function initBoard() {
     await init();
     try {
         users = await loadFromServer('users');
+    } catch {
+        console.log('[users] not loaded from server.');
+    }
+    try {
         tasks = await loadFromServer('tasks');
     } catch {
-        console.log('Data not loaded from server.');
+        console.log('[tasks] not loaded from server.');
     }
     renderTasks();
 

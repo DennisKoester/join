@@ -126,6 +126,7 @@ function pushCategory(catInput, currentCategoryColor) {
     }
 
     categories.push(newCategory);
+    saveOnServer('categories', categories);
     backend.setItem('categories', JSON.stringify(categories));
 
 }
