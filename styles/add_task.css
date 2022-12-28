@@ -289,9 +289,9 @@ body.overlay .dropdown-overlay {
     -moz-appearance: none;
 }
 
-/* input[type=date]:invalid::-webkit-datetime-edit {
+input[type=date]:invalid::-webkit-datetime-edit {
     color: #D1D1D1;
-} */
+}
 
 ::-webkit-calendar-picker-indicator {
     background-image: url(../assets/img/calender.svg);
