@@ -116,7 +116,7 @@ function addNewCategory(input, container, dropdown) {
  * @param {string} catInput The category input field
  * @param {string} currentCategoryColor The current category color
  */
-function pushCategory(catInput, currentCategoryColor) {
+async function pushCategory(catInput, currentCategoryColor) {
 
     let newCategory =
 
@@ -126,7 +126,7 @@ function pushCategory(catInput, currentCategoryColor) {
     }
 
     categories.push(newCategory);
-    backend.setItem('categories', JSON.stringify(categories));
+    await backend.setItem('categories', JSON.stringify(categories));
 
 }
 
