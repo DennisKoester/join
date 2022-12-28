@@ -1,0 +1,33 @@
+body {
+    font-size: 16px;
+}
+
+.legal-notice {
+    margin-top: 23px;
+    margin-left: 93px;
+    margin-right: 94px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+@media(max-width: 780px) {
+    .legal-notice {
+        margin: 15px;
+    }
+}
+
+@media(max-width: 420px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+}
