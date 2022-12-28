@@ -204,6 +204,8 @@ function toggleModal(id) {
         controlReaderVisibility();
         if (modal.classList.contains('d-none')) {
             modal.innerHTML = '';
+            currentSubtasks = [];
+            currentAssignees = [];
         }
     }
 
@@ -311,4 +313,12 @@ function renderTasksStatusBySearch(statusId) {
                                     statusContainer);
         }
     }
+}
+
+
+function renderNewTask() {
+    const newTaskId = tasks[0].length - 1;
+    const statusContainer = document.getElementById(`tasks-status-0`);
+    renderSingleTaskCard(0, newTaskId, statusContainer);
+    toggleModal('modal-add-task');
 }

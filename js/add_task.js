@@ -534,7 +534,7 @@ function removeAnimate(popup) {
 function directsToBoard() {
     let url = window.location.pathname;
     if (url.indexOf('board') > -1) {
-        toggleModal('modal-add-task'); // Change function for board add task modal
+        setTimeout(renderNewTask, 2000);
     } else {
         setTimeout(function () {
             window.location.href = "board.html";
