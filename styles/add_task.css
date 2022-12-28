@@ -285,12 +285,13 @@ body.overlay .dropdown-overlay {
     border-radius: 10px;
     font-size: 21px;
     cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
-input[type=date]:invalid::-webkit-datetime-edit {
+/* input[type=date]:invalid::-webkit-datetime-edit {
     color: #D1D1D1;
-
-}
+} */
 
 ::-webkit-calendar-picker-indicator {
     background-image: url(../assets/img/calender.svg);
@@ -545,11 +546,11 @@ select {
     opacity: 0;
 }
 
-.animation{
+.animation {
     animation: transition 3s;
 }
 
- @keyframes transition {
+@keyframes transition {
     0% {
         bottom: 10%;
         opacity: 0;
