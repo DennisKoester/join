@@ -5,16 +5,16 @@ let searchResult = [[], [], [], []];
 
 async function initBoard() {
     await init();
-    try {
-        users = await loadFromServer('users');
-    } catch {
-        console.log('[users] not loaded from server.');
-    }
-    try {
-        tasks = await loadFromServer('tasks');
-    } catch {
-        console.log('[tasks] not loaded from server.');
-    }
+    // try {
+    //     users = await loadFromServer('users');
+    // } catch {
+    //     console.log('[users] not loaded from server.');
+    // }
+    // try {
+    //     tasks = await loadFromServer('tasks');
+    // } catch {
+    //     console.log('[tasks] not loaded from server.');
+    // }
     renderTasks();
 
     // Check for touch device
