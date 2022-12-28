@@ -1,6 +1,6 @@
-let openedTask = {statusId: -1, taskId: -1};
+let openedTask = { statusId: -1, taskId: -1 };
 let isTouchDevice = false;
-let clickPos = {x: 0, y: 0};
+let clickPos = { x: 0, y: 0 };
 let searchResult = [[], [], [], []];
 
 async function initBoard() {
@@ -139,7 +139,7 @@ function getSubtasksDone(statusId, taskId) {
 function getSubtasksDoneInPerc(statusId, taskId) {
     const subtasksDone = getSubtasksDone(statusId, taskId);
     const subtasksCount = tasks[statusId][taskId]['subtasks'].length;
-    
+
     return (subtasksDone / subtasksCount) * 100;
 }
 
@@ -275,9 +275,9 @@ function searchTasks() {
 
     if (!searchTerm) {
         renderTasks();
-        
+
         console.log('Suche zurückgesetzt.', searchResult);
-        
+
         return;
     }
 
@@ -285,7 +285,7 @@ function searchTasks() {
         for (let t = 0; t < tasks[i].length; t++) {
             if (tasks[i][t]['title'].toLowerCase().indexOf(searchTerm) >= 0 ||
                 tasks[i][t]['desc'].toLowerCase().indexOf(searchTerm) >= 0) {
-                    searchResult[i].push({statusId: i, taskId: t});
+                searchResult[i].push({ statusId: i, taskId: t });
             }
         }
     }
@@ -313,8 +313,8 @@ function renderTasksStatusBySearch(statusId) {
         showMsgNoTask(statusId, false);
         for (let t = 0; t < searchResult[statusId].length; t++) {
             renderSingleTaskCard(searchResult[statusId][t].statusId,
-                                    searchResult[statusId][t].taskId,
-                                    statusContainer);
+                searchResult[statusId][t].taskId,
+                statusContainer);
         }
     }
 }

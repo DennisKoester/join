@@ -10,15 +10,22 @@
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/media_main.css">
     <link rel="stylesheet" href="./styles/contacts.css">
+    <link rel="stylesheet" href="./styles/add_task.css">
+    <link rel="stylesheet" href="./styles/media_add-task.css">
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
     <script src="./js/include_html.js"></script>
+    <script src="./js/data.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/contacts.js"></script>
-    <script src="./js/data.js"></script>
-    <title>Document</title>
+    <script src="./js/board.js"></script>
+    <script src="./js/add_task.js"></script>
+    <script src="./js/add_task_html.js"></script>
+    <script src="./js/mini_backend.js"></script>
+    <script>setURL('https://gruppe-392.developerakademie.net/smallest_backend_ever');</script>
+    <title>Contacts</title>
 </head>
 
-<body onload="init(), renderContacts()">
+<body onload="initContacts()">
     <header w3-include-html="./assets/templates/header.html"></header>
     <nav w3-include-html="./assets/templates/navbar.html"></nav>
     <div class="content-container">
@@ -35,7 +42,8 @@
 
                 <div id="contact-div"></div>
 
-                <button class="contact-page-button">New contact <img class="contact-button-logo" src="./assets/img/contact-button-logo.png"></button>
+                <button class="contact-page-button">New contact <img class="contact-button-logo"
+                        src="./assets/img/contact-button-logo.png"></button>
             </div>
         </div>
     </div>
