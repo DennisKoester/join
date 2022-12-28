@@ -44,6 +44,11 @@
     #content-board {
         padding: 30px 65px 0 70px;
     }
+
+    .progress-bar-bg {
+        width: 100%;
+        margin-right: 20px;
+    }
 }
 
 @media screen and (max-width: 455px) {

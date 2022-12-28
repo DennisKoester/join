@@ -162,6 +162,8 @@ button {
     display: flex;
     flex-direction: column;
     gap: inherit;
+    margin-bottom: 30px;
+    margin-right: 70px;
 }
 
 .modal-task-assignees-item {

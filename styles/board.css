@@ -219,6 +219,10 @@
     border-radius: 2px;
 }
 
+.progress-text {
+    white-space: nowrap;
+}
+
 .task-card--footer {
     display: flex;
     justify-content: space-between;
