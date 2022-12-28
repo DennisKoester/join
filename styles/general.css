@@ -24,9 +24,9 @@
 
     /* Geometry */
     --nav-width-desktop: 232px;
-    --nav-hight-mobile: 80px;
-    --header-hight-desktop: 90px;
-    --header-hight-mobile: 80px;
+    --nav-height-mobile: 80px;
+    --header-height-desktop: 90px;
+    --header-height-mobile: 80px;
     --border-radius-main: 30px;
     --border-radius-btn: 10px;
     --task-card-width: 250px;

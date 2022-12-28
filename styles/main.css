@@ -16,7 +16,7 @@ header {
     top: 0;
     left: var(--nav-width-desktop);
     right: 0;
-    height: var(--header-hight-desktop);
+    height: var(--header-height-desktop);
     padding: 0px 36px 0px 95px;
     background-color: white;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
@@ -183,13 +183,13 @@ nav {
 
 .content-container {
     /* position: absolute;
-    top: var(--header-hight-desktop);
+    top: var(--header-height-desktop);
     left: var(--nav-width-desktop);
     right: 0;
     bottom: 0; */
     margin-left: var(--nav-width-desktop);
-    margin-top: var(--header-hight-desktop);
-    height: calc(100vh - var(--header-hight-desktop));
+    margin-top: var(--header-height-desktop);
+    height: calc(100vh - var(--header-height-desktop));
     width: calc(100% - var(--nav-width-desktop));
     overflow-x: hidden;
     overflow-y: auto;

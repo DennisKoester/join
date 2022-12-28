@@ -12,7 +12,7 @@
     .modal-taskview-wrapper {
         width: 100%;
         position: absolute;
-        top: var(--header-hight-mobile);
+        top: var(--header-height-mobile);
         bottom: var(--nav-height-mobile);
         border-radius: unset;
     }
