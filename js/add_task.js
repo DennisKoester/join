@@ -56,7 +56,6 @@ function showInputField(inputContainer, container, dropdown, icon) {
     toggleClassList(inputContainer, 'd-none');
     toggleClassList(container, 'd-none');
     toggleDropdown(dropdown, icon);
-    enterFunction(inputContainer);
     if (inputContainer == 'category-input-container')
         toggleClassList('category-colors', 'd-none');
 }
@@ -124,10 +123,7 @@ async function pushCategory(catInput, currentCategoryColor) {
         "name": catInput,
         "color": currentCategoryColor
     }
-
     categories.push(newCategory);
-    await backend.setItem('categories', JSON.stringify(categories));
-
 }
 
 
@@ -297,6 +293,10 @@ function changeCheckbox(i) {
 
 // Prio Section //
 
+/**
+ * Sets the priority for the task
+ * @param {number} index 
+ */
 function setPrio(index) {
     let btns = document.getElementsByClassName("prio-btn");
 
@@ -326,6 +326,12 @@ function setPrio(index) {
 
 // Subtask Function //
 
+/**
+ * Adds a subtask to the list
+ * @param {string} input 
+ * @param {string} container 
+ * @param {string} dropdown 
+ */
 function addSubtask(input, container, dropdown) {
     let inputSubtask = document.getElementById('subtask-input');
     if (inputSubtask.value.length >= 1) {
@@ -340,7 +346,9 @@ function addSubtask(input, container, dropdown) {
     renderSubtasks();
 }
 
-
+/**
+ * Renders the subtask list
+ */
 function renderSubtasks() {
     list = document.getElementById('subtask-list');
     list.innerHTML = '';
@@ -350,7 +358,10 @@ function renderSubtasks() {
     }
 }
 
-
+/**
+ * Deletes a subtask from the list
+ * @param {number} i 
+ */
 function deleteSubtask(i) {
     currentSubtasks.splice(i, 1);
     renderSubtasks();
@@ -359,11 +370,17 @@ function deleteSubtask(i) {
 
 // Create Task //
 
+/**
+ * Creates a new task
+ */
 function createNewTask() {
     getDataForNewTask();
 }
 
 
+/**
+ * Collects data from the add task sheet
+ */
 function getDataForNewTask() {
     let title = document.getElementById('title');
     let desc = document.getElementById('description');
@@ -378,6 +395,10 @@ function getDataForNewTask() {
 }
 
 
+/**
+ * Returns the email addresses from selected assignees in an array
+ * @returns {array}
+ */
 function emailOfCurrentAssignee() {
     let assigneesMail = [];
     for (let i = 0; i < currentAssignees.length; i++) {
@@ -387,7 +408,14 @@ function emailOfCurrentAssignee() {
 }
 
 
-function addNewTask(title, desc, date, assigneesMail) {
+/**
+ * Creates a new task and saves it on the server
+ * @param {string} title 
+ * @param {string} desc 
+ * @param {string} date 
+ * @param {object} assigneesMail // TODO Is that correct?!
+ */
+async function addNewTask(title, desc, date, assigneesMail) {
 
     let newTask = {
 
@@ -400,11 +428,16 @@ function addNewTask(title, desc, date, assigneesMail) {
         "subtasks": Array.from(currentSubtasks)
     };
 
+    await saveOnServer('categories', categories);
+
     tasks[0].push(newTask);
-    backend.setItem('tasks', JSON.stringify(tasks));
+    await saveOnServer('tasks', tasks);
 }
 
 
+/**
+ * Resets the complete add task sheet
+ */
 function resetAddTask() {
     clearAllInputs();
     loadCategories();
@@ -415,6 +448,10 @@ function resetAddTask() {
     resetValidation();
 }
 
+
+/**
+ * Clears all inputs and sets back the variables
+ */
 function clearAllInputs() {
     let title = document.getElementById('title');
     let desc = document.getElementById('description');
@@ -441,6 +478,10 @@ function clearAllInputs() {
 
 // Validation //
 
+/**
+ * Validates the complete add task sheet
+ * @returns {boolean} 
+ */
 function submitValidation() {
     let title = document.getElementById('title');
     let desc = document.getElementById('description');
@@ -464,6 +505,11 @@ function submitValidation() {
 }
 
 
+/**
+ * Live validation for a field where the selection got pushed
+ * @param {number} id 
+ * @param {string} input 
+ */
 function validationForField(id, input) {
     let required = document.getElementById(`required${id}`);
 
@@ -475,6 +521,11 @@ function validationForField(id, input) {
 }
 
 
+/**
+ * Live validation for an input field
+ * @param {number} id 
+ * @param {string} input 
+ */
 function validationForInput(id, input) {
     let required = document.getElementById(`required${id}`);
     let value = document.getElementById(input).value;
@@ -487,6 +538,9 @@ function validationForInput(id, input) {
 }
 
 
+/**
+ * Resets the complete validation 
+ */
 function resetValidation() {
 
     for (let i = 0; i < 6; i++) {
@@ -496,6 +550,9 @@ function resetValidation() {
 }
 
 
+/**
+ * Limits the date to present day
+ */
 function dateLimitation() {
 
     var today = new Date();
@@ -516,6 +573,9 @@ function dateLimitation() {
 }
 
 
+/**
+ * Shows the popup "Task added to board" with animation
+ */
 function showAddedTaskPopup() {
     let popup = document.getElementById('popup-btn');
 
@@ -526,11 +586,18 @@ function showAddedTaskPopup() {
 }
 
 
+/**
+ * Removes the animation class from the popup
+ * @param {string} popup 
+ */
 function removeAnimate(popup) {
     popup.classList.remove('animation');
 }
 
 
+/**
+ * Directs from add task site to the board site
+ */
 function directsToBoard() {
     let url = window.location.pathname;
     if (url.indexOf('board') > -1) {
@@ -543,18 +610,36 @@ function directsToBoard() {
 }
 
 
-function enterFunction(inputContainer) {
-    let input = document.querySelector(`#${inputContainer} input`);
+/**
+ * Adds a function for 
+ * @param {object} e // TODO Is that correct?
+ */
+function enterFunctionSubtasks(e) {
+    if (e.code == "Enter") {
+        addSubtask('subtask-input', 'input-btns', 'plus-icon');
+    }
+}
 
-    input.addEventListener("keydown", function (e) {
-        if (e.code == "Enter") {
-            if (inputContainer == 'assign-input-container') {
-                inviteContact('assign-input', 'assign-input-container', 'assign-dropdown-container');
-            } else {
-                addNewCategory('category-input', 'category-input-container', 'category-dropdown-container');
-            }
-        }
-    });
+
+/**
+ * Adds a function for 
+ * @param {object} e 
+ */
+function enterFunctionAssignees(e) {
+    if (e.code == "Enter") {
+        inviteContact('assign-input', 'assign-input-container', 'assign-dropdown-container');
+    }
+}
+
+
+/**
+ * Adds a function for 
+ * @param {object} e 
+ */
+function enterFunctionNewCategory(e) {
+    if (e.code == "Enter") {
+        addNewCategory('category-input', 'category-input-container', 'category-dropdown-container');
+    }
 }
 
 

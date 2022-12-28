@@ -23,7 +23,7 @@
                     <p><label for="categories">Category</label></p>
                     <div id="category-input-container" class="input-field flex-btw padding-input d-none">
                         <input id="category-input" class="input-style" type="text" name="category"
-                            placeholder="New category name">
+                            placeholder="New category name" onkeydown="enterFunctionNewCategory(event)">
                         <div class="input-btns">
                             <img onclick="hideInputField('category-input', 'category-input-container', 'category-dropdown-container')"
                                 src="./assets/img/black-x.svg" alt="" class="filter-btn">
@@ -78,7 +78,7 @@
                     <p><label for="assign">Assigned to</label></p>
                     <div id="assign-input-container" class="input-field flex-btw padding-input d-none">
                         <input id="assign-input" class="input-style" type="text" name="assign"
-                            placeholder="Contact email">
+                            placeholder="Contact email" onkeydown="enterFunctionAssignees(event)">
                         <div class="input-btns">
                             <img onclick="hideInputField('assign-input', 'assign-input-container', 'assign-dropdown-container')"
                                 src="./assets/img/black-x.svg" alt="" class="filter-btn">
@@ -146,7 +146,7 @@
                 <div class="subtask-container">
                     <p><label for="subtasks">Subtasks</label></p>
                     <div class="subtasks-input padding-input">
-                        <input id="subtask-input" onfocus="showInputBtns('input-btns', 'plus-icon' )"
+                        <input id="subtask-input" onfocus="showInputBtns('input-btns', 'plus-icon' )" onkeydown="enterFunctionSubtasks(event)"
                             class="input-style" type="text" placeholder="Add new subtask">
                         <div class="input-btns">
                             <img onclick="showInputBtns('input-btns', 'plus-icon' )" id="plus-icon" class="subtask-btn"

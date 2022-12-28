@@ -42,6 +42,7 @@ async function loadJSONFromServer() {
 
 }
 
+
 function loadJSONFromServerOld() {
     return new Promise(function(resolve, reject) {
         let xhttp = new XMLHttpRequest();
