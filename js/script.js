@@ -10,6 +10,10 @@ const HEADER_CTX_MENU_ANIM_TIME = 220;
 async function init() {
     await includeHTML();
 
+    users = await loadFromServer('users');
+    tasks = await loadFromServer('tasks');
+    categories = await loadFromServer('categories');
+
     hasTouch();
 
     handleWelcomeOnMobile();
