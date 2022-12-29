@@ -651,3 +651,10 @@ select {
 .turquoise {
     background-color: #1FD7C1;
 }
+
+
+.emptyFooter {
+    position: relative;
+    height: 100px;
+    background-color: clear;
+}
