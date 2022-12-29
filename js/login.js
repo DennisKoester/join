@@ -1,6 +1,7 @@
 let currentUser;
 
-async function render() {
+async function initLogin() {
+    loadDataFromServer();
     animation();
     signUpQuery();
 }
@@ -30,7 +31,7 @@ async function login(e) {
 
     if (currentUser) {
         saveUserOnServer();
-        window.location.href='./summary.html';
+        window.location.href='./summary.html?login=1';
     } else {
         alert('Der eingegebene Benutzer ist nicht vorhanden!')
     }

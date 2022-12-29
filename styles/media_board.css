@@ -41,6 +41,10 @@
         width: auto;
     }
 
+    .no-task {
+        width: auto;
+    }
+
     #content-board {
         padding: 30px 65px 0 70px;
     }

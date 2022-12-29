@@ -4,6 +4,8 @@ let currentUser
  * Initialises the summary
  */
 async function initSummary() {
+    setCurrentUser();
+    setWelcomeMsg();
     await init();
     getNumberTasksAll();
     getNumberTasksTodo();
@@ -11,7 +13,6 @@ async function initSummary() {
     getNumberTasksFeedback();
     getNumberTasksDone();
     getTasksUrgent();
-    setCurrentUser();
 }
 
 
@@ -19,10 +20,10 @@ async function initSummary() {
  * Checking if guest log in, else Loading currentUser and changing welcome message
  */
 function setCurrentUser() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const login = urlParams.get('login');
-    const user = urlParams.get('user');
-    if(login || JSON.parse(localStorage.getItem('currentUser')) == 'Guest') {
+    // const urlParams = new URLSearchParams(window.location.search);
+    // const login = urlParams.get('login');
+    // const user = urlParams.get('user');
+    if(JSON.parse(localStorage.getItem('currentUser')) == 'Guest') {
         currentUser = 'Guest';
         localStorage.setItem('currentUser', JSON.stringify(currentUser));
         document.getElementById('welcome-name-mobile').innerHTML = currentUser;
@@ -32,6 +33,33 @@ function setCurrentUser() {
     document.getElementById('welcome-name-mobile').innerHTML = currentUser['name'];
     document.getElementById('welcome-name-desk').innerHTML = currentUser['name'];
     }
+}
+
+
+/**
+ * Sets the welcome message depending on the current time
+ */
+function setWelcomeMsg() {
+    const currDate = new Date();
+    const currHour = currDate.getHours();
+    const welcomeTextDesk = document.getElementById('welcome-text-desk');
+    const welcomeTextMobile = document.getElementById('welcome-text-mobile');
+    let welcomeText = '';
+
+    switch (true) {
+        case (currHour < 11):
+            welcomeText = 'Good morning,';
+            break;
+        case ((currHour >= 11) && (currHour < 17)):
+            welcomeText = 'Good afternoon,';
+            break;
+        case (currHour >= 17):
+            welcomeText = 'Good evening,';
+            break;
+    }
+
+    welcomeTextDesk.innerHTML = welcomeText;
+    welcomeTextMobile.innerHTML = welcomeText;
 }
 
 
