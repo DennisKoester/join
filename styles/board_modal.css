@@ -13,10 +13,16 @@ button {
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.6);
-    /* opacity: 0; */
-    transition: opacity 350ms ease-out;
     z-index: 1000;
     font-size: 21px;
+}
+
+#modal-task, #modal-add-task {
+    opacity: 0;
+    transition: opacity 350ms ease-out;
+}
+.modal-show {
+    opacity: 1 !important;
 }
 
 .modal-wrapper {

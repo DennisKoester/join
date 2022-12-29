@@ -1,3 +1,4 @@
+const MODAL_FADE_TIME = 350;
 let openedTask = { statusId: -1, taskId: -1 };
 let isTouchDevice = false;
 let clickPos = { x: 0, y: 0 };
@@ -202,24 +203,55 @@ function getPriority(statusId, taskId) {
  */
 function toggleModal(id) {
     const modal = document.getElementById(id);
-    modal.classList.toggle('d-none');
-
+    
     if (id == 'modal-task') {
-        controlReaderVisibility();
-        if (modal.classList.contains('d-none')) {
-            modal.innerHTML = '';
-            currentSubtasks = [];
-            currentAssignees = [];
-        }
+        controlTaskViewer(modal);
     }
 
     if (id == 'modal-add-task') {
-        controlHeaderNavVisibility();
-        if (modal.classList.contains('d-none')) {
-            const modalContentContainer = document.getElementById('modal-add-task-content');
-            modalContentContainer.innerHTML = '';
-        }
+        controlAddTaskModal(modal);
     }
+}
+
+
+function controlTaskViewer(modal) {
+    controlReaderVisibility();
+    if (!modal.classList.contains('d-none')) {
+        modal.classList.remove('modal-show');
+        setTimeout(() => {
+            modal.classList.toggle('d-none');
+            modal.innerHTML = '';
+            currentSubtasks = [];
+            currentAssignees = [];
+        }, MODAL_FADE_TIME);
+    }
+    else {
+        modalFadeIn(modal);
+    }
+}
+
+
+function controlAddTaskModal(modal) {
+    controlHeaderNavVisibility();
+    if (!modal.classList.contains('d-none')) {
+        modal.classList.remove('modal-show');
+        setTimeout(() => {
+            const modalContentContainer = document.getElementById('modal-add-task-content');
+            modal.classList.toggle('d-none');
+            modalContentContainer.innerHTML = '';
+        }, MODAL_FADE_TIME);
+    }
+    else {
+        modalFadeIn(modal);
+    }
+}
+
+
+function modalFadeIn(modal) {
+    modal.classList.toggle('d-none');
+    setTimeout(() => {
+        modal.classList.add('modal-show');
+    }, 1);
 }
 
 
