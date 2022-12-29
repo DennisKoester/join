@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <div class="login_master">
+    <div class="login_master" id="login-master">
         <div class="login_main">
             <form onsubmit="return login(event)" class="login_form">
                 <h2>Log in</h2>
@@ -41,7 +41,7 @@
                         <input class="checkbox" type="checkbox" id="remember-me" name="remember-me">
                         <label for="remember-me">Remember me</label>
                     </div>
-                    <a class="password_forgotten" href="#">Forgot my password</a>
+                    <a class="password_forgotten" onclick="passwordForgotten()" href="#">Forgot my password</a>
                 </div>
                 <div class="login_form_buttons">
                     <button type="submit" class="login_button">Log in</button>

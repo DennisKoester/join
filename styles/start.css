@@ -285,6 +285,22 @@
     padding-top: 0 !important;
 }
 
+.forgotten_main {
+    width: 800px !important;
+}
+
+.forgotten_form span {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.forgotten_form h2 {
+    margin: 15px;
+    font-size: 50px !important;
+}
 
 @media (max-width:1250px) {
     @keyframes slideLogo {
@@ -307,6 +323,25 @@
             top: 28px;
         }
     }
+}
+
+@media (max-width:850px) {
+    .forgotten_main {
+        width: auto !important;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    
+    .forgotten_form span {
+        font-size: 20px;
+    }
+    
+    .forgotten_form h2 {
+        font-size: 40px !important;
+        text-align: center;
+        margin-top: 30px;
+    }
+    
 }
 
 @media (max-width:650px) {
