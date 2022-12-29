@@ -285,6 +285,56 @@
     padding-top: 0 !important;
 }
 
+.forgotten_main {
+    width: 800px !important;
+}
+
+.forgotten_form span {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.forgotten_form h2 {
+    margin: 15px;
+    font-size: 50px !important;
+}
+
+.login_animation {
+    animation: transition 3s;
+}
+
+.flex_center {
+    display: flex;
+    justify-content: center;
+}
+
+.added_popup_window {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    width: 326px;
+    height: 74px;
+    background: #2A3647;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    color: white;
+    font-size: 21px;
+    line-height: 120%;
+    gap: 30px;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.added_popup_window img {
+    height: 26px;
+    width: 22px;
+    object-fit: contain;
+}
 
 @media (max-width:1250px) {
     @keyframes slideLogo {
@@ -307,6 +357,25 @@
             top: 28px;
         }
     }
+}
+
+@media (max-width:850px) {
+    .forgotten_main {
+        width: auto !important;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    
+    .forgotten_form span {
+        font-size: 20px;
+    }
+    
+    .forgotten_form h2 {
+        font-size: 40px !important;
+        text-align: center;
+        margin-top: 30px;
+    }
+    
 }
 
 @media (max-width:650px) {

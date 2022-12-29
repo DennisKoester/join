@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <div class="login_master">
+    <div class="login_master" id="login-master">
         <div class="login_main">
             <form onsubmit="return login(event)" class="login_form">
                 <h2>Log in</h2>
@@ -41,7 +41,7 @@
                         <input class="checkbox" type="checkbox" id="remember-me" name="remember-me">
                         <label for="remember-me">Remember me</label>
                     </div>
-                    <a class="password_forgotten" href="#">Forgot my password</a>
+                    <a class="password_forgotten" onclick="passwordForgotten()" href="#">Forgot my password</a>
                 </div>
                 <div class="login_form_buttons">
                     <button type="submit" class="login_button">Log in</button>
@@ -54,7 +54,12 @@
             <button onclick="location.href='sign_up.html'">Sign up</button>
         </div>
     </div>
-    
+    <div class="flex_center">
+        <div id="popup-button" class="added_popup_window">
+            <div>User not found</div>
+            <img src="./assets/img/symb_board.png" alt="board symbol">
+        </div>
+    </div>
     <div id="msg-box" class="d_none signup_message"></div>
 </body>
 
