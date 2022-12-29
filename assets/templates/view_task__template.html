@@ -107,7 +107,7 @@
                 <p><label for="assign">Assigned to</label></p>
                 <div id="assign-input-container" class="input-field flex-btw padding-input d-none">
                     <input id="assign-input" class="input-style" type="text" name="assign"
-                        placeholder="Contact email">
+                            placeholder="Contact email" onkeydown="enterFunctionAssignees(event)">
                     <div class="input-btns">
                         <img onclick="hideInputField('assign-input', 'assign-input-container', 'assign-dropdown-container')"
                             src="./assets/img/black-x.svg" alt="" class="filter-btn">
@@ -145,7 +145,8 @@
                 <p><label for="subtasks">Subtasks</label></p>
                 <div class="subtasks-input padding-input">
                     <input id="subtask-input" onfocus="showInputBtns('input-btns', 'plus-icon' )"
-                        class="input-style" type="text" placeholder="Add new subtask">
+                            onkeydown="enterFunctionSubtasks(event)" class="input-style" type="text"
+                            placeholder="Add new subtask">
                     <div class="input-btns">
                         <img onclick="showInputBtns('input-btns', 'plus-icon' )" id="plus-icon" class="subtask-btn"
                             src="./assets/img/plus.svg" alt="Plus sign">
@@ -153,7 +154,7 @@
                             <img onclick="hideInputField('subtask-input', 'input-btns', 'plus-icon')"
                                 src="./assets/img/black-x.svg" alt="" class="filter-btn">
                             <div class="seperator"></div>
-                            <img onclick="addSubtask('subtask-input', 'input-btns', 'plus-icon')"
+                            <img onclick="addSubtaskEditor('subtask-input', 'input-btns', 'plus-icon')"
                                 src="./assets/img/black-check.svg" alt="" class="filter-btn">
                         </div>
                     </div>

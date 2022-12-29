@@ -11,15 +11,10 @@ async function openViewer(statusId, taskId) {
     openedTask.statusId = statusId;
     openedTask.taskId = taskId;
     
-    // TODO: Render data
     renderDataToViewer(statusId, taskId);
     renderDataToEditor(statusId, taskId);
     
-    
     toggleModal('modal-task');
-    // setTimeout(() => {
-    //     toggleModal('modal-task');
-    // }, 500);
 }
 
 
