@@ -36,9 +36,11 @@
                 <img class="margin_underline" src="./assets/img/Vector 5.png">
                 <input class="input_email" id="email" type="email" name="email" placeholder="Email" required>
                 <input class="input_password" id="password" type="password" name="password" placeholder="Password" required>
-                <div>
-                    <input class="checkbox" type="checkbox" id="remember-me" name="remember-me">
-                    <label for="remember-me">Remember me</label>
+                <div class="remember_me_forgotten">
+                    <div class="remember_me">
+                        <input class="checkbox" type="checkbox" id="remember-me" name="remember-me">
+                        <label for="remember-me">Remember me</label>
+                    </div>
                     <a class="password_forgotten" href="#">Forgot my password</a>
                 </div>
                 <div class="login_form_buttons">
@@ -47,7 +49,12 @@
                 <div id="error-login" class="error-login"></div>
             </form>
         </div>
+        <div class="signup_mobile">
+            <p>Not a Join user?</p>
+            <button onclick="location.href='sign_up.html'">Sign up</button>
+        </div>
     </div>
+    
     <div id="msg-box" class="d_none signup_message"></div>
 </body>
 

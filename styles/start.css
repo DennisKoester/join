@@ -45,6 +45,10 @@
     align-items: center;
 }
 
+.signup_mobile {
+    display: none;
+}
+
 .signup p {
     margin-right: 20px;
 }
@@ -135,11 +139,6 @@
     background-image: url("../assets/img/profile-icon.png");
     background-repeat: no-repeat;
     background-position: 311px 11px;
-}
-
-.checkbox {
-    height: 16px !important;
-    width: 16px !important;
 }
 
 .password_forgotten {
@@ -268,6 +267,25 @@
     animation: fadeOpacityOut 2s ease 0s 1 normal forwards;
 }
 
+.remember_me_forgotten {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.remember_me {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox {
+    height: 16px !important;
+    width: 16px !important;
+    margin-bottom: 4px !important;
+    padding-top: 0 !important;
+}
+
+
 @media (max-width:1250px) {
     @keyframes slideLogo {
         0% {
@@ -288,5 +306,101 @@
             left: 60px;
             top: 28px;
         }
+    }
+}
+
+@media (max-width:650px) {
+    .login_main {
+        width: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+        height: fit-content;
+    }
+
+    .remember_me_forgotten {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        width: 300px;
+    }  
+
+    .password_forgotten {
+        margin-left: 0px;
+        margin-bottom: 30px;
+    }
+
+    .login_form input {
+        width: 300px;
+    }
+
+    .input_email {
+        background-position: 260px 12px;
+    }
+    
+    .input_password {
+        background-position: 261px 11px;
+    }
+    
+    .input_profile {
+        background-position: 261px 11px;
+    }
+
+    .login_form_buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        gap: 20px;
+    }
+
+    .login_button {
+        width: 150px;
+    }
+
+    .guest_button {
+        width: 150px;
+    }
+
+    .login_form h2 {
+        font-size: 40px;
+    }
+
+    .signup {
+        display: none;
+    }
+
+    .signup_mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .signup_mobile p {
+        margin-right: 20px;
+    }
+    
+    .signup_mobile a {
+        text-decoration: none;
+        color: #fff;
+        background-color: var(--bg-color-main);
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+    
+    .signup_mobile button {
+        background-color: var(--bg-color-main);
+        border: none;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .login_master {
+        height: auto;
+        margin-top: 182px;
     }
 }
