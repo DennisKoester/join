@@ -19,6 +19,7 @@
                         placeholder="Enter a description" style="resize: vertical;"></textarea>
                     <p id="required1" class="required hidden">This field is required</p>
                 </div>
+
                 <div class="select-container">
                     <p><label for="categories">Category</label></p>
                     <div id="category-input-container" class="input-field flex-btw padding-input d-none">
@@ -34,6 +35,9 @@
                     </div>
                     <div id="category-dropdown-container" class="dropdown-container select-none width-100"
                         name="category">
+                        <!-- <div onclick="toggleDropdown('category-dropdown', 'triangle1', 'category-list')"
+                            class="dropdown-overlay">
+                        </div> -->
                         <div id="custom-category"
                             onclick="toggleDropdown('category-dropdown', 'triangle1', 'category-list')"
                             class="flex-btw padding-input height-input-mobile">
@@ -41,9 +45,7 @@
                             <img id="triangle1" src="./assets/img/select-triangle.svg" alt="triangle"
                                 style="padding-top: 2px;">
                         </div>
-                        <!-- <div onclick="toggleDropdown('category-dropdown', 'triangle1', 'category-list')"
-                                class="dropdown-overlay">
-                            </div> -->
+
                         <div id="category-dropdown" class="dropdown-menu d-none">
                             <ul id="category-list">
                                 <li
@@ -95,8 +97,8 @@
                                 style="padding-top: 2px;">
                         </div>
                         <!-- <div onclick="toggleDropdown('assign-dropdown', 'triangle2', 'assign-list')"
-                                class="dropdown-overlay">
-                            </div> -->
+                            class="dropdown-overlay">
+                        </div> -->
                         <div id="assign-dropdown" class="dropdown-menu d-none">
                             <ul id="assignee-list">
                                 <li

@@ -141,12 +141,13 @@
             </div>
 
             <!-- MODAL View/Edit Task -->
-            <div id="modal-task" class="modal-container d-none"></div>
+            <div id="modal-task" class="modal-container d-none" onclick="toggleModal('modal-task')"></div>
             <!-- END: MODAL View/Edit Task -->
 
             <!-- MODAL: Add task -->
-            <div id="modal-add-task" class="modal-container d-none">
-                <div class="modal-wrapper modal-addtask-wrapper">
+            <div id="modal-add-task" class="modal-container d-none" onclick="toggleModal('modal-add-task')">
+                <div id="modal-add-task-wrapper" class="modal-wrapper modal-addtask-wrapper"
+                    onclick="doNotClose(event)">
                     <img class="modal-task-close" src="./assets/img/black-x.svg" onclick="toggleModal('modal-add-task')"
                         alt="close">
                     <div id="modal-add-task-content" class="modal-add-task-content"></div>

@@ -91,9 +91,8 @@ function backgroundColorOfSelected(index) {
 
 
 async function openAddTaskContact(index) {
-    let user = users[index]['email'];
     currentAssignees = [];
-    currentAssignees.push(user);
+    currentAssignees.push(users[index]);
     console.log(currentAssignees);
     await openAddTask();
     renderAssignees();
