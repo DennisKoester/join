@@ -32,10 +32,31 @@ async function login(e) {
         saveUserOnServer();
         window.location.href='./summary.html';
     } else {
-        alert('Der eingegebene Benutzer ist nicht vorhanden!')
+       alert('Der eingegebene Benutzer ist nicht vorhanden!');
+       showLoginFailedPopup();
     }
 
     return false
+}
+
+/**
+ * Shows the popup "User not found" with animation
+ */
+function showLoginFailedPopup() {
+    let popup = document.getElementById('popup-button');
+
+    popup.classList.add('login_animation');
+    // setTimeout(function () {
+    //     removeAnimation(popup);
+    // }, 3000);
+}
+
+/**
+ * Removes the animation class from the popup
+ * @param {string} popup 
+ */
+function removeAnimation(popup) {
+    popup.classList.remove('login_animation');
 }
 
 function saveUserOnServer() {

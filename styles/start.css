@@ -302,6 +302,40 @@
     font-size: 50px !important;
 }
 
+.login_animation {
+    animation: transition 3s;
+}
+
+.flex_center {
+    display: flex;
+    justify-content: center;
+}
+
+.added_popup_window {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    width: 326px;
+    height: 74px;
+    background: #2A3647;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    color: white;
+    font-size: 21px;
+    line-height: 120%;
+    gap: 30px;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.added_popup_window img {
+    height: 26px;
+    width: 22px;
+    object-fit: contain;
+}
+
 @media (max-width:1250px) {
     @keyframes slideLogo {
         0% {
