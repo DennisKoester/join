@@ -2,7 +2,7 @@ body {
     font-size: 16px;
 }
 
-.legal-notice {
+.margin-content {
     margin-top: 23px;
     margin-left: 93px;
     margin-right: 94px;
@@ -16,8 +16,12 @@ h2 {
     font-size: 22px;
 }
 
+li{
+    padding-top: 5px;
+}
+
 @media(max-width: 780px) {
-    .legal-notice {
+    .margin-content {
         margin: 15px;
     }
 }
