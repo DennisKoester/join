@@ -260,7 +260,7 @@ async function openAddTask() {
     await loadHTML('modal-add-task-content', './assets/templates/add_task__template.html')
 
     loadCategories();
-
+    dateLimitation();
 
     toggleModal('modal-add-task');
     // setTimeout(() => {
