@@ -306,6 +306,23 @@
     animation: transition 3s;
 }
 
+@keyframes transition {
+    0% {
+        bottom: 10%;
+        opacity: 0;
+    }
+
+    30% {
+        bottom: 35%;
+        opacity: 1;
+    }
+
+    100% {
+        bottom: 35%;
+        opacity: 1;
+    }
+}
+
 .flex_center {
     display: flex;
     justify-content: center;
