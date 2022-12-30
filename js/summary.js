@@ -44,10 +44,10 @@ function setWelcomeMsg() {
     let welcomeText = '';
 
     switch (true) {
-        case (currHour < 11):
+        case (currHour < 12):
             welcomeText = 'Good morning,';
             break;
-        case ((currHour >= 11) && (currHour < 17)):
+        case ((currHour >= 12) && (currHour < 17)):
             welcomeText = 'Good afternoon,';
             break;
         case (currHour >= 17):
