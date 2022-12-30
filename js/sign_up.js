@@ -1,3 +1,7 @@
+
+/**
+ * Register a new user by submitting the Sign up form
+ */
 async function registerUser(e) {
     e.preventDefault();
 
@@ -12,7 +16,7 @@ async function registerUser(e) {
     let user = users.find(u => u.email == email.value);
 
     if(user) {
-        alert('Die eingegebene E-Mail Adresse wird bereits verwendet, bitte versuche es mit einer anderen Adresse!');
+        showSignupFailedPopup();
     } else {
         users.push({name: username.value, email: email.value, password: password.value, short_name: initials, color: color});
         await saveOnServer('users', users);
@@ -22,6 +26,9 @@ async function registerUser(e) {
     return false;
 }
 
+/**
+ * Create inititials from first letters of Username
+ */
 function getInitials(name) {
     const fullName = name.split(' ');
     const initials = fullName.shift().charAt(0) + fullName.pop().charAt(0);
@@ -29,8 +36,30 @@ function getInitials(name) {
     return initials.toUpperCase();
 }
 
-//generate random colors
+/**
+ * Generate random color for User initials background
+ */
 function generateColors() {
     let h = Math.floor(Math.random() * 359);
     return color = `hsl(${h}, 100%, 50%)`;
+}
+
+/**
+ * Shows the popup "Email already in use" with animation
+ */
+function showSignupFailedPopup() {
+    let popup = document.getElementById('popup-button-signup');
+
+    popup.classList.add('login_animation');
+    setTimeout(function () {
+        removeAnimationSignup(popup);
+    }, 3000);
+}
+
+/**
+ * Removes the animation class from the popup
+ * @param {string} popup 
+ */
+function removeAnimationSignup(popup) {
+    popup.classList.remove('login_animation');
 }

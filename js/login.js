@@ -1,5 +1,6 @@
 let currentUser;
 
+
 async function initLogin() {
     loadDataFromServer();
     animation();
@@ -10,15 +11,21 @@ function animation() {
     setTimeout(() => {document.getElementById('preloader').classList.add('d_none')}, 1000);
 }
 
+/**
+ * Success message after sign up
+ */
 function signUpQuery() {
     const urlParams = new URLSearchParams(window.location.search);
     const msg = urlParams.get('msg');
     if(msg) {
-        document.getElementById('msg-box').innerHTML = 'Deine Registrierung war erfolgreich, du kannst dich jetzt einloggen!';
+        document.getElementById('msg-box').innerHTML = 'Your registration was successful, please log in now!';
         document.getElementById('msg-box').classList.remove('d_none');
     }
 }
 
+/**
+ * Checking if User data is correct to grant or deny access
+ */
 async function login(e) {
     e.preventDefault();
 
@@ -33,7 +40,6 @@ async function login(e) {
         saveUserOnServer();
         window.location.href='./summary.html?login=1';
     } else {
-       alert('Der eingegebene Benutzer ist nicht vorhanden!');
        showLoginFailedPopup();
     }
 
@@ -47,9 +53,9 @@ function showLoginFailedPopup() {
     let popup = document.getElementById('popup-button');
 
     popup.classList.add('login_animation');
-    // setTimeout(function () {
-    //     removeAnimation(popup);
-    // }, 3000);
+    setTimeout(function () {
+        removeAnimation(popup);
+    }, 3000);
 }
 
 /**
@@ -60,10 +66,16 @@ function removeAnimation(popup) {
     popup.classList.remove('login_animation');
 }
 
+/**
+ * Save the current user on the server
+ */
 function saveUserOnServer() {
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
 }
 
+/**
+ * Render password forgotten html, to reset your password
+ */
 function passwordForgotten() {
     document.getElementById('login-master').innerHTML = `
     <div class="login_main signup_main forgotten_main">
