@@ -1,0 +1,19 @@
+#modal-contact-content {
+    display: flex;
+    border-radius: var(--border-radius-main);
+    overflow: hidden;
+}
+
+#modal-contact--title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 66px 46px;
+    background-color: var(--bg-color-main);
+}
+
+#modal-contact--logo {
+    width: 55px;
+}
