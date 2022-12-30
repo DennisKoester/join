@@ -7,7 +7,8 @@ async function registerUser(e) {
 
     let username = document.getElementById("username");
     let email = document.getElementById("email");
-    let password = document.getElementById("password");  
+    let password = document.getElementById("password"); 
+    nameValidation(username); 
     let initials = getInitials(username.value);
     let color = generateColors();
 
@@ -24,6 +25,16 @@ async function registerUser(e) {
     }
 
     return false;
+}
+
+/**
+ * Validating that full name is given
+ */
+function nameValidation(username) {
+    if(!username.value.includes(' ')) {
+        document.getElementById('name-validation').classList.remove('d_none');
+        document.getElementById('username').style.borderColor = 'red';
+    }
 }
 
 /**
