@@ -17,3 +17,32 @@
 #modal-contact--logo {
     width: 55px;
 }
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-form input {
+    width: 350px;
+    height: 45px;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    margin-bottom: 35px;
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+.input-email {
+    background-image: url("../assets/img/mail-icon.png");
+    background-repeat: no-repeat;
+    background-position: 310px 12px;
+}
+
+.input-profile {
+    background-image: url("../assets/img/profile-icon.png");
+    background-repeat: no-repeat;
+    background-position: 311px 11px;
+}

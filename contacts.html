@@ -68,7 +68,16 @@
                     <div id="modal-contact--subtitle">Tasks are better with a team</div>
                     <img src="./assets/img/horizontal_blue_line.png">
                 </div>
-                <div id="modal-contact--form"></div>
+                <div id="modal-contact--form">
+                    <form onsubmit="return" class="contact-form">
+                        <input class="input-profile" id="username" name="username" placeholder="Name" required>
+                        <input class="input-email" id="email" type="email" name="email" placeholder="Email" required>
+                        <input class="input-phone" id="phone" type="phone" name="phone" placeholder="Phone" required>
+                        <div class="login_form_buttons login_bottom_margin">
+                            <button type="submit" class="login_button">Sign up</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
         <!-- END: MODAL New/Edit contact -->
