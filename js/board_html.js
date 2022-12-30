@@ -28,7 +28,7 @@ function renderTaskCard(statusId, taskId, taskCat, taskCatColor, taskPrio) {
  * @returns HTML
  */
 function renderTaskCardContent(statusId, taskId, taskCat, taskCatColor, taskPrio) {
-    return `
+    return /* html */ `
         <div class="task-cat ${taskCatColor}">${taskCat}</div>
         <div class="task-title">${tasks[statusId][taskId]['title']}</div>
         <div class="task-description">${tasks[statusId][taskId]['desc']}</div>
@@ -68,7 +68,7 @@ function renderSubtasksProgress(statusId, taskId) {
  * @returns HTML
  */
 function renderAssigneesList(color, shortName) {
-    return `
+    return /* html */ `
         <div class="assignee" style="background-color: ${color}">${shortName}</div>
     `;
 }
@@ -80,7 +80,7 @@ function renderAssigneesList(color, shortName) {
  * @returns HTML
  */
 function renderAssigneesMore(diff) {
-    return `
+    return /* html */ `
         <div class="assignee" style="background-color: var(--bg-color-main)">+${diff}</div>
     `;
 }
@@ -94,7 +94,7 @@ function renderAssigneesMore(diff) {
  */
 function renderSubtaskStatic(desc, statusSign) {
     const altTxt = statusSign.indexOf('checked') >= 0 ? 'closed' : 'open';
-    return `
+    return /* html */ `
         <div class="modal-task-subtask">
             <img src="${statusSign}" alt="${altTxt}">
             <span>${desc}</span>
@@ -128,7 +128,7 @@ function renderSubtaskDynamic(index, desc, checkbox) {
  * @returns HTML
  */
 function renderAssigneesListFull(name, shortName, color) {
-    return `
+    return /* html */`
         <div class="modal-task-assignees-item">
             <div class="assignee modal-task-assignee" style="background-color: ${color}">${shortName}</div>
             <span>${name}</span>

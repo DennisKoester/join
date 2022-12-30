@@ -29,6 +29,11 @@ function toggleTaskEditMode() {
 }
 
 
+/**
+ * Renders the data to the task viewer
+ * @param {Number} statusId The ID of the respective status
+ * @param {Number} taskId The ID of the task within the status
+ */
 function renderDataToViewer(statusId, taskId) {
     let task = tasks[statusId][taskId];
     writeCategory(getCategory(statusId, taskId));
@@ -41,6 +46,11 @@ function renderDataToViewer(statusId, taskId) {
 }
 
 
+/**
+ * Renders the data to the task editor
+ * @param {Number} statusId The ID of the respective status
+ * @param {Number} taskId The ID of the task within the status
+ */
 function renderDataToEditor(statusId, taskId) {
     let task = tasks[statusId][taskId];
     writeTitleEditor(task['title']);
@@ -52,6 +62,10 @@ function renderDataToEditor(statusId, taskId) {
 }
 
 
+/**
+ * Sets the category settings to the category badge in task viewer
+ * @param {String} category The name of the category
+ */
 function writeCategory(category) {
     const catId = categories.findIndex(item => item['name'] == category);
     const catElem = document.getElementById('modal-task-cat');
@@ -61,34 +75,50 @@ function writeCategory(category) {
 }
 
 
+/**
+ * Writes the title to the task viewer
+ * @param {String} title The title of the task
+ */
 function writeTitleViewer(title) {
     const titleElemViewer = document.getElementById('modal-task-title');
-
     titleElemViewer.innerHTML = title;
 }
 
 
+/**
+ * Writes the title to the task editor
+ * @param {String} title The title of the task
+ */
 function writeTitleEditor(title) {
     const titleElemEditor = document.querySelector('#modal-task-edit #title');
-
     titleElemEditor.value = title;
 }
 
 
+/**
+ * Writes the description to the task viewer
+ * @param {String} desc The description of the task
+ */
 function writeDescViewer(desc) {
     const descElemViewer = document.getElementById('modal-task-desc');
-
     descElemViewer.innerHTML = desc;
 }
 
 
+/**
+ * Writes the description to the task editor
+ * @param {String} desc The description of the task
+ */
 function writeDescEditor(desc) {
     const descElemEditor = document.querySelector('#modal-task-edit #description')
-
     descElemEditor.value = desc;
 }
 
 
+/**
+ * Writes the due date to the task viewer in en-GB format
+ * @param {String} dateAsString The due date of the task
+ */
 function writeDateViewer(dateAsString) {
     const dateElemViewer = document.getElementById('modal-task-date');
     let date = new Date(dateAsString + "T00:00:00.000");
@@ -98,13 +128,20 @@ function writeDateViewer(dateAsString) {
 }
 
 
+/**
+ * Writes the due date to the task editor
+ * @param {String} dateAsString The due date of the task
+ */
 function writeDateEditor(dateAsString) {
     const dateElemEditor = document.querySelector('#modal-task-edit #date-input');
-
     dateElemEditor.value = dateAsString;
 }
 
 
+/**
+ * Writes the priority settings to the task viewer
+ * @param {Number} priority The priority of the task
+ */
 function writePrio(priority) {
     const prioElem = document.getElementById('modal-task-prio');
     const prioName = document.getElementById('modal-task-prio-text');
@@ -116,11 +153,20 @@ function writePrio(priority) {
 }
 
 
+/**
+ * Sets the priority button in the task editor
+ * @param {Number} priority The priority of the task
+ */
 function setPrioBtn(priority) {
     setPrio(priority);
 }
 
 
+/**
+ * Renders the subtasks to the task viewer
+ * @param {Array} subtasks The list of subtasks of the respective task
+ * @returns 
+ */
 function listSubtasksViewer(subtasks) {
     const subtasksElem = document.getElementById('modal-task-subtasks');
 
@@ -140,6 +186,11 @@ function listSubtasksViewer(subtasks) {
 }
 
 
+/**
+ * Calculates the minimum height of the subtask container
+ * @param {Number} elemCount The number of subtasks
+ * @returns The minimum height
+ */
 function calcContainerHeight(elemCount) {
     const elemSubtask = document.getElementsByClassName('modal-task-subtask')[0];
     const styles = window.getComputedStyle(elemSubtask);
@@ -153,6 +204,10 @@ function calcContainerHeight(elemCount) {
 }
 
 
+/**
+ * Initiates the rendering of subtasks to the task editor
+ * @param {Array} subtasks The list of subtasks of the respective task
+ */
 function listSubtasksEditor(subtasks) {
     currentSubtasks = Array.from(subtasks);
 
@@ -160,6 +215,9 @@ function listSubtasksEditor(subtasks) {
 }
 
 
+/**
+ * Renders the subtasks to the task editor
+ */
 function renderSubtasksEditor() {
     const subtasksList = document.getElementById('subtask-list');
     subtasksList.innerHTML = '';
@@ -176,6 +234,12 @@ function renderSubtasksEditor() {
 }
 
 
+/**
+ * Adds a subtask in the task editor
+ * @param {Object} input
+ * @param {Object} container 
+ * @param {Object} dropdown 
+ */
 function addSubtaskEditor(input, container, dropdown) {
     const inputSubtask = document.getElementById('subtask-input');
     
@@ -191,6 +255,9 @@ function addSubtaskEditor(input, container, dropdown) {
 }
 
 
+/**
+ * Adds a new subtask to the listing
+ */
 function addSubtaskToList() {
     const subtasksList = document.getElementById('subtask-list');
     const index = currentSubtasks.length - 1;
@@ -200,6 +267,11 @@ function addSubtaskToList() {
 }
 
 
+/**
+ * Sets the status sign of a subtask
+ * @param {Number} status The status of a subtask
+ * @returns 
+ */
 function getStatusSign(status) {
     if (status) {
         return './assets/img/checkbox-checked.svg';
@@ -210,12 +282,20 @@ function getStatusSign(status) {
 }
 
 
+/**
+ * Deletes a subtask in the task editor
+ * @param {Number} index The ID of the subtask
+ */
 function deleteSubtaskEditor(index) {
     currentSubtasks.splice(index, 1);
     renderSubtasksEditor();
 }
 
 
+/**
+ * Toggles the status of a subtask in the task editor
+ * @param {Number} index The ID of the subtask
+ */
 function toggleStatusSubtask(index) {
     const checkbox = document.getElementById(`subtask-status-${index}`);
     let status = currentSubtasks[index]['status'];
@@ -224,6 +304,10 @@ function toggleStatusSubtask(index) {
 }
 
 
+/**
+ * Renders the list of assignees to the task viewer
+ * @param {Array} assignees The list of assignees of the respective task
+ */
 function listAssigneesViewer(assignees) {
     const assigneesElem = document.getElementById('modal-task-assignees');
     assigneesElem.innerHTML = '';
@@ -239,13 +323,16 @@ function listAssigneesViewer(assignees) {
 }
 
 
+/**
+ * Renders the list of assignees to the task editor
+ * @param {Array} assignees The list of assignees of the respective task
+ */
 function listAssigneesEditor(assignees) {
     currentAssignees = [];
     for (let i = 0; i < assignees.length; i++) {
         currentAssignees.push(users.find(item => item['email'] == assignees[i]));
     }
 
-    // currentAssignees = Array.from(assignees);
     renderAssignees();
 }
 
@@ -276,20 +363,18 @@ async function saveChanges() {
     if (!validateData(data)) return;
 
     writeDataToArray();
-
     renderDataToViewer(openedTask['statusId'], openedTask['taskId']);
     updateTaskCard();
-
-    try {
-        await saveOnServer('tasks', tasks);
-    } catch {
-        console.log('[tasks] not saved on server.');
-    }
-
+    await saveOnServer('tasks', tasks);
     toggleTaskEditMode();
 }
 
 
+/**
+ * Validates the data from the task editor
+ * @param {Array} data The data to be validated
+ * @returns Validation result
+ */
 function validateData(data) {
     let isFormValid = true;
     for (let i = 0; i < data.length; i++) {
@@ -309,6 +394,9 @@ function validateData(data) {
 }
 
 
+/**
+ * Writes the data from the task editor to the array
+ */
 function writeDataToArray() {
     currTask = tasks[openedTask.statusId][openedTask.taskId];
     currTask['title'] = document.getElementById('title').value;
@@ -320,6 +408,10 @@ function writeDataToArray() {
 }
 
 
+/**
+ * Obtains the email addresses of the assignees
+ * @returns The email addresses of the assignees
+ */
 function getAssigneesEmails() {
     let assigneesEmails = [];
     for (let i = 0; i < currentAssignees.length; i++) {
@@ -329,6 +421,9 @@ function getAssigneesEmails() {
 }
 
 
+/**
+ * Updates the edited task card
+ */
 function updateTaskCard() {
     const statusId = openedTask['statusId'];
     const taskId = openedTask['taskId'];
@@ -337,6 +432,5 @@ function updateTaskCard() {
     const catColor = getCategoryColor(cat);
     const prio = getPriority(statusId, taskId);
 
-    // taskCard.innerHTML = '';
     taskCard.innerHTML = renderTaskCardContent(statusId, taskId, cat, catColor, prio);
 }

@@ -1,21 +1,31 @@
+/**
+ * Time for fading a modal in and out
+ */
 const MODAL_FADE_TIME = 350;
+/**
+ * The currently opened task
+ */
 let openedTask = { statusId: -1, taskId: -1 };
+/**
+ * Information about the used device
+ */
 let isTouchDevice = false;
+/**
+ * The click position on a touch device
+ */
 let clickPos = { x: 0, y: 0 };
+/**
+ * List of tasks filtered by the search function
+ */
 let searchResult = [[], [], [], []];
 
+
+/**
+ * Initiates the board
+ */
 async function initBoard() {
     await init();
-    // try {
-    //     users = await loadFromServer('users');
-    // } catch {
-    //     console.log('[users] not loaded from server.');
-    // }
-    // try {
-    //     tasks = await loadFromServer('tasks');
-    // } catch {
-    //     console.log('[tasks] not loaded from server.');
-    // }
+
     renderTasks();
 
     // Check for touch device
@@ -214,6 +224,10 @@ function toggleModal(id) {
 }
 
 
+/**
+ * Controls the display of the task viewer and editor
+ * @param {Object} modal The modal window to be handled
+ */
 function controlTaskViewer(modal) {
     controlReaderVisibility();
     if (!modal.classList.contains('d-none')) {
@@ -231,6 +245,10 @@ function controlTaskViewer(modal) {
 }
 
 
+/**
+ * Controls the display of the 'Add Task' modal
+ * @param {Object} modal The modal window to be handled
+ */
 function controlAddTaskModal(modal) {
     controlHeaderNavVisibility();
     if (!modal.classList.contains('d-none')) {
@@ -247,6 +265,10 @@ function controlAddTaskModal(modal) {
 }
 
 
+/**
+ * Controls the fade-in of the modal window
+ * @param {Object} modal The modal window to be handled
+ */
 function modalFadeIn(modal) {
     modal.classList.toggle('d-none');
     setTimeout(() => {
@@ -273,6 +295,12 @@ function controlHeaderNavVisibility() {
 }
 
 
+/**
+ * Handles the click on a task card
+ * @param {Event} event The user action
+ * @param {Number} statusId The ID of the task's status
+ * @param {Number} taskId The ID of the task
+ */
 function clickOnTask(event, statusId, taskId) {
     if (isTouchDevice) {
         const mouseX = event.clientX;
@@ -301,15 +329,15 @@ async function openAddTask() {
 }
 
 
+/**
+ * Performs the search
+ */
 function searchTasks() {
     const searchTerm = document.getElementById('find-task--input').value.toLowerCase();
     searchResult = [[], [], [], []];
 
     if (!searchTerm) {
         renderTasks();
-
-        console.log('Suche zurückgesetzt.', searchResult);
-
         return;
     }
 
@@ -322,12 +350,13 @@ function searchTasks() {
         }
     }
 
-    console.log('Suchergebnis:', searchResult);
-
     renderSearchResult();
 }
 
 
+/**
+ * Renders the search result to the board
+ */
 function renderSearchResult() {
     for (let i = 0; i < searchResult.length; i++) {
         renderTasksStatusBySearch(i);
@@ -335,6 +364,10 @@ function renderSearchResult() {
 }
 
 
+/**
+ * Renders the found tasks to their respective status containers
+ * @param {Number} statusId The status ID
+ */
 function renderTasksStatusBySearch(statusId) {
     const statusContainer = document.getElementById(`tasks-status-${statusId}`);
     statusContainer.innerHTML = '';
@@ -352,6 +385,9 @@ function renderTasksStatusBySearch(statusId) {
 }
 
 
+/**
+ * Renders a new task to status 0
+ */
 function renderNewTask() {
     const newTaskId = tasks[0].length - 1;
     const statusContainer = document.getElementById(`tasks-status-0`);

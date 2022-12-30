@@ -20,9 +20,6 @@ async function initSummary() {
  * Checking if guest log in, else Loading currentUser and changing welcome message
  */
 function setCurrentUser() {
-    // const urlParams = new URLSearchParams(window.location.search);
-    // const login = urlParams.get('login');
-    // const user = urlParams.get('user');
     if(JSON.parse(localStorage.getItem('currentUser')) == 'Guest') {
         currentUser = 'Guest';
         localStorage.setItem('currentUser', JSON.stringify(currentUser));
@@ -193,15 +190,7 @@ function getUrgentDateNearest(countUrgent) {
  * @returns The date as string in the required format
  */
 function formatDate(date) {
-    // const dateAsArray = date.split('-');
-    // const day = dateAsArray[2];
-    // const month = months[parseInt(dateAsArray[1])];
-    // const year = dateAsArray[0];
-
-    // return `${month} ${day}, ${year}`;
-
     const dateAsString = new Date(date + 'T00:00:00.000');
-
     return dateAsString.toLocaleDateString('en-GB', {year: 'numeric', month: 'long', day: 'numeric'});
 }
 
