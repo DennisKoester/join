@@ -213,7 +213,7 @@ function getPriority(statusId, taskId) {
  */
 function toggleModal(id) {
     const modal = document.getElementById(id);
-    
+
     if (id == 'modal-task') {
         controlTaskViewer(modal);
     }
@@ -393,4 +393,8 @@ function renderNewTask() {
     const statusContainer = document.getElementById(`tasks-status-0`);
     renderSingleTaskCard(0, newTaskId, statusContainer);
     toggleModal('modal-add-task');
+}
+
+function doNotClose(event) {
+    event.stopPropagation();
 }

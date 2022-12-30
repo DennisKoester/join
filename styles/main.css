@@ -60,7 +60,8 @@ header {
 }
 
 nav {
-    position: absolute;
+    /* position: absolute; */
+    position: fixed;
     top: 0;
     left: 0;
     width: var(--nav-width-desktop);
@@ -201,7 +202,7 @@ nav {
     bottom: 0;
     left: 0;
     right: 0;
-    display: flex;      
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;

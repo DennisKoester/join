@@ -1,3 +1,82 @@
-<div>
-    Here comes the help!
-</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/fonts.css">
+    <link rel="stylesheet" href="./styles/general.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/media_main.css">
+    <link rel="stylesheet" href="./styles/legal_&_help.css">
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
+    <script src="./js/include_html.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/mini_backend.js"></script>
+    <script>setURL('https://gruppe-392.developerakademie.net/smallest_backend_ever');</script>
+    <title>Help</title>
+</head>
+
+<body onload="init()">
+    <header w3-include-html="./assets/templates/header.html"></header>
+    <nav w3-include-html="./assets/templates/navbar.html"></nav>
+    <div class="content-container">
+        <div class="margin-content">
+            <h1>Kanban Definition</h1>
+
+            <p>A kanban board is an agile project management tool designed to help visualize work, limit
+                work-in-progress, and maximize efficiency (or flow). It can help both agile and DevOps teams establish
+                order in their daily work. Kanban boards use cards, columns, and continuous improvement to help
+                technology and service teams commit to the right amount of work, and get it done!</p>
+            <br>
+
+            <h2>History</h2>
+
+            <p>The Japanese word “kanban”, meaning “visual board” or a “sign”, has been used in the sense of a process
+                definition since the 1950s. It was first developed and applied by Toyota as a scheduling system for
+                just-in-time
+                manufacturing. On the other hand, the capitalized term “Kanban” is known and associated with the
+                emergence
+                of
+                the “Kanban Method,” which was first defined in 2007.</p>
+            <br>
+
+            <h2>Summary</h2>
+
+            <p>Here you can find an overview of the amount of tasks and their current statuses.</p>
+            <br>
+
+            <h2>Add Task</h2>
+
+            <p>Here you can create a new task with following parameters:</p>
+
+            <ul>
+                <li><b>Title:</b>Title of the task</li>
+                <li><b>Description:</b>Description of the task in detail</li>
+                <li><b>Category:</b>Choose or add a new category of department</li>
+                <li><b>Assigned to:</b>Choose the members to assign to</li>
+                <li><b>Due date:</b>Set due date for the task/li>
+                <li><b>Prioriy:</b>Choose kind of priority of urgency</li>
+                <li><b>Subtasks:</b>Add subtasks to break the task down in multiple stages</li>
+            </ul>
+            <br>
+            <h2>Board</h2>
+
+            <p>On the board you will find all created tasks which are separated in four sections of <b>"To Do"</b>,
+                <b>"In progress"</b>, <b>"Awaiting feedback"</b> and <b>"Done"</b>.
+            <p>Via drag and drop method you can change the status of the selected task. <br>
+                To see an overview of the details of a task, just click on it and take changes if neccasary. <br>
+                You can also search for a specific task title or its description.</p>
+            <br>
+
+            <h2>Contacts</h2>
+
+            <p>Here you will find all listed contacts. Detail informations are provided for each contact on the side.
+                You are able to edit these or just create a task from there directly for that contact.</p>
+
+        </div>
+    </div>
+</body>
+
+</html>
