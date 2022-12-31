@@ -69,6 +69,7 @@ function renderContactInformation(index) {
     backgroundColorOfSelected(index);
 }
 
+
 function renderContactInformationById(index) {
     document.getElementById(`u-initials${index}`).innerHTML = users[index]['short_name'];
     document.getElementById(`u-initials${index}`).style.backgroundColor = users[index]['color'];
@@ -80,13 +81,25 @@ function renderContactInformationById(index) {
     }
 }
 
-function backgroundColorOfSelected(index) {
+
+/* function backgroundColorOfSelected(index) {
     for (let i = 0; i < users.length; i++) {
         if (document.getElementById(`contact-container${i}`).classList.contains('contacts-selected')) {
             document.getElementById(`contact-container${i}`).classList.remove('contacts-selected');
         }
     }
     document.getElementById(`contact-container${index}`).classList.add('contacts-selected');
+} */
+
+
+function backgroundColorOfSelected(index) {
+    let contacts = document.querySelectorAll('.contact-div');
+    for (let i = 0; i < contacts.length; i++) {
+        contacts[i].classList.remove('activeContact');
+        contacts[i].classList.remove('nohover');
+    }
+    toggleClassList(`contact-container${index}`, 'activeContact');
+    toggleClassList(`contact-container${index}`, 'nohover');
 }
 
 
