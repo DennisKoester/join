@@ -67,6 +67,7 @@ function renderContactInformation(index) {
     `;
     renderContactInformationById(index);
     backgroundColorOfSelected(index);
+    contactSlideInAnimation(); 
 }
 
 
@@ -109,4 +110,14 @@ async function openAddTaskContact(index) {
     console.log(currentAssignees);
     await openAddTask();
     renderAssignees();
+}
+
+
+function contactSlideInAnimation() {
+    let contactCard = document.getElementById('contact-div');
+
+    contactCard.classList.add('animationContact');
+    setTimeout(function () {
+        contactCard.classList.remove('animationContact')
+    }, 225);
 }
