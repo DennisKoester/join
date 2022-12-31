@@ -18,6 +18,10 @@
     width: 55px;
 }
 
+#modal-contact--form {
+    display: flex;
+}
+
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -45,4 +49,26 @@
     background-image: url("../assets/img/profile-icon.png");
     background-repeat: no-repeat;
     background-position: 311px 11px;
+}
+
+.input-phone {
+    background-image: url('../assets/img/phone-icon.png');
+    background-repeat: no-repeat;
+    background-position: 311px 11px;
+}
+
+#user-badge {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: var(--shadow-badge);
+}
+
+#user-badge span {
+    font-size: 47px;
+}
+
+#user-badge img {
+    width: 100%;
 }
