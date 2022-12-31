@@ -74,13 +74,13 @@ function saveUserOnServer() {
 }
 
 /**
- * Render password forgotten html, to reset your password
+ * Render password forgotten html
  */
 function passwordForgotten() {
     document.getElementById('login-master').innerHTML = `
     <div class="login_main signup_main forgotten_main">
         <a class="goback" href="./index.html"><img src="./assets/img/goBack.png"></a>
-        <form class="login_form forgotten_form" action="https://gruppe-392.developerakademie.net/Join/send_mail.php" method="POST">
+        <form class="login_form forgotten_form" onsubmit="onSubmit(event)">
             <h2>I forgot my password</h2>
             <img class="margin_underline" src="./assets/img/horizontal_blue_line.png">
             <span>Don't worry! We will send you an email with the instructions to reset your password.</span>
@@ -90,4 +90,31 @@ function passwordForgotten() {
         </form>             
     </div>
     `;
+}
+
+/**
+ * Sending email to reset password
+ */
+async function onSubmit(event) {
+    event.preventDefault();
+    let formData = new FormData(event.target); //create a FormData based on our Form Element in HTML
+    let response = await action(formData);
+    if(response.ok) {
+        alert('Email gesendet');
+    } else {
+        alert('email nicht gesendet');
+    }
+}
+
+function action(formData) {
+    const input = 'https://gruppe-392.developerakademie.net/join/send_mail.php';
+    const requestInit = {
+        method: 'post',
+        body: formData
+    };
+
+    return fetch(
+        input,
+        requestInit
+    );
 }
