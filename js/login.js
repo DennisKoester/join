@@ -40,17 +40,17 @@ async function login(e) {
         saveUserOnServer();
         window.location.href='./summary.html?login=1';
     } else {
-       showLoginFailedPopup();
+       showPopupMessage('popup-button');
     }
 
     return false
 }
 
 /**
- * Shows the popup "User not found" with animation
+ * Shows the popup message with animation
  */
-function showLoginFailedPopup() {
-    let popup = document.getElementById('popup-button');
+function showPopupMessage(id) {
+    let popup = document.getElementById(id);
 
     popup.classList.add('login_animation');
     setTimeout(function () {
@@ -84,7 +84,7 @@ function passwordForgotten() {
             <h2>I forgot my password</h2>
             <img class="margin_underline" src="./assets/img/horizontal_blue_line.png">
             <span>Don't worry! We will send you an email with the instructions to reset your password.</span>
-            <input class="input_email" id="email" type="email" name="email" placeholder="Email" required>
+            <input class="input_email" id="email-field" type="email" name="email" placeholder="Email" required>
             <div class="login_form_buttons login_bottom_margin">
             <button type="submit" class="login_button">Send me the email</button></div>
         </form>             
@@ -97,12 +97,15 @@ function passwordForgotten() {
  */
 async function onSubmit(event) {
     event.preventDefault();
-    let formData = new FormData(event.target); //create a FormData based on our Form Element in HTML
-    let response = await action(formData);
-    if(response.ok) {
-        alert('Email gesendet');
-    } else {
-        alert('email nicht gesendet');
+    if(checkIfEmailExists()) {
+        let formData = new FormData(event.target); //create a FormData based on our Form Element in HTML
+        let response = await action(formData);
+        if(response.ok) {
+          showPopupMessage('email-reset');
+          setTimeout(function () {
+            window.location.href = './index.html';
+          }, 3000);
+        }
     }
 }
 
@@ -117,4 +120,61 @@ function action(formData) {
         input,
         requestInit
     );
+}
+
+
+/**
+ * Checking if user with entered Email exists
+ */
+function checkIfEmailExists(){
+    let email = document.getElementById('email-field');
+    let user = users.find(u => u.email == email.value);
+    if(user){
+        return true;
+    } else {
+        showPopupMessage('email-failed');
+    }
+}
+
+
+/**
+ * Shows the popup "User not found" with animation
+ */
+function showEmailSendPopup() {
+    let popup = document.getElementById('popup-button');
+
+    popup.classList.add('login_animation');
+    setTimeout(function () {
+        removeAnimation(popup);
+    }, 3000);
+}
+
+/**
+ * Reset the password
+ */
+async function resetPassword(event) {
+    event.preventDefault();
+    let password1 = document.getElementById('password-field-1').value;
+    let password2 = document.getElementById('password-field-2').value;
+
+    if(password1 == password2){
+        const urlParams = new URLSearchParams(window.location.search);
+        const userEmail = urlParams.get('email');
+        let index = users.findIndex(u => u.email == userEmail);
+        users[index]['password'] = password1;
+        await saveOnServer('users', users);
+        showSuccessMessage();
+    } else {
+        showPopupMessage('password-failed');
+    }
+}
+
+/**
+ * Show success message and return to Log in page
+ */
+function showSuccessMessage() {
+    showPopupMessage('password-success');
+        setTimeout(function () {
+            window.location.href = './index.html';
+        }, 3000);
 }
