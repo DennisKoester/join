@@ -77,6 +77,18 @@ function renderContactInformation(index) {
     renderContactInformationById(index);
     backgroundColorOfSelected(index);
     contactSlideInAnimation();
+
+    if (window.innerWidth < 940) {
+        showContactOnMobile();
+    }
+}
+
+
+function showContactOnMobile() {
+    let contactsContainer = document.getElementById('contacts-container');
+    contactsContainer.style.display = 'block';
+    toggleClassList('contacts-menu', 'd-none');
+    toggleClassList('new-contact-btn', 'd-none');
 }
 
 
