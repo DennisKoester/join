@@ -120,7 +120,7 @@ function getPageName() {
 function controlMenuHighlighting() {
     const path = getPageName();
 
-    if (path != 'help') {
+    if (path != 'menu-help') {
         let menuToActivate = document.getElementById(path);
         menuToActivate.classList.add('nav-item-active');
     }
