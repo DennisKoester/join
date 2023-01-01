@@ -67,7 +67,7 @@ function renderContactInformation(index) {
         </div>
         <div class="contact-and-edit">
             <div class="contact-information">Contact Information</div>
-            <div class="edit-contact"><img src="./assets/img/edit_contact.png"><span class="edit-contact-text">Edit Contact</span></div>
+            <div id="edit-contact" class="edit-contact"><img src="./assets/img/edit_contact.png"><span class="edit-contact-text">Edit Contact</span></div>
         </div>
         <div class="email-margins"><b>Email</b></div>
         <a class="users-email-big" id="u-email${index}">testmail</a>
@@ -76,19 +76,32 @@ function renderContactInformation(index) {
     `;
     renderContactInformationById(index);
     backgroundColorOfSelected(index);
-    contactSlideInAnimation();
-
+    
     if (window.innerWidth < 940) {
         showContactOnMobile();
+    } else{
+        contactSlideInAnimation();
+
     }
 }
 
 
 function showContactOnMobile() {
     let contactsContainer = document.getElementById('contacts-container');
-    contactsContainer.style.display = 'block';
+    let contentContainer = document.getElementById('content-container');
+    if (!contactsContainer.style.display) {
+        contactsContainer.style.display = 'block';
+        contentContainer.style.setProperty('margin-top', '61px');
+        document.body.style.backgroundColor = 'var(--bg-body)';
+    }else{
+        contactsContainer.style.removeProperty('display');
+        contentContainer.style.removeProperty('margin-top');
+        document.body.style.backgroundColor = 'white';
+    }
     toggleClassList('contacts-menu', 'd-none');
     toggleClassList('new-contact-btn', 'd-none');
+    toggleClassList('edit-contact', 'd-none');
+    toggleClassList('contact-edit-btn', 'd-none');
 }
 
 

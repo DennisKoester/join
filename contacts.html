@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="./styles/add_task.css">
     <link rel="stylesheet" href="./styles/media_add-task.css">
     <link rel="stylesheet" href="./styles/board_modal.css">
-    <link rel="stylesheet" href="./styles/media_board_modal.css ">
+    <link rel="stylesheet" href="./styles/media_board_modal.css">
+    <link rel="stylesheet" href="./styles/media_summary.css ">
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
     <script src="./js/include_html.js"></script>
     <script src="./js/data.js"></script>
@@ -32,23 +33,29 @@
 <body onload="initContacts()">
     <header w3-include-html="./assets/templates/header.html"></header>
     <nav w3-include-html="./assets/templates/navbar.html"></nav>
-    <div class="content-container">
+    <div id="content-container" class="content-container">
         <div class="flex-contacts-page">
             <div id="contacts-menu" class="contacts-menu">
                 <div id="contacts-menu-scrollable"></div>
             </div>
             <div id="contacts-container" class="contacts-container">
+                <h3 style="display: none;">Kanban Project Management Tool</h3>
                 <div class="contacts-headline">
+                    <img onclick="showContactOnMobile()" class="contacts-back-btn d-none"
+                        src="./assets/img/arrowBack.svg" alt="arrow">
                     <h1>Contacts</h1>
-                    <img src="./assets/img/vertical-blue-line.png">
+                    <div id="headline-separator"></div>
                     <span class="contacts-subheadline">Better with a team</span>
                 </div>
 
                 <div id="contact-div"></div>
 
             </div>
-            <button onclick="createContact()" id="new-contact-btn" class="contact-page-button">New contact <img class="contact-button-logo"
-                    src="./assets/img/contact-button-logo.png"></button>
+            <div onclick="createContact()" id="new-contact-btn" class="contact-page-button">New contact <img
+                    class="contact-button-logo" src="./assets/img/contact-button-logo.png"></div>
+            <div id="contact-edit-btn" class="d-none">
+                <div class="contact-edit-btn"><img src="./assets/img/pencil.svg" alt="pencil"></div>
+            </div>
         </div>
 
         <div class="flex-just-center">
@@ -71,7 +78,7 @@
         <div id="modal-contact" class="modal-container d-none">
             <div id="modal-contact-content" onclick="doNotClose(event)">
                 <img class="modal-task-close" src="./assets/img/clear-x.svg" onclick="toggleModal('modal-contact')"
-                        alt="close">
+                    alt="close">
                 <div id="modal-contact--title-container">
                     <img id="modal-contact--logo" src="./assets/img/logo_nav.png" alt="logo">
                     <div id="modal-contact--title">Add contact</div>
