@@ -31,7 +31,6 @@ function assigneeHTML(i, assignee) {
             <label class="flex-btw">
                 <div>${assignee}</div>
                 <img id="checkbox${i}" class="checkbox" src="./assets/img/checkbox-assignee-checked.svg" alt="checkbox">
-                <!-- <input id="${assignee}" class="checkbox" type="checkbox" id="assignee" name="assignee" value="" checked> -->
             </label>
         </li>`
 }
@@ -58,7 +57,6 @@ function subTaskHTML(subtask, i) {
     return /*html*/ `
     <div class="subtask">
         <img src="./assets/img/checkbox-unchecked.svg" alt="checkbox">
-        <!-- <input onclick="checkSelectionSubtask(${i})" type="checkbox" id="subtask${i}" name="subtask" value="subtask"> -->
         <label for="">${subtask}</label>
         <img onclick="deleteSubtask(${i})" src="./assets/img/black-x.svg" alt="" class="filter-btn">
     </div>`;

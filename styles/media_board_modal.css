@@ -15,6 +15,7 @@
         left: 0;
         right: 0;
         border-radius: unset;
+        background-color: var(--bg-body);
     }
 
     .modal-add-task-content {
