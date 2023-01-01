@@ -103,7 +103,7 @@ nav {
     display: flex;
     justify-content: center;
     width: 28px;
-    height: 28px;
+    height: auto;
 }
 
 #menu-legal {

@@ -432,7 +432,12 @@ select {
     padding: 0px;
     gap: 25px;
     position: fixed;
-    top: 800px;
+    position: relative;
+    top: 250px;
+}
+
+.submit-btns2 {
+    padding-bottom: 20px;
 }
 
 .clear-btn {

@@ -17,10 +17,12 @@ button {
     font-size: 21px;
 }
 
-#modal-task, #modal-add-task {
+#modal-task,
+#modal-add-task {
     opacity: 0;
     transition: opacity 350ms ease-out;
 }
+
 .modal-show {
     opacity: 1 !important;
 }
@@ -220,4 +222,5 @@ button {
     max-height: 95vh;
     overflow-y: auto;
     padding-right: 20px;
+    margin: 20px;
 }
