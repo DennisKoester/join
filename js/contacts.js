@@ -48,6 +48,7 @@ function renderContactDivHTML(index) {
     insertUserInformationById(index);
 }
 
+
 function insertUserInformationById(index) {
     document.getElementById(`username-initials${index}`).innerHTML = users[index]['short_name'];
     document.getElementById(`username-initials${index}`).style.backgroundColor = users[index]['color'];
@@ -55,6 +56,7 @@ function insertUserInformationById(index) {
     document.getElementById(`users-email${index}`).innerHTML = users[index]['email'];
     document.getElementById(`users-email${index}`).href = 'mailto:' + users[index]['email'];
 }
+
 
 function renderContactInformation(index) {
     document.getElementById('contact-div').innerHTML = `
@@ -76,27 +78,28 @@ function renderContactInformation(index) {
     `;
     renderContactInformationById(index);
     backgroundColorOfSelected(index);
-    
+
     if (window.innerWidth < 940) {
-        showContactOnMobile();
-    } else{
+        toggleShowContactOnMobile();
+    } else {
         contactSlideInAnimation();
 
     }
 }
 
 
-function showContactOnMobile() {
+function toggleShowContactOnMobile() {
     let contactsContainer = document.getElementById('contacts-container');
     let contentContainer = document.getElementById('content-container');
     if (!contactsContainer.style.display) {
         contactsContainer.style.display = 'block';
-        contentContainer.style.setProperty('margin-top', '61px');
+        contentContainer.style.setProperty('margin-top', '50px');
         document.body.style.backgroundColor = 'var(--bg-body)';
-    }else{
+    } else {
         contactsContainer.style.removeProperty('display');
         contentContainer.style.removeProperty('margin-top');
         document.body.style.backgroundColor = 'white';
+        resetBackgroundColorSelected();
     }
     toggleClassList('contacts-menu', 'd-none');
     toggleClassList('new-contact-btn', 'd-none');
@@ -135,6 +138,15 @@ function backgroundColorOfSelected(index) {
     }
     toggleClassList(`contact-container${index}`, 'activeContact');
     toggleClassList(`contact-container${index}`, 'nohover');
+}
+
+
+function resetBackgroundColorSelected() {
+    let contacts = document.querySelectorAll('.contact-div');
+    for (let i = 0; i < contacts.length; i++) {
+        contacts[i].classList.remove('activeContact');
+        contacts[i].classList.remove('nohover');
+    }
 }
 
 

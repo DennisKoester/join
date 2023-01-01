@@ -74,12 +74,6 @@
         background-color: white;
     }
 
-    h3 {
-        display: block !important;
-        font-size: 16px;
-        font-weight: 400;
-    }
-
     .contacts-back-btn {
         display: block !important;
         position: absolute;
@@ -144,6 +138,14 @@
     }
 }
 
+@media(max-width: 780px) {
+    h3 {
+        display: block !important;
+        font-size: 16px;
+        font-weight: 400;
+    }
+}
+
 @media(max-width: 420px) {
     .content-container {
         margin-top: calc(var(--header-height-mobile) + 83px);
@@ -171,45 +173,50 @@
         display: none;
     }
 
+    .contacts-container{
+        margin: 40px 10px 0 10px;
+        width: 100%;
+    }
+
     .contacts-menu {
         width: 100%;
         min-width: 0;
     }
 
-    h3{
+    h3 {
         margin-top: 0;
         margin-bottom: 5px;
     }
 
-    .contacts-headline h1{
+    .contacts-headline h1 {
         font-size: 38px;
     }
 
-    .contacts-back-btn{
+    .contacts-back-btn {
         height: 16px;
         width: 16px;
     }
 
-    .contacts-subheadline{
+    .contacts-subheadline {
         font-size: 16px;
         margin-top: 5px;
     }
 
-    #headline-separator{
+    #headline-separator {
         margin-top: 15px !important;
     }
 
-    .username-initials-big{
+    .username-initials-big {
         height: 60px;
         width: 60px;
         font-size: 20px;
     }
 
-    .username-big{
+    .username-big {
         font-size: 26px;
     }
 
-    .contact-and-edit{
+    .contact-and-edit {
         margin: 20px 0 20px 0;
     }
 
