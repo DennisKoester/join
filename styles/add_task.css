@@ -433,7 +433,7 @@ select {
     gap: 25px;
     position: fixed;
     position: relative;
-    top: 250px;
+    top: 230px;
 }
 
 .submit-btns2 {
@@ -497,7 +497,6 @@ select {
     justify-content: center;
     padding: 18px 10px;
     gap: 10px;
-    width: 177px;
     height: 61px;
     background: #2A3647;
     color: #FFFFFF;
@@ -532,7 +531,7 @@ select {
     width: 124px;
 }
 
-.added-popup {
+.popup-btn {
     position: fixed;
     display: flex;
     justify-content: center;
@@ -572,7 +571,7 @@ select {
     }
 }
 
-.added-popup img {
+.popup-btn img {
     height: 26px;
     width: 22px;
     object-fit: contain;

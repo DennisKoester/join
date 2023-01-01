@@ -389,7 +389,7 @@ function getDataForNewTask() {
 
     if (submitValidation(title, desc, date, assigneesMail)) {
         addNewTask(title, desc, date, assigneesMail);
-        showAddedTaskPopup();
+        showPopup('task-popup-btn');
         directsToBoard();
     }
 }
@@ -576,8 +576,8 @@ function dateLimitation() {
 /**
  * Shows the popup "Task added to board" with animation
  */
-function showAddedTaskPopup() {
-    let popup = document.getElementById('popup-btn');
+function showPopup(id) {
+    let popup = document.getElementById(id);
 
     popup.classList.add('animation');
     setTimeout(function () {

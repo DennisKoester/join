@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/media_main.css">
     <link rel="stylesheet" href="./styles/contacts.css">
+    <link rel="stylesheet" href="./styles/media_contacts.css">
     <link rel="stylesheet" href="./styles/contacts_modal.css">
     <link rel="stylesheet" href="./styles/add_task.css">
     <link rel="stylesheet" href="./styles/media_add-task.css">
@@ -33,10 +34,10 @@
     <nav w3-include-html="./assets/templates/navbar.html"></nav>
     <div class="content-container">
         <div class="flex-contacts-page">
-            <div class="contacts-menu">
+            <div id="contacts-menu" class="contacts-menu">
                 <div id="contacts-menu-scrollable"></div>
             </div>
-            <div class="contacts-container">
+            <div id="contacts-container" class="contacts-container">
                 <div class="contacts-headline">
                     <h1>Contacts</h1>
                     <img src="./assets/img/vertical-blue-line.png">
@@ -46,8 +47,14 @@
                 <div id="contact-div"></div>
 
             </div>
-            <button class="contact-page-button">New contact <img class="contact-button-logo"
+            <button onclick="createContact()" id="new-contact-btn" class="contact-page-button">New contact <img class="contact-button-logo"
                     src="./assets/img/contact-button-logo.png"></button>
+        </div>
+
+        <div class="flex-just-center">
+            <div id="contact-popup-btn" class="popup-btn">
+                <div>Contact succesfully created</div>
+            </div>
         </div>
 
         <!-- MODAL: Add task -->

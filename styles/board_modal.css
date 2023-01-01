@@ -41,6 +41,7 @@ button {
 
 .modal-addtask-wrapper {
     width: 75%;
+    height: 95%;
 }
 
 .modal-task-content {
@@ -222,5 +223,4 @@ button {
     max-height: 95vh;
     overflow-y: auto;
     padding-right: 20px;
-    margin: 20px;
 }
