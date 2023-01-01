@@ -53,7 +53,7 @@ let users = [
         "name": "Ali Alles",
         "email": "aalles@company.com",
         "password": "test765",
-        "phone": "+49 176123412",
+        "phone": "",
         "short_name": "AA",
         "color": "HSL(280, 100%, 50%)",
         "image": ""
