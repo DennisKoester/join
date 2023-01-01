@@ -107,7 +107,7 @@ function getPageName() {
     path = path.split('/').pop();
     path = path.split('.').shift();
     path = 'menu-' + path;
-    
+
     console.log(path);
 
     return path;

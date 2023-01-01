@@ -48,9 +48,10 @@ header {
     width: 49px;
     height: 49px;
     border-radius: 50%;
-    outline: solid 3px var(--bg-color-main);
+    border: solid 3px var(--bg-color-main);
     padding: 2px;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .headline-tooltype {
