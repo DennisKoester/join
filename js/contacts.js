@@ -129,3 +129,8 @@ function contactSlideInAnimation() {
         contactCard.classList.remove('animationContact')
     }, 225);
 }
+
+
+function createContact() {
+    showPopup('contact-popup-btn');
+}

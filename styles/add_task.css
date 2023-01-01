@@ -532,7 +532,7 @@ select {
     width: 124px;
 }
 
-.added-popup {
+.popup-btn {
     position: fixed;
     display: flex;
     justify-content: center;
@@ -572,7 +572,7 @@ select {
     }
 }
 
-.added-popup img {
+.popup-btn img {
     height: 26px;
     width: 22px;
     object-fit: contain;

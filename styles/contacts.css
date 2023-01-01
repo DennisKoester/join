@@ -19,6 +19,7 @@
     bottom: 0;
     overflow-y: auto;
     padding: 10px 48px 10px 48px;
+    box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
 }
@@ -293,14 +294,24 @@
 }
 
 @media(max-width: 420px) {
+    .content-container {
+        margin-top: calc(var(--header-height-mobile) + 83px);
+    }
+
     .contact-page-button {
         font-size: 16px;
         width: 150px;
+        height: 43px;
     }
 
     .contact-button-logo {
         width: 20px;
         height: 20px;
+    }
+
+    .username-initials {
+        height: 30px;
+        width: 30px;
     }
 }
 
