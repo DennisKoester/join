@@ -12,49 +12,70 @@
     gap: 12px;
     padding: 66px 46px;
     background-color: var(--bg-color-main);
+    color: white;
 }
 
 #modal-contact--logo {
     width: 55px;
 }
 
+#modal-contact--title {
+    font-size: 61px;
+    font-weight: 700;
+}
+
+#modal-contact--subtitle {
+    font-size: 27px;
+    font-weight: 400;
+}
+
 #modal-contact--form {
     display: flex;
+    padding: 50px 50px 50px 70px;
+    background-color: white;
+    align-items: center;
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
 }
 
 .contact-form input {
-    width: 350px;
+    width: 422px;
     height: 45px;
     border: 1px solid #ccc;
     border-radius: 9px;
     margin-bottom: 35px;
     padding-left: 15px;
     padding-top: 5px;
+    font-size: 21px;
 }
 
 .input-email {
     background-image: url("../assets/img/mail-icon.png");
     background-repeat: no-repeat;
-    background-position: 310px 12px;
+    background-position: 382px 12px;
 }
 
 .input-profile {
     background-image: url("../assets/img/profile-icon.png");
     background-repeat: no-repeat;
-    background-position: 311px 11px;
+    background-position: 383px 11px;
 }
 
 .input-phone {
     background-image: url('../assets/img/phone-icon.png');
     background-repeat: no-repeat;
-    background-position: 311px 11px;
+    background-position: 383px 11px;
+}
+
+#contact-submit-btns {
+    display: flex;
+    gap: 25px;
+
 }
 
 #user-badge {
