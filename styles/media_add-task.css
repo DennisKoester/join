@@ -6,6 +6,10 @@
     .content-add-task {
         margin-left: 40px;
     }
+
+    #modal-add-task-content .content-add-task {
+        margin-right: 45px;
+    }
 }
 
 @media(max-width: 1200px) {

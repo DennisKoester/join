@@ -18,7 +18,7 @@
     right: 0;
     bottom: 0;
     overflow-y: auto;
-    padding: 10px 48px 0 48px;
+    padding: 10px 48px 10px 48px;
     display: flex;
     flex-direction: column;
 }
@@ -131,7 +131,7 @@
 }
 
 .contacts-underline {
-    height: 2px;
+    min-height: 2px;
     width: 100%;
     background-color: var(--dimmed);
     margin: 14px 0 14px 0;
@@ -170,7 +170,7 @@
     border-radius: 50%;
     border-style: solid;
     border-color: white;
-    font-size: 45px;
+    font-size: 47px;
     margin-right: 10px;
     background-color: aqua;
     color: white;
@@ -181,6 +181,7 @@
     display: flex;
     justify-items: flex-start;
     justify-content: space-between;
+    align-items: center;
     margin-top: 30px;
     margin-bottom: 30px;
     max-width: 392px;
@@ -189,13 +190,13 @@
 .edit-contact {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
     color: #2A3647;
     cursor: pointer;
 }
 
 .edit-contact-text {
-    margin-top: 10px;
+    /* margin-top: 10px; */
 }
 
 .email-margins {
@@ -264,6 +265,10 @@
 }
 
 @media(max-width: 940px) {
+    #contacts-menu-scrollable {
+        margin-bottom: calc(var(--nav-height-mobile) + 90px);
+    }
+
     .contacts-container {
         display: none;
     }

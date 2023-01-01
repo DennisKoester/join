@@ -10,7 +10,7 @@ async function initContacts() {
 function renderContacts() {
     for (let i = 0; i < alphabet.length; i++) {
         for (let j = 0; j < users.length; j++) {
-            if (alphabet[i] == users[j]['name'].charAt(0)) {
+            if (alphabet[i] == getFirstLetterOfLastName(j)) {
                 let container = document.getElementById('contacts-menu-scrollable');
                 container.innerHTML += `<div class="alphabet-letter">${alphabet[i]}</div>`;
                 container.innerHTML += `<div class="contacts-underline"></div>`;
@@ -18,12 +18,21 @@ function renderContacts() {
             }
         }
         for (let j = 0; j < users.length; j++) {
-            if (alphabet[i] == users[j]['name'].charAt(0)) {
+            if (alphabet[i] == getFirstLetterOfLastName(j)) {
                 renderContactDivHTML(j);
             }
         }
     }
 }
+
+
+function getFirstLetterOfLastName(j) {
+    let user = users[j]['name'];
+    let names = user.split(' ');
+    let surname = names[names.length - 1];
+    return surname[0];
+}
+
 
 function renderContactDivHTML(index) {
     document.getElementById('contacts-menu-scrollable').innerHTML += `
@@ -67,7 +76,7 @@ function renderContactInformation(index) {
     `;
     renderContactInformationById(index);
     backgroundColorOfSelected(index);
-    contactSlideInAnimation(); 
+    contactSlideInAnimation();
 }
 
 
@@ -107,7 +116,6 @@ function backgroundColorOfSelected(index) {
 async function openAddTaskContact(index) {
     currentAssignees = [];
     currentAssignees.push(users[index]);
-    console.log(currentAssignees);
     await openAddTask();
     renderAssignees();
 }
