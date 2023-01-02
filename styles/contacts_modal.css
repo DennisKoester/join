@@ -58,22 +58,26 @@
     background-position: calc(100% - 18px);
 }
 
+.contact-form input::placeholder {
+    font-size: 21px;
+}
+
 .input-email {
     background-image: url("../assets/img/mail-icon.png");
     background-repeat: no-repeat;
-    background-position: 382px 12px;
+    /* background-position: 382px 12px; */
 }
 
 .input-profile {
     background-image: url("../assets/img/profile-icon.png");
     background-repeat: no-repeat;
-    background-position: 383px 11px;
+    /* background-position: 383px 11px; */
 }
 
 .input-phone {
     background-image: url('../assets/img/phone-icon.png');
     background-repeat: no-repeat;
-    background-position: 383px 11px;
+    /* background-position: 383px 11px; */
 }
 
 #contact-submit-btns {
@@ -88,8 +92,8 @@
 }
 
 #contact-save-btn button {
-    padding-right: 60px;
-    padding-left: 60px;
+    height: unset;
+    padding: 12px 60px;
 }
 
 #user-badge {

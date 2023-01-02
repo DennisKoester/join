@@ -22,7 +22,7 @@
 
     #modal-contact--form {
         justify-content: center;
-        padding: 60px 25px;
+        padding: 60px 20px;
     }
 
     #user-badge {
@@ -31,5 +31,75 @@
         left: 0;
         right: 0;
         margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #modal-contact-content {
+        width: 95%;
+    }
+
+    #modal-contact--title-container {
+        padding: 50px 45px 100px;
+    }
+
+    #modal-contact--title {
+        font-size: 47px;
+    }
+
+    #modal-contact--subtitle {
+        font-size: 21px;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    .contact-form input {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #modal-contact--title-container {
+        padding: 50px 25px 80px;
+    }
+
+    #modal-contact--title {
+        font-size: 36px;
+    }
+
+    #modal-contact--subtitle {
+        font-size: 18px;
+    }
+
+    #modal-contact--divider {
+        width: 90px;
+    }
+
+    #user-badge {
+        width: 105px;
+        height: 105px;
+        top: -60px;
+    }
+}
+
+@media screen and (max-width: 310px) {
+    #modal-contact--subtitle {
+        display: none;
+    }
+}
+
+@media screen and (max-height: 620px) {
+    #modal-contact--title-container {
+        padding-top: 25px;
+    }
+
+    #modal-contact--form {
+        padding-bottom: 40px;
+    }
+
+    .contact-form input {
+        margin-bottom: 20px;
     }
 }
