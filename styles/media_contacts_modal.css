@@ -12,6 +12,11 @@
         flex-direction: column;
     }
 
+    #modal-contact .modal-task-close {
+        filter: brightness(0) invert(1);
+        -webkit-filter: brightness(0) invert(1);
+    }
+
     #modal-contact--title-container {
         padding: 100px 45px;
     }
@@ -58,6 +63,12 @@
     .contact-form input {
         width: 100%;
     }
+
+    #modal-contact .modal-task-close {
+        top: 20px;
+        right: 20px;
+        width: 18px;
+    }
 }
 
 @media screen and (max-width: 400px) {
@@ -87,6 +98,10 @@
 @media screen and (max-width: 310px) {
     #modal-contact--subtitle {
         display: none;
+    }
+
+    #modal-contact--title {
+        font-size: 30px;
     }
 }
 

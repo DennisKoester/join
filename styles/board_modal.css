@@ -87,6 +87,7 @@ button {
     right: 35px;
     width: 25px;
     cursor: pointer;
+    z-index: 1;
 }
 
 #modal-task-cat {
