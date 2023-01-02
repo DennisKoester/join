@@ -1,0 +1,120 @@
+@media screen and (max-width: 1250px) {
+    #contact-submit-btns {
+        justify-content: center;
+    }
+
+    #contact-submit-btns .clear-btn,
+    #modal-contact--logo {
+        display: none;
+    }
+
+    #modal-contact-content {
+        flex-direction: column;
+    }
+
+    #modal-contact .modal-task-close {
+        filter: brightness(0) invert(1);
+        -webkit-filter: brightness(0) invert(1);
+    }
+
+    #modal-contact--title-container {
+        padding: 100px 45px;
+    }
+
+    .contact-form input {
+        width: 327px;
+    }
+
+    #modal-contact--form {
+        justify-content: center;
+        padding: 60px 20px;
+    }
+
+    #user-badge {
+        position: absolute;
+        top: -70px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #modal-contact-content {
+        width: 95%;
+    }
+
+    #modal-contact--title-container {
+        padding: 50px 45px 100px;
+    }
+
+    #modal-contact--title {
+        font-size: 47px;
+    }
+
+    #modal-contact--subtitle {
+        font-size: 21px;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    .contact-form input {
+        width: 100%;
+    }
+
+    #modal-contact .modal-task-close {
+        top: 20px;
+        right: 20px;
+        width: 18px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #modal-contact--title-container {
+        padding: 50px 25px 80px;
+    }
+
+    #modal-contact--title {
+        font-size: 36px;
+    }
+
+    #modal-contact--subtitle {
+        font-size: 18px;
+    }
+
+    #modal-contact--divider {
+        width: 90px;
+    }
+
+    #user-badge {
+        width: 105px;
+        height: 105px;
+        top: -60px;
+    }
+}
+
+@media screen and (max-width: 310px) {
+    #modal-contact--subtitle {
+        display: none;
+    }
+
+    #modal-contact--title {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-height: 620px) {
+    #modal-contact--title-container {
+        padding-top: 25px;
+    }
+
+    #modal-contact--form {
+        padding-bottom: 40px;
+    }
+
+    .contact-form input {
+        margin-bottom: 20px;
+    }
+}

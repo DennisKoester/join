@@ -117,6 +117,8 @@ function renderContactInformationById(index) {
     if (users[index]['phone']) {
         document.getElementById(`u-phone-number${index}`).innerHTML = users[index]['phone'];
     }
+    document.getElementById('contact-edit-btn').setAttribute('onclick', `editContact(${index})`);
+    document.getElementById('edit-contact').setAttribute('onclick', `editContact(${index})`);
 }
 
 
@@ -168,6 +170,63 @@ function contactSlideInAnimation() {
 }
 
 
-function createContact() {
+/**
+ * Saves the new contact
+ */
+function saveNewContact() {
+
+
     showPopup('contact-popup-btn');
+}
+
+
+/**
+ * Opens the contact editor
+ * @param {Number} id The id of the contact
+ */
+function editContact(id) {
+    const inputName = document.getElementById('username');
+    const inputEmail = document.getElementById('email');
+    const inputPhone = document.getElementById('phone');
+    const badgeNew = document.getElementById('user-badge--newuser');
+    const badgeEdit = document.getElementById('user-badge--initials');
+    const btnsNew = document.getElementById('contact-submit-btns');
+    const containerSave = document.getElementById('contact-save-btn');
+    const btnSave = document.getElementById('contact-update-btn');
+
+    inputName.value = users[id]['name'];
+    inputEmail = users[id]['email'];
+    inputPhone = users[id]['phone'];
+    badgeNew.classList.add('d-none');
+    badgeEdit.classList.remove('d-none');
+    
+
+
+    toggleContactsModal();
+}
+
+
+/**
+ * Writes the modified contact data to the database and re-renders the display
+ * @param {Number} id The ID of the contact
+ */
+function updateContact(id) {
+
+}
+
+
+/**
+ * Toggles the visibility of the contacts modal
+ */
+function toggleContactsModal() {
+    const modal = document.getElementById('modal-contact');
+    if (!modal.classList.contains('d-none')) {
+        modal.classList.remove('modal-show');
+        setTimeout(() => {
+            modal.classList.toggle('d-none');
+        }, MODAL_FADE_TIME);
+    }
+    else {
+        modalFadeIn(modal);
+    }
 }

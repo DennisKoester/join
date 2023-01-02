@@ -1,9 +1,6 @@
-let currentUser;
-
-
 async function initLogin() {
     await loadDataFromServer();
-    // animation();
+    animation();
     signUpQuery();
 }
 
@@ -37,8 +34,8 @@ async function login(e) {
     currentUser = users.find(u => u.email == email.value && u.password == password.value);
 
     if (currentUser) {
-        saveUserOnServer();
-        window.location.href='./summary.html?login=1';
+        await saveOnServer('currentUser', currentUser);
+        window.location.href='./summary.html?login=2';
     } else {
        showPopupMessage('popup-button');
     }

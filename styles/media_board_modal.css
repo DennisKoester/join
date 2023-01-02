@@ -42,7 +42,7 @@
         padding: 30px 50px 0 30px;
     }
 
-    .modal-task-close {
+    #content-board .modal-task-close {
         top: 10px;
         right: 22px;
         width: 20px;

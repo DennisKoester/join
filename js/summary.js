@@ -1,4 +1,3 @@
-let currentUser
 
 /**
  * Initialises the summary
@@ -19,17 +18,23 @@ async function initSummary() {
 /**
  * Checking if guest log in, else Loading currentUser and changing welcome message
  */
-function setCurrentUser() {
-    if(JSON.parse(localStorage.getItem('currentUser')) == 'Guest') {
-        currentUser = 'Guest';
-        localStorage.setItem('currentUser', JSON.stringify(currentUser));
-        document.getElementById('welcome-name-mobile').innerHTML = currentUser;
-        document.getElementById('welcome-name-desk').innerHTML = currentUser;
-    } else {
-    currentUser = JSON.parse(localStorage.getItem('currentUser'));
+async function setCurrentUser() {
+    await loadDataFromServer();
+    const urlParams = new URLSearchParams(window.location.search);
+    const login = urlParams.get('login');
+    if(login == 1) {
+        currentUser = {
+            "name": "Guest",
+            "password": "",
+            "phone": "",
+            "short_name": "G",
+            "color": "HSL(150, 100%, 50%)",
+        };
+        await saveOnServer('currentUser', currentUser);
+    }
+    await loadCurrentUserFromServer();
     document.getElementById('welcome-name-mobile').innerHTML = currentUser['name'];
     document.getElementById('welcome-name-desk').innerHTML = currentUser['name'];
-    }
 }
 
 

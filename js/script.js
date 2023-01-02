@@ -34,6 +34,10 @@ async function loadDataFromServer() {
     categories = await loadFromServer('categories');
 }
 
+async function loadCurrentUserFromServer() {
+    await downloadFromServer();
+    currentUser = JSON.parse(backend.getItem('currentUser'))
+}
 
 /**
  * loading data from server and return it in variable

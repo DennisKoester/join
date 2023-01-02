@@ -117,7 +117,8 @@
         margin-top: 20px;
     }
 
-    .contact-edit-btn {
+    /* .contact-edit-btn */
+    #contact-edit-btn {
         position: absolute;
         display: flex !important;
         justify-content: center;
@@ -131,7 +132,8 @@
         cursor: pointer;
     }
 
-    .contact-edit-btn:hover {
+    /* .contact-edit-btn:hover */
+    #contact-edit-btn:hover {
         background: #29ABE2;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
