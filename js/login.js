@@ -1,6 +1,6 @@
 async function initLogin() {
     await loadDataFromServer();
-    // animation();
+    animation();
     signUpQuery();
 }
 
