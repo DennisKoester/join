@@ -1,0 +1,35 @@
+@media screen and (max-width: 1250px) {
+    #contact-submit-btns {
+        justify-content: center;
+    }
+
+    #contact-submit-btns .clear-btn,
+    #modal-contact--logo {
+        display: none;
+    }
+
+    #modal-contact-content {
+        flex-direction: column;
+    }
+
+    #modal-contact--title-container {
+        padding: 100px 45px;
+    }
+
+    .contact-form input {
+        width: 327px;
+    }
+
+    #modal-contact--form {
+        justify-content: center;
+        padding: 60px 25px;
+    }
+
+    #user-badge {
+        position: absolute;
+        top: -70px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+}

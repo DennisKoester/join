@@ -31,6 +31,7 @@
 }
 
 #modal-contact--form {
+    position: relative;
     display: flex;
     padding: 120px 50px 120px 70px;
     background-color: white;
@@ -54,6 +55,7 @@
     padding-top: 5px;
     font-size: 21px;
     padding-right: 55px;
+    background-position: calc(100% - 18px);
 }
 
 .input-email {
