@@ -18,7 +18,8 @@ button {
 }
 
 #modal-task,
-#modal-add-task {
+#modal-add-task,
+#modal-contact {
     opacity: 0;
     transition: opacity 350ms ease-out;
 }
