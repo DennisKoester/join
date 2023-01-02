@@ -194,6 +194,8 @@ let categories = [
     }
 ];
 
+let currentUser = [];
+
 const prio = [
     {
         "name": "Low",
