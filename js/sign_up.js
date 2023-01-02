@@ -19,7 +19,7 @@ async function registerUser(e) {
     if(user) {
         showSignupFailedPopup();
     } else {
-        users.push({name: username.value, email: email.value, password: password.value, short_name: initials, color: color});
+        users.push({name: username.value, email: email.value, password: password.value, phone: "", short_name: initials, color: color, image: ""});
         await saveOnServer('users', users);
         window.location.href = './index.html?msg=success';
     }
