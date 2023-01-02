@@ -216,7 +216,7 @@ function setBadge(id) {
     const badgeEdit = document.getElementById('user-badge--initials');
     badgeNew.classList.add('d-none');
     badgeEdit.classList.remove('d-none');
-    badgeEdit.backgroundColor = users[id]['color'];
+    badgeEdit.style.backgroundColor = users[id]['color'];
     badgeEdit.innerHTML = users[id]['short_name'];
 }
 
