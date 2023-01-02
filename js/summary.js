@@ -32,6 +32,7 @@ async function setCurrentUser() {
         };
         await saveOnServer('currentUser', currentUser);
     }
+    await loadCurrentUserFromServer();
     document.getElementById('welcome-name-mobile').innerHTML = currentUser['name'];
     document.getElementById('welcome-name-desk').innerHTML = currentUser['name'];
 }

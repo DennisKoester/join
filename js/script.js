@@ -32,9 +32,12 @@ async function loadDataFromServer() {
     users = await loadFromServer('users');
     tasks = await loadFromServer('tasks');
     categories = await loadFromServer('categories');
-    currentUser = await loadFromServer('currentUser');
 }
 
+async function loadCurrentUserFromServer() {
+    await downloadFromServer();
+    currentUser = JSON.parse(backend.getItem('currentUser'))
+}
 
 /**
  * loading data from server and return it in variable
