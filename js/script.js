@@ -225,7 +225,9 @@ function nameValidation(username, msgElemId, className) {
 }
 
 /**
- * Create inititials from first letters of Username
+ * Create initials from first letters of Username
+ * @param {String} name The full name of the user
+ * @returns String
  */
 function getInitials(name) {
     const fullName = name.split(' ');
@@ -236,6 +238,7 @@ function getInitials(name) {
 
 /**
  * Generate random color for User initials background
+ * @returns HSL color as String
  */
 function generateColors() {
     let h = Math.floor(Math.random() * 359);

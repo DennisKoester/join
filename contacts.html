@@ -23,6 +23,7 @@
     <script src="./js/data.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/contacts.js"></script>
+    <script src="./js/contacts_modal.js"></script>
     <script src="./js/board.js"></script>
     <script src="./js/add_task.js"></script>
     <script src="./js/add_task_html.js"></script>
@@ -97,13 +98,13 @@
                     <form action="#" onsubmit="return false;" class="contact-form">
                         <div class="form-input-container">
                             <input class="input-profile" id="username" name="username" placeholder="Name" required>
-                            <label for="username" id="name-validiation" class="input-validation hidden">Please enter first and last name.</label>
+                            <label for="username" id="name-validation" class="input-validation hidden">Please enter first and last name.</label>
                         </div>
                         <div class="form-input-container">
                             <input class="input-email" id="email" type="email" name="email" placeholder="Email" required>
                             <label for="email" id="mail-validation" class="input-validation hidden">This email address already exists!</label>
                         </div>
-                        <input class="input-phone" id="phone" type="tel" name="phone" placeholder="Phone" required>
+                        <input class="input-phone" id="phone" type="tel" name="phone" placeholder="Phone">
                         <div id="contact-submit-btns">
                             <button onclick="toggleContactsModal()" type="reset" class="clear-btn">Cancel
                                 <img src="./assets/img/clear-x.svg">

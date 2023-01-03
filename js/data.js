@@ -5,8 +5,7 @@ let users = [
         "password": "test123",
         "phone": "",
         "short_name": "HM",
-        "color": "HSL(300, 100%, 50%)",
-        "image": ""
+        "color": "HSL(300, 100%, 50%)"
     },
 
     {
@@ -15,8 +14,7 @@ let users = [
         "password": "test987",
         "phone": "",
         "short_name": "SM",
-        "color": "HSL(120, 100%, 50%)",
-        "image": ""
+        "color": "HSL(120, 100%, 50%)"
     },
 
     {
@@ -25,8 +23,7 @@ let users = [
         "password": "test246",
         "phone": "",
         "short_name": "JM",
-        "color": "HSL(180, 100%, 50%)",
-        "image": ""
+        "color": "HSL(180, 100%, 50%)"
     },
 
     {
@@ -35,8 +32,7 @@ let users = [
         "password": "test135",
         "phone": "",
         "short_name": "MM",
-        "color": "HSL(36, 100%, 50%)",
-        "image": ""
+        "color": "HSL(36, 100%, 50%)"
     },
 
     {
@@ -45,8 +41,7 @@ let users = [
         "password": "test567",
         "phone": "",
         "short_name": "RZ",
-        "color": "HSL(85, 100%, 50%)",
-        "image": ""
+        "color": "HSL(85, 100%, 50%)"
     },
 
     {
@@ -55,8 +50,7 @@ let users = [
         "password": "test765",
         "phone": "",
         "short_name": "AA",
-        "color": "HSL(280, 100%, 50%)",
-        "image": ""
+        "color": "HSL(280, 100%, 50%)"
     }
 ];
 
