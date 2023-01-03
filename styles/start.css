@@ -1,21 +1,21 @@
-.header_position {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+.start_background {
+    background-color: var(--bg-body);
+    z-index: 3;
+    animation: fadeBackground 2s ease-in-out;
+    animation-direction: normal;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-left: 30px;
-    margin-right: 30px;
-    padding: 30px;
-    height: 182px;
+@keyframes fadeBackground {
+    0% {
+        opacity: 0%;
+    }
+    50% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
 }
-
-
 
 .name_validation {
     font-size: 12px;
@@ -27,9 +27,13 @@
 }
 
 .signup {
+    position: absolute;
+    top: 67px;
+    right: 114px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
+    gap: 35px;
 }
 
 .signup_mobile {
@@ -37,7 +41,7 @@
 }
 
 .signup p {
-    margin-right: 20px;
+    font-size: 25px;
 }
 
 .signup a {
@@ -52,7 +56,7 @@
     background-color: var(--bg-color-main);
     border: none;
     color: #fff;
-    padding: 10px 20px;
+    padding: 16px;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -61,34 +65,46 @@
     padding-bottom: 30px;
 }
 
-.join_logo {
-    position: absolute;
-    top: 28px;
-    left: 60px;
-    width: 100px;
-    height: auto;
+.logo_animation {
     animation: slideLogo 2s ease-in-out;
     animation-direction: normal;
+    z-index: 5;
+}
+
+.login_logo {
+    position: absolute;
+    top: 80px;
+    left: 77px;
+    width: 100px;
+    height: auto;
 }
 
 @keyframes slideLogo {
     0% {
         width: 272px;
-        left: 40%;
-        top: 30vh;
-
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto auto;
     }
 
     50% {
         width: 272px;
-        left: 40%;
-        top: 30vh;
-
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto auto;
     }
 
     100% {
-        left: 60px;
-        top: 28px;
+        width: 100px;
+        top: 80px;
+        left: 77px;
+        right: 100%;
+        bottom: 100vh;
+        height: auto;
     }
 }
 
@@ -340,29 +356,6 @@
     object-fit: contain;
 }
 
-@media (max-width:1250px) {
-    @keyframes slideLogo {
-        0% {
-            width: 272px;
-            left: 35%;
-            top: 30vh;
-    
-        }
-    
-        50% {
-            width: 272px;
-            left: 35%;
-            top: 30vh;
-    
-        }
-    
-        100% {
-            left: 60px;
-            top: 28px;
-        }
-    }
-}
-
 @media (max-width:850px) {
     .forgotten_main {
         width: auto !important;
@@ -383,6 +376,43 @@
 }
 
 @media (max-width:650px) {
+    .login_logo {
+        position: absolute;
+        top: 37px;
+        left: 38px;
+        width: 64px;
+        height: auto;
+    }
+    
+    @keyframes slideLogo {
+        0% {
+            width: 180px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto auto;
+        }
+    
+        50% {
+            width: 180px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto auto;
+        }
+    
+        100% {
+            width: 64px;
+            top: 37px;
+            left: 38px;
+            right: 100%;
+            bottom: 100vh;
+            height: auto;
+        }
+    }
+
     .login_main {
         width: auto;
         padding-left: 20px;
@@ -435,12 +465,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 30px;
+        gap: 20px;
         margin-top: 30px;
     }
 
     .signup_mobile p {
-        margin-right: 20px;
+        font-size: 21px;
     }
     
     .signup_mobile a {
@@ -455,14 +485,14 @@
         background-color: var(--bg-color-main);
         border: none;
         color: #fff;
-        padding: 10px 20px;
+        padding: 16px;
         border-radius: 5px;
         cursor: pointer;
     }
 
     .login_master {
         height: auto;
-        margin-top: 182px;
+        margin-top: 194px;
     }
 }
 
