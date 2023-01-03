@@ -204,14 +204,18 @@ if (hasTouch()) { // remove all the :hover stylesheets
 
 /**
  * Validating that full name is given
+ * @param {Object} username The input field for the user name
+ * @param {String} msgElemId The ID of the HTML message element
+ * @param {String} className The CSS class name to be used
+ * @returns Boolean
  */
-function nameValidation(username, container, className) {
+function nameValidation(username, msgElemId, className) {
     if (!username.value.includes(' ')) {
-        document.getElementById(container).classList.remove(className);
+        document.getElementById(msgElemId).classList.remove(className);
         return false;
     }
     else {
-        document.getElementById(container).classList.add(className);
+        document.getElementById(msgElemId).classList.add(className);
         return true;
     }
 }
