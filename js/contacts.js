@@ -1,5 +1,5 @@
 let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-
+let currentContactMail = '';
 
 async function initContacts() {
     await init();
@@ -117,7 +117,7 @@ function renderContactInformationById(index) {
         document.getElementById(`u-phone-number${index}`).innerHTML = users[index]['phone'];
     }
     document.getElementById('contact-edit-btn').setAttribute('onclick', `editContact(${index})`);
-    document.getElementById('edit-contact').setAttribute('onclick', `editContact(${index})`);
+    document.getElementById('edit-contact').setAttribute('onclick', `openContactEditor(${index})`);
 }
 
 
@@ -204,11 +204,38 @@ function hideLabels() {
 
 
 /**
+ * Validates the input contact data
+ */
+function validateContactData() {
+    const inputName = document.getElementById('username');
+    const inputEmail = document.getElementById('email');
+    const inputPhone = document.getElementById('phone');
+    let isFormValid = true;
+    if(!nameValidation(inputName, 'name-validation', 'hidden')) isFormValid = false;
+
+}
+
+
+function validateContactMail(email, isNewContact) {
+
+}
+
+
+/**
  * Saves the new contact
  */
 function saveNewContact() {
+    if (!validateContactData()) return;
 
+    // TODO:
+    // 1. Set Initiales
+    // 2. Set User-Color
+    // 3. Write data to users[]
+    // 4. Write data to server
+    // 5. Re-render contact list
+    // 6. Render new contact details
 
+    toggleContactsModal();
     showPopup('contact-popup-btn');
 }
 
@@ -217,7 +244,7 @@ function saveNewContact() {
  * Opens the contact editor
  * @param {Number} id The id of the contact
  */
-function editContact(id) {
+function openContactEditor(id) {
     setFormData(id);
     setBadge(id);
     setEditorButtons(id);
@@ -236,6 +263,7 @@ function setFormData(id) {
     const inputPhone = document.getElementById('phone');
     inputName.value = users[id]['name'];
     inputEmail.value = users[id]['email'];
+    currentContactMail = users[id]['email'];
     inputPhone.value = users[id]['phone'];
 }
 
@@ -273,6 +301,20 @@ function setEditorButtons(id) {
  * @param {Number} id The ID of the contact
  */
 function updateContact(id) {
+    if (!validateContactData()) return;
+
+    // TODO:
+    // 1. Check for modified initiales and update, if necessary
+    // 2. Write data to users[id]
+    // 3. Write data to server
+    // 4. Re-render contact list
+    // 5. Re-render contact details
+    // 6. Check if modified user is logged in user. If so:
+    // 6.1 Update user icon in header
+    // 6.2 Update currentUser (local and on server)
+
+    toggleContactsModal();
+    // TODO: showPopup('...');
 
 }
 
