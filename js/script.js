@@ -171,9 +171,13 @@ function hideCtxMenu(ctxMenu) {
     }, HEADER_CTX_MENU_ANIM_TIME);
 }
 
-
-function logout() {
-
+/**
+ * Logout and reset currentUser
+ */
+async function logout() {
+    currentUser = [];
+    await saveOnServer('currentUser', currentUser);
+    window.location.href = './index.html';
 }
 
 // Disable Touch On Mobile //
