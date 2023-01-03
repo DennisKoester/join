@@ -22,20 +22,6 @@ async function guestLogin() {
     window.location.href = './summary.html?login=1'
 }
 
-
-/**
- * Success message after sign up
- */
-// function signUpQuery() {
-//     const urlParams = new URLSearchParams(window.location.search);
-//     const msg = urlParams.get('msg');
-//     if (msg) {
-//         document.getElementById('msg-box').innerHTML = 'Your registration was successful, please log in now!';
-//         document.getElementById('msg-box').classList.remove('d-none');
-//     }
-// }
-
-
 /**
  * Checking if User data is correct to grant or deny access
  */
