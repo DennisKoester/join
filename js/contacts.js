@@ -184,14 +184,51 @@ function saveNewContact() {
  * @param {Number} id The id of the contact
  */
 function editContact(id) {
+    setFormData(id);
+    setBadge(id);
+    setEditorButtons(id);
+
+    toggleContactsModal();
+}
+
+
+/**
+ * Writes the contact data to the editor
+ * @param {Number} id The ID of the contact
+ */
+function setFormData(id) {
     const inputName = document.getElementById('username');
     const inputEmail = document.getElementById('email');
     const inputPhone = document.getElementById('phone');
+    inputName.value = users[id]['name'];
+    inputEmail.value = users[id]['email'];
+    inputPhone.value = users[id]['phone'];
+}
+
+
+/**
+ * Sets the User badge in the contact editor
+ * @param {Number} id The ID of the contact
+ */
+function setBadge(id) {
     const badgeNew = document.getElementById('user-badge--newuser');
     const badgeEdit = document.getElementById('user-badge--initials');
+    badgeNew.classList.add('d-none');
+    badgeEdit.classList.remove('d-none');
+    badgeEdit.style.backgroundColor = users[id]['color'];
+    badgeEdit.innerHTML = users[id]['short_name'];
+}
+
+
+/**
+ * Sets the buttons in the contact editor
+ * @param {Number} id The ID of the contact
+ */
+function setEditorButtons(id) {
     const btnsNew = document.getElementById('contact-submit-btns');
     const containerSave = document.getElementById('contact-save-btn');
     const btnSave = document.getElementById('contact-update-btn');
+<<<<<<< HEAD
 
     inputName.value = users[id]['name'];
     inputEmail.value = users[id]['email'];
@@ -202,6 +239,11 @@ function editContact(id) {
 
 
     toggleContactsModal();
+=======
+    btnsNew.classList.add('d-none');
+    containerSave.classList.remove('d-none');
+    btnSave.setAttribute('onclick', `updateContact(${id})`);
+>>>>>>> 2cd7fb0a288e7c09ad022687bebd435c4fd633ef
 }
 
 
