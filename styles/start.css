@@ -89,14 +89,14 @@
         margin: auto auto;
     }
 
-    50% {
+    /* 50% {
         width: 272px;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
         margin: auto auto;
-    }
+    } */
 
     100% {
         width: 100px;
@@ -394,14 +394,14 @@
             margin: auto auto;
         }
     
-        50% {
+        /* 50% {
             width: 180px;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
             margin: auto auto;
-        }
+        } */
     
         100% {
             width: 64px;
