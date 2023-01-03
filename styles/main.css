@@ -38,6 +38,7 @@ header {
 #logo-header-mobile {
     display: none;
     width: 32px;
+    cursor: pointer;
 }
 
 #menu-help {
@@ -81,6 +82,7 @@ nav {
 
 #logo-nav {
     width: 100px;
+    cursor: pointer;
 }
 
 #menu {

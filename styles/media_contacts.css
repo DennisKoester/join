@@ -59,12 +59,13 @@
     #contacts-menu-scrollable {
         margin-bottom: calc(var(--header-height-mobile) + 86px);
         box-shadow: none;
-        padding-bottom: var(--nav-height-mobile);
+        padding-bottom: calc(var(--nav-height-mobile) + 30px);
     }
 
     .contacts-container {
         display: none;
         height: calc(100vh - var(--header-height-mobile) - var(--nav-height-mobile));
+        padding-top: 0;
     }
 
     .content-container {
@@ -141,7 +142,7 @@
 
 @media(max-width: 420px) {
     .content-container {
-        margin-top: calc(var(--header-height-mobile) + 83px);
+        /* margin-top: calc(var(--header-height-mobile) + 83px); */
     }
 
     .contacts-menu {

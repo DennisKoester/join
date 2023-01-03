@@ -180,6 +180,7 @@ async function logout() {
     window.location.href = './index.html';
 }
 
+
 // Disable Touch On Mobile //
 
 function hasTouch() {

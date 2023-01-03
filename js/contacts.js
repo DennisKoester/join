@@ -94,7 +94,7 @@ function toggleShowContactOnMobile() {
     let contentContainer = document.getElementById('content-container');
     if (!contactsContainer.style.display) {
         contactsContainer.style.display = 'block';
-        contentContainer.style.setProperty('margin-top', '50px');
+        // contentContainer.style.setProperty('margin-top', '50px');
         document.body.style.backgroundColor = 'var(--bg-body)';
     } else {
         contactsContainer.style.removeProperty('display');
@@ -117,7 +117,7 @@ function renderContactInformationById(index) {
     if (users[index]['phone']) {
         document.getElementById(`u-phone-number${index}`).innerHTML = users[index]['phone'];
     }
-    document.getElementById('contact-edit-btn').setAttribute('onclick', `editContact(${index})`);
+    document.getElementById('contact-edit-btn').setAttribute('onclick', `openContactEditor(${index})`);
     document.getElementById('edit-contact').setAttribute('onclick', `openContactEditor(${index})`);
 }
 
