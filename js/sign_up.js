@@ -8,11 +8,14 @@ async function registerUser(e) {
     let username = document.getElementById("username");
     let email = document.getElementById("email");
     let password = document.getElementById("password");
-    nameValidation(username);
+    let isNameValid = nameValidation(username, 'name-validation', 'd-none');
+
+    if (!isNameValid) return;
+
     let initials = getInitials(username.value);
     let color = generateColors();
 
-    users = await loadFromServer('users');
+    // users = await loadFromServer('users');
     //checking if e-mail is already in use
     let user = users.find(u => u.email == email.value);
 
@@ -27,33 +30,6 @@ async function registerUser(e) {
     return false;
 }
 
-/**
- * Validating that full name is given
- */
-function nameValidation(username) {
-    if (!username.value.includes(' ')) {
-        document.getElementById('name-validation').classList.remove('d_none');
-        document.getElementById('username').style.borderColor = 'red';
-    }
-}
-
-/**
- * Create inititials from first letters of Username
- */
-function getInitials(name) {
-    const fullName = name.split(' ');
-    const initials = fullName.shift().charAt(0) + fullName.pop().charAt(0);
-    console.log(initials);
-    return initials.toUpperCase();
-}
-
-/**
- * Generate random color for User initials background
- */
-function generateColors() {
-    let h = Math.floor(Math.random() * 359);
-    return color = `hsl(${h}, 100%, 50%)`;
-}
 
 /**
  * Shows the popup "Email already in use" with animation

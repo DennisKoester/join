@@ -6,7 +6,7 @@ async function initLogin() {
 
 
 function animation() {
-    setTimeout(() => { document.getElementById('preloader').classList.add('d_none') }, 1000);
+    setTimeout(() => { document.getElementById('preloader').classList.add('d-none') }, 1000);
 }
 
 
@@ -32,7 +32,7 @@ function signUpQuery() {
     const msg = urlParams.get('msg');
     if (msg) {
         document.getElementById('msg-box').innerHTML = 'Your registration was successful, please log in now!';
-        document.getElementById('msg-box').classList.remove('d_none');
+        document.getElementById('msg-box').classList.remove('d-none');
     }
 }
 

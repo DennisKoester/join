@@ -201,3 +201,35 @@ if (hasTouch()) { // remove all the :hover stylesheets
     } catch (ex) { }
 }
 
+
+/**
+ * Validating that full name is given
+ */
+function nameValidation(username, container, className) {
+    if (!username.value.includes(' ')) {
+        document.getElementById(container).classList.remove(className);
+        return false;
+    }
+    else {
+        document.getElementById(container).classList.add(className);
+        return true;
+    }
+}
+
+/**
+ * Create inititials from first letters of Username
+ */
+function getInitials(name) {
+    const fullName = name.split(' ');
+    const initials = fullName.shift().charAt(0) + fullName.pop().charAt(0);
+    console.log(initials);
+    return initials.toUpperCase();
+}
+
+/**
+ * Generate random color for User initials background
+ */
+function generateColors() {
+    let h = Math.floor(Math.random() * 359);
+    return color = `hsl(${h}, 100%, 50%)`;
+}
