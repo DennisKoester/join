@@ -93,15 +93,11 @@ function validateMailInput(email) {
 async function saveNewContact() {
     if (!validateContactData(true)) return;
 
-    // TODO:
-    // 1. Set Initiales
     const name = document.getElementById('username').value;
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
     const initials = getInitials(name);
-    // 2. Set User-Color
     const color = generateColors();
-    // 3. Write data to users[]
     users.push({
         'name': name,
         'email': email,
@@ -110,11 +106,8 @@ async function saveNewContact() {
         'short_name': initials,
         'color': color
     });
-    // 4. Write data to server
     await saveOnServer('users', users);
-    // 5. Re-render contact list
     renderContacts();
-    // 6. Render new contact details
     renderContactInformation(users.length - 1);
 
     toggleContactsModal();
@@ -182,22 +175,38 @@ function setEditorButtons(id) {
  * Writes the modified contact data to the database and re-renders the display
  * @param {Number} id The ID of the contact
  */
-function updateContact(id) {
+async function updateContact(id) {
     if (!validateContactData()) return;
 
+    updateUserData(id);
+    await saveOnServer('users', users);
+    renderContacts();
+    renderContactInformation(id);
+    
     // TODO:
-    // 1. Check for modified initiales and update, if necessary
-    // 2. Write data to users[id]
-    // 3. Write data to server
-    // 4. Re-render contact list
-    // 5. Re-render contact details
     // 6. Check if modified user is logged in user. If so:
     // 6.1 Update user icon in header
     // 6.2 Update currentUser (local and on server)
 
     toggleContactsModal();
-    // TODO: showPopup('...');
+    showPopup('contact-edit-popup-btn');
+}
 
+
+/**
+ * Updates the user data
+ * @param {Number} id The user ID
+ */
+function updateUserData(id) {
+    const name = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const initials = getInitials(name);
+
+    users[id]['name'] = name;
+    users[id]['email'] = email;
+    users[id]['phone'] = phone;
+    users[id]['short_name'] = initials;
 }
 
 
