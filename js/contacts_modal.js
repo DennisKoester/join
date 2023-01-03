@@ -113,8 +113,9 @@ async function saveNewContact() {
     // 4. Write data to server
     await saveOnServer('users', users);
     // 5. Re-render contact list
-    
+    renderContacts();
     // 6. Render new contact details
+    renderContactInformation(users.length - 1);
 
     toggleContactsModal();
     showPopup('contact-popup-btn');
