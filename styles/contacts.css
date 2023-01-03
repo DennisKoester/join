@@ -7,7 +7,7 @@
     position: relative;
     background-color: white;
     width: 453px;
-    min-width: 350px;
+    min-width: 400px;
     height: calc(100vh - 90px);
 }
 
@@ -18,14 +18,17 @@
     right: 0;
     bottom: 0;
     overflow-y: auto;
-    padding: 10px 38px 10px 38px;
+    padding: 10px 15px 10px 15px;
     box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
 }
 
 .contacts-container {
-    margin: 82px 58px 0 58px;
+    padding: 82px 58px 20px 58px;
+    overflow-y: auto;
+    height: calc(100vh - 90px);
+    width: 100%;
 }
 
 /* .contacts-selected {
@@ -143,6 +146,10 @@
     color: var(--highlight);
     text-decoration: none;
     font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
 }
 
 .contacts-underline {

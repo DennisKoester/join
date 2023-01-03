@@ -39,7 +39,7 @@ function renderContactDivHTML(index) {
     document.getElementById('contacts-menu-scrollable').innerHTML += `
     <div id="contact-container${index}" class="contact-div" onclick="renderContactInformation(${index})">
         <div class="username-initials" id="username-initials${index}"></div>
-        <div>
+        <div style="width: 75%;">
             <div id="users-name${index}">Hans Test</div>
             <a class="users-email" id="users-email${index}">hans@test.de</a>
         </div>
@@ -55,7 +55,7 @@ function insertUserInformationById(index) {
     document.getElementById(`username-initials${index}`).style.backgroundColor = users[index]['color'];
     document.getElementById(`users-name${index}`).innerHTML = users[index]['name'];
     document.getElementById(`users-email${index}`).innerHTML = users[index]['email'];
-    document.getElementById(`users-email${index}`).href = 'mailto:' + users[index]['email'];
+    // document.getElementById(`users-email${index}`).href = 'mailto:' + users[index]['email'];
 }
 
 
