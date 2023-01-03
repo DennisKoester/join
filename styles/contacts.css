@@ -29,12 +29,9 @@
     overflow-y: auto;
     height: calc(100vh - 90px);
     width: 100%;
-}
 
-/* .contacts-selected {
-    background-color: var(--bg-color-main);
-    color: white;
-} */
+    -webkit-overflow-scrolling: touch;
+}
 
 .contacts-headline {
     display: flex;

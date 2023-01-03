@@ -94,7 +94,6 @@ function toggleShowContactOnMobile() {
     let contentContainer = document.getElementById('content-container');
     if (!contactsContainer.style.display) {
         contactsContainer.style.display = 'block';
-        // contentContainer.style.setProperty('margin-top', '50px');
         document.body.style.backgroundColor = 'var(--bg-body)';
     } else {
         contactsContainer.style.removeProperty('display');
@@ -120,16 +119,6 @@ function renderContactInformationById(index) {
     document.getElementById('contact-edit-btn').setAttribute('onclick', `openContactEditor(${index})`);
     document.getElementById('edit-contact').setAttribute('onclick', `openContactEditor(${index})`);
 }
-
-
-/* function backgroundColorOfSelected(index) {
-    for (let i = 0; i < users.length; i++) {
-        if (document.getElementById(`contact-container${i}`).classList.contains('contacts-selected')) {
-            document.getElementById(`contact-container${i}`).classList.remove('contacts-selected');
-        }
-    }
-    document.getElementById(`contact-container${index}`).classList.add('contacts-selected');
-} */
 
 
 function backgroundColorOfSelected(index) {

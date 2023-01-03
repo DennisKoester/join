@@ -141,9 +141,9 @@
 }
 
 @media(max-width: 420px) {
-    .content-container {
-        /* margin-top: calc(var(--header-height-mobile) + 83px); */
-    }
+    /* .content-container {
+        margin-top: calc(var(--header-height-mobile) + 83px);
+    } */
 
     .contacts-menu {
         min-width: 120px !important;
