@@ -206,18 +206,52 @@ function hideLabels() {
 /**
  * Validates the input contact data
  */
-function validateContactData() {
+function validateContactData(isNewContact) {
     const inputName = document.getElementById('username');
     const inputEmail = document.getElementById('email');
-    const inputPhone = document.getElementById('phone');
     let isFormValid = true;
-    if(!nameValidation(inputName, 'name-validation', 'hidden')) isFormValid = false;
-
+    if (!nameValidation(inputName, 'name-validation', 'hidden')) isFormValid = false;
+    if (!validateContactMail(inputEmail, isNewContact)) isFormValid = false;
 }
 
 
+/**
+ * Validates the input mail address and differentiates between new and edited contact
+ * @param {Object} email The input field for the contact email
+ * @param {Boolean} isNewContact Flag to determin whether a new contact is to be validated
+ * @returns Boolean
+ */
 function validateContactMail(email, isNewContact) {
+    if (isNewContact) {
+        return validateMailInput(email);
+    }
+    else {
+        if (email.value != currentContactMail) {
+            return validateMailInput(email);
+        }
+        else {
+            return true;
+        }
+    }
+}
 
+
+/**
+ * Validates the input email address
+ * @param {Object} email The input field for the contact email address
+ * @returns Boolean
+ */
+function validateMailInput(email) {
+    const validMailMsg = document.getElementById('mail-validation');
+    let emailMatch = users.find(u => u.email == email.value);
+    if (emailMatch) {
+        validMailMsg.classList.remove('hidden');
+        return false;
+    }
+    else {
+        validMailMsg.classList.add('hidden');
+        return true;
+    }
 }
 
 
@@ -225,7 +259,7 @@ function validateContactMail(email, isNewContact) {
  * Saves the new contact
  */
 function saveNewContact() {
-    if (!validateContactData()) return;
+    if (!validateContactData(true)) return;
 
     // TODO:
     // 1. Set Initiales
