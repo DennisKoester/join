@@ -170,6 +170,40 @@ function contactSlideInAnimation() {
 
 
 /**
+ * Initiates the contact form
+ */
+function openContactForm() {
+    resetInputs();
+    hideLabels();
+    toggleContactsModal()
+}
+
+
+/**
+ * Resets all input fields in the contact form
+ */
+function resetInputs() {
+    const inputName = document.getElementById('username');
+    const inputEmail = document.getElementById('email');
+    const inputPhone = document.getElementById('phone');
+    inputName.value = '';
+    inputEmail.value = '';
+    inputPhone.value = '';
+}
+
+
+/**
+ * Hides the message labels in the contact form
+ */
+function hideLabels() {
+    const nameValid = document.getElementById('name-validiation');
+    const mailValid = document.getElementById('mail-validation');
+    nameValid.classList.add('hidden');
+    mailValid.classList.add('hidden');
+}
+
+
+/**
  * Saves the new contact
  */
 function saveNewContact() {
