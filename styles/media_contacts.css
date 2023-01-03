@@ -57,7 +57,9 @@
 
 @media(max-width: 940px) {
     #contacts-menu-scrollable {
-        margin-bottom: calc(var(--nav-height-mobile) + 90px);
+        margin-bottom: calc(var(--header-height-mobile) + 86px);
+        box-shadow: none;
+        padding-bottom: var(--nav-height-mobile);
     }
 
     .contacts-container {
@@ -66,12 +68,13 @@
     }
 
     .content-container {
-        margin-top: calc(var(--header-height-mobile) + 93px);
+        /* margin-top: calc(var(--header-height-mobile) + 93px); */
         overflow: hidden;
     }
 
     .contacts-menu {
         width: 100%;
+        margin-top: calc(var(--header-height-mobile) + 15px);
     }
 
     .contact-page-button {

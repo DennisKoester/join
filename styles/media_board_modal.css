@@ -21,6 +21,7 @@
     .modal-add-task-content {
         height: 100%;
         max-height: unset;
+        padding-bottom: var(--nav-height-mobile);
     }
 }
 
