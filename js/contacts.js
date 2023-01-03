@@ -228,7 +228,6 @@ function setEditorButtons(id) {
     const btnsNew = document.getElementById('contact-submit-btns');
     const containerSave = document.getElementById('contact-save-btn');
     const btnSave = document.getElementById('contact-update-btn');
-<<<<<<< HEAD
 
     inputName.value = users[id]['name'];
     inputEmail.value = users[id]['email'];
@@ -239,11 +238,9 @@ function setEditorButtons(id) {
 
 
     toggleContactsModal();
-=======
     btnsNew.classList.add('d-none');
     containerSave.classList.remove('d-none');
     btnSave.setAttribute('onclick', `updateContact(${id})`);
->>>>>>> 2cd7fb0a288e7c09ad022687bebd435c4fd633ef
 }
 
 
