@@ -105,7 +105,7 @@
     }
 }
 
-@media screen and (max-height: 620px) {
+@media screen and (max-height: 650px) {
     #modal-contact--title-container {
         padding-top: 25px;
     }
@@ -114,7 +114,7 @@
         padding-bottom: 40px;
     }
 
-    .contact-form input {
-        margin-bottom: 20px;
+    .form-input-container {
+        margin-bottom: 10px;
     }
 }

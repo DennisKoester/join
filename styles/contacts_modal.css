@@ -45,12 +45,18 @@
     /* align-items: center; */
 }
 
+.form-input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
 .contact-form input {
     width: 422px;
     height: 45px;
     border: 1px solid #ccc;
     border-radius: 9px;
-    margin-bottom: 35px;
+    /* margin-bottom: 5px; */
     padding-left: 15px;
     padding-top: 5px;
     font-size: 21px;
@@ -80,15 +86,26 @@
     /* background-position: 383px 11px; */
 }
 
+.input-validation {
+    font-size: 12px;
+    color: red;
+    margin-top: 5px;
+    /* width: 100%;
+    text-align: left; */
+    padding-left: 15px;
+}
+
 #contact-submit-btns {
     display: flex;
     gap: 25px;
+    margin-top: 35px;
 }
 
 #contact-save-btn {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 35px;
 }
 
 #contact-save-btn button {
