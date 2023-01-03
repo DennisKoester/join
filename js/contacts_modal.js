@@ -180,9 +180,8 @@ function setEditorButtons(id) {
 async function updateContact(id) {
     if (!validateContactData()) return;
 
-    updateUserData(id);
-    updateTaskAssignment(id);
-    await saveOnServer('users', users);
+    await updateUserData(id);
+    await updateTaskAssignment(id);
     renderContacts();
     renderContactInformation(id);
     
@@ -201,7 +200,7 @@ async function updateContact(id) {
  * Updates the user data
  * @param {Number} id The user ID
  */
-function updateUserData(id) {
+async function updateUserData(id) {
     const name = document.getElementById('username').value;
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
@@ -211,6 +210,8 @@ function updateUserData(id) {
     users[id]['email'] = email;
     users[id]['phone'] = phone;
     users[id]['short_name'] = initials;
+
+    await saveOnServer('users', users);
 }
 
 
@@ -218,7 +219,7 @@ function updateUserData(id) {
  * Updates the task's assignees, if a user's email has been modified
  * @param {Number} id The user ID
  */
-function updateTaskAssignment(id) {
+async function updateTaskAssignment(id) {
     if (currentContactMail == users[id]['email']) return;
 
     for (let s = 0; s < tasks.length; s++) {
@@ -229,6 +230,8 @@ function updateTaskAssignment(id) {
             }
         }
     }
+
+    await saveOnServer('tasks', tasks);
 }
 
 
