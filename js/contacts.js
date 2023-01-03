@@ -1,5 +1,4 @@
 let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-let currentContactMail = '';
 
 async function initContacts() {
     await init();
@@ -8,10 +7,12 @@ async function initContacts() {
 
 
 function renderContacts() {
+    let container = document.getElementById('contacts-menu-scrollable');
+    container.innerHTML = '';
     for (let i = 0; i < alphabet.length; i++) {
         for (let j = 0; j < users.length; j++) {
             if (alphabet[i] == getFirstLetterOfLastName(j)) {
-                let container = document.getElementById('contacts-menu-scrollable');
+                // let container = document.getElementById('contacts-menu-scrollable');
                 container.innerHTML += `<div class="alphabet-letter">${alphabet[i]}</div>`;
                 container.innerHTML += `<div class="contacts-underline"></div>`;
                 break;

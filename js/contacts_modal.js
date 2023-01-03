@@ -1,3 +1,5 @@
+let currentContactMail = '';
+
 /**
  * Initiates the contact form
  */
@@ -179,6 +181,7 @@ async function updateContact(id) {
     if (!validateContactData()) return;
 
     updateUserData(id);
+    updateTaskAssignment(id);
     await saveOnServer('users', users);
     renderContacts();
     renderContactInformation(id);
@@ -188,6 +191,7 @@ async function updateContact(id) {
     // 6.1 Update user icon in header
     // 6.2 Update currentUser (local and on server)
 
+    currentContactMail = '';
     toggleContactsModal();
     showPopup('contact-edit-popup-btn');
 }
@@ -207,6 +211,24 @@ function updateUserData(id) {
     users[id]['email'] = email;
     users[id]['phone'] = phone;
     users[id]['short_name'] = initials;
+}
+
+
+/**
+ * Updates the task's assignees, if a user's email has been modified
+ * @param {Number} id The user ID
+ */
+function updateTaskAssignment(id) {
+    if (currentContactMail == users[id]['email']) return;
+
+    for (let s = 0; s < tasks.length; s++) {
+        for (let t = 0; t < tasks[s].length; t++) {
+            const assigneeId = tasks[s][t]['assignees'].indexOf(currentContactMail);
+            if (assigneeId >= 0) {
+                tasks[s][t]['assignees'][assigneeId] = users[id]['email'];
+            }
+        }
+    }
 }
 
 
