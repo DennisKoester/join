@@ -12,6 +12,8 @@ async function init() {
 
     await loadDataFromServer();
 
+    await loadCurrentUserFromServer();
+
     hasTouch();
 
     handleWelcomeOnMobile();
@@ -29,13 +31,13 @@ async function init() {
 
 
 async function loadDataFromServer() {
+    await downloadFromServer();
     users = await loadFromServer('users');
     tasks = await loadFromServer('tasks');
     categories = await loadFromServer('categories');
 }
 
 async function loadCurrentUserFromServer() {
-    await downloadFromServer();
     currentUser = JSON.parse(backend.getItem('currentUser'))
 }
 
@@ -46,7 +48,6 @@ async function loadCurrentUserFromServer() {
  */
 async function loadFromServer(key) {
     let item = [];
-    await downloadFromServer();
     item = JSON.parse(backend.getItem(key)) || [];
     return Array.from(item);
 }

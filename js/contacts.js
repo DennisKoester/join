@@ -104,7 +104,6 @@ function toggleShowContactOnMobile() {
     toggleClassList('contacts-menu', 'd-none');
     toggleClassList('new-contact-btn', 'd-none');
     toggleClassList('edit-contact', 'd-none');
-    toggleClassList('contact-edit-btn', 'd-none');
 }
 
 
@@ -195,11 +194,11 @@ function editContact(id) {
     const btnSave = document.getElementById('contact-update-btn');
 
     inputName.value = users[id]['name'];
-    inputEmail = users[id]['email'];
-    inputPhone = users[id]['phone'];
+    inputEmail.value = users[id]['email'];
+    inputPhone.value = users[id]['phone'];
     badgeNew.classList.add('d-none');
     badgeEdit.classList.remove('d-none');
-    
+
 
 
     toggleContactsModal();

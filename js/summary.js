@@ -3,9 +3,9 @@
  * Initialises the summary
  */
 async function initSummary() {
-    setCurrentUser();
     setWelcomeMsg();
     await init();
+    setCurrentUser();
     getNumberTasksAll();
     getNumberTasksTodo();
     getNumberTasksInProgress();
@@ -19,20 +19,6 @@ async function initSummary() {
  * Checking if guest log in, else Loading currentUser and changing welcome message
  */
 async function setCurrentUser() {
-    await loadDataFromServer();
-    const urlParams = new URLSearchParams(window.location.search);
-    const login = urlParams.get('login');
-    if(login == 1) {
-        currentUser = {
-            "name": "Guest",
-            "password": "",
-            "phone": "",
-            "short_name": "G",
-            "color": "HSL(150, 100%, 50%)",
-        };
-        await saveOnServer('currentUser', currentUser);
-    }
-    await loadCurrentUserFromServer();
     document.getElementById('welcome-name-mobile').innerHTML = currentUser['name'];
     document.getElementById('welcome-name-desk').innerHTML = currentUser['name'];
 }

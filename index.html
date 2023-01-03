@@ -16,18 +16,19 @@
     <script src="./js/mini_backend.js"></script>
     <script>setURL('https://gruppe-392.developerakademie.net/smallest_backend_ever');</script>
 </head>
+
 <body onload="initLogin()">
-    <div id="preloader" class="preloader"></div>
+    <!-- <div id="preloader" class="preloader"></div> -->
     <div class="header_position">
-      <div class="header">
-        <div class="logo">
-            <img src="./assets/img/Capa 1.png" class="login_logo join_logo">
+        <div class="header">
+            <div class="logo">
+                <img src="./assets/img/Capa 1.png" class="login_logo join_logo">
+            </div>
+            <div class="signup">
+                <p>Not a Join user?</p>
+                <button onclick="location.href='sign_up.html'">Sign up</button>
+            </div>
         </div>
-        <div class="signup">
-            <p>Not a Join user?</p>
-            <button onclick="location.href='sign_up.html'">Sign up</button>
-        </div>
-      </div>
     </div>
     <div class="login_master" id="login-master">
         <div class="login_main">
@@ -35,7 +36,8 @@
                 <h2>Log in</h2>
                 <img class="margin_underline" src="./assets/img/horizontal_blue_line.png">
                 <input class="input_email" id="email" type="email" name="email" placeholder="Email" required>
-                <input class="input_password" id="password" type="password" name="password" placeholder="Password" required>
+                <input class="input_password" id="password" type="password" name="password" placeholder="Password"
+                    required>
                 <div class="remember_me_forgotten">
                     <div class="remember_me">
                         <input class="checkbox" type="checkbox" id="remember-me" name="remember-me">
@@ -45,7 +47,8 @@
                 </div>
                 <div class="login_form_buttons">
                     <button type="submit" class="login_button">Log in</button>
-                    <button class="guest_button" onclick="location.href='./summary.html?login=1'">Guest Log in</button></div>
+                    <div class="guest_button" onclick="guestLogin()">Guest Log in</div>
+                </div>
                 <div id="error-login" class="error-login"></div>
             </form>
         </div>

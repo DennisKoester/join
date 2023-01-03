@@ -7,8 +7,8 @@ async function registerUser(e) {
 
     let username = document.getElementById("username");
     let email = document.getElementById("email");
-    let password = document.getElementById("password"); 
-    nameValidation(username); 
+    let password = document.getElementById("password");
+    nameValidation(username);
     let initials = getInitials(username.value);
     let color = generateColors();
 
@@ -16,10 +16,10 @@ async function registerUser(e) {
     //checking if e-mail is already in use
     let user = users.find(u => u.email == email.value);
 
-    if(user) {
+    if (user) {
         showSignupFailedPopup();
     } else {
-        users.push({name: username.value, email: email.value, password: password.value, short_name: initials, color: color});
+        users.push({ name: username.value, email: email.value, password: password.value, short_name: initials, color: color });
         await saveOnServer('users', users);
         window.location.href = './index.html?msg=success';
     }
@@ -31,7 +31,7 @@ async function registerUser(e) {
  * Validating that full name is given
  */
 function nameValidation(username) {
-    if(!username.value.includes(' ')) {
+    if (!username.value.includes(' ')) {
         document.getElementById('name-validation').classList.remove('d_none');
         document.getElementById('username').style.borderColor = 'red';
     }

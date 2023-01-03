@@ -4,9 +4,25 @@ async function initLogin() {
     signUpQuery();
 }
 
+
 function animation() {
-    setTimeout(() => {document.getElementById('preloader').classList.add('d_none')}, 1000);
+    setTimeout(() => { document.getElementById('preloader').classList.add('d_none') }, 1000);
 }
+
+
+async function guestLogin() {
+
+    currentUser = {
+        "name": "Guest",
+        "password": "",
+        "phone": "",
+        "short_name": "G",
+        "color": "HSL(150, 100%, 50%)",
+    };
+    await saveOnServer('currentUser', currentUser);
+    window.location.href = './summary.html?login=1'
+}
+
 
 /**
  * Success message after sign up
@@ -14,11 +30,12 @@ function animation() {
 function signUpQuery() {
     const urlParams = new URLSearchParams(window.location.search);
     const msg = urlParams.get('msg');
-    if(msg) {
+    if (msg) {
         document.getElementById('msg-box').innerHTML = 'Your registration was successful, please log in now!';
         document.getElementById('msg-box').classList.remove('d_none');
     }
 }
+
 
 /**
  * Checking if User data is correct to grant or deny access
@@ -29,15 +46,15 @@ async function login(e) {
     let email = document.getElementById('email');
     let password = document.getElementById('password');
 
-    users = await loadFromServer('users');
+    // users = await loadFromServer('users');
     //checking if user exists
     currentUser = users.find(u => u.email == email.value && u.password == password.value);
 
     if (currentUser) {
         await saveOnServer('currentUser', currentUser);
-        window.location.href='./summary.html?login=2';
+        window.location.href = './summary.html?login=2';
     } else {
-       showPopupMessage('popup-button');
+        showPopupMessage('popup-button');
     }
 
     return false
@@ -94,14 +111,14 @@ function passwordForgotten() {
  */
 async function onSubmit(event) {
     event.preventDefault();
-    if(checkIfEmailExists()) {
+    if (checkIfEmailExists()) {
         let formData = new FormData(event.target); //create a FormData based on our Form Element in HTML
         let response = await action(formData);
-        if(response.ok) {
-          showPopupMessage('email-reset');
-          setTimeout(function () {
-            window.location.href = './index.html';
-          }, 3000);
+        if (response.ok) {
+            showPopupMessage('email-reset');
+            setTimeout(function () {
+                window.location.href = './index.html';
+            }, 3000);
         }
     }
 }
@@ -123,10 +140,10 @@ function action(formData) {
 /**
  * Checking if user with entered Email exists
  */
-function checkIfEmailExists(){
+function checkIfEmailExists() {
     let email = document.getElementById('email-field');
     let user = users.find(u => u.email == email.value);
-    if(user){
+    if (user) {
         return true;
     } else {
         showPopupMessage('email-failed');
@@ -154,7 +171,7 @@ async function resetPassword(event) {
     let password1 = document.getElementById('password-field-1').value;
     let password2 = document.getElementById('password-field-2').value;
 
-    if(password1 == password2){
+    if (password1 == password2) {
         const urlParams = new URLSearchParams(window.location.search);
         const userEmail = urlParams.get('email');
         let index = users.findIndex(u => u.email == userEmail);
@@ -171,7 +188,7 @@ async function resetPassword(event) {
  */
 function showSuccessMessage() {
     showPopupMessage('password-success');
-        setTimeout(function () {
-            window.location.href = './index.html';
-        }, 3000);
+    setTimeout(function () {
+        window.location.href = './index.html';
+    }, 3000);
 }

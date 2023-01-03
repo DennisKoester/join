@@ -15,7 +15,6 @@
 @media(max-width: 1200px) {
     .content-add-task {
         margin: 0 0 15px 0;
-        width: 100%;
     }
 
     .add-task-content {
