@@ -1,7 +1,6 @@
 async function initLogin() {
     await loadDataFromServer();
     animation();
-    signUpQuery();
 }
 
 
@@ -27,14 +26,14 @@ async function guestLogin() {
 /**
  * Success message after sign up
  */
-function signUpQuery() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const msg = urlParams.get('msg');
-    if (msg) {
-        document.getElementById('msg-box').innerHTML = 'Your registration was successful, please log in now!';
-        document.getElementById('msg-box').classList.remove('d-none');
-    }
-}
+// function signUpQuery() {
+//     const urlParams = new URLSearchParams(window.location.search);
+//     const msg = urlParams.get('msg');
+//     if (msg) {
+//         document.getElementById('msg-box').innerHTML = 'Your registration was successful, please log in now!';
+//         document.getElementById('msg-box').classList.remove('d-none');
+//     }
+// }
 
 
 /**
