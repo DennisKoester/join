@@ -113,19 +113,19 @@
 .input_email {
     background-image: url("../assets/img/mail-icon.png");
     background-repeat: no-repeat;
-    background-position: 310px 12px;
+    background-position: calc(100% - 18px);
 }
 
 .input_password {
     background-image: url("../assets/img/password-icon.png");
     background-repeat: no-repeat;
-    background-position: 311px 11px;
+    background-position: calc(100% - 18px);
 }
 
 .input_profile {
     background-image: url("../assets/img/profile-icon.png");
     background-repeat: no-repeat;
-    background-position: 311px 11px;
+    background-position: calc(100% - 18px);
 }
 
 .password_forgotten {
@@ -406,18 +406,6 @@
         width: 300px;
     }
 
-    .input_email {
-        background-position: 260px 12px;
-    }
-    
-    .input_password {
-        background-position: 261px 11px;
-    }
-    
-    .input_profile {
-        background-position: 261px 11px;
-    }
-
     .login_form_buttons {
         display: flex;
         flex-direction: column;
@@ -475,5 +463,27 @@
     .login_master {
         height: auto;
         margin-top: 182px;
+    }
+}
+
+@media (max-width:350px) {
+    .remember_me_forgotten {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        width: 100%;
+    }  
+
+    .login_form input {
+        width: 100%;
+    }
+
+    .login_form_buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 20px;
     }
 }
