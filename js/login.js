@@ -29,8 +29,8 @@ async function login(e) {
 
     let email = document.getElementById('email');
     let password = document.getElementById('password');
-    //checking if user exists
-    currentUser = users.find(u => u.email == email.value && u.password == password.value);
+
+    currentUser = users.find(u => u.email == email.value && u.password == password.value); //checking if user exists
 
     if (currentUser) {
         await saveOnServer('currentUser', currentUser);
