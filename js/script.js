@@ -9,15 +9,11 @@ const HEADER_CTX_MENU_ANIM_TIME = 220;
  */
 async function init() {
     await includeHTML();
-
     await loadDataFromServer();
-
     await loadCurrentUserFromServer();
-
     hasTouch();
-
+    setHeaderUserBadge();
     handleWelcomeOnMobile();
-
     controlMenuHighlighting();
 
 
@@ -84,27 +80,6 @@ function handleWelcomeOnMobile() {
         }, delay);
     }
 }
-
-
-/**
- * Displays the selected page and switches to the respective menu item
- * @param {String} clickedPage The name of the page to be displayed
- * @param {Boolean} isContext True = selected page in context menu
- */
-// function openPage(clickedPage, isContext) {
-//     const pageToOpen = document.getElementById(clickedPage);
-//     const pageToClose = document.getElementById(currentPage);
-
-//     pageToClose.classList.add('d-none');
-//     pageToOpen.classList.remove('d-none');
-
-//     if (isContext) {
-//         toggleContextMenu();
-//     }
-
-//     controlMenuHighlighting(clickedPage, isContext);
-//     currentPage = clickedPage;
-// }
 
 
 function getPageName() {
@@ -178,6 +153,25 @@ async function logout() {
     currentUser = [];
     await saveOnServer('currentUser', currentUser);
     window.location.href = './index.html';
+}
+
+
+/**
+ * Sets the user badge in the header
+ */
+function setHeaderUserBadge() {
+    const img = document.getElementById('header-img-user');
+    const badge = document.getElementById('header-badge-user');
+    if (currentUser['name'] == 'Guest') {
+        img.classList.remove('d-none');
+        badge.classList.add('d-none');
+    }
+    else {
+        badge.innerHTML = currentUser['short_name'];
+        badge.style.backgroundColor = currentUser['color'];
+        badge.classList.remove('d-none');
+        img.classList.add('d-none');
+    }
 }
 
 

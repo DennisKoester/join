@@ -45,7 +45,7 @@ header {
     cursor: pointer;
 }
 
-#header-img-user {
+#header-user {
     width: 49px;
     height: 49px;
     border-radius: 50%;
@@ -53,6 +53,23 @@ header {
     padding: 2px;
     cursor: pointer;
     overflow: hidden;
+}
+
+#header-img-user {
+    width: 100%;
+}
+
+
+#header-badge-user {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* background-color: hsl(270, 100%, 50%); */
+    color: white;
+    border-radius: 50%;
 }
 
 .headline-tooltype {
