@@ -48,7 +48,6 @@ button {
 .modal-task-content {
     height: 95vh;
     max-height: 95vh;
-    /* position: relative; */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -108,20 +107,10 @@ button {
     color: var(--bg-color-main);
 }
 
-/* #modal-task-desc {
-    font-size: 21px;
-} */
-
 #modal-task-subtasks {
-    /* display: flex; */
-    /* flex-direction: column; */
     width: 100%;
     max-height: 100px;
     overflow-y: auto;
-    /* gap: 10px; */
-    /* margin: 5px 0; */
-    /* border-top: solid 1px var(--dimmed); */
-    /* border-bottom: solid 1px var(--dimmed); */
 }
 
 .modal-task-subtask {
@@ -146,13 +135,8 @@ button {
 }
 
 .modal-task-item-title {
-    /* font-size: 21px; */
     font-weight: 700;
 }
-
-/* .modal-task-item-value {
-    font-size: 21px;
-} */
 
 #modal-task-prio {
     display: flex;
@@ -162,7 +146,6 @@ button {
     background-color: orange;
     padding: 4px 18px;
     border-radius: var(--border-radius-btn);
-    /* font-size: 21px; */
 }
 
 #modal-task-prio-img {
@@ -199,9 +182,6 @@ button {
 }
 
 #btn-task-edit-ok {
-    /* position: absolute;
-    right: 40px;
-    bottom: 30px; */
     display: flex;
     align-items: center;
     margin-left: auto;
