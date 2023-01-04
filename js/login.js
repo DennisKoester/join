@@ -1,18 +1,12 @@
 async function initLogin() {
     await loadDataFromServer();
-    animation();
 }
-
-
-function animation() {
-    setTimeout(() => { document.getElementById('preloader').classList.add('d-none') }, 1000);
-}
-
 
 async function guestLogin() {
 
     currentUser = {
         "name": "Guest",
+        "email": "",
         "password": "",
         "phone": "",
         "short_name": "G",

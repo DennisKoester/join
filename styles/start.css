@@ -20,10 +20,11 @@
 .name_validation {
     font-size: 12px;
     color: red;
-    margin-top: -25px;
     width: 100%;
     text-align: left;
     padding-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .signup {
@@ -57,7 +58,7 @@
     border: none;
     color: #fff;
     padding: 16px;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     cursor: pointer;
     font-family: 'Inter', sans-serif;
 }
@@ -115,7 +116,6 @@
     height: 45px;
     border: 1px solid #ccc;
     border-radius: 9px;
-    margin-bottom: 35px;
     padding-left: 15px;
     font-size: 21px;
     padding-right: 55px;
@@ -125,12 +125,14 @@
     background-image: url("../assets/img/mail-icon.png");
     background-repeat: no-repeat;
     background-position: calc(100% - 18px);
+    margin-bottom: 35px;
 }
 
 .input_password {
     background-image: url("../assets/img/password-icon.png");
     background-repeat: no-repeat;
     background-position: calc(100% - 18px);
+    margin-bottom: 35px;
 }
 
 .input_profile {
@@ -211,7 +213,7 @@
     border: none;
     color: #fff;
     padding: 13px 30px;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     font-size: 18px;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
@@ -229,7 +231,7 @@
     font-weight: bold;
     background: #FFFFFF;
     border: 1px solid #647188;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -371,6 +373,30 @@
 }
 
 @media (max-width:650px) {
+    .forgotten_form span {
+        margin-bottom: 20px;
+    }
+
+    .name_validation {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .input_email, .input_password {
+        margin-bottom: 25px;
+    }
+
+    .margin_underline {
+        margin-top: 15px;
+        margin-bottom: 25px;
+    }
+
+    .goback {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+
     .goback_img {
         width: 16px;
         height: auto;
@@ -378,9 +404,9 @@
    
     .login_logo {
         position: absolute;
-        top: 37px;
+        top: 15px;
         left: 38px;
-        width: 64px;
+        width: 40px;
         height: auto;
     }
     
@@ -400,11 +426,9 @@
         }
     
         100% {
-            width: 64px;
-            top: 37px;
+            width: 40px;
+            top: 15px;
             left: 38px;
-            right: 100%;
-            bottom: 100vh;
             height: auto;
         }
     }
@@ -420,12 +444,13 @@
         display: flex;
         flex-direction: column-reverse;
         align-items: flex-start;
+        margin-bottom: 25px;
         width: 300px;
     }  
 
     .password_forgotten {
         margin-left: 0px;
-        margin-bottom: 30px;
+        margin-bottom: 16px;
     }
 
     .login_form input {
@@ -443,13 +468,14 @@
 
     .guest_button, .login_button {
         font-size: 16px;
-        padding-top: 16px;
-        padding-bottom: 16px;
+        padding-top: 13px;
+        padding-bottom: 13px;
         width: 150px;
     }
 
     .login_form h2 {
-        font-size: 40px;
+        font-size: 35px;
+        padding-top: 20px;
     }
 
     .signup {
@@ -461,7 +487,7 @@
         align-items: center;
         justify-content: center;
         gap: 20px;
-        margin-top: 30px;
+        margin-top: 20px;
     }
 
     .signup_mobile p {
@@ -480,14 +506,14 @@
         background-color: var(--bg-color-main);
         border: none;
         color: #fff;
-        padding: 16px;
+        padding: 13px 16px;
         border-radius: 5px;
         cursor: pointer;
     }
 
     .login_master {
         height: auto;
-        margin-top: 194px;
+        margin-top: 90px;
     }
 }
 
@@ -509,6 +535,5 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        gap: 20px;
     }
 }

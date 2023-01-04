@@ -8,7 +8,7 @@ async function registerUser(e) {
     let username = document.getElementById("username");
     let email = document.getElementById("email");
     let password = document.getElementById("password");
-    let isNameValid = nameValidation(username, 'name-validation', 'd-none');
+    let isNameValid = nameValidation(username, 'name-validation', 'hidden');
     if (!isNameValid) return;
     let initials = getInitials(username.value);
     let color = generateColors();

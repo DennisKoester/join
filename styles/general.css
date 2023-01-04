@@ -42,6 +42,9 @@
     /* Animations/Transitions */
     --welcome-mobile-transition: 400ms;
     --welcome-mobile-delay: 800ms;
+
+    /* Button Border Radius */
+    --border-radius: 8px;
 }
 
 * {
