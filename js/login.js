@@ -2,6 +2,9 @@ async function initLogin() {
     await loadDataFromServer();
 }
 
+/**
+ * Setting currentUser to Guest when Logging in as Guest
+ */
 async function guestLogin() {
 
     currentUser = {
@@ -17,15 +20,15 @@ async function guestLogin() {
 }
 
 /**
- * Checking if User data is correct to grant or deny access
+ * Validating entered user data before login
+ * @param {Object} e 
+ * @returns {boolean}
  */
 async function login(e) {
     e.preventDefault();
 
     let email = document.getElementById('email');
     let password = document.getElementById('password');
-
-    // users = await loadFromServer('users');
     //checking if user exists
     currentUser = users.find(u => u.email == email.value && u.password == password.value);
 
@@ -35,12 +38,12 @@ async function login(e) {
     } else {
         showPopupMessage('popup-button');
     }
-
     return false
 }
 
 /**
- * Shows the popup message with animation
+ * Shows a popup message with animation
+ * @param {string} id
  */
 function showPopupMessage(id) {
     let popup = document.getElementById(id);
@@ -52,18 +55,11 @@ function showPopupMessage(id) {
 }
 
 /**
- * Removes the animation class from the popup
+ * Removes the animation class from popup
  * @param {string} popup 
  */
 function removeAnimation(popup) {
     popup.classList.remove('login_animation');
-}
-
-/**
- * Save the current user on the server
- */
-function saveUserOnServer() {
-    localStorage.setItem('currentUser', JSON.stringify(currentUser));
 }
 
 /**
@@ -87,6 +83,7 @@ function passwordForgotten() {
 
 /**
  * Sending email to reset password
+ * @param {Object} event
  */
 async function onSubmit(event) {
     event.preventDefault();
@@ -102,6 +99,11 @@ async function onSubmit(event) {
     }
 }
 
+/**
+ * Fetching php script to send mail
+ * @param {Object} formData 
+ * @returns 
+ */
 function action(formData) {
     const input = 'https://gruppe-392.developerakademie.net/join/send_mail.php';
     const requestInit = {
@@ -129,21 +131,8 @@ function checkIfEmailExists() {
     }
 }
 
-
 /**
- * Shows the popup "User not found" with animation
- */
-function showEmailSendPopup() {
-    let popup = document.getElementById('popup-button');
-
-    popup.classList.add('login_animation');
-    setTimeout(function () {
-        removeAnimation(popup);
-    }, 3000);
-}
-
-/**
- * Reset the password
+ * Check if passwords match and reset the password
  */
 async function resetPassword(event) {
     event.preventDefault();
