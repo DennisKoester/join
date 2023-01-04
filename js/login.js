@@ -1,6 +1,10 @@
+/**
+ * Loading data from server
+ */
 async function initLogin() {
     await loadDataFromServer();
 }
+
 
 /**
  * Setting currentUser to Guest when Logging in as Guest
@@ -18,6 +22,7 @@ async function guestLogin() {
     await saveOnServer('currentUser', currentUser);
     window.location.href = './summary.html?login=1'
 }
+
 
 /**
  * Validating entered user data before login
@@ -41,6 +46,7 @@ async function login(e) {
     return false
 }
 
+
 /**
  * Shows a popup message with animation
  * @param {string} id
@@ -54,6 +60,7 @@ function showPopupMessage(id) {
     }, 3000);
 }
 
+
 /**
  * Removes the animation class from popup
  * @param {string} popup 
@@ -61,6 +68,7 @@ function showPopupMessage(id) {
 function removeAnimation(popup) {
     popup.classList.remove('login_animation');
 }
+
 
 /**
  * Render password forgotten html
@@ -81,6 +89,7 @@ function passwordForgotten() {
     `;
 }
 
+
 /**
  * Sending email to reset password
  * @param {Object} event
@@ -98,6 +107,7 @@ async function onSubmit(event) {
         }
     }
 }
+
 
 /**
  * Fetching php script to send mail
@@ -131,6 +141,7 @@ function checkIfEmailExists() {
     }
 }
 
+
 /**
  * Check if passwords match and reset the password
  */
@@ -150,6 +161,7 @@ async function resetPassword(event) {
         showPopupMessage('password-failed');
     }
 }
+
 
 /**
  * Show success message and return to Log in page
