@@ -17,7 +17,7 @@ async function registerUser(e) {
     if (user) {
         showSignupPopup('popup-failed-signup');
     } else {
-        users.push({name: username.value, email: email.value, password: password.value, phone: "", short_name: initials, color: color});
+        users.push({name: username.value.trim(), email: email.value, password: password.value, phone: "", short_name: initials, color: color});
         await saveOnServer('users', users);
         showSignupPopup('popup-success-signup');
         setTimeout(function () {window.location.href = './index.html?msg=success';}, 3000);

@@ -215,7 +215,7 @@ if (hasTouch()) { // remove all the :hover stylesheets
  * @returns Boolean
  */
 function nameValidation(username, msgElemId, className) {
-    if (!username.value.includes(' ')) {
+    if (!username.value.trim().includes(' ')) {
         document.getElementById(msgElemId).classList.remove(className);
         return false;
     }
