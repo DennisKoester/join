@@ -59,6 +59,7 @@
     padding: 16px;
     border-radius: 5px;
     cursor: pointer;
+    font-family: 'Inter', sans-serif;
 }
 
 .login_bottom_margin {
@@ -209,10 +210,11 @@
     background-color: var(--bg-color-main);
     border: none;
     color: #fff;
-    padding: 10px 30px;
+    padding: 13px 30px;
     border-radius: 5px;
     font-size: 18px;
     cursor: pointer;
+    font-family: 'Inter', sans-serif;
 }
 
 .guest_button {
@@ -221,7 +223,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 10px 10px;
+    padding: 13px 16px;
     gap: 10px;
     font-size: 18px;
     font-weight: bold;
@@ -365,11 +367,15 @@
         font-size: 40px !important;
         text-align: center;
         margin-top: 30px;
-    }
-    
+    } 
 }
 
 @media (max-width:650px) {
+    .goback_img {
+        width: 16px;
+        height: auto;
+    }
+   
     .login_logo {
         position: absolute;
         top: 37px;
@@ -435,11 +441,10 @@
         gap: 20px;
     }
 
-    .login_button {
-        width: 150px;
-    }
-
-    .guest_button {
+    .guest_button, .login_button {
+        font-size: 16px;
+        padding-top: 16px;
+        padding-bottom: 16px;
         width: 150px;
     }
 

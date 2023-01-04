@@ -78,7 +78,7 @@ function saveUserOnServer() {
 function passwordForgotten() {
     document.getElementById('login-master').innerHTML = `
     <div class="login_main signup_main forgotten_main">
-        <a class="goback" href="./index.html"><img src="./assets/img/goBack.png"></a>
+        <a class="goback" href="./index.html"><img class="goback_img" src="./assets/img/goBack.png"></a>
         <form class="login_form forgotten_form" onsubmit="onSubmit(event)">
             <h2>I forgot my password</h2>
             <img class="margin_underline" src="./assets/img/horizontal_blue_line.png">
