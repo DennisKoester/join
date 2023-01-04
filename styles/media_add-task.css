@@ -48,6 +48,10 @@
     .transition {
         transform: translateY(-300px);
     }
+
+    .subtask-list {
+        height: unset;
+    }
 }
 
 @media(max-width: 940px) {

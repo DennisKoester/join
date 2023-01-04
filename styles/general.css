@@ -55,7 +55,7 @@ body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     max-height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden; */
     background-color: var(--bg-body);
 }
 

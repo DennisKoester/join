@@ -136,8 +136,12 @@ li div:nth-child(2) {
     cursor: pointer;
 }
 
-.active,
 #category-colors .color-dot:hover {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 2px solid #FFFFFF;
+}
+
+.active {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border: 2px solid #FFFFFF;
 }
@@ -350,6 +354,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 .subtask-list {
     max-height: 208px;
+    height: 208px;
     overflow: auto;
     scrollbar-gutter: stable;
 }
@@ -431,9 +436,9 @@ select {
     justify-content: flex-end;
     padding: 0px;
     gap: 25px;
-    position: fixed;
-    position: relative;
-    top: 230px;
+    /* position: fixed; */
+    /* position: relative; */
+    /* top: 230px; */
 }
 
 .submit-btns2 {
