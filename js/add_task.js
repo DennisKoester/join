@@ -5,6 +5,9 @@ let currentSubtasks = [];
 let currentAssignees = [];
 
 
+/**
+ * Initiates the add task page
+ */
 async function initAddTask() {
 
     await init();
@@ -23,7 +26,6 @@ async function initAddTask() {
  */
 function toggleClassList(id, classList,) {
     document.getElementById(id).classList.toggle(classList);
-    // document.body.classList.toggle("overlay");
 }
 
 
@@ -279,7 +281,7 @@ function changeCheckbox(i) {
     let checked = './assets/img/checkbox-assignee-checked.svg';
     let unchecked = './assets/img/checkbox-assignee-unchecked.svg';
 
-    if (checkbox.src.indexOf("unchecked") >= 0) { // TODO Why !== -1 ?? IndexOf gives "-1" back when nothing is found.
+    if (checkbox.src.indexOf("unchecked") >= 0) { 
         checkbox.src = checked;
     } else {
         checkbox.src = unchecked;
