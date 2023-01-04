@@ -13,13 +13,8 @@ async function initAddTask() {
 }
 
 
-window.addEventListener("load", function () {
-    // do things after the DOM loads fully
-    console.log("Everything is loaded");
-});
-
-
 // Help Functions //
+
 
 /**
  * Toggles a class list of an element
@@ -44,6 +39,7 @@ function toggleDropdown(dropdown, icon) {
 
 
 // Input Fields//
+
 
 /**
  * Shows the input field and the color selection if needed
@@ -221,7 +217,7 @@ function inviteContact(input, container, dropdown) {
 
 
 /**
- * Renders the added assignees
+ * Renders the added assignees 
  */
 function renderAssignees() {
     let list = document.getElementById('assignee-list');
@@ -239,7 +235,7 @@ function renderAssignees() {
 
 
 /**
- * Shows the Badges of selected assignees
+ * Shows the badge of selected assignee
  */
 function showAssigneeBadge() {
     let badgeList = document.getElementById('add-task-assignees');
@@ -275,7 +271,7 @@ function selectAssignee(i, assignee) {
 
 
 /**
- * Toggles the checkbox if is selected or not
+ * Toggles the checkbox of the assignee if is selected or not
  * @param {number} i Index of the clicked checkbox
  */
 function changeCheckbox(i) {
@@ -293,9 +289,10 @@ function changeCheckbox(i) {
 
 // Prio Section //
 
+
 /**
  * Sets the priority for the task
- * @param {number} index 
+ * @param {number} index Index of the clicked button
  */
 function setPrio(index) {
     let btns = document.getElementsByClassName("prio-btn");
@@ -326,14 +323,15 @@ function setPrio(index) {
 
 // Subtask Function //
 
+
 /**
  * Adds a subtask to the list
- * @param {string} input 
- * @param {string} container 
- * @param {string} dropdown 
+ * @param {string} input The subtask input field 
+ * @param {string} buttons The subtask buttons inside the input field
+ * @param {string} icon The plus icon inside the input field
  */
-function addSubtask(input, container, dropdown) {
-    let inputSubtask = document.getElementById('subtask-input');
+function addSubtask(input, buttons, icon) {
+    let inputSubtask = document.getElementById(input);
     if (inputSubtask.value.length >= 1) {
         currentSubtasks.push(
             {
@@ -341,7 +339,7 @@ function addSubtask(input, container, dropdown) {
                 "status": false
             });
         inputSubtask.value = '';
-        hideInputField(input, container, dropdown);
+        hideInputField(input, buttons, icon);
     }
     renderSubtasks();
 }
@@ -360,7 +358,7 @@ function renderSubtasks() {
 
 /**
  * Deletes a subtask from the list
- * @param {number} i 
+ * @param {number} i Index of the subtask
  */
 function deleteSubtask(i) {
     currentSubtasks.splice(i, 1);
@@ -369,6 +367,7 @@ function deleteSubtask(i) {
 
 
 // Create Task //
+
 
 /**
  * Creates a new task
@@ -397,7 +396,7 @@ function getDataForNewTask() {
 
 /**
  * Returns the email addresses from selected assignees in an array
- * @returns {array}
+ * @returns {array} Array of selected assignees
  */
 function emailOfCurrentAssignee() {
     let assigneesMail = [];
@@ -410,10 +409,10 @@ function emailOfCurrentAssignee() {
 
 /**
  * Creates a new task and saves it on the server
- * @param {string} title 
- * @param {string} desc 
- * @param {string} date 
- * @param {object} assigneesMail // TODO Is that correct?!
+ * @param {string} title Title of the task
+ * @param {string} desc Description of the task
+ * @param {string} date Due date of the task
+ * @param {array} assigneesMail Array with the emails of the assignees
  */
 async function addNewTask(title, desc, date, assigneesMail) {
 
@@ -478,6 +477,7 @@ function clearAllInputs() {
 
 // Validation //
 
+
 /**
  * Validates the complete add task sheet
  * @returns {boolean} 
@@ -507,8 +507,8 @@ function submitValidation() {
 
 /**
  * Live validation for a field where the selection got pushed
- * @param {number} id 
- * @param {string} input 
+ * @param {number} id Index of the required text field
+ * @param {string} input Specific field
  */
 function validationForField(id, input) {
     let required = document.getElementById(`required${id}`);
@@ -523,8 +523,8 @@ function validationForField(id, input) {
 
 /**
  * Live validation for an input field
- * @param {number} id 
- * @param {string} input 
+ * @param {number} id Index of the required text field
+ * @param {string} input Specific input field
  */
 function validationForInput(id, input) {
     let required = document.getElementById(`required${id}`);
@@ -587,8 +587,8 @@ function showPopup(id) {
 
 
 /**
- * Removes the animation class from the popup
- * @param {string} popup 
+ * Removes the animation class from the little popup
+ * @param {string} popup Little Popup 
  */
 function removeAnimate(popup) {
     popup.classList.remove('animation');
@@ -612,7 +612,7 @@ function directsToBoard() {
 
 /**
  * Adds a function for 
- * @param {object} e // TODO Is that correct?
+ * @param {object} e 
  */
 function enterFunctionSubtasks(e) {
     if (e.code == "Enter") {
@@ -641,19 +641,6 @@ function enterFunctionNewCategory(e) {
         addNewCategory('category-input', 'category-input-container', 'category-dropdown-container');
     }
 }
-
-
-/*  Hide Dropdown By Clicking Next To It //
-
-function toggleDropdown(id, icon) {
-    toggleClassList(id, icon, 'd-none', 'rotate180');
-    window.addEventListener('click', function handleClickOutsideBox(event) {
-        let area = document.getElementById(id);
-        if (!area.contains(event.target))
-        document.getElementById(id).classList.add('d-none');
-    })
-}; */
-
 
 
 

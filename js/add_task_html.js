@@ -15,8 +15,8 @@ function addCategoryHTML() {
 
 /**
  * Renders selected category
- * @param {String} category The category name
- * @param {String} color The category color
+ * @param {string} category The category name
+ * @param {string} color The category color
  * @returns HTML
  */
 function selectedCategoryHTML(category, color) {
@@ -27,8 +27,8 @@ function selectedCategoryHTML(category, color) {
 
 /**
  * Renders every single category in the list
- * @param {String} category The category name
- * @param {String} color The category color
+ * @param {string} category The category name
+ * @param {string} color The category color
  * @returns HTML
  */
 function categoryHTML(category, color) {
@@ -45,8 +45,8 @@ function categoryHTML(category, color) {
 
 /**
  * Renders every single assignee in the list
- * @param {Number} i The ID of the assignee
- * @param {String} assignee The name of the assignee
+ * @param {number} i Index of the assignee
+ * @param {string} assignee The name of the assignee
  * @returns HTML
  */
 function assigneeHTML(i, assignee) {
@@ -77,8 +77,8 @@ function inviteContactHTML() {
 
 /**
  * Renders the badge of the selected assignee
- * @param {String} initials The initials of the assignee
- * @param {String} color The color of the user
+ * @param {string} initials The initials of the assignee
+ * @param {string} color The color of the user
  * @returns HTML
  */
 function assigneeBadgeHTML(initials, color) {
@@ -89,8 +89,8 @@ function assigneeBadgeHTML(initials, color) {
 
 /**
  * Renders the subtask in the list
- * @param {String} subtask The subtask
- * @param {Number} i The ID of the subtask
+ * @param {string} subtask The subtask
+ * @param {number} i Index of the subtask
  * @returns HTML
  */
 function subTaskHTML(subtask, i) {
