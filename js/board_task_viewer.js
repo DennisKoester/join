@@ -256,6 +256,17 @@ function addSubtaskEditor(input, container, dropdown) {
 
 
 /**
+ * Adds a subtask to the editor on [Enter]
+ * @param {event} e The key event
+ */
+function enterFunctionSubtasksEditor(e) {
+    if (e.code == "Enter") {
+        addSubtaskEditor('subtask-input', 'input-btns', 'plus-icon');
+    }
+}
+
+
+/**
  * Adds a new subtask to the listing
  */
 function addSubtaskToList() {
