@@ -224,11 +224,7 @@ async function updateContact(id) {
     await updateTaskAssignment(id);
     renderContacts();
     renderContactInformation(id);
-    
-    // TODO:
-    // 6. Check if modified user is logged in user. If so:
-    // 6.1 Update user icon in header
-    // 6.2 Update currentUser (local and on server)
+    await checkAndUpdateLoggedIn(id);
 
     currentContactMail = '';
     toggleContactsModal();
@@ -272,6 +268,19 @@ async function updateTaskAssignment(id) {
     }
 
     await saveOnServer('tasks', tasks);
+}
+
+
+/**
+ * Checks if the edited user equals the logged-in user and updates the respective data and settings
+ * @param {Number} id The user's ID
+ */
+async function checkAndUpdateLoggedIn(id) {
+    if (currentUser['email'] != currentContactMail) return;
+
+    currentUser = users[id];
+    await saveOnServer('currentUser', currentUser);
+    setHeaderUserBadge();
 }
 
 
