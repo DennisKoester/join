@@ -1,6 +1,7 @@
 
 /**
  * Register a new user by submitting the Sign up form
+ * @param {Object} e
  */
 async function registerUser(e) {
     e.preventDefault();
@@ -27,11 +28,11 @@ async function registerUser(e) {
 
 
 /**
- * Shows the selected popup with animation
+ * Shows a popup with animation
+ * @param {string} id
  */
-function showSignupPopup(Id) {
-    let popup = document.getElementById(Id);
-
+function showSignupPopup(id) {
+    let popup = document.getElementById(id);
     popup.classList.add('login_animation');
     setTimeout(function () {
         removeAnimationSignup(popup);
@@ -39,7 +40,7 @@ function showSignupPopup(Id) {
 }
 
 /**
- * Removes the animation class from the popup
+ * Removes the animation class from popup
  * @param {string} popup 
  */
 function removeAnimationSignup(popup) {
