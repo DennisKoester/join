@@ -257,6 +257,8 @@ function controlAddTaskModal(modal) {
             const modalContentContainer = document.getElementById('modal-add-task-content');
             modal.classList.toggle('d-none');
             modalContentContainer.innerHTML = '';
+            currentSubtasks = [];
+            currentAssignees = [];
         }, MODAL_FADE_TIME);
     }
     else {
