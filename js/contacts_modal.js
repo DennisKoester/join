@@ -5,8 +5,25 @@ let currentContactMail = '';
  */
 function openContactForm() {
     resetInputs();
+    setContactFormButtons();
+    setBadgeContactForm();
     hideLabels();
+    setTitleContactModal(true);
     toggleContactsModal()
+}
+
+
+/**
+ * Opens the contact editor
+ * @param {Number} id The id of the contact
+ */
+function openContactEditor(id) {
+    setFormData(id);
+    setBadgeEditor(id);
+    setEditorButtons(id);
+    hideLabels();
+    setTitleContactModal(false);
+    toggleContactsModal();
 }
 
 
@@ -31,6 +48,20 @@ function hideLabels() {
     const mailValid = document.getElementById('mail-validation');
     nameValid.classList.add('hidden');
     mailValid.classList.add('hidden');
+}
+
+
+function setTitleContactModal(isNewContact) {
+    const title = document.getElementById('modal-contact--title');
+    const subtitle = document.getElementById('modal-contact--subtitle');
+    if (isNewContact) {
+        title.innerHTML = "Add contact";
+        subtitle.classList.remove('d-none');
+    }
+    else {
+        title.innerHTML = "Edit contact";
+        subtitle.classList.add('d-none');
+    }
 }
 
 
@@ -118,19 +149,6 @@ async function saveNewContact() {
 
 
 /**
- * Opens the contact editor
- * @param {Number} id The id of the contact
- */
-function openContactEditor(id) {
-    setFormData(id);
-    setBadge(id);
-    setEditorButtons(id);
-
-    toggleContactsModal();
-}
-
-
-/**
  * Writes the contact data to the editor
  * @param {Number} id The ID of the contact
  */
@@ -146,10 +164,21 @@ function setFormData(id) {
 
 
 /**
+ * Sets the User badge in the contact form
+ */
+function setBadgeContactForm() {
+    const badgeNew = document.getElementById('user-badge--newuser');
+    const badgeEdit = document.getElementById('user-badge--initials');
+    badgeNew.classList.remove('d-none');
+    badgeEdit.classList.add('d-none');
+}
+
+
+/**
  * Sets the User badge in the contact editor
  * @param {Number} id The ID of the contact
  */
-function setBadge(id) {
+function setBadgeEditor(id) {
     const badgeNew = document.getElementById('user-badge--newuser');
     const badgeEdit = document.getElementById('user-badge--initials');
     badgeNew.classList.add('d-none');
@@ -170,6 +199,17 @@ function setEditorButtons(id) {
     btnsNew.classList.add('d-none');
     containerSave.classList.remove('d-none');
     btnSave.setAttribute('onclick', `updateContact(${id})`);
+}
+
+
+/**
+ * Sets the buttons in the contact form
+ */
+function setContactFormButtons() {
+    const btnsNew = document.getElementById('contact-submit-btns');
+    const containerSave = document.getElementById('contact-save-btn');
+    btnsNew.classList.remove('d-none');
+    containerSave.classList.add('d-none');
 }
 
 
