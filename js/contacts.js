@@ -1,11 +1,18 @@
 let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
+
+/**
+ * Initiates contact page
+ */
 async function initContacts() {
     await init();
     renderContacts();
 }
 
 
+/**
+ * Renders all contacts in the list
+ */
 function renderContacts() {
     let container = document.getElementById('contacts-menu-scrollable');
     container.innerHTML = '';
@@ -20,63 +27,60 @@ function renderContacts() {
         }
         for (let j = 0; j < users.length; j++) {
             if (alphabet[i] == getFirstLetterOfLastName(j)) {
-                renderContactDivHTML(j);
+                renderContactDiv(j);
             }
         }
     }
 }
 
 
+/**
+ * Getting the first letter of the last name
+ * @param {number} j Index of the user
+ * @returns "surename Letter of the last name 
+ */
 function getFirstLetterOfLastName(j) {
     let user = users[j]['name'];
     let names = user.split(' ');
     let surname = names[names.length - 1];
+
     return surname[0];
 }
 
 
-function renderContactDivHTML(index) {
-    document.getElementById('contacts-menu-scrollable').innerHTML += `
-    <div id="contact-container${index}" class="contact-div" onclick="renderContactInformation(${index})">
-        <div class="username-initials" id="username-initials${index}"></div>
-        <div style="width: 75%;">
-            <div id="users-name${index}">Hans Test</div>
-            <a class="users-email" id="users-email${index}">hans@test.de</a>
-        </div>
-    </div>
-    `;
+/**
+ * Renders the contact in the list
+ * @param {number} index Index of the user
+ */
+function renderContactDiv(index) {
+    let contactsMenu = document.getElementById('contacts-menu-scrollable');
+    contactsMenu.innerHTML += contactDivHTML(index);
 
     insertUserInformationById(index);
 }
 
 
+/**
+ * Inserts all user information in the contact card
+ * @param {number} index Index of the user
+ */
 function insertUserInformationById(index) {
     document.getElementById(`username-initials${index}`).innerHTML = users[index]['short_name'];
     document.getElementById(`username-initials${index}`).style.backgroundColor = users[index]['color'];
     document.getElementById(`users-name${index}`).innerHTML = users[index]['name'];
     document.getElementById(`users-email${index}`).innerHTML = users[index]['email'];
-    // document.getElementById(`users-email${index}`).href = 'mailto:' + users[index]['email'];
 }
 
 
+/**
+ * 
+ * @param {number} index Index of the user
+ */
 function renderContactInformation(index) {
-    document.getElementById('contact-div').innerHTML = `
-        <div class="contact-div-big">
-        <div class="username-initials-big" id="u-initials${index}">JM</div>
-            <div>
-                <div class="username-big" id="u-name${index}">Hans Test</div>
-                <img onclick="openAddTaskContact(${index})" src="./assets/img/add_task.png">
-            </div>
-        </div>
-        <div class="contact-and-edit">
-            <div class="contact-information">Contact Information</div>
-            <div id="edit-contact" class="edit-contact"><img src="./assets/img/edit_contact.png"><span class="edit-contact-text">Edit Contact</span></div>
-        </div>
-        <div class="email-margins"><b>Email</b></div>
-        <a class="users-email-big" id="u-email${index}">testmail</a>
-        <div class="phone-margins"><b>Phone</b></div>
-        <div id="u-phone-number${index}">no phone number</div>
-    `;
+    let contactDIV = document.getElementById('contact-div');
+    contactDIV.innerHTML = '';
+    conractDIV.innerHTML = contactCardHTML(index);
+
     renderContactInformationById(index);
     backgroundColorOfSelected(index);
 
@@ -84,11 +88,13 @@ function renderContactInformation(index) {
         toggleShowContactOnMobile();
     } else {
         contactSlideInAnimation();
-
     }
 }
 
 
+/**
+ * Handles the view of the contacts page for mobile view
+ */
 function toggleShowContactOnMobile() {
     let contactsContainer = document.getElementById('contacts-container');
     let contentContainer = document.getElementById('content-container');
@@ -107,6 +113,10 @@ function toggleShowContactOnMobile() {
 }
 
 
+/**
+ * 
+ * @param {number} index Index of the user
+ */
 function renderContactInformationById(index) {
     document.getElementById(`u-initials${index}`).innerHTML = users[index]['short_name'];
     document.getElementById(`u-initials${index}`).style.backgroundColor = users[index]['color'];
@@ -121,6 +131,11 @@ function renderContactInformationById(index) {
 }
 
 
+
+/**
+ * 
+ * @param {number} index Index of the user
+ */
 function backgroundColorOfSelected(index) {
     let contacts = document.querySelectorAll('.contact-div');
     for (let i = 0; i < contacts.length; i++) {
@@ -132,6 +147,9 @@ function backgroundColorOfSelected(index) {
 }
 
 
+/**
+ * Resets the background color of the selected contact for mobile view
+ */
 function resetBackgroundColorSelected() {
     let contacts = document.querySelectorAll('.contact-div');
     for (let i = 0; i < contacts.length; i++) {
@@ -141,6 +159,10 @@ function resetBackgroundColorSelected() {
 }
 
 
+/**
+ * Opens the add task modal with the current contact selected as assignee
+ * @param {number} index Index of the selected contact
+ */
 async function openAddTaskContact(index) {
     currentAssignees = [];
     currentAssignees.push(users[index]);
@@ -149,6 +171,9 @@ async function openAddTaskContact(index) {
 }
 
 
+/**
+ * Animation for the contact information in the contact card
+ */
 function contactSlideInAnimation() {
     let contactCard = document.getElementById('contact-div');
 
