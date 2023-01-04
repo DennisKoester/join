@@ -1,4 +1,5 @@
 let currentUser;
+
 let users = [
     {
         "name": "Heiner Müller",
