@@ -1,6 +1,18 @@
+/**
+ * Maximum width for mobile screen
+ */
 const MOBILE_MAX_WIDTH = 940;
+/**
+ * Delay for fade-out of welcome message on mobile device
+ */
 const WELCOME_MSG_DELAY = 800;
+/**
+ * Fade-out time for welcome message on mobile device
+ */
 const WELCOME_MSG_TRANS = 400;
+/**
+ * Fade-in/fade-out time for context menu in header
+ */
 const HEADER_CTX_MENU_ANIM_TIME = 220;
 
 
@@ -15,17 +27,12 @@ async function init() {
     setHeaderUserBadge();
     handleWelcomeOnMobile();
     controlMenuHighlighting();
-
-
-
-    // currentPage = 'add-task';
-    // const selected = document.getElementById(`menu-${currentPage}`);
-    // selected.classList.add('nav-item-active');
-
-    // openPage(currentPage, false);
 }
 
 
+/**
+ * Loads all data from the server
+ */
 async function loadDataFromServer() {
     await downloadFromServer();
     users = await loadFromServer('users');
@@ -33,14 +40,18 @@ async function loadDataFromServer() {
     categories = await loadFromServer('categories');
 }
 
+
+/**
+ * Loads the current user from server
+ */
 async function loadCurrentUserFromServer() {
     currentUser = JSON.parse(backend.getItem('currentUser'))
 }
 
 /**
- * loading data from server and return it in variable
+ * Loads the requested data from server
  * @param {string} key 
- * @returns 
+ * @returns Data from server as Array
  */
 async function loadFromServer(key) {
     let item = [];
@@ -58,6 +69,7 @@ async function saveOnServer(key, item) {
     itemAsString = JSON.stringify(item);
     await backend.setItem(key, itemAsString);
 }
+
 
 /**
  * Controls the welcome screen on mobile view
@@ -82,13 +94,15 @@ function handleWelcomeOnMobile() {
 }
 
 
+/**
+ * Reads the page name and converts it to a container ID
+ * @returns String
+ */
 function getPageName() {
     let path = window.location.pathname;
     path = path.split('/').pop();
     path = path.split('.').shift();
     path = 'menu-' + path;
-
-    console.log(path);
 
     return path;
 }
@@ -146,6 +160,7 @@ function hideCtxMenu(ctxMenu) {
     }, HEADER_CTX_MENU_ANIM_TIME);
 }
 
+
 /**
  * Logout and reset currentUser
  */
@@ -175,8 +190,10 @@ function setHeaderUserBadge() {
 }
 
 
-// Disable Touch On Mobile //
-
+/**
+ * Removes all :hover stylesheets for use on mobile device
+ * @returns 
+ */
 function hasTouch() {
     return 'ontouchstart' in document.documentElement
         || navigator.maxTouchPoints > 0
@@ -220,14 +237,13 @@ function nameValidation(username, msgElemId, className) {
 }
 
 /**
- * Create initials from first letters of Username
+ * Create initials from first letters of ssername
  * @param {String} name The full name of the user
  * @returns String
  */
 function getInitials(name) {
     const fullName = name.split(' ');
     const initials = fullName.shift().charAt(0) + fullName.pop().charAt(0);
-    console.log(initials);
     return initials.toUpperCase();
 }
 

@@ -1,3 +1,4 @@
+let currentUser;
 let users = [
     {
         "name": "Heiner Müller",
@@ -114,7 +115,7 @@ let tasks = [
                     "status": false
                 }
             ],
-            "assignees": ['aalles@company.com', 'hmueller@company.com'] // mail-address
+            "assignees": ['aalles@company.com', 'hmueller@company.com']
         }
     ],
     [ // Awaiting Feedback
@@ -127,7 +128,7 @@ let tasks = [
             "subtasks": [
 
             ],
-            "assignees": ['jmay@company.com'] // mail-address
+            "assignees": ['jmay@company.com']
         },
         {
             "title": "Task D",
@@ -157,7 +158,7 @@ let tasks = [
                     "status": true
                 }
             ],
-            "assignees": ['rzufall@company.com', 'smaier@company.com'] // mail-address
+            "assignees": ['rzufall@company.com', 'smaier@company.com']
         }
     ],
     [ // Done
@@ -187,8 +188,6 @@ let categories = [
         "color": "red"
     }
 ];
-
-let currentUser;
 
 const prio = [
     {

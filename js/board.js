@@ -325,9 +325,6 @@ async function openAddTask() {
     dateLimitation();
 
     toggleModal('modal-add-task');
-    // setTimeout(() => {
-    //     toggleModal('modal-add-task');
-    // }, 500);
 }
 
 

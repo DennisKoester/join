@@ -1,3 +1,6 @@
+/**
+ * The email of the contact to be edited
+ */
 let currentContactMail = '';
 
 /**
@@ -51,6 +54,10 @@ function hideLabels() {
 }
 
 
+/**
+ * Sets the title of the contact form for creating a new contact
+ * @param {Boolean} isNewContact Flag to determin new contact
+ */
 function setTitleContactModal(isNewContact) {
     const title = document.getElementById('modal-contact--title');
     const subtitle = document.getElementById('modal-contact--subtitle');

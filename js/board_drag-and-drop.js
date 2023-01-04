@@ -45,8 +45,6 @@ function dragStart(statusId, taskId) {
     toggleWildcards();
     
     rotateTaskCard(statusId, taskId);
-
-    console.log(`Drag starts from Task [${statusId}, ${taskId}]`);
 }
 
 

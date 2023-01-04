@@ -1,4 +1,3 @@
-
 /**
  * Initialises the summary
  */
