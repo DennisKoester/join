@@ -579,10 +579,6 @@ select {
 
 /* Help Classes */
 
-.hidden {
-    visibility: hidden;
-}
-
 .rotate180 {
     transform: rotate(180deg);
 }

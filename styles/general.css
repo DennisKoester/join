@@ -72,3 +72,7 @@ a {
 .d-none {
     display: none !important;
 }
+
+.hidden {
+    visibility: hidden;
+}
