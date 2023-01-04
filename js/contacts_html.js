@@ -1,4 +1,9 @@
-function contactDivHTML(index){
+/**
+ * Renders every single contact in the list
+ * @param {number} index Index of the user
+ * @returns HTML
+ */
+function contactDivHTML(index) {
     return /*html*/ `
     <div id="contact-container${index}" class="contact-div" onclick="renderContactInformation(${index})">
         <div class="username-initials" id="username-initials${index}"></div>
@@ -10,7 +15,13 @@ function contactDivHTML(index){
     `;
 }
 
-function contactCardHTML(index){
+
+/**
+ * Renders the contact card of selected contact
+ * @param {number} index Index of the user
+ * @returns HTML
+ */
+function contactCardHTML(index) {
     return /*html*/ `
         <div class="contact-div-big">
         <div class="username-initials-big" id="u-initials${index}">JM</div>
