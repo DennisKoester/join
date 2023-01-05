@@ -79,7 +79,7 @@ function insertUserInformationById(index) {
 function renderContactInformation(index) {
     let contactDIV = document.getElementById('contact-div');
     contactDIV.innerHTML = '';
-    conractDIV.innerHTML = contactCardHTML(index);
+    contactDIV.innerHTML = contactCardHTML(index);
 
     renderContactInformationById(index);
     backgroundColorOfSelected(index);
