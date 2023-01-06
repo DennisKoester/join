@@ -22,17 +22,17 @@ async function openViewer(statusId, taskId) {
  * Closes the task viewer/editor
  * @param {String} id The ID of the modal
  */
-async function closeViewer(id) {
-    const reader = document.getElementById('modal-task-reader');
+// async function closeViewer(id) {
+//     const reader = document.getElementById('modal-task-reader');
 
-    if (!reader.classList.contains('d-none')) {
-        tasks[openedTask.statusId][openedTask.taskId]['subtasks'] = Array.from(currentSubtasks);
-        await saveOnServer('tasks', tasks);
-        updateTaskCard();
-    }
+//     if (!reader.classList.contains('d-none')) {
+//         tasks[openedTask.statusId][openedTask.taskId]['subtasks'] = Array.from(currentSubtasks);
+//         await saveOnServer('tasks', tasks);
+//         updateTaskCard();
+//     }
 
-    toggleModal(id);
-}
+//     toggleModal(id);
+// }
 
 
 /**
@@ -229,7 +229,9 @@ function calcContainerHeight(elemCount) {
  * @param {Array} subtasks The list of subtasks of the respective task
  */
 function listSubtasksEditor(subtasks) {
-    currentSubtasks = Array.from(subtasks);
+    currentSubtasks = JSON.parse(JSON.stringify(subtasks));
+    
+    // currentSubtasks = subtasks.slice();
 
     renderSubtasksEditor();
 }
@@ -327,13 +329,30 @@ function deleteSubtaskEditor(index) {
  * Toggles the status of a subtask in the task editor
  * @param {Number} index The ID of the subtask
  */
-function toggleStatusSubtask(index) {
+async function toggleStatusSubtask(index) {
     const checkboxEditor = document.getElementById(`subtask-status-${index}`);
     const checkboxViewer = document.getElementById(`subtask-status-viewer-${index}`)
+    
     let status = currentSubtasks[index]['status'];
     currentSubtasks[index]['status'] = !status;
     checkboxEditor.src = getStatusSign(currentSubtasks[index]['status']);
     checkboxViewer.src = getStatusSign(currentSubtasks[index]['status']);
+
+    await saveSubtasksFromViewer();
+}
+
+
+/**
+ * Saves changes on subtasks made in TaskViewer
+ */
+async function saveSubtasksFromViewer() {
+    const reader = document.getElementById('modal-task-reader');
+
+    if (!reader.classList.contains('d-none')) {
+        tasks[openedTask.statusId][openedTask.taskId]['subtasks'] = JSON.parse(JSON.stringify(currentSubtasks));
+        await saveOnServer('tasks', tasks);
+        updateTaskCard();
+    }
 }
 
 
