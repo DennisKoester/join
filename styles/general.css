@@ -44,7 +44,7 @@
     --welcome-mobile-delay: 800ms;
 
     /* Button Border Radius */
-    --border-radius: 8px;
+    --border-radius: 10px;
 }
 
 * {
