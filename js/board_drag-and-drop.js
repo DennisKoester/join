@@ -39,15 +39,16 @@ function unrotateTaskCard(statusId, taskId) {
  * @param {Number} taskId The task's ID within the status
  */
 function dragStart(statusId, taskId) {
+    setTimeout(() => {
+        console.log('dragStart');
 
-    console.log('dragStart');
+        selectedTask.status = statusId;
+        selectedTask.task = taskId;
 
-    selectedTask.status = statusId;
-    selectedTask.task = taskId;
-
-    toggleWildcards();
-    
-    rotateTaskCard(statusId, taskId);
+        toggleWildcards();
+        
+        rotateTaskCard(statusId, taskId);
+    }, 30);
 }
 
 
