@@ -211,7 +211,6 @@ function calcContainerHeight(elemCount) {
  */
 function listSubtasksEditor(subtasks) {
     currentSubtasks = JSON.parse(JSON.stringify(subtasks));
-
     renderSubtasksEditor();
 }
 

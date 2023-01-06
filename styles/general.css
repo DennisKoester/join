@@ -91,6 +91,6 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #2A3647;
+    background-color: var(--bg-color-main);
     border-radius: 100vw;
 }
