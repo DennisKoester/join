@@ -19,30 +19,11 @@ async function openViewer(statusId, taskId) {
 
 
 /**
- * Closes the task viewer/editor
- * @param {String} id The ID of the modal
- */
-// async function closeViewer(id) {
-//     const reader = document.getElementById('modal-task-reader');
-
-//     if (!reader.classList.contains('d-none')) {
-//         tasks[openedTask.statusId][openedTask.taskId]['subtasks'] = Array.from(currentSubtasks);
-//         await saveOnServer('tasks', tasks);
-//         updateTaskCard();
-//     }
-
-//     toggleModal(id);
-// }
-
-
-/**
  * Toggles between reading mode and editing mode in the task viewer modal
  */
 function toggleTaskEditMode() {
     const reader = document.getElementById('modal-task-reader');
     const editor = document.getElementById('modal-task-edit');
-
-    // renderSubtasksEditor();
 
     reader.classList.toggle('d-none');
     editor.classList.toggle('d-none');
@@ -230,8 +211,6 @@ function calcContainerHeight(elemCount) {
  */
 function listSubtasksEditor(subtasks) {
     currentSubtasks = JSON.parse(JSON.stringify(subtasks));
-    
-    // currentSubtasks = subtasks.slice();
 
     renderSubtasksEditor();
 }

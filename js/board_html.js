@@ -93,15 +93,12 @@ function renderAssigneesMore(diff) {
  * @returns HTML
  */
 function renderSubtaskForViewer(index, desc, checkbox) {
-    // const altTxt = statusSign.indexOf('checked') >= 0 ? 'closed' : 'open';
     return /* html */ `
         <div class="modal-task-subtask">
             <img id="subtask-status-viewer-${index}" src="${checkbox}" onclick="toggleStatusSubtask(${index})" style="cursor: pointer">
             <span>${desc}</span>
         </div>
     `;
-
-    // <img src="${statusSign}" alt="${altTxt}">
 }
 
 
