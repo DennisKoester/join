@@ -92,14 +92,16 @@ function renderAssigneesMore(diff) {
  * @param {String} statusSign The URL of the status sign
  * @returns HTML
  */
-function renderSubtaskStatic(desc, statusSign) {
-    const altTxt = statusSign.indexOf('checked') >= 0 ? 'closed' : 'open';
+function renderSubtaskForViewer(index, desc, checkbox) {
+    // const altTxt = statusSign.indexOf('checked') >= 0 ? 'closed' : 'open';
     return /* html */ `
         <div class="modal-task-subtask">
-            <img src="${statusSign}" alt="${altTxt}">
+            <img id="subtask-status-viewer-${index}" src="${checkbox}" onclick="toggleStatusSubtask(${index})" style="cursor: pointer">
             <span>${desc}</span>
         </div>
     `;
+
+    // <img src="${statusSign}" alt="${altTxt}">
 }
 
 
@@ -110,7 +112,7 @@ function renderSubtaskStatic(desc, statusSign) {
  * @param {String} checkbox The URL of the status sign
  * @returns HTML
  */
-function renderSubtaskDynamic(index, desc, checkbox) {
+function renderSubtaskForEditor(index, desc, checkbox) {
     return /*html*/ `
     <div class="subtask">
         <img id="subtask-status-${index}" src="${checkbox}" onclick="toggleStatusSubtask(${index})" style="cursor: pointer" alt="checkbox">

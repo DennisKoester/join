@@ -39,6 +39,9 @@ function unrotateTaskCard(statusId, taskId) {
  * @param {Number} taskId The task's ID within the status
  */
 function dragStart(statusId, taskId) {
+
+    console.log('dragStart');
+
     selectedTask.status = statusId;
     selectedTask.task = taskId;
 
@@ -55,6 +58,9 @@ function dragStart(statusId, taskId) {
  */
 function dragOver(event, enteredStatusId) {
     event.preventDefault();
+
+    console.log('dragOver');
+
     target = enteredStatusId;
 }
 
@@ -63,6 +69,9 @@ function dragOver(event, enteredStatusId) {
  * Resets the targeted status container during drag-and-drop
  */
 function dragLeave() {
+
+    console.log('dragLeave');
+
     target = -1;
 }
 
@@ -71,6 +80,9 @@ function dragLeave() {
  * Performs the end of drag-and-drop
  */
 function dragEnd() {
+
+    console.log('dragEnd');
+
     toggleWildcards();
 
     if (target == -1) {
@@ -84,6 +96,9 @@ function dragEnd() {
  * @param {Number} droppedOnStatusId The ID of the targeted status container
  */
 function dropTask(droppedOnStatusId) {
+
+    console.log('dropTask');
+
     if (droppedOnStatusId == selectedTask.status) {
         unrotateTaskCard(selectedTask.status, selectedTask.task);
     }

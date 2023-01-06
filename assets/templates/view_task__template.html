@@ -1,8 +1,7 @@
 <!-- /// View task /// -->
 <div class="modal-wrapper modal-taskview-wrapper" onclick="doNotClose(event)">
-    <img class="modal-task-close" src="./assets/img/black-x.svg" onclick="toggleModal('modal-task')" alt="close">
+    <img class="modal-task-close" src="./assets/img/black-x.svg" onclick="closeViewer('modal-task')" alt="close">
     <div id="modal-task-reader" class="modal-task-content reader">
-        <!-- <img class="modal-task-close" src="./assets/img/black-x.svg" alt="close"> -->
         <button id="btn-edit-task" onclick="toggleTaskEditMode()">
             <img src="./assets/img/symb_todo.svg" alt="edit">
         </button>
@@ -13,18 +12,6 @@
             <!-- <div class="modal-task-subtask">
                 <img src="./assets/img/checkbox-checked.svg" alt="closed">
                 <span>Subtask 1</span>
-            </div>
-            <div class="modal-task-subtask">
-                <img src="./assets/img/checkbox-checked.svg" alt="closed">
-                <span>Subtask 2</span>
-            </div>
-            <div class="modal-task-subtask">
-                <img src="./assets/img/checkbox-unchecked.svg" alt="open">
-                <span>Subtask 3</span>
-            </div>
-            <div class="modal-task-subtask">
-                <img src="./assets/img/checkbox-unchecked.svg" alt="open">
-                <span>Subtask 4</span>
             </div> -->
         </div>
         <div class="modal-task-metadata">
@@ -43,27 +30,12 @@
             <!-- <div class="modal-task-assignees-item">
                 <div class="assignee modal-task-assignee" style="background-color: cyan">AB</div>
                 <span>Aalbert Behringer</span>
-            </div>
-            <div class="modal-task-assignees-item">
-                <div class="assignee modal-task-assignee" style="background-color: green">CD</div>
-                <span>Cebert Degen</span>
-            </div>
-            <div class="modal-task-assignees-item">
-                <div class="assignee modal-task-assignee" style="background-color: blue">EF</div>
-                <span>Elfi Feger</span>
-            </div>
-            <div class="modal-task-assignees-item">
-                <div class="assignee modal-task-assignee" style="background-color: magenta">GH</div>
-                <span>Geraldine Haas</span>
             </div> -->
         </div>
     </div>
-    <!-- </div> -->
+
     <!-- /// Edit task /// -->
-    <!-- <div class="modal-task-content-wrapper"> -->
     <div id="modal-task-edit" class="modal-task-content editor d-none">
-        <!-- <img class="modal-task-close" src="./assets/img/black-x.svg" alt="close"> -->
-        <!-- <div> -->
         <div class="title-container width-100">
             <p><label for="title">Title</label></p>
             <input id="title" class="title-field width-100" onkeyup="validationForInput(0, 'title')" type="text"
@@ -122,9 +94,6 @@
                     <span>Select contacts to assign</span>
                     <img id="triangle2" src="./assets/img/select-triangle.svg" alt="triangle" style="padding-top: 2px;">
                 </div>
-                <!-- <div onclick="toggleDropdown('assign-dropdown', 'triangle2', 'assign-list')"
-                            class="dropdown-overlay">
-                        </div> -->
                 <div id="assign-dropdown" class="dropdown-menu d-none">
                     <ul id="assignee-list">
                         <li
@@ -164,6 +133,5 @@
             <span>Ok</span>
             <img src="./assets/img/symb_done.svg" alt="ok">
         </button>
-        <!-- </div> -->
     </div>
 </div>

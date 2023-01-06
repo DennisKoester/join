@@ -19,11 +19,31 @@ async function openViewer(statusId, taskId) {
 
 
 /**
+ * Closes the task viewer/editor
+ * @param {String} id The ID of the modal
+ */
+async function closeViewer(id) {
+    const reader = document.getElementById('modal-task-reader');
+
+    if (!reader.classList.contains('d-none')) {
+        tasks[openedTask.statusId][openedTask.taskId]['subtasks'] = Array.from(currentSubtasks);
+        await saveOnServer('tasks', tasks);
+        updateTaskCard();
+    }
+
+    toggleModal(id);
+}
+
+
+/**
  * Toggles between reading mode and editing mode in the task viewer modal
  */
 function toggleTaskEditMode() {
     const reader = document.getElementById('modal-task-reader');
     const editor = document.getElementById('modal-task-edit');
+
+    // renderSubtasksEditor();
+
     reader.classList.toggle('d-none');
     editor.classList.toggle('d-none');
 }
@@ -179,7 +199,7 @@ function listSubtasksViewer(subtasks) {
         const status = subtasks[i]['status'];
         let statusSign = getStatusSign(status);
 
-        subtasksElem.innerHTML += renderSubtaskStatic(desc, statusSign);
+        subtasksElem.innerHTML += renderSubtaskForViewer(i, desc, statusSign);
     }
 
     subtasksElem.style.minHeight = `${calcContainerHeight(subtasks.length)}px`;
@@ -229,7 +249,7 @@ function renderSubtasksEditor() {
         const status = currentSubtasks[i]['status'];
         let statusSign = getStatusSign(status);
 
-        subtasksList.innerHTML += renderSubtaskDynamic(i, desc, statusSign);
+        subtasksList.innerHTML += renderSubtaskForEditor(i, desc, statusSign);
     }
 }
 
@@ -274,7 +294,7 @@ function addSubtaskToList() {
     const index = currentSubtasks.length - 1;
     const desc = currentSubtasks[index]['title'];
     const statusSign = getStatusSign(false);
-    subtasksList.innerHTML += renderSubtaskDynamic(index, desc, statusSign);
+    subtasksList.innerHTML += renderSubtaskForEditor(index, desc, statusSign);
 }
 
 
@@ -308,10 +328,12 @@ function deleteSubtaskEditor(index) {
  * @param {Number} index The ID of the subtask
  */
 function toggleStatusSubtask(index) {
-    const checkbox = document.getElementById(`subtask-status-${index}`);
+    const checkboxEditor = document.getElementById(`subtask-status-${index}`);
+    const checkboxViewer = document.getElementById(`subtask-status-viewer-${index}`)
     let status = currentSubtasks[index]['status'];
     currentSubtasks[index]['status'] = !status;
-    checkbox.src = getStatusSign(currentSubtasks[index]['status']);
+    checkboxEditor.src = getStatusSign(currentSubtasks[index]['status']);
+    checkboxViewer.src = getStatusSign(currentSubtasks[index]['status']);
 }
 
 
