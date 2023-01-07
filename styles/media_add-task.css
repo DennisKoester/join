@@ -216,6 +216,7 @@
 
     li label {
         padding: 0 10px;
+        height: 32px;
     }
 
     .height-input-mobile {
