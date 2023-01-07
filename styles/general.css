@@ -87,7 +87,7 @@ a {
 ::-webkit-scrollbar-track {
     background-color: var(--dimmed);
     border-radius: 100vw;
-    margin-block: 5px;
+    margin-block: 2px;
 }
 
 ::-webkit-scrollbar-thumb {
