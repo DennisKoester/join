@@ -1,6 +1,3 @@
-let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-
-
 /**
  * Initiates contact page
  */
@@ -30,20 +27,6 @@ function renderContacts() {
             }
         }
     }
-}
-
-
-/**
- * Getting the first letter of the last name
- * @param {number} j Index of the user
- * @returns "surename Letter of the last name 
- */
-function getFirstLetterOfLastName(j) {
-    let user = users[j]['name'];
-    let names = user.split(' ');
-    let surname = names[names.length - 1];
-
-    return surname[0];
 }
 
 
@@ -164,9 +147,9 @@ function resetBackgroundColorSelected() {
  */
 async function openAddTaskContact(index) {
     currentAssignees = [];
-    currentAssignees.push(users[index]);
     await openAddTask();
     renderAssignees();
+    selectAssignee(index);
 }
 
 

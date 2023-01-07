@@ -7,13 +7,13 @@ async function openViewer(statusId, taskId) {
     await loadHTML('modal-task', './assets/templates/view_task__template.html')
 
     if (isTouchDevice) controlVisTaskCtx();
-    
+
     openedTask.statusId = statusId;
     openedTask.taskId = taskId;
-    
+
     renderDataToViewer(statusId, taskId);
     renderDataToEditor(statusId, taskId);
-    
+
     toggleModal('modal-task');
 }
 
@@ -124,7 +124,7 @@ function writeDateViewer(dateAsString) {
     const dateElemViewer = document.getElementById('modal-task-date');
     let date = new Date(dateAsString + "T00:00:00.000");
 
-    date = date.toLocaleDateString('en-GB', {year: 'numeric', month: '2-digit', day: '2-digit'});
+    date = date.toLocaleDateString('en-GB', { year: 'numeric', month: '2-digit', day: '2-digit' });
     dateElemViewer.innerHTML = date;
 }
 
@@ -242,7 +242,7 @@ function renderSubtasksEditor() {
  */
 function addSubtaskEditor(input, container, dropdown) {
     const inputSubtask = document.getElementById('subtask-input');
-    
+
     if (inputSubtask.value.length >= 1) {
         currentSubtasks.push({
             'title': inputSubtask.value,
@@ -310,7 +310,7 @@ function deleteSubtaskEditor(index) {
 async function toggleStatusSubtask(index) {
     const checkboxEditor = document.getElementById(`subtask-status-${index}`);
     const checkboxViewer = document.getElementById(`subtask-status-viewer-${index}`)
-    
+
     let status = currentSubtasks[index]['status'];
     currentSubtasks[index]['status'] = !status;
     checkboxEditor.src = getStatusSign(currentSubtasks[index]['status']);
@@ -359,18 +359,20 @@ function listAssigneesViewer(assignees) {
  */
 function listAssigneesEditor(assignees) {
     currentAssignees = [];
-    for (let i = 0; i < assignees.length; i++) {
-        currentAssignees.push(users.find(item => item['email'] == assignees[i]));
-    }
 
     renderAssignees();
+
+    for (let i = 0; i < assignees.length; i++) {
+        selectAssignee(i);
+    }
+
 }
 
 
 /**
  * Saves the changes made in the task editor
  */
-async function saveChanges() {    
+async function saveChanges() {
     const data = [
         {
             'value': document.getElementById('title').value,

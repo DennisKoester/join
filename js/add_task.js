@@ -12,7 +12,7 @@ async function initAddTask() {
 
     await init();
     await loadCategories();
-    await loadAssignees();
+    await renderAssignees();
     await dateLimitation();
 }
 
@@ -198,7 +198,7 @@ function resetActiveColor() {
 // Assignee Section //
 
 
-function loadAssignees() {
+function renderAssignees() {
     let list = document.getElementById('assignee-list');
     let badgeList = document.getElementById('add-task-assignees');
     list.innerHTML = '';
@@ -212,8 +212,59 @@ function loadAssignees() {
             }
         }
     }
-    showAssigneeBadge();
+
     // list.innerHTML += inviteContactHTML();
+}
+
+
+/**
+ * Shows the badge of selected assignee
+ */
+function showAssigneeBadge() {
+    let badgeList = document.getElementById('add-task-assignees');
+    badgeList.innerHTML = '';
+
+    for (let i = 0; i < currentAssignees.length; i++) {
+        let initials = currentAssignees[i]['short_name'];
+        let color = currentAssignees[i]['color'];
+        badgeList.innerHTML += assigneeBadgeHTML(initials, color);
+    }
+}
+
+
+/**
+ * Selects an assignee for the task
+ * @param {number} i Index of the selected assignee
+ */
+function selectAssignee(i) {
+    let user = currentAssignees.find(element => element['email'] == users[i]['email']);
+
+    if (!user) {
+        currentAssignees.push(users[i]);
+    } else {
+        index = currentAssignees.findIndex(element => element['email'] == user['email']);
+        currentAssignees.splice(index, 1);
+    }
+    changeCheckbox(i);
+    showAssigneeBadge();
+    validationForField(3, currentAssignees);
+}
+
+
+/**
+ * Toggles the checkbox of the assignee if is selected or not
+ * @param {number} i Index of the clicked checkbox
+ */
+function changeCheckbox(i) {
+    let checkbox = document.getElementById(`checkbox${i}`);
+    let checked = './assets/img/checkbox-assignee-checked.svg';
+    let unchecked = './assets/img/checkbox-assignee-unchecked.svg';
+
+    if (checkbox.src.indexOf("unchecked") >= 0) {
+        checkbox.src = checked;
+    } else {
+        checkbox.src = unchecked;
+    }
 }
 
 
@@ -269,59 +320,6 @@ function loadAssignees() {
     showAssigneeBadge();
     list.innerHTML += inviteContactHTML();
 } */
-
-
-/**
- * Shows the badge of selected assignee
- */
-function showAssigneeBadge() {
-    let badgeList = document.getElementById('add-task-assignees');
-    badgeList.innerHTML = '';
-
-    for (let i = 0; i < currentAssignees.length; i++) {
-        let initials = currentAssignees[i]['short_name'];
-        let color = currentAssignees[i]['color'];
-        badgeList.innerHTML += assigneeBadgeHTML(initials, color);
-    }
-}
-
-
-/**
- * Selects an assignee for the task
- * @param {number} i Index of the selected assignee
- * @param {string} assignee Name of the assignee
- */
-function selectAssignee(i, assignee) {
-    let user = currentAssignees.find(element => element['name'] == assignee);
-
-    if (!user) {
-        let user = users.find(element => element['name'] == assignee);
-        currentAssignees.push(user);
-    } else {
-        let index = currentAssignees.findIndex(element => element['name'] == assignee);
-        currentAssignees.splice(index, 1);
-    }
-    changeCheckbox(i);
-    showAssigneeBadge();
-    validationForField(3, currentAssignees);
-}
-
-
-/**
- * Toggles the checkbox of the assignee if is selected or not
- * @param {number} i Index of the clicked checkbox
- */
-function changeCheckbox(i) {
-    let checkbox = document.getElementById(`checkbox${i}`);
-    let checked = './assets/img/checkbox-assignee-checked.svg';
-    let unchecked = './assets/img/checkbox-assignee-unchecked.svg';
-
-    if (checkbox.src.indexOf("unchecked") >= 0) {
-        checkbox.src = checked;
-    } else {
-        checkbox.src = unchecked;
-    }
-}
 
 
 // Prio Section //
