@@ -54,7 +54,7 @@ function assigneeHTML(i, assignee) {
         <li onclick="selectAssignee(${i}, '${assignee}')">
             <label class="flex-btw">
                 <div>${assignee}</div>
-                <img id="checkbox${i}" class="checkbox" src="./assets/img/checkbox-assignee-checked.svg" alt="checkbox">
+                <img id="checkbox${i}" class="checkbox" src="./assets/img/checkbox-assignee-unchecked.svg" alt="checkbox">
             </label>
         </li>`
 }

@@ -12,6 +12,7 @@ async function initAddTask() {
 
     await init();
     await loadCategories();
+    await loadAssignees();
     await dateLimitation();
 }
 
@@ -197,13 +198,47 @@ function resetActiveColor() {
 // Assignee Section //
 
 
+function loadAssignees() {
+    let list = document.getElementById('assignee-list');
+    let badgeList = document.getElementById('add-task-assignees');
+    list.innerHTML = '';
+    badgeList.innerHTML = '';
+
+    for (let i = 0; i < alphabet.length; i++) {
+        for (let j = 0; j < users.length; j++) {
+            if (alphabet[i] == getFirstLetterOfLastName(j)) {
+                let assignee = users[j]['name'];
+                list.innerHTML += assigneeHTML(j, assignee);
+            }
+        }
+    }
+    showAssigneeBadge();
+    // list.innerHTML += inviteContactHTML();
+}
+
+
+/* function loadAssignees(){
+    let list = document.getElementById('assignee-list');
+    let badgeList = document.getElementById('add-task-assignees');
+    list.innerHTML = '';
+    badgeList.innerHTML = '';
+
+    for (let i = 0; i < users.length; i++) {
+        let assignee = users[i]['name'];
+        list.innerHTML += assigneeHTML(i, assignee);
+    }
+    showAssigneeBadge();
+    list.innerHTML += inviteContactHTML();
+} */
+
+
 /**
  * Adds a contact from the listed contacts on the server and validates the field
  * @param {string} input The assignees input field
  * @param {string} container The assignees input container
  * @param {string} dropdown The assignees dropdown container
  */
-function inviteContact(input, container, dropdown) {
+/* function inviteContact(input, container, dropdown) {
     let assignInput = document.getElementById(input);
     let user = users.find(element => element['email'] == assignInput.value);
     let assignedUser = currentAssignees.find(element => element['email'] == assignInput.value);
@@ -215,13 +250,13 @@ function inviteContact(input, container, dropdown) {
         hideInputField(input, container, dropdown);
         validationForField(3, currentAssignees);
     }
-}
+} */
 
 
 /**
  * Renders the added assignees 
  */
-function renderAssignees() {
+/* function renderAssignees() {
     let list = document.getElementById('assignee-list');
     let badgeList = document.getElementById('add-task-assignees');
     list.innerHTML = '';
@@ -233,7 +268,7 @@ function renderAssignees() {
     }
     showAssigneeBadge();
     list.innerHTML += inviteContactHTML();
-}
+} */
 
 
 /**
@@ -281,7 +316,7 @@ function changeCheckbox(i) {
     let checked = './assets/img/checkbox-assignee-checked.svg';
     let unchecked = './assets/img/checkbox-assignee-unchecked.svg';
 
-    if (checkbox.src.indexOf("unchecked") >= 0) { 
+    if (checkbox.src.indexOf("unchecked") >= 0) {
         checkbox.src = checked;
     } else {
         checkbox.src = unchecked;
@@ -643,10 +678,3 @@ function enterFunctionNewCategory(e) {
         addNewCategory('category-input', 'category-input-container', 'category-dropdown-container');
     }
 }
-
-
-
-
-
-
-

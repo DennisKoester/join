@@ -19,7 +19,6 @@ function renderContacts() {
     for (let i = 0; i < alphabet.length; i++) {
         for (let j = 0; j < users.length; j++) {
             if (alphabet[i] == getFirstLetterOfLastName(j)) {
-                // let container = document.getElementById('contacts-menu-scrollable');
                 container.innerHTML += `<div class="alphabet-letter">${alphabet[i]}</div>`;
                 container.innerHTML += `<div class="contacts-underline"></div>`;
                 break;

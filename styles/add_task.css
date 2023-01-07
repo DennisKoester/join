@@ -92,8 +92,9 @@ li label {
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
+    max-height: 245px;
+    overflow-y: auto;
     cursor: pointer;
-    overflow: hidden;
 }
 
 #category-dropdown ul li {
@@ -160,6 +161,7 @@ li div:nth-child(2) {
 
 #add-task-assignees {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .title-field:focus {

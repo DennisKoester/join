@@ -115,6 +115,10 @@
         height: 41px;
     }
 
+    li label {
+        height: 41px;
+    }
+
     .height-input-mobile {
         height: 39px;
     }
