@@ -11,6 +11,11 @@ let currentAssignees = [];
 async function initAddTask() {
 
     await init();
+    await initAddTaskForm();
+}
+
+
+async function initAddTaskForm() {
     await loadCategories();
     await renderAssignees();
     await dateLimitation();
