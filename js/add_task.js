@@ -429,6 +429,7 @@ function getDataForNewTask() {
     if (submitValidation(title, desc, date, assigneesMail)) {
         addNewTask(title, desc, date, assigneesMail);
         showPopup('task-popup-btn');
+        renderTasksStatus(0);
         directsToBoard();
     }
 }

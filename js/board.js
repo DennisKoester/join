@@ -396,22 +396,30 @@ function renderNewTask() {
 
 /**
  * Prevents element for closing
- * @param {*} event 
+ * @param {object} event 
  */
 function doNotClose(event) {
     event.stopPropagation();
 }
 
 
-function closeDeletePopup(id){
-    let popup = document.getElementById(id);
-
-    removeAnimate(popup);
-}
-
-
-function showDeletePopup(id){
+/**
+ * Shows the delete request popup with the animation
+ * @param {number} id The ID of the element
+ */
+function showDeletePopup(id) {
     let popup = document.getElementById(id);
 
     popup.classList.add('animation');
+}
+
+
+/**
+ * Closes the delete request popup.
+ * @param {number} id The ID of the element
+ */
+function closeDeletePopup(id) {
+    let popup = document.getElementById(id);
+
+    removeAnimate(popup);
 }

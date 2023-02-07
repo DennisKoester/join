@@ -466,3 +466,15 @@ function updateTaskCard() {
 
     taskCard.innerHTML = renderTaskCardContent(statusId, taskId, cat, catColor, prio);
 }
+
+
+/**
+ * Deletes a whole task from the JSON
+ */
+async function deleteTask(){
+    tasks[openedTask.statusId].splice(openedTask.taskId, 1);
+    renderTasksStatus(openedTask.statusId);
+    await saveOnServer('tasks', tasks);
+    closeDeletePopup('request-delete-popup');
+    toggleModal('modal-task');
+}

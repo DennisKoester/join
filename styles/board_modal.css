@@ -132,6 +132,10 @@ button {
     z-index: 1;
 }
 
+.modal-task-close:hover {
+    filter: invert(59%) sepia(97%) saturate(1585%) hue-rotate(165deg) brightness(93%) contrast(90%);
+}
+
 #modal-task-cat {
     display: flex;
     justify-content: center;
@@ -261,11 +265,11 @@ button {
 .delete-popup {
     display: flex;
     flex-direction: column;
-    gap: 5px !important;
+    gap: 10px !important;
 }
 
-.delete-popup span{
-    margin: 10px;
+.delete-popup span {
+    margin: 15px;
 }
 
 .delete-popup span:hover {
