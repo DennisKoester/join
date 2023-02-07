@@ -539,7 +539,7 @@ select {
 }
 
 .animation {
-    animation: transition 3s;
+    animation: transition 3s forwards;
 }
 
 @keyframes transition {

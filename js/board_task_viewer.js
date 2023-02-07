@@ -363,9 +363,9 @@ function listAssigneesEditor(assignees) {
     renderAssignees();
 
     for (let i = 0; i < assignees.length; i++) {
-        selectAssignee(i);
+        let userId = users.findIndex(user => user['email'] == assignees[i]);
+        selectAssignee(userId);
     }
-
 }
 
 

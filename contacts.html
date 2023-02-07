@@ -21,6 +21,7 @@
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
     <script src="./js/include_html.js"></script>
     <script src="./js/data.js"></script>
+    <script src="./js/mini_backend.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/contacts.js"></script>
     <script src="./js/contacts_html.js"></script>
@@ -28,8 +29,6 @@
     <script src="./js/board.js"></script>
     <script src="./js/add_task.js"></script>
     <script src="./js/add_task_html.js"></script>
-    <script src="./js/mini_backend.js"></script>
-    <script>setURL('https://gruppe-392.developerakademie.net/smallest_backend_ever');</script>
     <title>Contacts</title>
 </head>
 
@@ -76,8 +75,8 @@
         </div>
 
         <!-- MODAL: Add task -->
-        <div id="modal-add-task" class="modal-container d-none">
-            <div class="modal-wrapper modal-addtask-wrapper">
+        <div id="modal-add-task" class="modal-container d-none" onclick="toggleModal('modal-add-task')">
+            <div class="modal-wrapper modal-addtask-wrapper" onclick="doNotClose(event)">
                 <img class="modal-task-close" src="./assets/img/black-x.svg" onclick="toggleModal('modal-add-task')"
                     alt="close">
                 <div id="modal-add-task-content" class="modal-add-task-content"></div>
@@ -119,7 +118,8 @@
                             <button onclick="toggleContactsModal()" type="reset" class="clear-btn">Cancel
                                 <img src="./assets/img/clear-x.svg">
                             </button>
-                            <button id="contact-create-btn" onclick="saveNewContact()" type="submit" class="create-btn">Create contact
+                            <button id="contact-create-btn" onclick="saveNewContact()" type="submit"
+                                class="create-btn">Create contact
                                 <img src="./assets/img/create-check.svg">
                             </button>
                         </div>

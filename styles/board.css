@@ -99,6 +99,7 @@
     justify-content: space-between;
     margin-bottom: 38px;
     padding: 0 10px;
+    gap: 10px;
 }
 
 .task-status-title--text {
@@ -160,6 +161,7 @@
     padding: 18px 19px;
     cursor: pointer;
 }
+
 .task-card:hover {
     box-shadow: var(--shadow-hover);
 }
@@ -225,6 +227,7 @@
     justify-content: space-between;
     align-items: center;
 }
+
 .task-card--footer img {
     width: 17px;
     margin-right: 18px;

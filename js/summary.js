@@ -160,9 +160,9 @@ function displayUrgentDate(countUrgent) {
 function getUrgentDateNearest(countUrgent) {
     if (countUrgent.length > 1) {
         let dates = [];
-        
+
         for (let i = 0; i < countUrgent.length; i++) {
-        dates.push(countUrgent[i].date);
+            dates.push(countUrgent[i].date);
         }
 
         dates.sort();
@@ -181,7 +181,7 @@ function getUrgentDateNearest(countUrgent) {
  */
 function formatDate(date) {
     const dateAsString = new Date(date + 'T00:00:00.000');
-    return dateAsString.toLocaleDateString('en-GB', {year: 'numeric', month: 'long', day: 'numeric'});
+    return dateAsString.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
 
