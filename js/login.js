@@ -51,7 +51,7 @@ async function login(e) {
  * Shows a popup message with animation
  * @param {string} id
  */
-function showPopupMessage(id) {
+function upMessage(id) {
     let popup = document.getElementById(id);
 
     popup.classList.add('login_animation');

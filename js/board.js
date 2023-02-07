@@ -393,6 +393,25 @@ function renderNewTask() {
     toggleModal('modal-add-task');
 }
 
+
+/**
+ * Prevents element for closing
+ * @param {*} event 
+ */
 function doNotClose(event) {
     event.stopPropagation();
+}
+
+
+function closeDeletePopup(id){
+    let popup = document.getElementById(id);
+
+    removeAnimate(popup);
+}
+
+
+function showDeletePopup(id){
+    let popup = document.getElementById(id);
+
+    popup.classList.add('animation');
 }

@@ -64,21 +64,63 @@ button {
 }
 
 #btn-edit-task {
-    position: absolute;
-    right: 40px;
-    bottom: 30px;
-    width: 57px;
-    height: 57px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: var(--bg-color-main);
     border-radius: var(--border-radius-btn);
     cursor: pointer;
 }
 
-#btn-edit-task img {
-    width: 25px;
+.edit-btn:hover {
+    background: #29ABE2 !important;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+}
+
+.modal-btns {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 30px;
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-btns button {
+    height: 50px;
+    width: 50px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    transition: 100ms ease-in-out;
+    justify-content: center;
+}
+
+.modal-btns img {
+    width: 40px;
+    height: 35px;
+}
+
+.delete-btn {
+    background-color: white !important;
+    border: 2px solid #2A3647;
+    cursor: pointer;
+    font-family: 'Inter';
+    color: #2A3647;
+}
+
+.delete-btn img {
+    transition: 100ms ease-in-out;
+
+}
+
+.delete-btn:hover img {
+    filter: invert(59%) sepia(97%) saturate(1585%) hue-rotate(165deg) brightness(93%) contrast(90%);
+}
+
+.delete-btn:hover {
+    border: 2px solid #29ABE2;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .modal-task-close {
@@ -104,7 +146,6 @@ button {
 #modal-task-title {
     font-size: 61px;
     font-weight: 700;
-    color: var(--bg-color-main);
 }
 
 #modal-task-subtasks {
@@ -126,6 +167,10 @@ button {
 
 .modal-task-subtask span {
     font-size: 16px;
+}
+
+.subtask-list {
+    height: unset !important;
 }
 
 .modal-task-metadata {
@@ -193,7 +238,13 @@ button {
     color: white;
     background-color: var(--bg-color-main);
     border-radius: var(--border-radius-btn);
+    transition: 100ms ease-in-out;
     cursor: pointer;
+}
+
+#btn-task-edit-ok:hover {
+    background: #29ABE2 !important;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
 
 #btn-task-edit-ok img {
@@ -205,4 +256,19 @@ button {
     max-height: 95vh;
     overflow-y: auto;
     padding-right: 20px;
+}
+
+.delete-popup {
+    display: flex;
+    flex-direction: column;
+    gap: 5px !important;
+}
+
+.delete-popup span{
+    margin: 10px;
+}
+
+.delete-popup span:hover {
+    cursor: pointer;
+    color: #29ABE2;
 }
