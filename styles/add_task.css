@@ -533,7 +533,7 @@ select {
     color: white;
     font-size: 21px;
     line-height: 120%;
-    gap: 30px;
+    gap: 15px;
     overflow: hidden;
     opacity: 0;
 }

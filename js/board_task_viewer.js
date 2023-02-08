@@ -477,4 +477,5 @@ async function deleteTask(){
     await saveOnServer('tasks', tasks);
     closeDeletePopup('request-delete-popup');
     toggleModal('modal-task');
+    showPopup('task-deleted-popup');
 }
