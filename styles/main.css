@@ -31,6 +31,10 @@ header {
     cursor: pointer;
 }
 
+#menu-help:hover{
+    filter: invert(40%) sepia(97%) saturate(1585%) hue-rotate(185deg) brightness(105%) contrast(90%);
+}
+
 #header-user {
     width: 49px;
     height: 49px;
@@ -39,6 +43,10 @@ header {
     padding: 2px;
     cursor: pointer;
     overflow: hidden;
+}
+
+#header-user:hover{
+    border: solid 3px var(--highlight);
 }
 
 #header-img-user {

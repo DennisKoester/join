@@ -27,7 +27,10 @@ function contactCardHTML(index) {
         <div class="username-initials-big" id="u-initials${index}">JM</div>
             <div>
                 <div class="username-big" id="u-name${index}">Hans Test</div>
-                <img onclick="openAddTaskContact(${index})" src="./assets/img/add_task.png">
+                <div class="contact-add-task" onclick="openAddTaskContact(${index})">
+                    <img src="./assets/img/plus-blue.svg">
+                    <span>Add task</span>
+                </div>
             </div>
         </div>
         <div class="contact-and-edit">

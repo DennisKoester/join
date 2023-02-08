@@ -170,8 +170,16 @@
     gap: 30px;
 }
 
-.contact-div-big img {
+.contact-add-task{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--highlight);
     cursor: pointer;
+}
+
+.contact-add-task:hover{
+    filter: invert(0%) sepia(25%) saturate(364%) hue-rotate(17deg) brightness(35%) contrast(85%);
 }
 
 .username-big {
@@ -212,6 +220,45 @@
     gap: 6px;
     color: #2A3647;
     cursor: pointer;
+}
+
+.edit-contact:hover{
+    filter: invert(80%) sepia(97%) saturate(1585%) hue-rotate(185deg) brightness(93%) contrast(90%);
+}
+
+
+.contact-delete-btn{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    border: 2px solid #2A3647;
+    cursor: pointer;
+    font-family: 'Inter';
+    color: #2A3647;
+    height: 35px;
+    width: 35px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    transition: 100ms ease-in-out;
+    justify-content: center;
+    background-color: var(--bg-body) !important;
+    border-radius: var(--border-radius-btn);
+    cursor: pointer;
+}
+
+.contact-delete-btn img {
+    width: 30px;
+    height: 25px;
+}
+
+.contact-delete-btn:hover img {
+    filter: invert(59%) sepia(97%) saturate(1585%) hue-rotate(165deg) brightness(93%) contrast(90%);
+}
+
+.contact-delete-btn:hover {
+    border: 2px solid #29ABE2;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .email-margins {

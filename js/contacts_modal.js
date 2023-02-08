@@ -203,9 +203,11 @@ function setEditorButtons(id) {
     const btnsNew = document.getElementById('contact-submit-btns');
     const containerSave = document.getElementById('contact-save-btn');
     const contactForm = document.getElementById('contact-form');
+    const deleteBtn = document.getElementById('contact-delete-btn');
     btnsNew.classList.add('d-none');
     containerSave.classList.remove('d-none');
     contactForm.setAttribute('onsubmit', `updateContact(${id}); return false;`);
+    deleteBtn.classList.remove('d-none');
 }
 
 
@@ -216,9 +218,11 @@ function setContactFormButtons() {
     const btnsNew = document.getElementById('contact-submit-btns');
     const containerSave = document.getElementById('contact-save-btn');
     const contactForm = document.getElementById('contact-form');
+    const deleteBtn = document.getElementById('contact-delete-btn');
     btnsNew.classList.remove('d-none');
     containerSave.classList.add('d-none');
     contactForm.setAttribute('onsubmit', `saveNewContact(); return false;`);
+    deleteBtn.classList.add('d-none');
 }
 
 

@@ -118,15 +118,17 @@
                             <button onclick="toggleContactsModal()" type="reset" class="clear-btn">Cancel
                                 <img src="./assets/img/clear-x.svg">
                             </button>
-                            <button id="contact-create-btn" type="submit"
-                                class="create-btn">Create contact
+                            <button id="contact-create-btn" type="submit" class="create-btn">Create contact
                                 <img src="./assets/img/create-check.svg">
                             </button>
                         </div>
                         <div id="contact-save-btn" class="d-none">
-                            <button id="contact-update-btn" type="submit"
-                                class="create-btn">Save</button>
+                            <button id="contact-update-btn" type="submit" class="create-btn">Save</button>
                         </div>
+
+                        <button id="contact-delete-btn" class="contact-delete-btn d-none"
+                            onclick="showDeletePopup('request-delete-popup')">
+                            <img src="./assets/img/trash_icon.svg" alt="delete">
                     </form>
                 </div>
             </div>
