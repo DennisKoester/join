@@ -101,7 +101,7 @@
                             style="background-color: hsl(270, 100%, 50%)">AB</span>
                         <img id="user-badge--newuser" class="" src="./assets/img/user_guest.png">
                     </div>
-                    <form action="#" onsubmit="return false;" class="contact-form">
+                    <form id="contact-form" action="#" onsubmit="return false;" class="contact-form">
                         <div class="form-input-container">
                             <input class="input-profile" id="username" name="username" placeholder="Name" required>
                             <label for="username" id="name-validation" class="input-validation hidden">Please enter
@@ -118,13 +118,13 @@
                             <button onclick="toggleContactsModal()" type="reset" class="clear-btn">Cancel
                                 <img src="./assets/img/clear-x.svg">
                             </button>
-                            <button id="contact-create-btn" onclick="saveNewContact()" type="submit"
+                            <button id="contact-create-btn" type="submit"
                                 class="create-btn">Create contact
                                 <img src="./assets/img/create-check.svg">
                             </button>
                         </div>
                         <div id="contact-save-btn" class="d-none">
-                            <button id="contact-update-btn" onclick="updateContact()" type="submit"
+                            <button id="contact-update-btn" type="submit"
                                 class="create-btn">Save</button>
                         </div>
                     </form>

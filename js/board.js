@@ -389,6 +389,8 @@ function renderTasksStatusBySearch(statusId) {
 function renderNewTask() {
     const newTaskId = tasks[0].length - 1;
     const statusContainer = document.getElementById(`tasks-status-0`);
+    const noTaskMsg = document.getElementById('no-task-status-0');
+    if (!noTaskMsg.classList.contains('d-none')) showMsgNoTask(0, false);
     renderSingleTaskCard(0, newTaskId, statusContainer);
     toggleModal('modal-add-task');
 }
