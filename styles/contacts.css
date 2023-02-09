@@ -250,6 +250,7 @@
 .contact-delete-btn img {
     width: 30px;
     height: 25px;
+    filter: invert(0%) sepia(25%) saturate(364%) hue-rotate(17deg) brightness(35%) contrast(85%);
 }
 
 .contact-delete-btn:hover img {
