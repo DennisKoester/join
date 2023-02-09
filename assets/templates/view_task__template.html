@@ -111,7 +111,7 @@
             <p><label for="subtasks">Subtasks</label></p>
             <div class="subtasks-input padding-input">
                 <input id="subtask-input" onfocus="showInputBtns('input-btns', 'plus-icon' )"
-                    onkeydown="enterFunctionSubtasksEditor(event)" class="input-style" type="text"
+                    onkeydown="enterFunctionSubtasksEditor(event, 'subtask-input')" class="input-style" type="text"
                     placeholder="Add new subtask">
                 <div class="input-btns">
                     <img onclick="showInputBtns('input-btns', 'plus-icon' )" id="plus-icon" class="subtask-btn"
@@ -120,7 +120,7 @@
                         <img onclick="hideInputField('subtask-input', 'input-btns', 'plus-icon')"
                             src="./assets/img/black-x.svg" alt="" class="filter-btn">
                         <div class="seperator"></div>
-                        <img onclick="addSubtaskEditor('subtask-input')"
+                        <img onclick="addSubtaskEditor('subtask-input', 'input-btns', 'plus-icon')"
                             src="./assets/img/black-check.svg" alt="" class="filter-btn">
                     </div>
                 </div>

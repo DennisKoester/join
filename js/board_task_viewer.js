@@ -238,7 +238,7 @@ function renderSubtasksEditor() {
  * Adds a subtask in the task editor
  * @param {Object} input The subtask input field 
  */
-function addSubtaskEditor(input) {
+function addSubtaskEditor(input, buttons, icon) {
     const inputSubtask = document.getElementById(input);
 
     if (inputSubtask.value.length >= 1) {
@@ -247,6 +247,7 @@ function addSubtaskEditor(input) {
             'status': false
         });
         inputSubtask.value = '';
+        hideInputField(input, buttons, icon);
     }
     addSubtaskToList();
 }
@@ -258,7 +259,15 @@ function addSubtaskEditor(input) {
  */
 function enterFunctionSubtasksEditor(e) {
     if (e.code == "Enter") {
-        addSubtaskEditor('subtask-input', 'input-btns', 'plus-icon');
+        const inputSubtask = document.getElementById(input);
+
+        if (inputSubtask.value.length >= 1) {
+            currentSubtasks.push({
+                'title': inputSubtask.value,
+                'status': false
+            });
+            inputSubtask.value = '';
+        }
     }
 }
 

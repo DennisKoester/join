@@ -368,7 +368,7 @@ function setPrio(index) {
  * Adds a subtask to the list
  * @param {string} input The subtask input field 
  */
-function addSubtask(input) {
+function addSubtask(input, buttons, icon) {
     let inputSubtask = document.getElementById(input);
     if (inputSubtask.value.length >= 1) {
         currentSubtasks.push(
@@ -377,6 +377,7 @@ function addSubtask(input) {
                 "status": false
             });
         inputSubtask.value = '';
+        hideInputField(input, buttons, icon);
     }
     renderSubtasks();
 }
@@ -651,9 +652,18 @@ function directsToBoard() {
  * Adds a function for 
  * @param {object} e 
  */
-function enterFunctionSubtasks(e) {
+function enterFunctionSubtasks(e, input) {
     if (e.code == "Enter") {
-        addSubtask('subtask-input', 'input-btns', 'plus-icon');
+        let inputSubtask = document.getElementById(input);
+        if (inputSubtask.value.length >= 1) {
+            currentSubtasks.push(
+                {
+                    "title": inputSubtask.value,
+                    "status": false
+                });
+            inputSubtask.value = '';
+        }
+        renderSubtasks();
     }
 }
 
