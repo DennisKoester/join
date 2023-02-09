@@ -70,14 +70,30 @@
     background-repeat: no-repeat;
 }
 
+.input-email:focus{
+    outline: none !important;
+    border: 1px solid #005fcc;
+}
+
+
 .input-profile {
     background-image: url("../assets/img/profile-icon.png");
     background-repeat: no-repeat;
 }
 
+.input-profile:focus{
+    outline: none !important;
+    border: 1px solid #005fcc;
+}
+
 .input-phone {
     background-image: url('../assets/img/phone-icon.png');
     background-repeat: no-repeat;
+}
+
+.input-phone:focus{
+    outline: none !important;
+    border: 1px solid #005fcc;
 }
 
 .input-validation {

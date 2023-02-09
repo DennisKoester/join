@@ -9,9 +9,11 @@
     0% {
         opacity: 0%;
     }
+
     20% {
         opacity: 0%;
     }
+
     100% {
         opacity: 100%;
     }
@@ -133,11 +135,21 @@
     margin-bottom: 35px;
 }
 
+.input_email:focus {
+    outline: none !important;
+    border: 1px solid #005fcc;
+}
+
 .input_password {
     background-image: url("../assets/img/password-icon.png");
     background-repeat: no-repeat;
     background-position: calc(100% - 18px);
     margin-bottom: 35px;
+}
+
+.input_password:focus {
+    outline: none !important;
+    border: 1px solid #005fcc;
 }
 
 .input_profile {
@@ -146,14 +158,19 @@
     background-position: calc(100% - 18px);
 }
 
+.input_profile:focus {
+    outline: none !important;
+    border: 1px solid #005fcc;
+}
+
 .password_forgotten {
     color: var(--highlight);
     margin-left: 30px;
 }
 
 .login_form input::placeholder {
-   color: var(--dimmed);
-   font-size: 18px;
+    color: var(--dimmed);
+    font-size: 18px;
 }
 
 .login_form h2 {
@@ -376,16 +393,16 @@
         margin-left: 20px;
         margin-right: 20px;
     }
-    
+
     .forgotten_form span {
         font-size: 20px;
     }
-    
+
     .forgotten_form h2 {
         font-size: 40px !important;
         text-align: center;
         margin-top: 30px;
-    } 
+    }
 }
 
 @media (max-width:650px) {
@@ -398,7 +415,8 @@
         margin-bottom: 5px;
     }
 
-    .input_email, .input_password {
+    .input_email,
+    .input_password {
         margin-bottom: 25px;
     }
 
@@ -417,7 +435,7 @@
         width: 16px;
         height: auto;
     }
-   
+
     .login_logo {
         position: absolute;
         top: 15px;
@@ -425,7 +443,7 @@
         width: 40px;
         height: auto;
     }
-    
+
     @keyframes slideLogo {
         0% {
             width: 180px;
@@ -433,14 +451,14 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
-    
+
         20% {
             width: 180px;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
-    
+
         100% {
             width: 40px;
             top: 15px;
@@ -462,7 +480,7 @@
         align-items: flex-start;
         margin-bottom: 25px;
         width: 300px;
-    }  
+    }
 
     .password_forgotten {
         margin-left: 0px;
@@ -482,7 +500,8 @@
         gap: 20px;
     }
 
-    .guest_button, .login_button {
+    .guest_button,
+    .login_button {
         font-size: 16px;
         padding-top: 13px;
         padding-bottom: 13px;
@@ -509,7 +528,7 @@
     .signup_mobile p {
         font-size: 21px;
     }
-    
+
     .signup_mobile a {
         text-decoration: none;
         color: #fff;
@@ -517,7 +536,7 @@
         padding: 10px 20px;
         border-radius: 5px;
     }
-    
+
     .signup_mobile button {
         background-color: var(--bg-color-main);
         border: none;
@@ -539,7 +558,7 @@
         flex-direction: column-reverse;
         align-items: flex-start;
         width: 100%;
-    }  
+    }
 
     .login_form input {
         width: 100%;

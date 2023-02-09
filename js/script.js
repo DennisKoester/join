@@ -278,6 +278,11 @@ function getFirstLetterOfLastName(j) {
 }
 
 
+/**
+ * Replaces specific signs and symbols in a string
+ * @param {string} string Specific string
+ * @returns Converted string
+ */
 function escapeHTML(string) {
     return string
         .replace(/&/g, "&amp;")
@@ -285,4 +290,26 @@ function escapeHTML(string) {
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#39;");
+}
+
+
+/**
+ * Shows the popup "Task added to board" with animation
+ */
+function showPopup(id) {
+    let popup = document.getElementById(id);
+
+    popup.classList.add('animation');
+    setTimeout(function () {
+        removeAnimate(popup);
+    }, 3000);
+}
+
+
+/**
+ * Removes the animation class from the little popup
+ * @param {string} popup Little Popup 
+ */
+function removeAnimate(popup) {
+    popup.classList.remove('animation');
 }
