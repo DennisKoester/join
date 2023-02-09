@@ -1,4 +1,4 @@
-@media screen and (max-width: 1200px) {    
+@media screen and (max-width: 1200px) {
     #content-summary {
         display: flex;
         flex-direction: column;
@@ -8,7 +8,7 @@
     #ui {
         flex-direction: column;
     }
-    
+
     #data {
         margin-right: unset;
         margin-top: 3.5vh;
@@ -19,7 +19,8 @@
         margin-top: 3vh;
     }
 
-    #welcome-text-desk, #welcome-name-desk {
+    #welcome-text-desk,
+    #welcome-name-desk {
         font-size: 40px;
     }
 
@@ -155,7 +156,8 @@
         font-size: 47px;
     }
 
-    .label-big, .label-small {
+    .label-big,
+    .label-small {
         font-size: 14px;
     }
 
@@ -202,6 +204,7 @@
     #content-summary {
         margin-top: 20px;
     }
+
     .headline-tooltype {
         margin-bottom: 10px;
         font-size: 16px;
@@ -230,11 +233,13 @@
         height: 80px;
     }
 
-    .badge-count, .badge-count-small {
+    .badge-count,
+    .badge-count-small {
         font-size: 32px;
     }
 
-    .label-big, .label-small {
+    .label-big,
+    .label-small {
         font-size: 13px;
     }
 

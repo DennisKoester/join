@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,12 +9,14 @@
     <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="./styles/general.css">
     <link rel="stylesheet" href="./styles/start.css">
+    <link rel="stylesheet" href="./styles/media_start.css">
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
     <script src="./js/mini_backend.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/sign_up.js"></script>
     <script src="./js/data.js"></script>
 </head>
+
 <body onload="loadDataFromServer()">
     <img src="./assets/img/Logo_Start.png" class="login_logo">
     <div class="login_master">
@@ -26,9 +29,11 @@
                 <input class="input_profile" id="username" placeholder="Name" class="login_input" required>
                 <p id="name-validation" class="hidden name_validation">Please enter your full name!</p>
                 <input class="input_email" id="email" type="email" name="email" placeholder="Email" required>
-                <input class="input_password" id="password" type="password" name="password" placeholder="Password" required>
+                <input class="input_password" id="password" type="password" name="password" placeholder="Password"
+                    required>
                 <div class="login_form_buttons login_bottom_margin">
-                <button type="submit" class="login_button">Sign up</button></div>
+                    <button type="submit" class="login_button">Sign up</button>
+                </div>
             </form>
         </div>
     </div>
@@ -43,4 +48,5 @@
         </div>
     </div>
 </body>
+
 </html>
