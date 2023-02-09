@@ -95,6 +95,7 @@ function showInputBtns(btns, icon) {
 
 // Category Section //
 
+
 /**
  * Adds a new category to the selection
  * @param {string} input The input field
@@ -217,8 +218,6 @@ function renderAssignees() {
             }
         }
     }
-
-    // list.innerHTML += inviteContactHTML();
 }
 
 
@@ -273,60 +272,6 @@ function changeCheckbox(i) {
 }
 
 
-/* function loadAssignees(){
-    let list = document.getElementById('assignee-list');
-    let badgeList = document.getElementById('add-task-assignees');
-    list.innerHTML = '';
-    badgeList.innerHTML = '';
-
-    for (let i = 0; i < users.length; i++) {
-        let assignee = users[i]['name'];
-        list.innerHTML += assigneeHTML(i, assignee);
-    }
-    showAssigneeBadge();
-    list.innerHTML += inviteContactHTML();
-} */
-
-
-/**
- * Adds a contact from the listed contacts on the server and validates the field
- * @param {string} input The assignees input field
- * @param {string} container The assignees input container
- * @param {string} dropdown The assignees dropdown container
- */
-/* function inviteContact(input, container, dropdown) {
-    let assignInput = document.getElementById(input);
-    let user = users.find(element => element['email'] == assignInput.value);
-    let assignedUser = currentAssignees.find(element => element['email'] == assignInput.value);
-
-    if (user && !assignedUser) {
-        currentAssignees.push(user);
-        assignInput.value = '';
-        renderAssignees();
-        hideInputField(input, container, dropdown);
-        validationForField(3, currentAssignees);
-    }
-} */
-
-
-/**
- * Renders the added assignees 
- */
-/* function renderAssignees() {
-    let list = document.getElementById('assignee-list');
-    let badgeList = document.getElementById('add-task-assignees');
-    list.innerHTML = '';
-    badgeList.innerHTML = '';
-
-    for (let i = 0; i < currentAssignees.length; i++) {
-        let assignee = currentAssignees[i]['name'];
-        list.innerHTML += assigneeHTML(i, assignee);
-    }
-    showAssigneeBadge();
-    list.innerHTML += inviteContactHTML();
-} */
-
-
 // Prio Section //
 
 
@@ -367,6 +312,8 @@ function setPrio(index) {
 /**
  * Adds a subtask to the list
  * @param {string} input The subtask input field 
+ * @param {string} buttons The subtask buttons
+ * @param {string} icon The subtask plus button
  */
 function addSubtask(input, buttons, icon) {
     let inputSubtask = document.getElementById(input);
@@ -382,6 +329,7 @@ function addSubtask(input, buttons, icon) {
     renderSubtasks();
 }
 
+
 /**
  * Renders the subtask list
  */
@@ -393,6 +341,7 @@ function renderSubtasks() {
         list.innerHTML += subTaskHTML(subtask, i);
     }
 }
+
 
 /**
  * Deletes a subtask from the list
@@ -649,8 +598,10 @@ function directsToBoard() {
 
 
 /**
- * Adds a function for 
- * @param {object} e 
+ * 
+ * Adds a subtask to the editor on [Enter]
+ * @param {event} e The key event
+ * @param {string} input The subtask input field 
  */
 function enterFunctionSubtasks(e, input) {
     if (e.code == "Enter") {
@@ -669,19 +620,8 @@ function enterFunctionSubtasks(e, input) {
 
 
 /**
- * Adds a function for 
- * @param {object} e 
- */
-function enterFunctionAssignees(e) {
-    if (e.code == "Enter") {
-        inviteContact('assign-input', 'assign-input-container', 'assign-dropdown-container');
-    }
-}
-
-
-/**
- * Adds a function for 
- * @param {object} e 
+ * Adds a new category on [Enter]
+ * @param {object} e The key event
  */
 function enterFunctionNewCategory(e) {
     if (e.code == "Enter") {

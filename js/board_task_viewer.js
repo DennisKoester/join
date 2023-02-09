@@ -235,8 +235,11 @@ function renderSubtasksEditor() {
 
 
 /**
+ * 
  * Adds a subtask in the task editor
  * @param {Object} input The subtask input field 
+ * @param {Object} buttons The subtask buttons
+ * @param {Object} icon The subtask plus button
  */
 function addSubtaskEditor(input, buttons, icon) {
     const inputSubtask = document.getElementById(input);
@@ -254,10 +257,12 @@ function addSubtaskEditor(input, buttons, icon) {
 
 
 /**
+ * 
  * Adds a subtask to the editor on [Enter]
  * @param {event} e The key event
+ * @param {Object} input The subtask input field 
  */
-function enterFunctionSubtasksEditor(e) {
+function enterFunctionSubtasksEditor(e, input) {
     if (e.code == "Enter") {
         const inputSubtask = document.getElementById(input);
 
@@ -268,6 +273,7 @@ function enterFunctionSubtasksEditor(e) {
             });
             inputSubtask.value = '';
         }
+        addSubtaskToList();
     }
 }
 
