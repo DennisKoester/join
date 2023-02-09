@@ -236,12 +236,10 @@ function renderSubtasksEditor() {
 
 /**
  * Adds a subtask in the task editor
- * @param {Object} input
- * @param {Object} container 
- * @param {Object} dropdown 
+ * @param {Object} input The subtask input field 
  */
-function addSubtaskEditor(input, container, dropdown) {
-    const inputSubtask = document.getElementById('subtask-input');
+function addSubtaskEditor(input) {
+    const inputSubtask = document.getElementById(input);
 
     if (inputSubtask.value.length >= 1) {
         currentSubtasks.push({
@@ -249,7 +247,6 @@ function addSubtaskEditor(input, container, dropdown) {
             'status': false
         });
         inputSubtask.value = '';
-        hideInputField(input, container, dropdown);
     }
     addSubtaskToList();
 }
@@ -471,7 +468,7 @@ function updateTaskCard() {
 /**
  * Deletes a whole task from the JSON
  */
-async function deleteTask(){
+async function deleteTask() {
     tasks[openedTask.statusId].splice(openedTask.taskId, 1);
     renderTasksStatus(openedTask.statusId);
     await saveOnServer('tasks', tasks);

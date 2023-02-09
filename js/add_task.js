@@ -367,10 +367,8 @@ function setPrio(index) {
 /**
  * Adds a subtask to the list
  * @param {string} input The subtask input field 
- * @param {string} buttons The subtask buttons inside the input field
- * @param {string} icon The plus icon inside the input field
  */
-function addSubtask(input, buttons, icon) {
+function addSubtask(input) {
     let inputSubtask = document.getElementById(input);
     if (inputSubtask.value.length >= 1) {
         currentSubtasks.push(
@@ -379,7 +377,6 @@ function addSubtask(input, buttons, icon) {
                 "status": false
             });
         inputSubtask.value = '';
-        hideInputField(input, buttons, icon);
     }
     renderSubtasks();
 }
