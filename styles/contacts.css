@@ -170,15 +170,16 @@
     gap: 30px;
 }
 
-.contact-add-task{
+.contact-add-task {
     display: flex;
     align-items: center;
+    width: max-content;
     gap: 8px;
     color: var(--highlight);
     cursor: pointer;
 }
 
-.contact-add-task:hover{
+.contact-add-task:hover {
     filter: invert(0%) sepia(25%) saturate(364%) hue-rotate(17deg) brightness(35%) contrast(85%);
 }
 
@@ -222,15 +223,15 @@
     cursor: pointer;
 }
 
-.edit-contact:hover{
+.edit-contact:hover {
     filter: invert(80%) sepia(97%) saturate(1585%) hue-rotate(185deg) brightness(93%) contrast(90%);
 }
 
 
-.contact-delete-btn{
+.contact-delete-btn {
     position: absolute;
     bottom: 20px;
-    left: 20px;
+    right: 20px;
     border: 2px solid #2A3647;
     cursor: pointer;
     font-family: 'Inter';

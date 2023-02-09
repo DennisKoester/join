@@ -349,45 +349,48 @@ function deleteContact(id, contactId) {
         execContactDelete(contactId);
         closeDeletePopup(id);
         toggleContactsModal();
-    }
-}
-
-
-/**
- * Compares selected contact email with the current user email
- * @param {number} id ID of the contact
- * @returns {boolean}
- */
-function isUserLoggedIn(id) {
-    return users[id]['email'] == currentUser['email'];
-}
-
-
-/**
- * Checks if the selected contact has any tasks assigned
- * @param {number} id ID of the contact
- * @returns {boolean}
- */
-function hasUserTaskAssigned(id) {
-    for (let i = 0; i < tasks.length; i++) {
-        for (let j = 0; j < tasks[i].length; j++) {
-            if (tasks[i][j]['assignees'].indexOf(users[id]['email']) >= 0)
-                return true;
+        if (window.innerWidth < 940) {
+            toggleShowContactOnMobile();
         }
     }
-    return false;
-}
 
 
-/**
- * Deletes the contact from JSON
- * @param {number} id ID of the contact
- */
-function execContactDelete(id) {
-    let contactDIV = document.getElementById('contact-div');
-    contactDIV.innerHTML = '';
+    /**
+     * Compares selected contact email with the current user email
+     * @param {number} id ID of the contact
+     * @returns {boolean}
+     */
+    function isUserLoggedIn(id) {
+        return users[id]['email'] == currentUser['email'];
+    }
 
-    users.splice(id, 1);
-    saveOnServer('users', users);
-    renderContacts();
+
+    /**
+     * Checks if the selected contact has any tasks assigned
+     * @param {number} id ID of the contact
+     * @returns {boolean}
+     */
+    function hasUserTaskAssigned(id) {
+        for (let i = 0; i < tasks.length; i++) {
+            for (let j = 0; j < tasks[i].length; j++) {
+                if (tasks[i][j]['assignees'].indexOf(users[id]['email']) >= 0)
+                    return true;
+            }
+        }
+        return false;
+    }
+
+
+    /**
+     * Deletes the contact from JSON
+     * @param {number} id ID of the contact
+     */
+    function execContactDelete(id) {
+        let contactDIV = document.getElementById('contact-div');
+        contactDIV.innerHTML = '';
+
+        users.splice(id, 1);
+        saveOnServer('users', users);
+        renderContacts();
+    }
 }
