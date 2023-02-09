@@ -125,11 +125,20 @@
                         <div id="contact-save-btn" class="d-none">
                             <button id="contact-update-btn" type="submit" class="create-btn">Save</button>
                         </div>
-
-                        <button id="contact-delete-btn" class="contact-delete-btn d-none"
-                            onclick="showDeletePopup('request-delete-popup')">
-                            <img src="./assets/img/trash_icon.svg" alt="delete">
                     </form>
+                    <button id="contact-delete-btn" class="contact-delete-btn d-none">
+                        <img src="./assets/img/trash_icon.svg" alt="delete">
+                </div>
+                <div class="flex-just-center">
+                    <div id="request-contact-delete" class="popup-btn">
+                        <div class="delete-popup">
+                            <div>Delete task?</div>
+                            <div>
+                                <span id="yes-delete-contact">Yes</span>
+                                <span onclick="closeDeletePopup('request-contact-delete')">No</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

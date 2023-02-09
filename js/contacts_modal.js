@@ -208,6 +208,7 @@ function setEditorButtons(id) {
     containerSave.classList.remove('d-none');
     contactForm.setAttribute('onsubmit', `updateContact(${id}); return false;`);
     deleteBtn.classList.remove('d-none');
+    deleteBtn.onclick = function () { showDeleteContactRequest('request-contact-delete', id) };
 }
 
 
@@ -311,4 +312,82 @@ function toggleContactsModal() {
     else {
         modalFadeIn(modal);
     }
+}
+
+
+/**
+ * Shows the delete request popup
+ * @param {string} id ID of the element
+ * @param {number} contactId ID of the contact
+ */
+function showDeleteContactRequest(id, contactId) {
+    let popup = document.getElementById(id);
+    let yesBtn = document.getElementById('yes-delete-contact');
+
+    popup.classList.add('animation');
+    yesBtn.onclick = function () { deleteContact(id, contactId) };
+}
+
+
+/**
+ * Handles the deletion of the contact
+ * @param {string} id ID of the element
+ * @param {number} contactId ID of the contact
+ */
+function deleteContact(id, contactId) {
+
+    if (isUserLoggedIn(contactId)) {
+        console.log('User is logged in and cant be deleted');
+        closeDeletePopup(id);
+
+    } else if (hasUserTaskAssigned(contactId)) {
+        console.log('User has tasks');
+        closeDeletePopup(id);
+
+    } else {
+        console.log('User has been deleted');
+        execContactDelete(contactId);
+        closeDeletePopup(id);
+        toggleContactsModal();
+    }
+}
+
+
+/**
+ * Compares selected contact email with the current user email
+ * @param {number} id ID of the contact
+ * @returns {boolean}
+ */
+function isUserLoggedIn(id) {
+    return users[id]['email'] == currentUser['email'];
+}
+
+
+/**
+ * Checks if the selected contact has any tasks assigned
+ * @param {number} id ID of the contact
+ * @returns {boolean}
+ */
+function hasUserTaskAssigned(id) {
+    for (let i = 0; i < tasks.length; i++) {
+        for (let j = 0; j < tasks[i].length; j++) {
+            if (tasks[i][j]['assignees'].indexOf(users[id]['email']) >= 0)
+                return true;
+        }
+    }
+    return false;
+}
+
+
+/**
+ * Deletes the contact from JSON
+ * @param {number} id ID of the contact
+ */
+function execContactDelete(id) {
+    let contactDIV = document.getElementById('contact-div');
+    contactDIV.innerHTML = '';
+
+    users.splice(id, 1);
+    saveOnServer('users', users);
+    renderContacts();
 }

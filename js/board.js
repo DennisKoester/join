@@ -409,7 +409,7 @@ function doNotClose(event) {
  * Shows the delete request popup with the animation
  * @param {number} id The ID of the element
  */
-function showDeleteRequest(id){
+function showDeleteTaskRequest(id){
     let popup = document.getElementById(id);
 
     popup.classList.add('animation');

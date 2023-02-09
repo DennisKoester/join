@@ -3,7 +3,7 @@
     <img class="modal-task-close" src="./assets/img/black-x.svg" onclick="toggleModal('modal-task')" alt="close">
     <div id="modal-task-reader" class="modal-task-content reader">
         <div class="modal-btns">
-            <button id="btn-edit-task" class="delete-btn" onclick="showDeleteRequest('request-delete-popup')">
+            <button id="btn-edit-task" class="delete-btn" onclick="showDeleteTaskRequest('request-delete-popup')">
                 <img src="./assets/img/trash_icon.svg" alt="delete">
             </button>
             <button id="btn-edit-task" class="edit-btn" onclick="toggleTaskEditMode()">
@@ -134,14 +134,13 @@
     </div>
     <div class="flex-just-center">
         <div id="request-delete-popup" class="popup-btn">
-            <div class=" delete-popup">
+            <div class="delete-popup">
                 <div>Delete task?</div>
                 <div>
                     <span onclick="deleteTask()">Yes</span>
                     <span onclick="closeDeletePopup('request-delete-popup')">No</span>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
