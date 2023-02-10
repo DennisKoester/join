@@ -60,8 +60,10 @@ function showInputField(inputContainer, container, dropdown, icon) {
     toggleClassList(inputContainer, 'd-none');
     toggleClassList(container, 'd-none');
     toggleDropdown(dropdown, icon);
-    if (inputContainer == 'category-input-container')
+    if (inputContainer == 'category-input-container') {
         toggleClassList('category-colors', 'd-none');
+        hideDropDownOnClickOutside('overlay_category', 'category-dropdown-container');
+    }
 }
 
 

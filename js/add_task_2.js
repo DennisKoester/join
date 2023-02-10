@@ -161,7 +161,7 @@ function selectCategory(category, color) {
     field.innerHTML = '';
     field.innerHTML = selectedCategoryHTML(category, color);
     if (!dropdown.classList.contains('d-none'))
-        toggleDropdown('category-dropdown', 'triangle1');
+        toggleCategoryDropdown('category-dropdown', 'triangle1', 'overlay_category', 'category-dropdown-container');
     currentCategory = category;
     validationForField(2, currentCategory);
 }
@@ -201,4 +201,48 @@ function resetActiveColor() {
     for (let i = 0; i < btns.length; i++) {
         btns[i].classList.remove('active');
     }
+}
+
+
+
+
+
+
+
+function hideDropDownOnClickOutside(overlay, container) {
+    let bg = document.getElementById(overlay);
+    let dropdown = document.getElementById(container);
+
+    if (bg.classList.contains('d-none')) {
+        bg.classList.remove('d-none');
+        dropdown.style.zIndex = "4";
+    } else {
+        bg.classList.add('d-none');
+        dropdown.style.zIndex = "1";
+    }
+}
+
+
+
+/**
+ * Toggles the visibility of the dropdown menu
+ * @param {string} dropdown The dropdown container
+ * @param {string} icon The triangle icon
+ */
+function toggleCategoryDropdown(dropdown, icon, overlay, container) {
+    toggleClassList(dropdown, 'd-none');
+    toggleClassList(icon, 'rotate180');
+    hideDropDownOnClickOutside(overlay, container);
+}
+
+
+/**
+ * Toggles the visibility of the dropdown menu
+ * @param {string} dropdown The dropdown container
+ * @param {string} icon The triangle icon
+ */
+function toggleAssigneesDropdown(dropdown, icon, overlay, container) {
+    toggleClassList(dropdown, 'd-none');
+    toggleClassList(icon, 'rotate180');
+    hideDropDownOnClickOutside(overlay, container);
 }

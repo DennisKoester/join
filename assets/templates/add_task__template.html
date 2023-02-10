@@ -33,11 +33,16 @@
                                 src="./assets/img/black-check.svg" alt="" class="filter-btn">
                         </div>
                     </div>
+
+                    <div id="overlay_category" class="d-none"
+                        onclick="toggleCategoryDropdown('category-dropdown', 'triangle1', 'overlay_category', 'category-dropdown-container')">
+                    </div>
+
                     <div id="category-dropdown-container" class="dropdown-container select-none width-100"
                         name="category">
 
                         <div id="custom-category"
-                            onclick="toggleDropdown('category-dropdown', 'triangle1', 'category-list')"
+                            onclick="toggleCategoryDropdown('category-dropdown', 'triangle1', 'overlay_category', 'category-dropdown-container')"
                             class="flex-btw padding-input height-input-mobile">
                             <div id="selected-category" class="flex-align-center">Select task category</div>
                             <img id="triangle1" src="./assets/img/select-triangle.svg" alt="triangle"
@@ -87,8 +92,13 @@
                                 src="./assets/img/black-check.svg" alt="" class="filter-btn">
                         </div>
                     </div>
+
+                    <div id="overlay_assignees" class="d-none"
+                        onclick="toggleAssigneesDropdown('assign-dropdown', 'triangle2', 'overlay_assignees', 'assign-dropdown-container')">
+                    </div>
+
                     <div id="assign-dropdown-container" class="dropdown-container select-none width-100">
-                        <div onclick="toggleDropdown('assign-dropdown', 'triangle2', 'assignee-list')"
+                        <div onclick="toggleAssigneesDropdown('assign-dropdown', 'triangle2', 'overlay_assignees', 'assign-dropdown-container')"
                             class="flex-btw padding-input height-input-mobile">
                             <span>Select contacts to assign</span>
                             <img id="triangle2" src="./assets/img/select-triangle.svg" alt="triangle"

@@ -639,3 +639,36 @@ select {
 .turquoise {
     background-color: #1FD7C1;
 }
+
+
+#overlay_category {
+    position: absolute;
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: ' ';
+    background: rgba(255, 0, 0, 0.521);
+}
+
+#overlay_assignees {
+    position: absolute;
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: ' ';
+    background: rgba(0, 0, 255, 0.479);
+}
+
+#category-dropdown-container {
+    z-index: 1;
+}
+
+#assign-dropdown-container {
+    z-index: 1;
+}
