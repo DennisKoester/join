@@ -49,8 +49,8 @@ function renderContactDiv(index) {
 function insertUserInformationById(index) {
     document.getElementById(`username-initials${index}`).innerHTML = users[index]['short_name'];
     document.getElementById(`username-initials${index}`).style.backgroundColor = users[index]['color'];
-    document.getElementById(`users-name${index}`).innerHTML = users[index]['name'];
-    document.getElementById(`users-email${index}`).innerHTML = users[index]['email'];
+    document.getElementById(`users-name${index}`).innerHTML = escapeHTML(users[index]['name']);
+    document.getElementById(`users-email${index}`).innerHTML = escapeHTML(users[index]['email']);
 }
 
 
@@ -102,11 +102,11 @@ function toggleShowContactOnMobile() {
 function renderContactInformationById(index) {
     document.getElementById(`u-initials${index}`).innerHTML = users[index]['short_name'];
     document.getElementById(`u-initials${index}`).style.backgroundColor = users[index]['color'];
-    document.getElementById(`u-name${index}`).innerHTML = users[index]['name'];
-    document.getElementById(`u-email${index}`).innerHTML = users[index]['email'];
+    document.getElementById(`u-name${index}`).innerHTML = escapeHTML(users[index]['name']);
+    document.getElementById(`u-email${index}`).innerHTML = escapeHTML(users[index]['email']);
     document.getElementById(`u-email${index}`).href = 'mailto:' + users[index]['email'];
     if (users[index]['phone']) {
-        document.getElementById(`u-phone-number${index}`).innerHTML = users[index]['phone'];
+        document.getElementById(`u-phone-number${index}`).innerHTML = escapeHTML(users[index]['phone']);
     }
     document.getElementById('contact-edit-btn').setAttribute('onclick', `openContactEditor(${index})`);
     document.getElementById('edit-contact').setAttribute('onclick', `openContactEditor(${index})`);

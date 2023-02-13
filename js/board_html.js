@@ -30,8 +30,8 @@ function renderTaskCard(statusId, taskId, taskCat, taskCatColor, taskPrio) {
 function renderTaskCardContent(statusId, taskId, taskCat, taskCatColor, taskPrio) {
     return /* html */ `
         <div class="task-cat ${taskCatColor}">${taskCat}</div>
-        <div class="task-title">${tasks[statusId][taskId]['title']}</div>
-        <div class="task-description">${tasks[statusId][taskId]['desc']}</div>
+        <div class="task-title">${escapeHTML(tasks[statusId][taskId]['title'])}</div>
+        <div class="task-description">${escapeHTML(tasks[statusId][taskId]['desc'])}</div>
         ${getSubtasksProgress(statusId, taskId)}
         <div class="task-card--footer">
             <div class="assignees">
@@ -96,7 +96,7 @@ function renderSubtaskForViewer(index, desc, checkbox) {
     return /* html */ `
         <div class="modal-task-subtask">
             <img id="subtask-status-viewer-${index}" src="${checkbox}" onclick="toggleStatusSubtask(${index})" style="cursor: pointer">
-            <span>${desc}</span>
+            <span>${escapeHTML(desc)}</span>
         </div>
     `;
 }
@@ -113,7 +113,7 @@ function renderSubtaskForEditor(index, desc, checkbox) {
     return /*html*/ `
     <div class="subtask">
         <img id="subtask-status-${index}" src="${checkbox}" onclick="toggleStatusSubtask(${index})" style="cursor: pointer" alt="checkbox">
-        <label for="">${desc}</label>
+        <label for="">${escapeHTML(desc)}</label>
         <img onclick="deleteSubtaskEditor(${index})" src="./assets/img/black-x.svg" alt="" class="filter-btn">
     </div>`;
 }

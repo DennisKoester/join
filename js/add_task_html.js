@@ -21,7 +21,7 @@ function addCategoryHTML() {
  */
 function selectedCategoryHTML(category, color) {
     return /*html*/ `
-        <div>${category}</div><div class="color-dot ${color}" style="margin-left: 10px;">`
+        <div>${escapeHTML(category)}</div><div class="color-dot ${color}" style="margin-left: 10px;">`
 }
 
 
@@ -33,7 +33,7 @@ function selectedCategoryHTML(category, color) {
  */
 function categoryHTML(category, color) {
     return /*html*/ `
-        <li onclick="selectCategory('${category}', '${color}')">
+        <li onclick="selectCategory('${escapeHTML(category)}', '${color}')">
             <div>${escapeHTML(category)}</div>
             <div class="color-dot ${color}"></div>
         </li>`
@@ -61,21 +61,6 @@ function assigneeHTML(i, assignee) {
 
 
 /**
- * Renders the "Invite new contact" to the list
- * @returns HTML
- */
-function inviteContactHTML() {
-    return /*html*/ `
-    <li onclick="showInputField('assign-input-container', 'assign-dropdown-container', 'assign-dropdown', 'triangle2')">
-        <label class="flex-btw">
-            <div>Invite new contact</div>
-             <img src="./assets/img/contact-icon.svg" alt="contact icon">
-        </label>
-    </li>`
-}
-
-
-/**
  * Renders the badge of the selected assignee
  * @param {string} initials The initials of the assignee
  * @param {string} color The color of the user
@@ -97,7 +82,7 @@ function subTaskHTML(subtask, i) {
     return /*html*/ `
     <div class="subtask">
         <img src="./assets/img/checkbox-unchecked.svg" alt="checkbox">
-        <label for="">${subtask}</label>
+        <label for="">${escapeHTML(subtask)}</label>
         <img onclick="deleteSubtask(${i})" src="./assets/img/black-x.svg" alt="" class="filter-btn">
     </div>`;
 }

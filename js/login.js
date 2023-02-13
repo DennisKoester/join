@@ -35,7 +35,7 @@ async function login(e) {
     let email = document.getElementById('email');
     let password = document.getElementById('password');
 
-    currentUser = users.find(u => u.email == email.value && u.password == password.value); //checking if user exists
+    currentUser = users.find(u => u.email == email.value && u.password == password.value);
 
     if (currentUser) {
         await saveOnServer('currentUser', currentUser);
@@ -97,7 +97,7 @@ function passwordForgotten() {
 async function onSubmit(event) {
     event.preventDefault();
     if (checkIfEmailExists()) {
-        let formData = new FormData(event.target); //create a FormData based on our Form Element in HTML
+        let formData = new FormData(event.target); // create a FormData based on our Form Element in HTML
         let response = await action(formData);
         if (response.ok) {
             showPopupMessage('email-reset');
