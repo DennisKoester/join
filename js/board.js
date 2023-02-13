@@ -409,7 +409,7 @@ function doNotClose(event) {
  * Shows the delete request popup with the animation
  * @param {number} id The ID of the element
  */
-function showDeleteTaskRequest(id){
+function showDeleteTaskRequest(id) {
     let popup = document.getElementById(id);
     let bg = document.getElementById('dark-bg');
 
@@ -426,6 +426,13 @@ function closeDeletePopup(id) {
     let popup = document.getElementById(id);
     let bg = document.getElementById('dark-bg');
 
-    bg.classList.remove('dark-bg');
+    if (popupOpen == true) {
+        setTimeout(() => {
+            bg.classList.remove('dark-bg');
+
+        }, 3000);
+    } else {
+        bg.classList.remove('dark-bg');
+    }
     removeAnimate(popup);
 }

@@ -1,3 +1,5 @@
+let popupOpen = false;
+
 /**
  * The email of the contact to be edited
  */
@@ -344,15 +346,14 @@ function showDeleteContactRequest(id, contactId) {
 function deleteContact(id, contactId) {
 
     if (isUserLoggedIn(contactId)) {
-        console.log('User is logged in and cant be deleted');
+        popupOpen = true;
         closeDeletePopup(id);
-
+        showPopup('user-logged-in');
     } else if (hasUserTaskAssigned(contactId)) {
-        console.log('User has tasks');
+        popupOpen = true;
         closeDeletePopup(id);
-
+        showPopup('user-has-tasks');
     } else {
-        console.log('User has been deleted');
         execContactDelete(contactId);
         closeDeletePopup(id);
         toggleContactsModal();
@@ -360,44 +361,46 @@ function deleteContact(id, contactId) {
             toggleShowContactOnMobile();
         }
     }
+    popupOpen = false;
+}
 
 
-    /**
-     * Compares selected contact email with the current user email
-     * @param {number} id ID of the contact
-     * @returns {boolean}
-     */
-    function isUserLoggedIn(id) {
-        return users[id]['email'] == currentUser['email'];
-    }
+/**
+ * Compares selected contact email with the current user email
+ * @param {number} id ID of the contact
+ * @returns {boolean}
+ */
+function isUserLoggedIn(id) {
+    return users[id]['email'] == currentUser['email'];
+}
 
 
-    /**
-     * Checks if the selected contact has any tasks assigned
-     * @param {number} id ID of the contact
-     * @returns {boolean}
-     */
-    function hasUserTaskAssigned(id) {
-        for (let i = 0; i < tasks.length; i++) {
-            for (let j = 0; j < tasks[i].length; j++) {
-                if (tasks[i][j]['assignees'].indexOf(users[id]['email']) >= 0)
-                    return true;
-            }
+/**
+ * Checks if the selected contact has any tasks assigned
+ * @param {number} id ID of the contact
+ * @returns {boolean}
+ */
+function hasUserTaskAssigned(id) {
+    for (let i = 0; i < tasks.length; i++) {
+        for (let j = 0; j < tasks[i].length; j++) {
+            if (tasks[i][j]['assignees'].indexOf(users[id]['email']) >= 0)
+                return true;
         }
-        return false;
     }
+    return false;
+}
 
 
-    /**
-     * Deletes the contact from JSON
-     * @param {number} id ID of the contact
-     */
-    function execContactDelete(id) {
-        let contactDIV = document.getElementById('contact-div');
-        contactDIV.innerHTML = '';
+/**
+ * Deletes the contact from JSON
+ * @param {number} id ID of the contact
+ */
+function execContactDelete(id) {
+    let contactDIV = document.getElementById('contact-div');
+    contactDIV.innerHTML = '';
 
-        users.splice(id, 1);
-        saveOnServer('users', users);
-        renderContacts();
-    }
+    users.splice(id, 1);
+    saveOnServer('users', users);
+    renderContacts();
+    showPopup('contact-deleted-popup');
 }
