@@ -223,7 +223,6 @@ function hideDropDownOnClickOutside(overlay, container) {
 }
 
 
-
 /**
  * Toggles the visibility of the dropdown menu
  * @param {string} dropdown The dropdown container

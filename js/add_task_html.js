@@ -34,7 +34,7 @@ function selectedCategoryHTML(category, color) {
 function categoryHTML(category, color) {
     return /*html*/ `
         <li onclick="selectCategory('${category}', '${color}')">
-            <div>${category}</div>
+            <div>${escapeHTML(category)}</div>
             <div class="color-dot ${color}"></div>
         </li>`
 }
@@ -53,7 +53,7 @@ function assigneeHTML(i, assignee) {
     return /*html*/ `
         <li onclick="selectAssignee(${i})">
             <label class="flex-btw">
-                <div>${assignee}</div>
+                <div>${escapeHTML(assignee)}</div>
                 <img id="checkbox${i}" class="checkbox" src="./assets/img/checkbox-assignee-unchecked.svg" alt="checkbox">
             </label>
         </li>`
