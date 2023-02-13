@@ -1,4 +1,4 @@
-let popupOpen = false;
+// let popupOpen = false;
 
 /**
  * The email of the contact to be edited

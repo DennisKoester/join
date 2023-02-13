@@ -18,7 +18,10 @@ let clickPos = { x: 0, y: 0 };
  * List of tasks filtered by the search function
  */
 let searchResult = [[], [], [], []];
-
+/**
+ * Information about second popup
+ */
+let popupOpen = false;
 
 /**
  * Initiates the board
