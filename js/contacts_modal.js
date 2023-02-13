@@ -303,6 +303,9 @@ async function checkAndUpdateLoggedIn(id) {
  */
 function toggleContactsModal() {
     const modal = document.getElementById('modal-contact');
+    const popup = document.getElementById('request-contact-delete')
+    const bg = document.getElementById('dark-bg');
+
     if (!modal.classList.contains('d-none')) {
         modal.classList.remove('modal-show');
         setTimeout(() => {
@@ -312,6 +315,8 @@ function toggleContactsModal() {
     else {
         modalFadeIn(modal);
     }
+    popup.classList.remove('animation');
+    bg.classList.remove('dark-bg');
 }
 
 
@@ -323,9 +328,11 @@ function toggleContactsModal() {
 function showDeleteContactRequest(id, contactId) {
     let popup = document.getElementById(id);
     let yesBtn = document.getElementById('yes-delete-contact');
+    let bg = document.getElementById('dark-bg');
 
     popup.classList.add('animation');
     yesBtn.onclick = function () { deleteContact(id, contactId) };
+    bg.classList.add('dark-bg');
 }
 
 

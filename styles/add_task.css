@@ -536,6 +536,10 @@ select {
     gap: 15px;
     overflow: hidden;
     opacity: 0;
+    left: 0;
+    right: 0;
+    z-index: 1002;
+    margin: 0 auto;
 }
 
 .animation {
@@ -563,6 +567,12 @@ select {
     height: 26px;
     width: 22px;
     object-fit: contain;
+}
+
+#request-contact-delete{
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
 
 /* Help Classes */
@@ -650,7 +660,6 @@ select {
     bottom: 0;
     right: 0;
     content: ' ';
-    background: rgba(255, 0, 0, 0.521);
 }
 
 #overlay_assignees {
@@ -662,7 +671,6 @@ select {
     bottom: 0;
     right: 0;
     content: ' ';
-    background: rgba(0, 0, 255, 0.479);
 }
 
 #category-dropdown-container {

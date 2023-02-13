@@ -411,8 +411,10 @@ function doNotClose(event) {
  */
 function showDeleteTaskRequest(id){
     let popup = document.getElementById(id);
+    let bg = document.getElementById('dark-bg');
 
     popup.classList.add('animation');
+    bg.classList.add('dark-bg');
 }
 
 
@@ -422,6 +424,8 @@ function showDeleteTaskRequest(id){
  */
 function closeDeletePopup(id) {
     let popup = document.getElementById(id);
+    let bg = document.getElementById('dark-bg');
 
+    bg.classList.remove('dark-bg');
     removeAnimate(popup);
 }

@@ -87,6 +87,7 @@
 
         <!-- MODAL: New/Edit contact -->
         <div id="modal-contact" class="modal-container d-none" onclick="toggleContactsModal()">
+            <div id="dark-bg"></div>
             <div id="modal-contact-content" onclick="doNotClose(event)">
                 <img class="modal-task-close" src="./assets/img/clear-x.svg" onclick="toggleContactsModal()"
                     alt="close">
@@ -130,14 +131,12 @@
                     <button id="contact-delete-btn" class="contact-delete-btn d-none">
                         <img src="./assets/img/trash_icon.svg" alt="delete">
                 </div>
-                <div class="flex-just-center">
-                    <div id="request-contact-delete" class="popup-btn">
-                        <div class="delete-popup">
-                            <div>Delete task?</div>
-                            <div>
-                                <span id="yes-delete-contact">Yes</span>
-                                <span onclick="closeDeletePopup('request-contact-delete')">No</span>
-                            </div>
+                <div id="request-contact-delete" class="popup-btn">
+                    <div class="delete-popup">
+                        <div>Delete contact?</div>
+                        <div>
+                            <span id="yes-delete-contact">Yes</span>
+                            <span onclick="closeDeletePopup('request-contact-delete')">No</span>
                         </div>
                     </div>
                 </div>
