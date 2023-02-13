@@ -118,14 +118,12 @@ function clearAllInputs() {
     let date = document.getElementById('date-input');
     let cat = document.getElementById('selected-category');
     let catInput = document.getElementById('category-input');
-    let assignee = document.getElementById('assign-input');
     let subtask = document.getElementById('subtask-input');
 
     cat.innerHTML = 'Select task category';
     title.value = '';
     desc.value = '';
     date.value = '';
-    assignee.value = '';
     catInput.value = '';
     subtask.value = '';
     currentPrio = -1;
