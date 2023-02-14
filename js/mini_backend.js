@@ -2,22 +2,22 @@ let jsonFromServer = {};
 let BASE_SERVER_URL;
 
 const backend = {
-    setItem: function(key, item) {
+    setItem: function (key, item) {
         jsonFromServer[key] = item;
         return saveJSONToServer();
     },
-    getItem: function(key) {
+    getItem: function (key) {
         if (!jsonFromServer[key]) {
             return null;
         }
         return jsonFromServer[key];
     },
-    deleteItem: function(key) {
+    deleteItem: function (key) {
         delete jsonFromServer[key];
         return saveJSONToServer();
     }
 };
-window.onload = async function() {
+window.onload = async function () {
     downloadFromServer();
 }
 
@@ -43,7 +43,7 @@ async function loadJSONFromServer() {
 
 
 function loadJSONFromServerOld() {
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
         let xhttp = new XMLHttpRequest();
         let proxy = determineProxySettings();
         let serverURL = proxy + BASE_SERVER_URL + '/nocors.php?json=database&noache=' + (new Date().getTime());
@@ -53,7 +53,7 @@ function loadJSONFromServerOld() {
 
         xhttp.open('GET', serverURL);
 
-        xhttp.onreadystatechange = function(oEvent) {
+        xhttp.onreadystatechange = function (oEvent) {
             if (xhttp.readyState === 4) {
                 if (xhttp.status >= 200 && xhttp.status <= 399) {
                     resolve(xhttp.responseText);
@@ -77,13 +77,13 @@ function loadJSONFromServerOld() {
  * Saves a JSON or JSON Array to the Server
  */
 function saveJSONToServer() {
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
         let xhttp = new XMLHttpRequest();
         let proxy = determineProxySettings();
         let serverURL = proxy + BASE_SERVER_URL + '/save_json.php';
         xhttp.open('POST', serverURL);
 
-        xhttp.onreadystatechange = function(oEvent) {
+        xhttp.onreadystatechange = function (oEvent) {
             if (xhttp.readyState === 4) {
                 if (xhttp.status >= 200 && xhttp.status <= 399) {
                     resolve(xhttp.responseText);

@@ -18,7 +18,7 @@ const HEADER_CTX_MENU_ANIM_TIME = 220;
 let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Ä', 'Ö', 'Ü']
 
 
-setURL('https://gruppe-392.developerakademie.net/smallest_backend_ever');
+setURL('https://denniskoester.com/smallest_backend_ever');
 
 
 /**

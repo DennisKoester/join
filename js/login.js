@@ -115,7 +115,7 @@ async function onSubmit(event) {
  * @returns 
  */
 function action(formData) {
-    const input = 'https://gruppe-392.developerakademie.net/join/send_mail.php';
+    const input = 'https://denniskoester.com//join/send_mail.php';
     const requestInit = {
         method: 'post',
         body: formData
