@@ -43,7 +43,7 @@ async function login(e) {
     } else {
         showPopupMessage('popup-button');
     }
-    return false
+    return false;
 }
 
 
