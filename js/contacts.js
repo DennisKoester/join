@@ -83,6 +83,7 @@ function toggleShowContactOnMobile() {
     if (!contactsContainer.style.display) {
         contactsContainer.style.display = 'block';
         document.body.style.backgroundColor = 'var(--bg-body)';
+        toggleClassList('edit-contact', 'd-none');
     } else {
         contactsContainer.style.removeProperty('display');
         contentContainer.style.removeProperty('margin-top');
@@ -91,7 +92,6 @@ function toggleShowContactOnMobile() {
     }
     toggleClassList('contacts-menu', 'd-none');
     toggleClassList('new-contact-btn', 'd-none');
-    toggleClassList('edit-contact', 'd-none');
 }
 
 

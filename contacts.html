@@ -115,7 +115,7 @@
                             <label for="email" id="mail-validation" class="input-validation hidden">This email address
                                 already exists!</label>
                         </div>
-                        <input class="input-phone" id="phone" type="tel" name="phone" placeholder="Phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
+                        <input class="input-phone" id="phone" type="tel" name="phone" placeholder="Phone" />
                         <div id="contact-submit-btns">
                             <button onclick="toggleContactsModal()" type="reset" class="clear-btn">Cancel
                                 <img src="./assets/img/clear-x.svg">
@@ -152,7 +152,7 @@
         </div>
         <div id="user-logged-in" class="popup-btn">
             <div>User is loggeg in.<br>
-               Please contact an admin.</div>
+                Please contact an admin.</div>
         </div>
     </div>
 </body>
