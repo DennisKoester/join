@@ -58,21 +58,8 @@
                 </div>
             </div>
             <div onclick="openContactForm()" id="new-contact-btn" class="contact-page-button">New contact <img
-                    class="contact-button-logo" src="./assets/img/contact-button-logo.png"></div>
-
-
-        </div>
-
-        <div class="flex-just-center">
-            <div id="contact-popup-btn" class="popup-btn">
-                <div>Contact successfully created</div>
-            </div>
-        </div>
-
-        <div class="flex-just-center">
-            <div id="contact-edit-popup-btn" class="popup-btn">
-                <div>Contact successfully modified</div>
-            </div>
+                    class="contact-button-logo" src="./assets/img/contact-button-logo.png">
+                </div>
         </div>
 
         <!-- MODAL: Add task -->
@@ -115,7 +102,7 @@
                             <label for="email" id="mail-validation" class="input-validation hidden">This email address
                                 already exists!</label>
                         </div>
-                        <input class="input-phone" id="phone" type="tel" name="phone" placeholder="Phone" />
+                        <input class="input-phone" id="phone" type="tel" name="phone" placeholder="Phone" onkeypress='validate(event)' onpaste='validate(event)'/>
                         <div id="contact-submit-btns">
                             <button onclick="toggleContactsModal()" type="reset" class="clear-btn">Cancel
                                 <img src="./assets/img/clear-x.svg">
@@ -131,7 +118,7 @@
                     <button id="contact-delete-btn" class="contact-delete-btn d-none">
                         <img src="./assets/img/trash_icon.svg" alt="delete">
                 </div>
-                <div id="request-contact-delete" class="popup-btn">
+                <!-- <div id="request-contact-delete" class="popup-btn">
                     <div class="delete-popup">
                         <div>Delete contact?</div>
                         <div>
@@ -139,17 +126,39 @@
                             <span onclick="closeDeletePopup('request-contact-delete')">No</span>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- END: MODAL New/Edit contact -->
+
+        <!-- Popups -->
+        <div id="request-contact-delete" class="popup-btn">
+            <div class="delete-popup">
+                <div>Delete contact?</div>
+                <div>
+                    <span id="yes-delete-contact">Yes</span>
+                    <span onclick="closeDeletePopup('request-contact-delete')">No</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact-popup-btn" class="popup-btn">
+            <div>Contact successfully created</div>
+        </div>
+
+        <div id="contact-edit-popup-btn" class="popup-btn">
+            <div>Contact successfully modified</div>
+        </div>
+
         <div id="contact-deleted-popup" class="popup-btn">
             <div>Contact deleted</div>
         </div>
+
         <div id="user-has-tasks" class="popup-btn">
             <div>Can not be deleted.<br>
                 User has tasks!</div>
         </div>
+
         <div id="user-logged-in" class="popup-btn">
             <div>User is loggeg in.<br>
                 Please contact an admin.</div>

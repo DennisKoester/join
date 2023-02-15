@@ -27,6 +27,8 @@ function toggleTaskEditMode() {
 
     reader.classList.toggle('d-none');
     editor.classList.toggle('d-none');
+
+    dateLimitation();
 }
 
 

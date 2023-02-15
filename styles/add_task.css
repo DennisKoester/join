@@ -524,7 +524,7 @@ select {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0px;
+    padding: 0px 10px;
     width: 326px;
     height: 74px;
     background: #2A3647;
@@ -570,10 +570,10 @@ select {
     object-fit: contain;
 }
 
-#request-contact-delete{
+#request-contact-delete {
     left: 0;
     right: 0;
-    margin: 0 auto;
+    z-index: 99999;
 }
 
 /* Help Classes */
@@ -592,11 +592,6 @@ select {
 .flex-align-center {
     display: flex;
     align-items: center;
-}
-
-.flex-just-center {
-    display: flex;
-    justify-content: center;
 }
 
 .select-none {

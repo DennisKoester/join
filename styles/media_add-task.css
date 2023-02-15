@@ -257,10 +257,10 @@
 
     .popup-btn {
         width: 260.8px;
-        height: 43px;
+        min-height: 43px;
         gap: 14px;
         font-size: 18px;
-        border-radius: 10px;
+        border-radius: 20px;
     }
 
     .popup-btn img {
