@@ -1,0 +1,10 @@
+{
+	"name": "Join Kanban",
+	"short_name": "Join Kanban",
+	"theme_color": "#2A3647",
+	"background_color": "#2A3647",
+	"display": "fullscreen",
+	"orientation": "portrait",
+	"scope": "/",
+	"start_url": "/"
+}

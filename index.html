@@ -1,77 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>Join Kanban</title>
+		<link rel="stylesheet" href="./styles/fonts.css" />
+		<link rel="stylesheet" href="./styles/general.css" />
+		<link rel="stylesheet" href="./styles/start.css" />
+		<link rel="stylesheet" href="./styles/media_start.css" />
+		<link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico" />
+		<link
+			rel="manifest"
+			href="./manifest.json"
+			crossorigin="use-credentials"
+		/>
+		<script src="./js/mini_backend.js"></script>
+		<script src="./js/script.js"></script>
+		<script src="./js/login.js"></script>
+		<script src="./js/data.js"></script>
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Kanban</title>
-    <link rel="stylesheet" href="./styles/fonts.css">
-    <link rel="stylesheet" href="./styles/general.css">
-    <link rel="stylesheet" href="./styles/start.css">
-    <link rel="stylesheet" href="./styles/media_start.css">
-    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
-    <script src="./js/mini_backend.js"></script>
-    <script src="./js/script.js"></script>
-    <script src="./js/login.js"></script>
-    <script src="./js/data.js"></script>
-</head>
+	<body onload="initLogin()">
+		<img src="./assets/img/Capa 1.png" class="login_logo logo_animation" />
 
-<body onload="initLogin()">
-    <img src="./assets/img/Capa 1.png" class="login_logo  logo_animation">
+		<div class="start_background">
+			<div class="signup">
+				<p>Not a Join user?</p>
+				<button
+					class="signup_button"
+					onclick="location.href='sign_up.html'"
+				>
+					Sign up
+				</button>
+			</div>
 
-    <div class="start_background">
-        <div class="signup">
-            <p>Not a Join user?</p>
-            <button class="signup_button" onclick="location.href='sign_up.html'">Sign up</button>
-        </div>
+			<div class="login_master" id="login-master">
+				<div class="login_main">
+					<form onsubmit="return login(event)" class="login_form">
+						<h2>Log in</h2>
+						<img
+							class="margin_underline"
+							src="./assets/img/horizontal_blue_line.png"
+						/>
+						<input
+							class="input_email"
+							id="email"
+							type="email"
+							name="email"
+							placeholder="Email"
+							required
+						/>
+						<input
+							class="input_password"
+							id="password"
+							type="password"
+							name="password"
+							placeholder="Password"
+							required
+						/>
+						<div class="remember_me_forgotten">
+							<div class="remember_me">
+								<input
+									class="checkbox"
+									type="checkbox"
+									id="rememberMe"
+									name="rememberMe"
+									value="lsRememberMe"
+								/>
+								<label for="rememberMe">Remember me</label>
+							</div>
+							<a
+								class="password_forgotten"
+								onclick="passwordForgotten()"
+								href="#"
+								>Forgot my password</a
+							>
+						</div>
+						<div class="login_form_buttons">
+							<button
+								type="submit"
+								class="login_button"
+								onclick="lsRememberMe()"
+							>
+								Log in
+							</button>
+							<div class="guest_button" onclick="guestLogin()">
+								Guest Log in
+							</div>
+						</div>
+						<div id="error-login" class="error-login"></div>
+					</form>
+				</div>
+				<div class="signup_mobile">
+					<p>Not a Join user?</p>
+					<button
+						class="signup_button"
+						onclick="location.href='sign_up.html'"
+					>
+						Sign up
+					</button>
+				</div>
+			</div>
+		</div>
 
-        <div class="login_master" id="login-master">
-            <div class="login_main">
-                <form onsubmit="return login(event)" class="login_form">
-                    <h2>Log in</h2>
-                    <img class="margin_underline" src="./assets/img/horizontal_blue_line.png">
-                    <input class="input_email" id="email" type="email" name="email" placeholder="Email" required>
-                    <input class="input_password" id="password" type="password" name="password" placeholder="Password"
-                        required>
-                    <div class="remember_me_forgotten">
-                        <div class="remember_me">
-                            <input class="checkbox" type="checkbox" id="remember-me" name="remember-me">
-                            <label for="remember-me">Remember me</label>
-                        </div>
-                        <a class="password_forgotten" onclick="passwordForgotten()" href="#">Forgot my password</a>
-                    </div>
-                    <div class="login_form_buttons">
-                        <button type="submit" class="login_button">Log in</button>
-                        <div class="guest_button" onclick="guestLogin()">Guest Log in</div>
-                    </div>
-                    <div id="error-login" class="error-login"></div>
-                </form>
-            </div>
-            <div class="signup_mobile">
-                <p>Not a Join user?</p>
-                <button class="signup_button" onclick="location.href='sign_up.html'">Sign up</button>
-            </div>
-        </div>
-    </div>
+		<div class="flex_center">
+			<div id="popup-button" class="added_popup_window">
+				<div>Login data incorrect!</div>
+			</div>
+		</div>
 
-    <div class="flex_center">
-        <div id="popup-button" class="added_popup_window">
-            <div>Login data incorrect!</div>
-        </div>
-    </div>
+		<div class="flex_center">
+			<div id="email-reset" class="added_popup_window">
+				<div>Email sent!</div>
+			</div>
+		</div>
 
-    <div class="flex_center">
-        <div id="email-reset" class="added_popup_window">
-            <div>Email sent!</div>
-        </div>
-    </div>
-
-    <div class="flex_center">
-        <div id="email-failed" class="added_popup_window">
-            <div>Email is not in use!</div>
-        </div>
-    </div>
-</body>
-
+		<div class="flex_center">
+			<div id="email-failed" class="added_popup_window">
+				<div>Email is not in use!</div>
+			</div>
+		</div>
+	</body>
 </html>

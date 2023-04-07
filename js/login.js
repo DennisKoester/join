@@ -3,6 +3,7 @@
  */
 async function initLogin() {
     await loadDataFromServer();
+    await rememberMe();
 }
 
 
@@ -171,4 +172,39 @@ function showSuccessMessage() {
     setTimeout(function () {
         window.location.href = './index.html';
     }, 3000);
+}
+
+
+
+/**
+ * Checks if the user is already in the local storage for remembering
+ */
+function rememberMe() {
+    let rmCheck = document.getElementById('rememberMe');
+    let emailInput = document.getElementById('email');
+
+    if (localStorage.username && localStorage.checkbox !== "") {
+        rmCheck.setAttribute("checked", "checked");
+        emailInput.value = localStorage.username;
+    } else {
+        rmCheck.removeAttribute("checked");
+        emailInput.value = "";
+    }
+}
+
+
+/**
+ * Pushes the user into the local storage for remembering
+ */
+function lsRememberMe() {
+    let rmCheck = document.getElementById('rememberMe');
+    let emailInput = document.getElementById('email');
+
+    if (rmCheck.checked && emailInput.value !== "") {
+        localStorage.username = emailInput.value;
+        localStorage.checkbox = rmCheck.value;
+    } else {
+        localStorage.username = "";
+        localStorage.checkbox = "";
+    }
 }

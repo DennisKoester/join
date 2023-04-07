@@ -1,96 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./styles/fonts.css" />
+		<link rel="stylesheet" href="./styles/general.css" />
+		<link rel="stylesheet" href="./styles/main.css" />
+		<link rel="stylesheet" href="./styles/media_main.css" />
+		<link rel="stylesheet" href="./styles/summary.css" />
+		<link rel="stylesheet" href="./styles/media_summary.css" />
+		<link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico" />
+		<script src="./js/include_html.js"></script>
+		<script src="./js/mini_backend.js"></script>
+		<script src="./js/data.js"></script>
+		<script src="./js/script.js"></script>
+		<script src="./js/summary.js"></script>
+		<title>Summary</title>
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/fonts.css">
-    <link rel="stylesheet" href="./styles/general.css">
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="./styles/media_main.css">
-    <link rel="stylesheet" href="./styles/summary.css">
-    <link rel="stylesheet" href="./styles/media_summary.css">
-    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
-    <script src="./js/include_html.js"></script>
-    <script src="./js/mini_backend.js"></script>
-    <script src="./js/data.js"></script>
-    <script src="./js/script.js"></script>
-    <script src="./js/summary.js"></script>
-    <title>Summary</title>
-</head>
-
-<body onload="initSummary()">
-    <header w3-include-html="./assets/templates/header.html"></header>
-    <nav w3-include-html="./assets/templates/navbar.html"></nav>
-    <div id="welcome-mobile" class="welcome-mobile d-none">
-        <span id="welcome-text-mobile">Good morning,</span>
-        <span id="welcome-name-mobile"></span>
-    </div>
-    <div class="content-container">
-        <div id="content-summary">
-            <div class="headline-summary">
-                <span class="headline-tooltype">Kanban Project Management Tool</span>
-                <h1>Summary</h1>
-                <div id="headline-separator"></div>
-                <span id="headline-sub">Everything in a nutshell!</span>
-            </div>
-            <div id="ui">
-                <div id="data">
-                    <div id="sum-in-progress">
-                        <a href="./board.html" class="sum-badge badge-info badge-in-progress">
-                            <span id="count-tasks-all" class="badge-count">0</span>
-                            <span class="label label-big">Tasks in<br>Board</span>
-                        </a>
-                        <a href="./board.html" class="sum-badge badge-info badge-in-progress">
-                            <span id="count-in-progress" class="badge-count">0</span>
-                            <span class="label label-big">Tasks in<br>Progress</span>
-                        </a>
-                        <a href="./board.html" class="sum-badge badge-info badge-in-progress">
-                            <span id="count-feedback" class="badge-count">0</span>
-                            <span class="label label-big">Awaiting<br>Feedback</span>
-                        </a>
-                    </div>
-                    <a href="./board.html" id="sum-urgent" class="sum-badge">
-                        <img src="./assets/img/symb_urgent_summary.png" alt="urgent">
-                        <div class="badge-info">
-                            <div id="count-urgent" class="badge-count-small">0</div>
-                            <div class="label label-small">Urgent</div>
-                        </div>
-                        <div id="urgent-separator"></div>
-                        <div id="urgent-date-info">
-                            <span id="urgent-date">January 1, 2000</span>
-                            <span id="urgent-label" class="label label-small">Upcoming Deadline</span>
-                        </div>
-                    </a>
-                    <div id="sum-todo-done">
-                        <a href="./board.html" id="done" class="sum-badge badge-todo">
-                            <div class="badge-todo--icon">
-                                <img src="./assets/img/symb_done.svg" alt="done">
-                            </div>
-                            <div class="badge-info">
-                                <div id="count-done" class="badge-count">0</div>
-                                <div class="label label-big">Done</div>
-                            </div>
-                        </a>
-                        <a href="./board.html" id="todo" class="sum-badge badge-todo">
-                            <div class="badge-todo--icon">
-                                <img src="./assets/img/symb_todo.svg" alt="done">
-                            </div>
-                            <div class="badge-info">
-                                <div id="count-todo" class="badge-count">0</div>
-                                <div class="label label-big">To-do</div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="welcome-desk">
-                    <span id="welcome-text-desk">Good morning,</span>
-                    <span id="welcome-name-desk"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-
+	<body onload="initSummary()">
+		<header w3-include-html="./assets/templates/header.html"></header>
+		<nav w3-include-html="./assets/templates/navbar.html"></nav>
+		<div id="welcome-mobile" class="welcome-mobile d-none">
+			<span id="welcome-text-mobile">Good morning,</span>
+			<span id="welcome-name-mobile"></span>
+		</div>
+		<div class="content-container">
+			<div id="content-summary">
+				<div class="headline-summary">
+					<span class="headline-tooltype"
+						>Kanban Project Management Tool</span
+					>
+					<h1>Summary</h1>
+					<div id="headline-separator"></div>
+					<span id="headline-sub">Everything in a nutshell!</span>
+				</div>
+				<div id="ui">
+					<div id="data">
+						<div id="sum-in-progress">
+							<a
+								href="./board.html"
+								class="sum-badge badge-info badge-in-progress"
+							>
+								<span id="count-tasks-all" class="badge-count"
+									>0</span
+								>
+								<span class="label label-big"
+									>Tasks in<br />Board</span
+								>
+							</a>
+							<a
+								href="./board.html"
+								class="sum-badge badge-info badge-in-progress"
+							>
+								<span id="count-in-progress" class="badge-count"
+									>0</span
+								>
+								<span class="label label-big"
+									>Tasks in<br />Progress</span
+								>
+							</a>
+							<a
+								href="./board.html"
+								class="sum-badge badge-info badge-in-progress"
+							>
+								<span id="count-feedback" class="badge-count"
+									>0</span
+								>
+								<span class="label label-big"
+									>Awaiting<br />Feedback</span
+								>
+							</a>
+						</div>
+						<a
+							href="./board.html"
+							id="sum-urgent"
+							class="sum-badge"
+						>
+							<img
+								src="./assets/img/symb_urgent_summary.png"
+								alt="urgent"
+							/>
+							<div class="badge-info">
+								<div
+									id="count-urgent"
+									class="badge-count-small"
+								>
+									0
+								</div>
+								<div class="label label-small">Urgent</div>
+							</div>
+							<div id="urgent-separator"></div>
+							<div id="urgent-date-info">
+								<span id="urgent-date">January 1, 2000</span>
+								<span
+									id="urgent-label"
+									class="label label-small"
+									>Upcoming Deadline</span
+								>
+							</div>
+						</a>
+						<div id="sum-todo-done">
+							<a
+								href="./board.html"
+								id="done"
+								class="sum-badge badge-todo"
+							>
+								<div class="badge-todo--icon">
+									<img
+										src="./assets/img/symb_done.svg"
+										alt="done"
+									/>
+								</div>
+								<div class="badge-info">
+									<div id="count-done" class="badge-count">
+										0
+									</div>
+									<div class="label label-big">Done</div>
+								</div>
+							</a>
+							<a
+								href="./board.html"
+								id="todo"
+								class="sum-badge badge-todo"
+							>
+								<div class="badge-todo--icon">
+									<img
+										src="./assets/img/symb_todo.svg"
+										alt="done"
+									/>
+								</div>
+								<div class="badge-info">
+									<div id="count-todo" class="badge-count">
+										0
+									</div>
+									<div class="label label-big">To-do</div>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="welcome-desk">
+						<span id="welcome-text-desk">Good morning,</span>
+						<span id="welcome-name-desk"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
