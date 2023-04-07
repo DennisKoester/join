@@ -1,149 +1,261 @@
 <!-- /// View task /// -->
 <div class="modal-wrapper modal-taskview-wrapper" onclick="doNotClose(event)">
-    <img class="modal-task-close" src="./assets/img/black-x.svg" onclick="toggleModal('modal-task')" alt="close">
-    <div id="modal-task-reader" class="modal-task-content reader">
-        <div class="modal-btns">
-            <button id="btn-edit-task" class="delete-btn" onclick="showDeleteTaskRequest('request-delete-popup')">
-                <img src="./assets/img/trash_icon.svg" alt="delete">
-            </button>
-            <button id="btn-edit-task" class="edit-btn" onclick="toggleTaskEditMode()">
-                <img src="./assets/img/symb_todo.svg" alt="edit">
-            </button>
-        </div>
+	<img
+		class="modal-task-close"
+		src="./assets/img/black-x.svg"
+		onclick="toggleModal('modal-task')"
+		alt="close"
+	/>
+	<div id="modal-task-reader" class="modal-task-content reader">
+		<div class="modal-btns">
+			<button
+				id="btn-edit-task"
+				class="delete-btn"
+				onclick="showDeleteTaskRequest('request-delete-popup')"
+			>
+				<img src="./assets/img/trash_icon.svg" alt="delete" />
+			</button>
+			<button
+				id="btn-edit-task"
+				class="edit-btn"
+				onclick="toggleTaskEditMode()"
+			>
+				<img src="./assets/img/symb_todo.svg" alt="edit" />
+			</button>
+		</div>
 
-        <div id="modal-task-cat">Category</div>
-        <div id="modal-task-title">Title</div>
-        <div id="modal-task-desc">This is the description of the task.</div>
-        <div id="modal-task-subtasks">
-        </div>
-        <div class="modal-task-metadata">
-            <div class="modal-task-item-title">Due date:</div>
-            <div id="modal-task-date">01.01.2000</div>
-        </div>
-        <div class="modal-task-metadata">
-            <div class="modal-task-item-title">Priority:</div>
-            <div id="modal-task-prio">
-                <span id="modal-task-prio-text">Urgent</span>
-                <img id="modal-task-prio-img" src="./assets/img/urgent-white.svg" alt="urgent">
-            </div>
-        </div>
-        <div class="modal-task-item-title">Assigned to:</div>
-        <div id="modal-task-assignees">
-        </div>
-    </div>
+		<div id="modal-task-cat">Category</div>
+		<div id="modal-task-title">Title</div>
+		<div id="modal-task-desc">This is the description of the task.</div>
+		<div id="modal-task-subtasks"></div>
+		<div class="modal-task-metadata">
+			<div class="modal-task-item-title">Due date:</div>
+			<div id="modal-task-date">01.01.2000</div>
+		</div>
+		<div class="modal-task-metadata">
+			<div class="modal-task-item-title">Priority:</div>
+			<div id="modal-task-prio">
+				<span id="modal-task-prio-text">Urgent</span>
+				<img
+					id="modal-task-prio-img"
+					src="./assets/img/urgent-white.svg"
+					alt="urgent"
+				/>
+			</div>
+		</div>
+		<div class="modal-task-item-title">Assigned to:</div>
+		<div id="modal-task-assignees"></div>
+	</div>
 
-    <!--  Edit task  -->
-    <div id="modal-task-edit" class="modal-task-content editor d-none">
-        <div class="title-container width-100">
-            <p><label for="title">Title</label></p>
-            <input id="title" class="title-field width-100" onkeyup="validationForInput(0, 'title')" type="text"
-                name="title" placeholder="Enter a title">
-            <p id="required0" class="required hidden">This field is required</p>
-        </div>
-        <div class="description-container width-100">
-            <p><label for="description">Description</label></p>
-            <textarea id="description" class="description-area width-100" onkeyup="validationForInput(1, 'description')"
-                name="description" cols="30" rows="10" placeholder="Enter a description"
-                style="resize: vertical;"></textarea>
-            <p id="required1" class="required hidden">This field is required</p>
-        </div>
-        <div class="width-100">
-            <p><label for="due-date">Due date</label></p>
-            <div class="due-date" onchange="validationForInput(4, 'date-input')">
-                <input onfocus="this.showPicker(), validationForInput(4, 'date-input')" id="date-input"
-                    class="due-date-input width-100" type="date" name="due-date">
-            </div>
-            <p id="required4" class="required hidden">This field is required</p>
-        </div>
-        <div class="prio-container">
-            <p style="margin: 0 0 13px 0">Prio</p>
-            <div class="prio-btns-container">
-                <div onclick="setPrio(2)" id="urgent-btn" class="prio-btn" style="background-color: #FFFFFF;">
-                    Urgent
-                    <img id="urgent-btn-img" src="./assets/img/urgent.svg" alt="Arrows up">
-                </div>
-                <div onclick="setPrio(1)" id="medium-btn" class="prio-btn" style="background-color: #FFFFFF;">
-                    Medium
-                    <img id="medium-btn-img" src="./assets/img/medium.svg" alt="streaght lines">
-                </div>
-                <div onclick="setPrio(0)" id="low-btn" class="prio-btn" style="background-color: #FFFFFF;">
-                    Low
-                    <img id="low-btn-img" src="./assets/img/low.svg" alt="Arrows down">
-                </div>
-            </div>
-            <p id="required5" class="required hidden">This field is required</p>
-        </div>
-        <div class="select-container">
-            <p><label for="assign">Assigned to</label></p>
-            <div id="assign-input-container" class="input-field flex-btw padding-input d-none">
-                <div class="input-btns">
-                    <img onclick="hideInputField('assign-input', 'assign-input-container', 'assign-dropdown-container')"
-                        src="./assets/img/black-x.svg" alt="" class="filter-btn">
-                    <div class="seperator"></div>
-                    <img onclick="inviteContact('assign-input', 'assign-input-container', 'assign-dropdown-container')"
-                        src="./assets/img/black-check.svg" alt="" class="filter-btn">
-                </div>
-            </div>
+	<!--  Edit task  -->
+	<div id="modal-task-edit" class="modal-task-content editor d-none">
+		<div class="title-container width-100">
+			<p><label for="title">Title</label></p>
+			<input
+				id="title"
+				class="title-field width-100"
+				onkeyup="validationForInput(0, 'title')"
+				type="text"
+				name="title"
+				placeholder="Enter a title"
+			/>
+			<p id="required0" class="required hidden">This field is required</p>
+		</div>
+		<div class="description-container width-100">
+			<p><label for="description">Description</label></p>
+			<textarea
+				id="description"
+				class="description-area width-100"
+				onkeyup="validationForInput(1, 'description')"
+				name="description"
+				cols="30"
+				rows="10"
+				placeholder="Enter a description"
+				style="resize: vertical"
+			></textarea>
+			<p id="required1" class="required hidden">This field is required</p>
+		</div>
+		<div class="width-100">
+			<p><label for="due-date">Due date</label></p>
+			<div
+				class="due-date"
+				onchange="validationForInput(4, 'date-input')"
+			>
+				<input
+					onfocus="this.showPicker(), validationForInput(4, 'date-input')"
+					id="date-input"
+					class="due-date-input width-100"
+					type="date"
+					name="due-date"
+				/>
+			</div>
+			<p id="required4" class="required hidden">This field is required</p>
+		</div>
+		<div class="prio-container">
+			<p style="margin: 0 0 13px 0">Prio</p>
+			<div class="prio-btns-container">
+				<div
+					onclick="setPrio(2)"
+					id="urgent-btn"
+					class="prio-btn"
+					style="background-color: #ffffff"
+				>
+					Urgent
+					<img
+						id="urgent-btn-img"
+						src="./assets/img/urgent.svg"
+						alt="Arrows up"
+					/>
+				</div>
+				<div
+					onclick="setPrio(1)"
+					id="medium-btn"
+					class="prio-btn"
+					style="background-color: #ffffff"
+				>
+					Medium
+					<img
+						id="medium-btn-img"
+						src="./assets/img/medium.svg"
+						alt="streaght lines"
+					/>
+				</div>
+				<div
+					onclick="setPrio(0)"
+					id="low-btn"
+					class="prio-btn"
+					style="background-color: #ffffff"
+				>
+					Low
+					<img
+						id="low-btn-img"
+						src="./assets/img/low.svg"
+						alt="Arrows down"
+					/>
+				</div>
+			</div>
+			<p id="required5" class="required hidden">This field is required</p>
+		</div>
+		<div class="select-container">
+			<p><label for="assign">Assigned to</label></p>
+			<div
+				id="assign-input-container"
+				class="input-field flex-btw padding-input d-none"
+			>
+				<div class="input-btns">
+					<img
+						onclick="hideInputField('assign-input', 'assign-input-container', 'assign-dropdown-container')"
+						src="./assets/img/black-x.svg"
+						alt=""
+						class="filter-btn"
+					/>
+					<div class="seperator"></div>
+					<img
+						onclick="inviteContact('assign-input', 'assign-input-container', 'assign-dropdown-container')"
+						src="./assets/img/black-check.svg"
+						alt=""
+						class="filter-btn"
+					/>
+				</div>
+			</div>
 
-            <div id="overlay_assignees" class="d-none"
-                onclick="toggleAssigneesDropdown('assign-dropdown', 'triangle2', 'overlay_assignees', 'assign-dropdown-container')">
-            </div>
+			<div
+				id="overlay_assignees"
+				class="d-none"
+				onclick="toggleAssigneesDropdown('assign-dropdown', 'triangle2', 'overlay_assignees', 'assign-dropdown-container')"
+			></div>
 
-            <div id="assign-dropdown-container" class="dropdown-container select-none width-100">
-                <div onclick="toggleAssigneesDropdown('assign-dropdown', 'triangle2', 'overlay_assignees', 'assign-dropdown-container')"
-                    class="flex-btw padding-input height-input-mobile">
-                    <span>Select contacts to assign</span>
-                    <img id="triangle2" src="./assets/img/select-triangle.svg" alt="triangle" style="padding-top: 2px;">
-                </div>
-                <div id="assign-dropdown" class="dropdown-menu d-none">
-                    <ul id="assignee-list">
-                        <li
-                            onclick="showInputField('assign-input-container', 'assign-dropdown-container', 'assign-dropdown', 'triangle2')">
-                            <label class="flex-btw">
-                                <div>Invite new contact</div>
-                                <img src="./assets/img/contact-icon.svg" alt="">
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div id="add-task-assignees" class="assignees"></div>
-            <p id="required3" id="required-assign" class="required hidden">This field is required</p>
-        </div>
-        <div class="subtask-container">
-            <p><label for="subtasks">Subtasks</label></p>
-            <div class="subtasks-input padding-input">
-                <input id="subtask-input" onfocus="showInputBtns('input-btns', 'plus-icon' )"
-                    onkeydown="enterFunctionSubtasksEditor(event, 'subtask-input')" class="input-style" type="text"
-                    placeholder="Add new subtask">
-                <div class="input-btns">
-                    <img onclick="showInputBtns('input-btns', 'plus-icon' )" id="plus-icon" class="subtask-btn"
-                        src="./assets/img/plus.svg" alt="Plus sign">
-                    <div id="input-btns" class="input-btns d-none">
-                        <img onclick="hideInputField('subtask-input', 'input-btns', 'plus-icon')"
-                            src="./assets/img/black-x.svg" alt="" class="filter-btn">
-                        <div class="seperator"></div>
-                        <img onclick="addSubtaskEditor('subtask-input', 'input-btns', 'plus-icon')"
-                            src="./assets/img/black-check.svg" alt="" class="filter-btn">
-                    </div>
-                </div>
-            </div>
-            <div id="subtask-list" class="subtask-list width-100"></div>
-        </div>
-        <button id="btn-task-edit-ok" onclick="saveChanges()">
-            <span>Ok</span>
-            <img src="./assets/img/symb_done.svg" alt="ok">
-        </button>
-    </div>
-    <div id="dark-bg">
-        <div id="request-delete-popup" class="popup-btn">
-            <div class="delete-popup">
-                <div>Delete task?</div>
-                <div>
-                    <span onclick="deleteTask()">Yes</span>
-                    <span onclick="closeDeletePopup('request-delete-popup')">No</span>
-                </div>
-            </div>
-        </div>
-    </div>
+			<div
+				id="assign-dropdown-container"
+				class="dropdown-container select-none width-100"
+			>
+				<div
+					onclick="toggleAssigneesDropdown('assign-dropdown', 'triangle2', 'overlay_assignees', 'assign-dropdown-container')"
+					class="flex-btw padding-input height-input-mobile"
+				>
+					<span>Select contacts to assign</span>
+					<img
+						id="triangle2"
+						src="./assets/img/select-triangle.svg"
+						alt="triangle"
+						style="padding-top: 2px"
+					/>
+				</div>
+				<div id="assign-dropdown" class="dropdown-menu d-none">
+					<ul id="assignee-list">
+						<li
+							onclick="showInputField('assign-input-container', 'assign-dropdown-container', 'assign-dropdown', 'triangle2')"
+						>
+							<label class="flex-btw">
+								<div>Invite new contact</div>
+								<img
+									src="./assets/img/contact-icon.svg"
+									alt=""
+								/>
+							</label>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="add-task-assignees" class="assignees"></div>
+			<p id="required3" id="required-assign" class="required hidden">
+				This field is required
+			</p>
+		</div>
+		<div class="subtask-container">
+			<p><label for="subtasks">Subtasks</label></p>
+			<div class="subtasks-input padding-input">
+				<input
+					id="subtask-input"
+					onfocus="showInputBtns('input-btns', 'plus-icon' )"
+					onkeydown="enterFunctionSubtasksEditor(event, 'subtask-input')"
+					class="input-style"
+					type="text"
+					placeholder="Add new subtask"
+				/>
+				<div class="input-btns">
+					<img
+						onclick="showInputBtns('input-btns', 'plus-icon' )"
+						id="plus-icon"
+						class="subtask-btn"
+						src="./assets/img/plus.svg"
+						alt="Plus sign"
+					/>
+					<div id="input-btns" class="input-btns d-none">
+						<img
+							onclick="hideInputField('subtask-input', 'input-btns', 'plus-icon')"
+							src="./assets/img/black-x.svg"
+							alt=""
+							class="filter-btn"
+						/>
+						<div class="seperator"></div>
+						<img
+							onclick="addSubtaskEditor('subtask-input', 'input-btns', 'plus-icon')"
+							src="./assets/img/black-check.svg"
+							alt=""
+							class="filter-btn"
+						/>
+					</div>
+				</div>
+			</div>
+			<div id="subtask-list" class="subtask-list width-100"></div>
+		</div>
+		<button id="btn-task-edit-ok" onclick="saveChanges()">
+			<span>Save</span>
+			<img src="./assets/img/symb_done.svg" alt="ok" />
+		</button>
+	</div>
+	<div id="dark-bg">
+		<div id="request-delete-popup" class="popup-btn">
+			<div class="delete-popup">
+				<div>Delete task?</div>
+				<div>
+					<span onclick="deleteTask()">Yes</span>
+					<span onclick="closeDeletePopup('request-delete-popup')"
+						>No</span
+					>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
