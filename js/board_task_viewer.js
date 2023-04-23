@@ -253,8 +253,8 @@ function addSubtaskEditor(input, buttons, icon) {
         });
         inputSubtask.value = '';
         hideInputField(input, buttons, icon);
+        addSubtaskToList();
     }
-    addSubtaskToList();
 }
 
 
@@ -274,8 +274,8 @@ function enterFunctionSubtasksEditor(e, input) {
                 'status': false
             });
             inputSubtask.value = '';
+            addSubtaskToList();
         }
-        addSubtaskToList();
     }
 }
 
