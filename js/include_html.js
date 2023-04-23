@@ -15,7 +15,6 @@ async function includeHTML() {
  * @param {String} _file The source file name
  */
 async function loadHTML(_element, _file) {
-    // const element = includeElements[i];
     let file = _file;
     let element = _element;
     

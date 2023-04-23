@@ -2,8 +2,8 @@
  * Initialises the summary
  */
 async function initSummary() {
-    setWelcomeMsg();
     await init();
+    setWelcomeMsg();
     setCurrentUser();
     getNumberTasksAll();
     getNumberTasksTodo();
@@ -17,7 +17,7 @@ async function initSummary() {
 /**
  * Checking if guest log in, else Loading currentUser and changing welcome message
  */
-async function setCurrentUser() {
+function setCurrentUser() {
     document.getElementById('welcome-name-mobile').innerHTML = escapeHTML(currentUser['name']);
     document.getElementById('welcome-name-desk').innerHTML = escapeHTML(currentUser['name']);
 }

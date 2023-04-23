@@ -1,5 +1,10 @@
 let currentUser;
 
+const guestUser = {
+	name: "Guest",
+	email: "",
+};
+
 let users = [
     {
         "name": "Heiner Müller",

@@ -295,7 +295,7 @@ async function checkAndUpdateLoggedIn(id) {
     if (currentUser['email'] != currentContactMail) return;
 
     currentUser = users[id];
-    await saveOnServer('currentUser', currentUser);
+    saveCurrentUser();
     setHeaderUserBadge();
 }
 

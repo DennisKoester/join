@@ -55,10 +55,10 @@ setURL("https://denniskoester.com/smallest_backend_ever");
 async function init() {
 	await includeHTML();
 	await loadDataFromServer();
-	await loadCurrentUserFromServer();
+	loadCurrentUser();
+	handleWelcomeOnMobile();
 	hasTouch();
 	setHeaderUserBadge();
-	handleWelcomeOnMobile();
 	controlMenuHighlighting();
 }
 
@@ -73,10 +73,18 @@ async function loadDataFromServer() {
 }
 
 /**
- * Loads the current user from server
+ * Loads the current user from localStorage
  */
-async function loadCurrentUserFromServer() {
-	currentUser = JSON.parse(backend.getItem("currentUser"));
+function loadCurrentUser() {
+	currentUser = JSON.parse(localStorage.getItem("currentUser")) || guestUser;
+}
+
+/**
+ * Saves the current user in localStorage
+ */
+function saveCurrentUser() {
+	userAsString = JSON.stringify(currentUser);
+	localStorage.setItem("currentUser", userAsString);
 }
 
 /**
@@ -188,7 +196,7 @@ function hideCtxMenu(ctxMenu) {
  */
 async function logout() {
 	currentUser = [];
-	await saveOnServer("currentUser", currentUser);
+	saveCurrentUser();
 	window.location.href = "./index.html";
 }
 

@@ -20,7 +20,7 @@ async function guestLogin() {
         "short_name": "G",
         "color": "HSL(150, 100%, 50%)",
     };
-    await saveOnServer('currentUser', currentUser);
+    saveCurrentUser();
     window.location.href = './summary.html?login=1'
 }
 
@@ -39,7 +39,7 @@ async function login(e) {
     currentUser = users.find(u => u.email == email.value && u.password == password.value);
 
     if (currentUser) {
-        await saveOnServer('currentUser', currentUser);
+        saveCurrentUser();
         window.location.href = './summary.html?login=2';
     } else {
         showPopupMessage('popup-button');
