@@ -56,7 +56,6 @@ async function init() {
 	await includeHTML();
 	await loadDataFromServer();
 	loadCurrentUser();
-	handleWelcomeOnMobile();
 	hasTouch();
 	setHeaderUserBadge();
 	controlMenuHighlighting();
@@ -106,29 +105,6 @@ async function loadFromServer(key) {
 async function saveOnServer(key, item) {
 	itemAsString = JSON.stringify(item);
 	await backend.setItem(key, itemAsString);
-}
-
-/**
- * Controls the welcome screen on mobile view
- */
-function handleWelcomeOnMobile() {
-	let isLogin = new URLSearchParams(window.location.search);
-	if (!isLogin.get("login")) return;
-
-	const windowWidth = window.innerWidth;
-	const delay = WELCOME_MSG_TRANS + WELCOME_MSG_DELAY + 10;
-	const welcome = document.getElementById("welcome-mobile");
-
-	if (windowWidth <= MOBILE_MAX_WIDTH) {
-		setTimeout(() => {
-			welcome.classList.add("welcome-mobile-fade");
-		}, 1);
-		setTimeout(() => {
-			welcome.classList.add("d-none");
-		}, delay);
-	} else {
-		welcome.classList.add("d-none");
-	}
 }
 
 /**
