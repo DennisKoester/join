@@ -1,79 +1,92 @@
 .header-nav-modal {
-    display: flex;
+	display: flex;
+}
+
+@media screen and (max-width: 1350px) {
+	#content-board {
+		margin-left: 40px;
+		margin-right: 40px;
+	}
 }
 
 @media screen and (max-width: 940px) {
-    .header-nav-modal {
-        display: none !important;
-    }
+	.header-nav-modal {
+		display: none !important;
+	}
 
-    .modal-addtask-wrapper {
-        width: unset;
-        position: absolute;
-        top: var(--header-height-mobile);
-        bottom: 0;
-        left: 0;
-        right: 0;
-        border-radius: unset;
-        background-color: var(--bg-body);
-    }
+	.modal-addtask-wrapper {
+		width: unset;
+		position: absolute;
+		top: var(--header-height-mobile);
+		bottom: 0;
+		left: 0;
+		right: 0;
+		border-radius: unset;
+		background-color: var(--bg-body);
+	}
 
-    .modal-add-task-content {
-        height: 100%;
-        max-height: unset;
-        padding-bottom: var(--nav-height-mobile);
-    }
+	.modal-add-task-content {
+		height: 100%;
+		max-height: unset;
+		padding-bottom: var(--nav-height-mobile);
+	}
 }
 
 @media screen and (max-width: 670px) {
-    .modal-taskview-wrapper {
-        width: 100%;
-        max-width: unset;
-        position: absolute;
-        top: var(--header-height-mobile);
-        bottom: var(--nav-height-mobile);
-        border-radius: unset;
-    }
+	#content-board {
+		margin: 0;
+	}
 
-    .modal-task-content {
-        max-height: 100%;
-    }
+	.modal-taskview-wrapper {
+		width: 100%;
+		max-width: unset;
+		height: unset;
+		max-height: unset;
+		position: absolute;
+		top: var(--header-height-mobile);
+		bottom: var(--nav-height-mobile);
+		border-radius: unset;
+	}
 
-    .editor {
-        padding: 30px 50px 0 30px;
-    }
+	.modal-task-content {
+		max-height: 100%;
+	}
 
-    #content-board .modal-task-close {
-        top: 18px;
-        right: 24px;
-        width: 20px;
-    }
+	.editor {
+		padding: 0px 30px 0 30px;
+	}
+
+	#content-board .modal-task-close {
+		top: 18px;
+		right: 24px;
+		width: 20px;
+	}
 }
 
 @media screen and (max-width: 450px) {
-    #modal-task-cat {
-        font-size: 21px;
-    }
+	#modal-task-cat {
+		font-size: 21px;
+	}
 
-    #modal-task-title {
-        font-size: 36px;
-    }
+	#modal-task-title {
+		font-size: 36px;
+	}
 
-    #modal-task-desc {
-        font-size: 16px;
-    }
+	#modal-task-desc {
+		font-size: 16px;
+	}
 
-    .reader {
-        padding: 30px 30px 0;
-    }
+	.reader {
+		padding: 0px 30px 0;
+	}
 }
 
 @media screen and (max-width: 420px) {
-    #subtask-list {
-        font-size: 15px;
-    }
+	#subtask-list {
+		font-size: 15px;
+	}
 
-    .editor {
-        padding: 30px 35px 0 20px;
-    }
+	.editor {
+		padding: 0px 20px 0 20px;
+	}
 }

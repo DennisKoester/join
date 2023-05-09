@@ -7,15 +7,11 @@
 		margin-left: 40px;
 		margin-right: 40px;
 	}
-
-	#modal-add-task-content .content-add-task {
-		margin-right: 45px;
-	}
 }
 
 @media (max-width: 1200px) {
 	.content-add-task {
-		margin: 0 0 15px 0;
+		margin: 0 0 60px 0;
 	}
 
 	.add-task-content {

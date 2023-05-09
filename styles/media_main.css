@@ -11,7 +11,7 @@
 		right: 0;
 		height: var(--nav-height-mobile);
 		padding: 0;
-		z-index: 2;
+		z-index: 1003;
 	}
 
 	#logo-nav,

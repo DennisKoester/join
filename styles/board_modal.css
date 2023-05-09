@@ -1,276 +1,289 @@
 button {
-    border: unset;
-    font-size: unset;
+	border: unset;
+	font-size: unset;
 }
 
 .modal-container {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 10000;
-    font-size: 21px;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.6);
+	z-index: 10000;
+	font-size: 21px;
 }
 
 #modal-task,
 #modal-add-task,
 #modal-contact {
-    opacity: 0;
-    transition: opacity 350ms ease-out;
+	opacity: 0;
+	transition: opacity 350ms ease-out;
 }
 
 .modal-show {
-    opacity: 1 !important;
+	opacity: 1 !important;
 }
 
 .modal-wrapper {
-    position: relative;
-    border-radius: var(--border-radius-main);
-    background-color: white;
-    overflow: hidden;
+	position: relative;
+	border-radius: var(--border-radius-main);
+	background-color: white;
+	overflow: hidden;
 }
 
 .modal-taskview-wrapper {
-    width: 625px;
-    max-width: 625px;
+	width: 625px;
+	max-width: 625px;
+	height: 95vh;
+	max-height: 95vh;
 }
 
 .modal-addtask-wrapper {
-    width: 75%;
-    height: 95%;
+	width: 75%;
+	height: 95%;
 }
 
 .modal-task-content {
-    height: 95vh;
-    max-height: 95vh;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 25px;
-    overflow-y: auto;
+	height: calc(100% - 160px);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 25px;
+	overflow-y: auto;
 }
 
 .reader {
-    padding: 50px 50px 0;
+	padding: 0 50px;
+	margin-top: 70px;
 }
 
 .editor {
-    padding: 50px 100px 0;
+	margin-top: 70px;
+	padding: 0 50px;
 }
 
 .edit-btn:hover {
-    background: #29ABE2 !important;
-    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+	background: #29abe2 !important;
+	box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
 
 .modal-btns {
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 30px;
-    width: 100%;
-    padding: 0 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	position: absolute;
+	right: 0;
+	left: 0;
+	bottom: 30px;
+	width: 100%;
+	padding: 0 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .modal-btns button {
-    height: 50px;
-    width: 50px;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    transition: 100ms ease-in-out;
-    justify-content: center;
-    background-color: var(--bg-color-main);
-    border-radius: var(--border-radius-btn);
-    cursor: pointer;
+	height: 50px;
+	width: 50px;
+	padding: 5px;
+	display: flex;
+	align-items: center;
+	transition: 100ms ease-in-out;
+	justify-content: center;
+	background-color: var(--bg-color-main);
+	border-radius: var(--border-radius-btn);
+	cursor: pointer;
 }
 
 .modal-btns img {
-    width: 40px;
-    height: 35px;
+	width: 40px;
+	height: 35px;
+}
+
+.save-btn {
+	position: absolute;
+	right: 30px;
+	bottom: -8px;
 }
 
 .delete-btn {
-    background-color: white !important;
-    border: 2px solid #2A3647;
-    cursor: pointer;
-    font-family: 'Inter';
+	background-color: white !important;
+	border: 2px solid #2a3647;
+	cursor: pointer;
+	font-family: "Inter";
 }
 
 .delete-btn img {
-    transition: 100ms ease-in-out;
-    filter: invert(0%) sepia(25%) saturate(364%) hue-rotate(17deg) brightness(35%) contrast(85%);
+	transition: 100ms ease-in-out;
+	filter: invert(0%) sepia(25%) saturate(364%) hue-rotate(17deg)
+		brightness(35%) contrast(85%);
 }
 
 .delete-btn:hover img {
-    filter: invert(59%) sepia(97%) saturate(1585%) hue-rotate(165deg) brightness(93%) contrast(90%);
+	filter: invert(59%) sepia(97%) saturate(1585%) hue-rotate(165deg)
+		brightness(93%) contrast(90%);
 }
 
 .delete-btn:hover {
-    border: 2px solid #29ABE2;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+	border: 2px solid #29abe2;
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .modal-task-close {
-    position: absolute;
-    top: 35px;
-    right: 35px;
-    width: 25px;
-    cursor: pointer;
-    z-index: 1;
+	position: absolute;
+	top: 35px;
+	right: 35px;
+	width: 25px;
+	cursor: pointer;
+	z-index: 1;
 }
 
 .modal-task-close:hover {
-    filter: invert(59%) sepia(97%) saturate(1585%) hue-rotate(165deg) brightness(93%) contrast(90%);
+	filter: invert(59%) sepia(97%) saturate(1585%) hue-rotate(165deg)
+		brightness(93%) contrast(90%);
 }
 
 #modal-task-cat {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: max-content;
-    border-radius: 8px;
-    padding: 4px 37px 4px 37px;
-    color: white;
-    font-size: 27px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: max-content;
+	border-radius: 8px;
+	padding: 4px 37px 4px 37px;
+	color: white;
+	font-size: 27px;
 }
 
 #modal-task-title {
-    font-size: 61px;
-    font-weight: 700;
+	font-size: 61px;
+	font-weight: 700;
 }
 
 #modal-task-subtasks {
-    width: 100%;
-    max-height: 100px;
-    overflow-y: auto;
+	width: 100%;
+	max-height: 100px;
+	overflow-y: auto;
 }
 
 .modal-task-subtask {
-    display: flex;
-    align-items: center;
-    column-gap: 10px;
-    margin: 8px 0;
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+	margin: 8px 0;
 }
 
 .modal-task-subtask img {
-    width: 16px;
+	width: 16px;
 }
 
 .modal-task-subtask span {
-    font-size: 16px;
+	font-size: 16px;
 }
 
 .subtask-list {
-    height: unset !important;
+	height: unset !important;
 }
 
 .modal-task-metadata {
-    display: flex;
-    align-items: center;
-    gap: 25px
+	display: flex;
+	align-items: center;
+	gap: 25px;
 }
 
 .modal-task-item-title {
-    font-weight: 700;
+	font-weight: 700;
 }
 
 #modal-task-prio {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: white;
-    background-color: orange;
-    padding: 4px 18px;
-    border-radius: var(--border-radius-btn);
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: white;
+	background-color: orange;
+	padding: 4px 18px;
+	border-radius: var(--border-radius-btn);
 }
 
 #modal-task-prio-img {
-    width: 17px;
+	width: 17px;
 }
 
 #modal-task-assignees {
-    display: flex;
-    flex-direction: column;
-    gap: inherit;
-    margin-bottom: 30px;
-    margin-right: 70px;
+	display: flex;
+	flex-direction: column;
+	gap: inherit;
+	margin-bottom: 30px;
+	margin-right: 70px;
 }
 
 .modal-task-assignees-item {
-    display: flex;
-    align-items: center;
-    gap: 25px;
+	display: flex;
+	align-items: center;
+	gap: 25px;
 }
 
 .modal-task-assignee {
-    width: 45px;
-    min-width: 45px;
-    height: 45px;
-    font-size: 16px;
-    border: none;
-    margin: unset;
+	width: 45px;
+	min-width: 45px;
+	height: 45px;
+	font-size: 16px;
+	border: none;
+	margin: unset;
 }
 
 #modal-task-edit form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }
 
 #btn-task-edit-ok {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    margin-bottom: 30px;
-    margin-top: 30px;
-    padding: 18px 10px;
-    gap: 10px;
-    font-weight: 700;
-    color: white;
-    background-color: var(--bg-color-main);
-    border-radius: var(--border-radius-btn);
-    transition: 100ms ease-in-out;
-    cursor: pointer;
+	display: flex;
+	align-items: center;
+	margin-left: auto;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	padding: 18px 10px;
+	gap: 10px;
+	font-weight: 700;
+	color: white;
+	background-color: var(--bg-color-main);
+	border-radius: var(--border-radius-btn);
+	transition: 100ms ease-in-out;
+	cursor: pointer;
 }
 
 #btn-task-edit-ok:hover {
-    background: #29ABE2 !important;
-    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+	background: #29abe2 !important;
+	box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
 
 #btn-task-edit-ok img {
-    width: 20px;
+	width: 20px;
 }
 
 .modal-add-task-content {
-    height: 95vh;
-    max-height: 95vh;
-    overflow-y: auto;
-    padding-right: 20px;
+	height: 95vh;
+	max-height: 95vh;
+	overflow-y: auto;
+	/* padding-right: 20px; */
+	margin: 70px 0;
 }
 
 .delete-popup {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    gap: 10px !important;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	gap: 10px !important;
 }
 
 .delete-popup span {
-    margin: 15px;
+	margin: 15px;
 }
 
 .delete-popup span:hover {
-    cursor: pointer;
-    color: #29ABE2;
+	cursor: pointer;
+	color: #29abe2;
 }

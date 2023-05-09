@@ -540,6 +540,7 @@ select {
 }
 
 .animation {
+	display: flex !important;
 	animation: transition 3s forwards;
 }
 
