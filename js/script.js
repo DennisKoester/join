@@ -47,7 +47,7 @@ let alphabet = [
 	"Ü",
 ];
 
-setURL("https://denniskoester.com/smallest_backend_ever");
+setURL("https://join.denniskoester.com/smallest_backend_ever");
 
 /**
  * Initiates the main page

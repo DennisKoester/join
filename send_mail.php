@@ -42,7 +42,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $email = $_POST['email'];
         $message = "Hello,\n
         \nFollow this link to reset your Join password for your account:
-        \nhttps://denniskoester.com//join/reset-password.html?email=".$email."\n
+        \nhttps://join.denniskoester.com/reset-password.html?email=".$email."\n
         \nYour Join team!";
 
         $recipient = $email;

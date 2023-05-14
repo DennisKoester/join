@@ -2,80 +2,76 @@
  * Loading data from server
  */
 async function initLogin() {
-    await loadDataFromServer();
-    await rememberMe();
+	await loadDataFromServer();
+	await rememberMe();
 }
-
 
 /**
  * Setting currentUser to Guest when Logging in as Guest
  */
 async function guestLogin() {
-
-    currentUser = {
-        "name": "Guest",
-        "email": "",
-        "password": "",
-        "phone": "",
-        "short_name": "G",
-        "color": "HSL(150, 100%, 50%)",
-    };
-    saveCurrentUser();
-    window.location.href = './summary.html?login=1'
+	currentUser = {
+		name: "Guest",
+		email: "",
+		password: "",
+		phone: "",
+		short_name: "G",
+		color: "HSL(150, 100%, 50%)",
+	};
+	saveCurrentUser();
+	window.location.href = "./summary.html?login=1";
 }
-
 
 /**
  * Validating entered user data before login
- * @param {Object} e 
+ * @param {Object} e
  * @returns {boolean}
  */
 async function login(e) {
-    e.preventDefault();
+	e.preventDefault();
 
-    let email = document.getElementById('email');
-    let password = document.getElementById('password');
+	let email = document.getElementById("email");
+	let password = document.getElementById("password");
 
-    currentUser = users.find(u => u.email == email.value && u.password == password.value);
+	currentUser = users.find(
+		(u) => u.email == email.value && u.password == password.value
+	);
 
-    if (currentUser) {
-        saveCurrentUser();
-        window.location.href = './summary.html?login=2';
-    } else {
-        showPopupMessage('popup-button');
-    }
-    return false;
+	if (currentUser) {
+		saveCurrentUser();
+		window.location.href = "./summary.html?login=2";
+	} else {
+		showPopupMessage("popup-button");
+	}
+	return false;
 }
-
 
 /**
  * Shows a popup message with animation
  * @param {string} id
  */
 function showPopupMessage(id) {
-    let popup = document.getElementById(id);
+	let popup = document.getElementById(id);
 
-    popup.classList.add('login_animation');
-    setTimeout(function () {
-        removeAnimation(popup);
-    }, 3000);
+	popup.classList.add("login_animation");
+	setTimeout(function () {
+		removeAnimation(popup);
+	}, 3000);
 }
-
 
 /**
  * Removes the animation class from popup
- * @param {string} popup 
+ * @param {string} popup
  */
 function removeAnimation(popup) {
-    popup.classList.remove('login_animation');
+	popup.classList.remove("login_animation");
 }
-
 
 /**
  * Render password forgotten html
  */
 function passwordForgotten() {
-    document.getElementById('login-master').innerHTML = `
+	document.getElementById("login-master").innerHTML = `
     <div class="login_main signup_main forgotten_main">
         <a class="goback" href="./index.html"><img class="goback_img" src="./assets/img/goBack.png"></a>
         <form class="login_form forgotten_form" onsubmit="onSubmit(event)">
@@ -90,121 +86,110 @@ function passwordForgotten() {
     `;
 }
 
-
 /**
  * Sending email to reset password
  * @param {Object} event
  */
 async function onSubmit(event) {
-    event.preventDefault();
-    if (checkIfEmailExists()) {
-        let formData = new FormData(event.target); // create a FormData based on our Form Element in HTML
-        let response = await action(formData);
-        if (response.ok) {
-            showPopupMessage('email-reset');
-            setTimeout(function () {
-                window.location.href = './index.html';
-            }, 3000);
-        }
-    }
+	event.preventDefault();
+	if (checkIfEmailExists()) {
+		let formData = new FormData(event.target); // create a FormData based on our Form Element in HTML
+		let response = await action(formData);
+		if (response.ok) {
+			showPopupMessage("email-reset");
+			setTimeout(function () {
+				window.location.href = "./index.html";
+			}, 3000);
+		}
+	}
 }
-
 
 /**
  * Fetching php script to send mail
- * @param {Object} formData 
- * @returns 
+ * @param {Object} formData
+ * @returns
  */
 function action(formData) {
-    const input = 'https://denniskoester.com//join/send_mail.php';
-    const requestInit = {
-        method: 'post',
-        body: formData
-    };
+	const input = "https://join.denniskoester.com/send_mail.php";
+	const requestInit = {
+		method: "post",
+		body: formData,
+	};
 
-    return fetch(
-        input,
-        requestInit
-    );
+	return fetch(input, requestInit);
 }
-
 
 /**
  * Checking if user with entered Email exists
  */
 function checkIfEmailExists() {
-    let email = document.getElementById('email-field');
-    let user = users.find(u => u.email == email.value);
-    if (user) {
-        return true;
-    } else {
-        showPopupMessage('email-failed');
-    }
+	let email = document.getElementById("email-field");
+	let user = users.find((u) => u.email == email.value);
+	if (user) {
+		return true;
+	} else {
+		showPopupMessage("email-failed");
+	}
 }
-
 
 /**
  * Check if passwords match and reset the password
  */
 async function resetPassword(event) {
-    event.preventDefault();
-    let password1 = document.getElementById('password-field-1').value;
-    let password2 = document.getElementById('password-field-2').value;
+	event.preventDefault();
+	let password1 = document.getElementById("password-field-1").value;
+	let password2 = document.getElementById("password-field-2").value;
 
-    if (password1 == password2) {
-        const urlParams = new URLSearchParams(window.location.search);
-        const userEmail = urlParams.get('email');
-        let index = users.findIndex(u => u.email == userEmail);
-        users[index]['password'] = password1;
-        await saveOnServer('users', users);
-        showSuccessMessage();
-    } else {
-        showPopupMessage('password-failed');
-    }
+	if (password1 == password2) {
+		const urlParams = new URLSearchParams(window.location.search);
+		const userEmail = urlParams.get("email");
+		let index = users.findIndex((u) => u.email == userEmail);
+		users[index]["password"] = password1;
+		await saveOnServer("users", users);
+		showSuccessMessage();
+	} else {
+		showPopupMessage("password-failed");
+	}
 }
-
 
 /**
  * Show success message and return to Log in page
  */
 function showSuccessMessage() {
-    showPopupMessage('password-success');
-    setTimeout(function () {
-        window.location.href = './index.html';
-    }, 3000);
+	showPopupMessage("password-success");
+	setTimeout(function () {
+		window.location.href = "./index.html";
+	}, 3000);
 }
-
-
 
 /**
  * Checks if the user is already in the local storage for remembering
  */
 function rememberMe() {
-    let rmCheck = document.getElementById('rememberMe');
-    let emailInput = document.getElementById('email');
+	let rmCheck = document.getElementById("rememberMe");
+	let emailInput = document.getElementById("email");
 
-    if (localStorage.username && localStorage.checkbox !== "") {
-        rmCheck.setAttribute("checked", "checked");
-        emailInput.value = localStorage.username;
-    } else {
-        rmCheck.removeAttribute("checked");
-        emailInput.value = "";
-    }
+	if (localStorage.username && localStorage.checkbox !== "") {
+		rmCheck.setAttribute("checked", "checked");
+		emailInput.value = localStorage.username;
+	} else {
+		rmCheck.removeAttribute("checked");
+		emailInput.value = "";
+	}
 }
-
 
 /**
  * Pushes the user into the local storage for remembering
  */
 function lsRememberMe() {
-    let rmCheck = document.getElementById('rememberMe');
-    let emailInput = document.getElementById('email');
+	let rmCheck = document.getElementById("rememberMe");
+	let emailInput = document.getElementById("email");
 
-    if (rmCheck.checked && emailInput.value !== "") {
-        localStorage.username = emailInput.value;
-        localStorage.checkbox = rmCheck.value;
-    } else {
-        localStorage.username = "";
-        localStorage.checkbox = "";
-    }
+	if (rmCheck.checked && emailInput.value !== "") {
+		localStorage.username = emailInput.value;
+		localStorage.checkbox = rmCheck.value;
+	} else {
+		localStorage.username = "";
+		localStorage.checkbox = "";
+	}
 }
