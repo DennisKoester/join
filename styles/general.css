@@ -51,7 +51,7 @@
 body {
 	margin: 0;
 	font-family: "Inter", sans-serif;
-	max-height: 100svh;
+	max-height: 100vh;
 	background-color: var(--bg-body);
 }
 

@@ -1,287 +1,290 @@
 .flex-contacts-page {
-    display: flex;
-    font-size: 21px;
+	display: flex;
+	font-size: 21px;
 }
 
 .contacts-menu {
-    position: relative;
-    background-color: white;
-    width: 453px;
-    min-width: 400px;
-    height: calc(100vh - 90px);
+	position: relative;
+	background-color: white;
+	width: 453px;
+	min-width: 400px;
+	height: calc(100vh - 90px);
 }
 
 #contacts-menu-scrollable {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    overflow-y: auto;
-    padding: 10px 15px 10px 15px;
-    box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
-    display: flex;
-    flex-direction: column;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	overflow-y: auto;
+	padding: 10px 15px 10px 15px;
+	box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
+	display: flex;
+	flex-direction: column;
 }
 
 .contacts-container {
-    padding: 82px 58px 20px 58px;
-    overflow-y: auto;
-    height: calc(100vh - 90px);
-    width: 100%;
+	padding: 82px 58px 20px 58px;
+	overflow-y: auto;
+	height: calc(100vh - 90px);
+	width: 100%;
 
-    -webkit-overflow-scrolling: touch;
+	-webkit-overflow-scrolling: touch;
 }
 
 .contacts-headline {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-bottom: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	padding-bottom: 70px;
 }
 
 #headline-separator {
-    width: 0;
-    height: 59px;
-    border-left: solid 3px var(--highlight);
-    border-radius: 3px;
-    margin-left: 30px;
-    margin-right: 30px;
+	width: 0;
+	height: 59px;
+	border-left: solid 3px var(--highlight);
+	border-radius: 3px;
+	margin-left: 30px;
+	margin-right: 30px;
 }
 
 .contacts-subheadline {
-    font-size: 27px;
+	font-size: 27px;
 }
 
 .contact-page-button {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: absolute;
-    width: 193px;
-    height: 53px;
-    padding: 18px 10px;
-    right: 52px;
-    bottom: 67px;
-    background-color: var(--bg-color-main);
-    border: none;
-    color: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 21px;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: absolute;
+	width: 193px;
+	height: 53px;
+	padding: 18px 10px;
+	right: 52px;
+	bottom: 67px;
+	background-color: var(--bg-color-main);
+	border: none;
+	color: #fff;
+	padding: 10px;
+	border-radius: 10px;
+	font-size: 21px;
+	cursor: pointer;
+	font-family: "Inter", sans-serif;
 }
 
 .contact-page-button:hover {
-    background: #29ABE2;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
+	background: #29abe2;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
 }
 
 .contact-button-logo {
-    height: 30px;
-    width: 33px;
+	height: 30px;
+	width: 33px;
 }
 
 .contact-div {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 79px;
-    padding: 10px 20px;
-    border-radius: 9px;
-    gap: 30px;
-    cursor: pointer;
-    user-select: none;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 79px;
+	padding: 10px 20px;
+	border-radius: 9px;
+	gap: 30px;
+	cursor: pointer;
+	user-select: none;
 }
 
 #contact-div {
-    opacity: 1;
-    position: relative;
+	opacity: 1;
+	position: relative;
 }
 
 .animationContact {
-    animation: moveToLeft 225ms ease-in-out;
+	animation: moveToLeft 225ms ease-in-out;
 }
 
 @keyframes moveToLeft {
-    0% {
-        transform: translateX(2400px);
-    }
+	0% {
+		transform: translateX(2400px);
+	}
 
-    100% {
-        transform: translateX(200px);
-    }
+	100% {
+		transform: translateX(200px);
+	}
 }
 
 .contact-div:not(.nohover):hover {
-    background: linear-gradient(180deg, #F9F9F9 0%, #F0F0F0 100%);
+	background: linear-gradient(180deg, #f9f9f9 0%, #f0f0f0 100%);
 }
 
 .activeContact {
-    background-color: var(--bg-color-main);
-    color: white;
+	background-color: var(--bg-color-main);
+	color: white;
 }
 
 .username-initials {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    border-style: solid;
-    border-width: 1px;
-    border-color: white;
-    font-size: 12px;
-    color: white;
-    flex-shrink: 0
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	border-style: solid;
+	border-width: 1px;
+	border-color: white;
+	font-size: 12px;
+	color: white;
+	flex-shrink: 0;
 }
 
 .users-email {
-    color: var(--highlight);
-    text-decoration: none;
-    font-size: 16px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: block;
+	color: var(--highlight);
+	text-decoration: none;
+	font-size: 16px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
 }
 
 .contacts-underline {
-    min-height: 2px;
-    width: 100%;
-    background-color: var(--dimmed);
-    margin: 10px 0 14px 0;
+	min-height: 2px;
+	width: 100%;
+	background-color: var(--dimmed);
+	margin: 10px 0 14px 0;
 }
 
 .alphabet-letter {
-    padding: 20px 10px 0 10px;
-    margin-left: 20px;
+	padding: 20px 10px 0 10px;
+	margin-left: 20px;
 }
 
 .contact-div-big {
-    display: flex;
-    align-items: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-radius: 9px;
-    gap: 30px;
+	display: flex;
+	align-items: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-radius: 9px;
+	gap: 30px;
 }
 
 .contact-add-task {
-    display: flex;
-    align-items: center;
-    width: max-content;
-    gap: 8px;
-    color: var(--highlight);
-    cursor: pointer;
+	display: flex;
+	align-items: center;
+	width: max-content;
+	gap: 8px;
+	color: var(--highlight);
+	cursor: pointer;
 }
 
 .contact-add-task:hover {
-    filter: invert(0%) sepia(25%) saturate(364%) hue-rotate(17deg) brightness(35%) contrast(85%);
+	filter: invert(0%) sepia(25%) saturate(364%) hue-rotate(17deg)
+		brightness(35%) contrast(85%);
 }
 
 .username-big {
-    font-size: 45px;
-    font-weight: 400;
-    margin-bottom: 15px;
+	font-size: 45px;
+	font-weight: 400;
+	margin-bottom: 15px;
 }
 
 .username-initials-big {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 120px;
-    width: 120px;
-    border-radius: 50%;
-    border-style: solid;
-    border-color: white;
-    font-size: 47px;
-    margin-right: 10px;
-    background-color: aqua;
-    color: white;
-    flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 120px;
+	width: 120px;
+	border-radius: 50%;
+	border-style: solid;
+	border-color: white;
+	font-size: 47px;
+	margin-right: 10px;
+	background-color: aqua;
+	color: white;
+	flex-shrink: 0;
 }
 
 .contact-and-edit {
-    display: flex;
-    justify-items: flex-start;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    max-width: 392px;
+	display: flex;
+	justify-items: flex-start;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	max-width: 392px;
 }
 
 .edit-contact {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: #2A3647;
-    cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	color: #2a3647;
+	cursor: pointer;
 }
 
 .edit-contact:hover {
-    filter: invert(80%) sepia(97%) saturate(1585%) hue-rotate(185deg) brightness(93%) contrast(90%);
+	filter: invert(80%) sepia(97%) saturate(1585%) hue-rotate(185deg)
+		brightness(93%) contrast(90%);
 }
 
-
 .contact-delete-btn {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    border: 2px solid #2A3647;
-    cursor: pointer;
-    font-family: 'Inter';
-    color: #2A3647;
-    height: 35px;
-    width: 35px;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    transition: 100ms ease-in-out;
-    justify-content: center;
-    background-color: var(--bg-body) !important;
-    border-radius: var(--border-radius-btn);
-    cursor: pointer;
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	border: 2px solid #2a3647;
+	cursor: pointer;
+	font-family: "Inter";
+	color: #2a3647;
+	height: 35px;
+	width: 35px;
+	padding: 5px;
+	display: flex;
+	align-items: center;
+	transition: 100ms ease-in-out;
+	justify-content: center;
+	background-color: var(--bg-body) !important;
+	border-radius: var(--border-radius-btn);
+	cursor: pointer;
 }
 
 .contact-delete-btn img {
-    width: 30px;
-    height: 25px;
-    filter: invert(0%) sepia(25%) saturate(364%) hue-rotate(17deg) brightness(35%) contrast(85%);
+	width: 30px;
+	height: 25px;
+	filter: invert(0%) sepia(25%) saturate(364%) hue-rotate(17deg)
+		brightness(35%) contrast(85%);
 }
 
 .contact-delete-btn:hover img {
-    filter: invert(59%) sepia(97%) saturate(1585%) hue-rotate(165deg) brightness(93%) contrast(90%);
+	filter: invert(59%) sepia(97%) saturate(1585%) hue-rotate(165deg)
+		brightness(93%) contrast(90%);
 }
 
 .contact-delete-btn:hover {
-    border: 2px solid #29ABE2;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+	border: 2px solid #29abe2;
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .email-margins {
-    margin-bottom: 15px;
+	margin-bottom: 15px;
 }
 
 .phone-margins {
-    margin-top: 20px;
-    margin-bottom: 15px;
+	margin-top: 20px;
+	margin-bottom: 15px;
 }
 
 .users-email-big {
-    color: var(--highlight);
-    text-decoration: none;
-    font-size: 16px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    cursor: pointer;
+	color: var(--highlight);
+	text-decoration: none;
+	font-size: 16px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: pointer;
 }
 
 .d-none {
-    display: none;
+	display: none;
 }
