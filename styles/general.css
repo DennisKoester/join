@@ -1,96 +1,92 @@
 :root {
-    /* Background colors */
-    --bg-color-main: #2A3647;
-    --bg-menu-item-highlight: #091931;
-    --bg-body: #f5f5f5;
+	/* Background colors */
+	--bg-color-main: #2a3647;
+	--bg-menu-item-highlight: #091931;
+	--bg-body: #f5f5f5;
 
+	/* Element colors */
+	--highlight: #29abe2;
+	--dimmed: #d1d1d1;
+	--border-dimmed: #a8a8a8;
 
-    /* Element colors */
-    --highlight: #29ABE2;
-    --dimmed: #D1D1D1;
-    --border-dimmed: #A8A8A8;
+	/* Badge Colors */
+	--orange: #ff8a00;
+	--red: #ff0000;
+	--blue: #0038ff;
+	--lightblue: #8aa4ff;
+	--pink: #e200be;
+	--lightpink: #fc71ff;
+	--green: #2ad300;
+	--turquoise: #1fd7c1;
 
+	/* Geometry */
+	--nav-width-desktop: 232px;
+	--nav-height-mobile: 80px;
+	--header-height-desktop: 90px;
+	--header-height-mobile: 80px;
+	--border-radius-main: 30px;
+	--border-radius-btn: 10px;
+	--task-card-width: 250px;
 
-    /* Badge Colors */
-    --orange: #FF8A00;
-    --red: #FF0000;
-    --blue: #0038FF;
-    --lightblue: #8AA4FF;
-    --pink: #E200BE;
-    --lightpink: #FC71FF;
-    --green: #2AD300;
-    --turquoise: #1FD7C1;
+	/* Shadow */
+	--shadow-badge: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+	--shadow-hover: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 
+	/* Text */
+	--welcome-text-size: 47px;
+	--welcome-name-size: 64px;
 
-    /* Geometry */
-    --nav-width-desktop: 232px;
-    --nav-height-mobile: 80px;
-    --header-height-desktop: 90px;
-    --header-height-mobile: 80px;
-    --border-radius-main: 30px;
-    --border-radius-btn: 10px;
-    --task-card-width: 250px;
+	/* Animations/Transitions */
+	--welcome-mobile-transition: 400ms;
+	--welcome-mobile-delay: 800ms;
 
-    /* Shadow */
-    --shadow-badge: 0 0 4px 0 rgba(0, 0, 0, 0.1);
-    --shadow-hover: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-
-    /* Text */
-    --welcome-text-size: 47px;
-    --welcome-name-size: 64px;
-
-    /* Animations/Transitions */
-    --welcome-mobile-transition: 400ms;
-    --welcome-mobile-delay: 800ms;
-
-    /* Button Border Radius */
-    --border-radius: 10px;
+	/* Button Border Radius */
+	--border-radius: 10px;
 }
 
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    max-height: 100vh;
-    /* overflow: hidden; */
-    background-color: var(--bg-body);
+	margin: 0;
+	font-family: "Inter", sans-serif;
+	max-height: 100svh;
+	background-color: var(--bg-body);
 }
 
 h1 {
-    font-size: 61px;
-    font-weight: 700;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    line-height: 120%;
+	font-size: 61px;
+	font-weight: 700;
+	margin-block-start: 0;
+	margin-block-end: 0;
+	line-height: 120%;
 }
 
 a {
-    color: unset;
-    text-decoration: none;
+	color: unset;
+	text-decoration: none;
 }
 
 .d-none {
-    display: none !important;
+	display: none !important;
 }
 
 .hidden {
-    visibility: hidden;
+	visibility: hidden;
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+	width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: var(--dimmed);
-    border-radius: 100vw;
-    margin-block: 2px;
+	background-color: var(--dimmed);
+	border-radius: 100vw;
+	margin-block: 2px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--bg-color-main);
-    border-radius: 100vw;
+	background-color: var(--bg-color-main);
+	border-radius: 100vw;
 }
